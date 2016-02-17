@@ -14,6 +14,9 @@
 		7B7D40561C73C54F0052DB28 /* Nickel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40551C73C54F0052DB28 /* Nickel_Tests.swift */; };
 		7B7D40611C73C54F0052DB28 /* Nickel_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */; };
 		7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40711C7502110052DB28 /* CloudKit.framework */; };
+		7B7D40751C7521470052DB28 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40741C7521470052DB28 /* Business.swift */; };
+		7B7D40771C7521620052DB28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40761C7521620052DB28 /* User.swift */; };
+		7B7D40791C7522AA0052DB28 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40781C7522AA0052DB28 /* Model.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -57,6 +60,9 @@
 		7B7D40621C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B7D40701C7502040052DB28 /* Nickel!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Nickel!.entitlements"; sourceTree = "<group>"; };
 		7B7D40711C7502110052DB28 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7B7D40741C7521470052DB28 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		7B7D40761C7521620052DB28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 		7B7D403C1C73C54E0052DB28 /* Nickel! */ = {
 			isa = PBXGroup;
 			children = (
+				7B7D40731C75211A0052DB28 /* Model */,
 				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				A87E33921C74CCD2003930FB /* EditProfileViewController.swift */,
@@ -153,6 +160,17 @@
 				7B7D40621C73C54F0052DB28 /* Info.plist */,
 			);
 			path = "Nickel!UITests";
+			sourceTree = "<group>";
+		};
+		7B7D40731C75211A0052DB28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B7D40781C7522AA0052DB28 /* Model.swift */,
+				7B7D40741C7521470052DB28 /* Business.swift */,
+				7B7D40761C7521620052DB28 /* User.swift */,
+			);
+			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +321,11 @@
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
+				7B7D40791C7522AA0052DB28 /* Model.swift in Sources */,
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
+				7B7D40771C7521620052DB28 /* User.swift in Sources */,
+				7B7D40751C7521470052DB28 /* Business.swift in Sources */,
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 			);
