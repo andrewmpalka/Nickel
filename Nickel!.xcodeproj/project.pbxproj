@@ -13,6 +13,7 @@
 		7B7D404B1C73C54E0052DB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40491C73C54E0052DB28 /* LaunchScreen.storyboard */; };
 		7B7D40561C73C54F0052DB28 /* Nickel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40551C73C54F0052DB28 /* Nickel_Tests.swift */; };
 		7B7D40611C73C54F0052DB28 /* Nickel_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */; };
+		7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40711C7502110052DB28 /* CloudKit.framework */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -54,6 +55,8 @@
 		7B7D405C1C73C54F0052DB28 /* Nickel!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nickel!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickel_UITests.swift; sourceTree = "<group>"; };
 		7B7D40621C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B7D40701C7502040052DB28 /* Nickel!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Nickel!.entitlements"; sourceTree = "<group>"; };
+		7B7D40711C7502110052DB28 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +97,7 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
+				7B7D40711C7502110052DB28 /* CloudKit.framework */,
 				7B7D403C1C73C54E0052DB28 /* Nickel! */,
 				7B7D40541C73C54F0052DB28 /* Nickel!Tests */,
 				7B7D405F1C73C54F0052DB28 /* Nickel!UITests */,
@@ -113,6 +118,7 @@
 		7B7D403C1C73C54E0052DB28 /* Nickel! */ = {
 			isa = PBXGroup;
 			children = (
+				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				A87E33921C74CCD2003930FB /* EditProfileViewController.swift */,
 				A87E338E1C7429FB003930FB /* DetailViewController.swift */,
@@ -217,6 +223,15 @@
 				TargetAttributes = {
 					7B7D40391C73C54E0052DB28 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 82B34H4YSW;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					7B7D40501C73C54F0052DB28 = {
 						CreatedOnToolsVersion = 7.2;
@@ -431,11 +446,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -445,11 +461,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
