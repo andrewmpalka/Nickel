@@ -22,6 +22,9 @@
 		A87E338D1C7426E4003930FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87E338C1C7426E4003930FB /* Assets.xcassets */; };
 		A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E338E1C7429FB003930FB /* DetailViewController.swift */; };
 		A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33921C74CCD2003930FB /* EditProfileViewController.swift */; };
+		A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */; };
+		A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */; };
+		A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		A87E338C1C7426E4003930FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87E338E1C7429FB003930FB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A87E33921C74CCD2003930FB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = ../EditProfileViewController.swift; sourceTree = "<group>"; };
+		A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewController.swift; sourceTree = "<group>"; };
+		A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditCompnayViewController.swift; path = ../EditCompnayViewController.swift; sourceTree = "<group>"; };
+		A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
+				A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */,
+				A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */,
+				A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */,
 				A87E33921C74CCD2003930FB /* EditProfileViewController.swift */,
 				A87E338E1C7429FB003930FB /* DetailViewController.swift */,
 				A87E33881C741D96003930FB /* ListViewController.swift */,
@@ -284,6 +293,7 @@
 			files = (
 				A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */,
 				A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */,
+				A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */,
 				A87E338B1C741DF5003930FB /* TableViewCell.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
@@ -291,6 +301,8 @@
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
+				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
+				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
