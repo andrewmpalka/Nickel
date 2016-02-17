@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qly-R3-kAY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qly-R3-kAY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -173,7 +173,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vSR-J9-Qqx" id="gyz-eZ-n55">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kanye" translatesAutoresizingMaskIntoConstraints="NO" id="Nh3-m7-hHR">
@@ -248,7 +248,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="aBf-ge-Vz5">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="nfP-fj-ggX">
-                                            <rect key="frame" x="43" y="7" width="217" height="30"/>
+                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -352,7 +352,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="CsN-cP-HIi">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="f1E-TG-OhY">
-                                            <rect key="frame" x="43" y="7" width="217" height="30"/>
+                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -438,7 +438,7 @@
                                     <constraint firstAttribute="width" constant="75" id="z47-6i-F1w"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kanye" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-cX-9Po">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kanye" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-cX-9Po">
                                 <rect key="frame" x="16" y="72" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dev-49-kHX"/>
@@ -448,9 +448,10 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="firstNameEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="yMC-Hi-f4j"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="SXw-4c-wHc"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="West" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1a-xR-m1T">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="West" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="d1a-xR-m1T">
                                 <rect key="frame" x="16" y="110" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Tf3-Mw-1LZ"/>
@@ -460,9 +461,10 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="lastNameEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="HdU-Y7-JsJ"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="xCS-zr-zlA"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@kanye" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoF-im-aqj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@kanye" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="EoF-im-aqj">
                                 <rect key="frame" x="16" y="148" width="283" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kER-gQ-xtU"/>
@@ -472,9 +474,10 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="handleEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="YpS-Ni-9qI"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="KeF-7z-mLp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chief Executive Officer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-Ov-N1Q">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chief Executive Officer" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-Ov-N1Q">
                                 <rect key="frame" x="16" y="186" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RZg-Cj-pUf"/>
@@ -484,6 +487,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="roleEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="wX8-ct-OyU"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="j66-Rt-r6I"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzw-SV-i2z">
@@ -509,7 +513,7 @@
                                     <action selector="saveButtonTapped:" destination="b5G-bD-5AD" eventType="touchUpInside" id="I8h-5R-84Z"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="KanyeWest@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvz-8K-XIk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="KanyeWest@gmail.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lvz-8K-XIk">
                                 <rect key="frame" x="16" y="224" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CTK-bv-Nr1"/>
@@ -519,6 +523,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="emailEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="DzZ-PG-dVB"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="ipu-MP-I7Z"/>
                                 </connections>
                             </textField>
                         </subviews>
