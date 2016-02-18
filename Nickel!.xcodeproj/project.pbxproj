@@ -19,6 +19,7 @@
 		7B7D40791C7522AA0052DB28 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40781C7522AA0052DB28 /* Model.swift */; };
 		7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BA1C761EE60052DB28 /* CKAccess.swift */; };
 		7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BC1C7623440052DB28 /* CKHelper.swift */; };
+		7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BE1C7650050052DB28 /* Constants.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -78,6 +79,7 @@
 		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
 		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
+		7B7D40BE1C7650050052DB28 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
 				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
+				7B7D40BE1C7650050052DB28 /* Constants.swift */,
 			);
 			name = "Data Services";
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
 				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
+				7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
