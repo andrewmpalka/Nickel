@@ -26,6 +26,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
 
+<<<<<<< HEAD
         self.title = "Edit Profile"
         
         
@@ -99,6 +100,15 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     //MARK: TextField Delegate Functions
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+=======
+>>>>>>> 21bbb412ac277ea129d08221f179b0ed79d31be5
+    }
+
+    @IBAction func editProfilePictureTapped(sender: AnyObject) {
+        
+        // send profile picture
+
+        
     }
     
     

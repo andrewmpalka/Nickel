@@ -231,6 +231,29 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fOa-sU-JWb"/>
                                 </constraints>
+<<<<<<< HEAD
+                                <items>
+                                    <barButtonItem systemItem="add" id="6ab-xa-giV">
+                                        <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="aBf-ge-Vz5">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="nfP-fj-ggX">
+                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Send" id="yO6-fi-bXi">
+                                        <connections>
+                                            <action selector="sendMessageButtonPressed:" destination="Aab-kA-Ft3" id="xnl-Na-RT0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+=======
                                 <color key="barTintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -256,6 +279,7 @@
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+>>>>>>> 21bbb412ac277ea129d08221f179b0ed79d31be5
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -336,6 +360,36 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-Lo-pMt">
+                                <rect key="frame" x="-4" y="623" width="383" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NW8-fi-NPY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="j8c-PG-zrN"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="add" id="tiZ-h5-LjV">
+                                        <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="CsN-cP-HIi">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="f1E-TG-OhY">
+                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Send" id="TC0-WN-A2l">
+                                        <connections>
+                                            <action selector="sendMessageButtonTapped:" destination="jef-Oj-8F2" id="iy6-lv-ZhE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+=======
+>>>>>>> 21bbb412ac277ea129d08221f179b0ed79d31be5
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chief Executive Officer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-Ua-wTe">
                                 <rect key="frame" x="16" y="447" width="343" height="23"/>
                                 <constraints>
@@ -419,7 +473,7 @@
                                     <constraint firstAttribute="width" constant="75" id="z47-6i-F1w"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kanye" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-cX-9Po">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kanye" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-cX-9Po">
                                 <rect key="frame" x="16" y="72" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dev-49-kHX"/>
@@ -429,9 +483,10 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="firstNameEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="yMC-Hi-f4j"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="SXw-4c-wHc"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="West" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1a-xR-m1T">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="West" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="d1a-xR-m1T">
                                 <rect key="frame" x="16" y="110" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Tf3-Mw-1LZ"/>
@@ -441,19 +496,24 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="lastNameEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="HdU-Y7-JsJ"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="xCS-zr-zlA"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@kanye" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoF-im-aqj">
-                                <rect key="frame" x="12" y="148" width="268" height="24"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@kanye" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="EoF-im-aqj">
+                                <rect key="frame" x="16" y="148" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kER-gQ-xtU"/>
+                                </constraints>
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="handleEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="YpS-Ni-9qI"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="KeF-7z-mLp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chief Executive Officer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-Ov-N1Q">
-                                <rect key="frame" x="16" y="180" width="343" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chief Executive Officer" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-Ov-N1Q">
+                                <rect key="frame" x="16" y="186" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RZg-Cj-pUf"/>
                                 </constraints>
@@ -462,10 +522,11 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="roleEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="wX8-ct-OyU"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="j66-Rt-r6I"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="KanyeWest@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvz-8K-XIk">
-                                <rect key="frame" x="16" y="218" width="343" height="30"/>
+                                <rect key="frame" x="16" y="224" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CTK-bv-Nr1"/>
                                 </constraints>
@@ -476,8 +537,18 @@
                                     <action selector="emailEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="DzZ-PG-dVB"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzw-SV-i2z">
+                                <rect key="frame" x="307" y="152" width="30" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editProfilePictureTapped:" destination="b5G-bD-5AD" eventType="touchUpInside" id="YES-6l-oBX"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec9-7V-70Y">
-                                <rect key="frame" x="12" y="256" width="351" height="36"/>
+                                <rect key="frame" x="16" y="262" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mcx-xQ-SBP"/>
                                 </constraints>
@@ -489,29 +560,47 @@
                                     <action selector="saveButtonTapped:" destination="b5G-bD-5AD" eventType="touchUpInside" id="I8h-5R-84Z"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="KanyeWest@gmail.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lvz-8K-XIk">
+                                <rect key="frame" x="16" y="224" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CTK-bv-Nr1"/>
+                                </constraints>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailEdit:" destination="b5G-bD-5AD" eventType="editingDidEndOnExit" id="DzZ-PG-dVB"/>
+                                    <outlet property="delegate" destination="b5G-bD-5AD" id="ipu-MP-I7Z"/>
+                                </connections>
+                            </textField>
+=======
+>>>>>>> 21bbb412ac277ea129d08221f179b0ed79d31be5
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lvz-8K-XIk" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="2nF-qJ-zlz"/>
                             <constraint firstItem="lvz-8K-XIk" firstAttribute="trailing" secondItem="Q1F-3e-wfa" secondAttribute="trailingMargin" id="4bJ-QD-UQs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EoF-im-aqj" secondAttribute="trailing" constant="79" id="9q0-Mv-3A2"/>
-                            <constraint firstItem="P6m-Ov-N1Q" firstAttribute="top" secondItem="EoF-im-aqj" secondAttribute="bottom" constant="8" id="BGt-UY-qmj"/>
                             <constraint firstItem="d1a-xR-m1T" firstAttribute="top" secondItem="Rmm-cX-9Po" secondAttribute="bottom" constant="8" id="BYO-OL-yfp"/>
                             <constraint firstItem="Rmm-cX-9Po" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="DRg-Id-3wA"/>
                             <constraint firstItem="rVd-PK-76X" firstAttribute="top" secondItem="I44-YN-2SW" secondAttribute="bottom" constant="8" id="H0D-4c-NxP"/>
-                            <constraint firstItem="EoF-im-aqj" firstAttribute="top" secondItem="d1a-xR-m1T" secondAttribute="bottom" constant="8" id="RYW-3h-JKy"/>
+                            <constraint firstItem="EoF-im-aqj" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="IGW-0P-maU"/>
                             <constraint firstItem="P6m-Ov-N1Q" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="RsB-0k-SMm"/>
-                            <constraint firstItem="EoF-im-aqj" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" constant="-4" id="Uhh-Oa-Bxe"/>
                             <constraint firstItem="rVd-PK-76X" firstAttribute="leading" secondItem="Rmm-cX-9Po" secondAttribute="trailing" constant="8" id="Upk-fU-RzG"/>
-                            <constraint firstItem="Ec9-7V-70Y" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" constant="-4" id="VxI-WC-v3U"/>
+                            <constraint firstItem="Ec9-7V-70Y" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="VxI-WC-v3U"/>
+                            <constraint firstItem="vzw-SV-i2z" firstAttribute="top" secondItem="rVd-PK-76X" secondAttribute="bottom" constant="5" id="a6b-JB-WGK"/>
                             <constraint firstItem="lvz-8K-XIk" firstAttribute="top" secondItem="P6m-Ov-N1Q" secondAttribute="bottom" constant="8" id="aqk-hd-64s"/>
+                            <constraint firstItem="vzw-SV-i2z" firstAttribute="leading" secondItem="EoF-im-aqj" secondAttribute="trailing" constant="8" id="aud-JZ-W8i"/>
                             <constraint firstItem="rVd-PK-76X" firstAttribute="trailing" secondItem="Q1F-3e-wfa" secondAttribute="trailingMargin" id="c9d-er-yLf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ec9-7V-70Y" secondAttribute="trailing" constant="-4" id="cFr-fx-VMd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ec9-7V-70Y" secondAttribute="trailing" id="cFr-fx-VMd"/>
+                            <constraint firstItem="EoF-im-aqj" firstAttribute="top" secondItem="d1a-xR-m1T" secondAttribute="bottom" constant="8" id="kqL-04-M0e"/>
+                            <constraint firstItem="vzw-SV-i2z" firstAttribute="centerX" secondItem="rVd-PK-76X" secondAttribute="centerX" id="mha-mK-lNf"/>
                             <constraint firstItem="rVd-PK-76X" firstAttribute="leading" secondItem="d1a-xR-m1T" secondAttribute="trailing" constant="8" id="mxQ-J9-Vhl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P6m-Ov-N1Q" secondAttribute="trailing" id="nMf-bR-S5M"/>
                             <constraint firstItem="d1a-xR-m1T" firstAttribute="leading" secondItem="Q1F-3e-wfa" secondAttribute="leadingMargin" id="pVG-Y0-FBH"/>
                             <constraint firstItem="Ec9-7V-70Y" firstAttribute="top" secondItem="lvz-8K-XIk" secondAttribute="bottom" constant="8" id="qpB-Em-IkS"/>
                             <constraint firstItem="Rmm-cX-9Po" firstAttribute="top" secondItem="I44-YN-2SW" secondAttribute="bottom" constant="8" id="vEE-MP-Dzt"/>
+                            <constraint firstItem="P6m-Ov-N1Q" firstAttribute="top" secondItem="EoF-im-aqj" secondAttribute="bottom" constant="8" id="vnw-lv-tNb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="EDIT PROFILE" id="ME8-3A-Gg2">
@@ -1042,7 +1131,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vcx-VU-O7q" id="g9C-BN-vsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kanye" translatesAutoresizingMaskIntoConstraints="NO" id="9ld-mQ-FCa">
@@ -1124,7 +1213,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="y4O-ed-CUn">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="KDY-n1-uiX">
-                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
+                                            <rect key="frame" x="43" y="7" width="217" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1471,7 +1560,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJU-wB-CTY" id="c3O-hp-lbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kanye" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-W4-8Ci">
@@ -1553,7 +1642,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="C77-f5-hK1">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" id="cQK-pi-ldc">
-                                            <rect key="frame" x="44" y="7" width="217" height="30"/>
+                                            <rect key="frame" x="43" y="7" width="217" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1597,7 +1686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lz-Fz-ebd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1928.5" y="3049.5"/>
+            <point key="canvasLocation" x="-1914.5" y="3049.5"/>
         </scene>
         <!--MENU-->
         <scene sceneID="8eH-0o-GN5">

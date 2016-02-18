@@ -100,6 +100,13 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
+
+    @IBAction func editProfilePictureTapped(sender: AnyObject) {
+        
+        // send profile picture
+
+        
+    }
     
     
     //User pressed the save button to update the profile information
