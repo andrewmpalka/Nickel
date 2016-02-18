@@ -59,8 +59,8 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func onSendButtonTapped(sender: AnyObject) {
 
         sendGroupMessageTextField.resignFirstResponder()
-
     }
+
 
 
 
