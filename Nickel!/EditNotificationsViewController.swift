@@ -11,13 +11,10 @@ import UIKit
 class EditNotificationsViewController: UIViewController {
 
     @IBOutlet weak var allNotificationsSwitch: UISwitch!
-
     @IBOutlet weak var justDMsSwtich: UISwitch!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
 }

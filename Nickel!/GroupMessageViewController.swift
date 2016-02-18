@@ -17,6 +17,23 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,11 +51,17 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
 
-    @IBAction func didBeginTypingGroupMessage(sender: AnyObject) {
+    @IBAction func DismissKeyboard(sender: AnyObject) {
+
+        self.resignFirstResponder()
     }
 
-    @IBAction func sendGroupMessageButtonPressed(sender: AnyObject) {
-        resignFirstResponder()
+    @IBAction func onSendButtonTapped(sender: AnyObject) {
+
+        sendGroupMessageTextField.resignFirstResponder()
+
     }
+
+
 
 }

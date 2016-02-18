@@ -18,7 +18,6 @@ class GroupMessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupMessageTextField: UITextView!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
