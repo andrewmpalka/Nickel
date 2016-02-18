@@ -56,11 +56,10 @@ class PrivateMessageViewController: UIViewController, UITableViewDelegate, UITab
         self.resignFirstResponder()
     }
 
-
-
     @IBAction func privateMessageSendButtonPressed(sender: AnyObject) {
         enterPrivateMessageTextField.resignFirstResponder()
     }
+
 
 
 }

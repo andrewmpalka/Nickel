@@ -15,7 +15,6 @@ class PrivateMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var pmTimeStamp: UILabel!
     @IBOutlet weak var pmTextField: UITextView!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
