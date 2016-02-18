@@ -11,21 +11,14 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var userNameLabel: UILabel!
-
     @IBOutlet weak var userHandleLabel: UILabel!
 
-    @IBOutlet weak var messageTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Kanye West"
-
 
     }
 
-    @IBAction func sendMessageButtonTapped(sender: AnyObject) {
-    }
 
 }

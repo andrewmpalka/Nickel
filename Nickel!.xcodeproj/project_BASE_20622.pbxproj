@@ -13,12 +13,6 @@
 		7B7D404B1C73C54E0052DB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40491C73C54E0052DB28 /* LaunchScreen.storyboard */; };
 		7B7D40561C73C54F0052DB28 /* Nickel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40551C73C54F0052DB28 /* Nickel_Tests.swift */; };
 		7B7D40611C73C54F0052DB28 /* Nickel_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */; };
-		7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40711C7502110052DB28 /* CloudKit.framework */; };
-		7B7D40751C7521470052DB28 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40741C7521470052DB28 /* Business.swift */; };
-		7B7D40771C7521620052DB28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40761C7521620052DB28 /* User.swift */; };
-		7B7D40791C7522AA0052DB28 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40781C7522AA0052DB28 /* Model.swift */; };
-		7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BA1C761EE60052DB28 /* CKAccess.swift */; };
-		7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BC1C7623440052DB28 /* CKHelper.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -28,17 +22,6 @@
 		A87E338D1C7426E4003930FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87E338C1C7426E4003930FB /* Assets.xcassets */; };
 		A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E338E1C7429FB003930FB /* DetailViewController.swift */; };
 		A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33921C74CCD2003930FB /* EditProfileViewController.swift */; };
-		A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */; };
-		A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */; };
-		A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */; };
-		A87E339E1C7502FC003930FB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E339D1C7502FC003930FB /* AboutViewController.swift */; };
-		A87E33A01C7511E4003930FB /* MyStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E339F1C7511E4003930FB /* MyStatsViewController.swift */; };
-		A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A11C751554003930FB /* UserProfileViewController.swift */; };
-		A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */; };
-		A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */; };
-		A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */; };
-		A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */; };
-		A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33AB1C752DD4003930FB /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,13 +54,6 @@
 		7B7D405C1C73C54F0052DB28 /* Nickel!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nickel!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickel_UITests.swift; sourceTree = "<group>"; };
 		7B7D40621C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B7D40701C7502040052DB28 /* Nickel!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Nickel!.entitlements"; sourceTree = "<group>"; };
-		7B7D40711C7502110052DB28 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		7B7D40741C7521470052DB28 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
-		7B7D40761C7521620052DB28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
-		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -87,17 +63,6 @@
 		A87E338C1C7426E4003930FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87E338E1C7429FB003930FB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A87E33921C74CCD2003930FB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = ../EditProfileViewController.swift; sourceTree = "<group>"; };
-		A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewController.swift; sourceTree = "<group>"; };
-		A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditCompnayViewController.swift; path = ../EditCompnayViewController.swift; sourceTree = "<group>"; };
-		A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNotificationsViewController.swift; sourceTree = "<group>"; };
-		A87E339D1C7502FC003930FB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		A87E339F1C7511E4003930FB /* MyStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStatsViewController.swift; sourceTree = "<group>"; };
-		A87E33A11C751554003930FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
-		A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
-		A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
-		A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageTableViewCell.swift; sourceTree = "<group>"; };
-		A87E33AB1C752DD4003930FB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +93,6 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
-				7B7D40711C7502110052DB28 /* CloudKit.framework */,
 				7B7D403C1C73C54E0052DB28 /* Nickel! */,
 				7B7D40541C73C54F0052DB28 /* Nickel!Tests */,
 				7B7D405F1C73C54F0052DB28 /* Nickel!UITests */,
@@ -150,29 +113,15 @@
 		7B7D403C1C73C54E0052DB28 /* Nickel! */ = {
 			isa = PBXGroup;
 			children = (
-				7B7D40B91C761EB20052DB28 /* Data Services */,
-				7B7D40731C75211A0052DB28 /* Model */,
-				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
-				A87E339F1C7511E4003930FB /* MyStatsViewController.swift */,
-				A87E339D1C7502FC003930FB /* AboutViewController.swift */,
-				A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */,
-				A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */,
-				A87E33941C74E2BA003930FB /* CompanyProfileViewController.swift */,
 				A87E33921C74CCD2003930FB /* EditProfileViewController.swift */,
 				A87E338E1C7429FB003930FB /* DetailViewController.swift */,
+				A87E33881C741D96003930FB /* ListViewController.swift */,
+				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
 				A87E33841C741643003930FB /* iCloudViewController.swift */,
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
-				A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */,
-				A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */,
-				A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */,
-				A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */,
-				A87E33A11C751554003930FB /* UserProfileViewController.swift */,
-				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
-				A87E33881C741D96003930FB /* ListViewController.swift */,
-				A87E33AB1C752DD4003930FB /* MenuViewController.swift */,
 				7B7D40411C73C54E0052DB28 /* Main.storyboard */,
 				7B7D40491C73C54E0052DB28 /* LaunchScreen.storyboard */,
 				A87E338C1C7426E4003930FB /* Assets.xcassets */,
@@ -198,26 +147,6 @@
 				7B7D40621C73C54F0052DB28 /* Info.plist */,
 			);
 			path = "Nickel!UITests";
-			sourceTree = "<group>";
-		};
-		7B7D40731C75211A0052DB28 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7B7D40781C7522AA0052DB28 /* Model.swift */,
-				7B7D40741C7521470052DB28 /* Business.swift */,
-				7B7D40761C7521620052DB28 /* User.swift */,
-			);
-			name = Model;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		7B7D40B91C761EB20052DB28 /* Data Services */ = {
-			isa = PBXGroup;
-			children = (
-				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
-				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
-			);
-			name = "Data Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,15 +217,6 @@
 				TargetAttributes = {
 					7B7D40391C73C54E0052DB28 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 82B34H4YSW;
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 1;
-							};
-							com.apple.iCloud = {
-								enabled = 1;
-							};
-						};
 					};
 					7B7D40501C73C54F0052DB28 = {
 						CreatedOnToolsVersion = 7.2;
@@ -362,31 +282,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A87E33A01C7511E4003930FB /* MyStatsViewController.swift in Sources */,
 				A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */,
 				A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */,
-				A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */,
-				A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */,
-				A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */,
 				A87E338B1C741DF5003930FB /* TableViewCell.swift in Sources */,
-				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
-				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,
-				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
-				7B7D40791C7522AA0052DB28 /* Model.swift in Sources */,
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
-				A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
-				7B7D40771C7521620052DB28 /* User.swift in Sources */,
-				7B7D40751C7521470052DB28 /* Business.swift in Sources */,
-				7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */,
-				A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */,
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
-				A87E339E1C7502FC003930FB /* AboutViewController.swift in Sources */,
-				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
-				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,12 +431,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
+				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -542,12 +445,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
+				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

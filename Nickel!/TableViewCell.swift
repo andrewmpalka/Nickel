@@ -11,13 +11,9 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellImageView: UIImageView!
-
     @IBOutlet weak var cellTitleLabel: UILabel!
-
     @IBOutlet weak var cellDetailLabel: UILabel!
-
     @IBOutlet weak var cellGreenLightImage: UIImageView!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

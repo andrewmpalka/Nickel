@@ -379,10 +379,13 @@
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
 				A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
+<<<<<<< HEAD
 				7B7D40771C7521620052DB28 /* User.swift in Sources */,
 				7B7D40751C7521470052DB28 /* Business.swift in Sources */,
 				7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */,
+=======
 				A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */,
+>>>>>>> e09848c4b2d3afc342c381991030500fa50af091
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
 				A87E339E1C7502FC003930FB /* AboutViewController.swift in Sources */,
 				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
