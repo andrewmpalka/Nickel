@@ -13,13 +13,9 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     @IBOutlet weak var profileImageView: UIImageView!
 
     @IBOutlet weak var firstNameLabel: UITextField!
-
     @IBOutlet weak var lastNameLabel: UITextField!
-
     @IBOutlet weak var handleLabel: UITextField!
-
     @IBOutlet weak var userRoleLabel: UITextField!
-
     @IBOutlet weak var emailLabel: UITextField!
 
     
@@ -45,6 +41,11 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
         profileImageView.userInteractionEnabled = true
         profileImageView.addGestureRecognizer(imgTap)
         
+        
+        //rounds the image from a square to circle
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
         // call alignment function
         alignment()
         
@@ -58,6 +59,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     //Custom Function: Alignment
     
     func alignment() {
+        
+        //programatically assign page elements if necessary
         
     }
     
