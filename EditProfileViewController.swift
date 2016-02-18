@@ -28,8 +28,6 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Edit Profile"
-
     }
 
     @IBAction func editProfilePictureTapped(sender: AnyObject) {

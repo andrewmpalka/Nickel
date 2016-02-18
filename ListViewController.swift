@@ -12,11 +12,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sentMessageTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
     }
 
@@ -28,14 +26,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
         cell.cellImageView?.image = UIImage(imageLiteral: "Kanye")
-        cell.cellGreenLightImage.image = UIImage(imageLiteral: "greenLight")
+        cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
         cell.cellTitleLabel.text = "Kanye West"
         cell.detailTextLabel?.text = "@kanye"
 
         return cell
     }
 
-    @IBAction func sendMessageButtonPressed(sender: AnyObject) {
-    }
 
 }
