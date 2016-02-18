@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class NewBusinessViewController: UIViewController, UITextFieldDelegate {
     
@@ -44,10 +45,9 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textFieldChecker(textField) {
-            
+        if textFieldChecker(self.businessNameTextField) && textFieldChecker(self.businessEmailTextField) {
+          self.businessHelper(self.businessNameTextField, email: self.businessEmailTextField)
         }
-        
         return resignFirstResponder()
     }
 }
