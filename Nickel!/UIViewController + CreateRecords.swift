@@ -12,7 +12,7 @@ import CloudKit
 
 
 extension UIViewController {
-    func businessHelper(name: UITextField, email: UITextField, location: CLLocation) {
+    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation) {
         
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
@@ -28,18 +28,29 @@ extension UIViewController {
             if error != nil {
                 print(error)
             } else {
-                print("Organization to iCloud: \(newBiz)")
+                print("Business beamed to iCloud: \(newBiz)")
             }
         }
     }
-    func publicUserHelper(name: String) {
+    func newPublicUserHelper(name: String) {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let newPublicUserData = CKRecord(recordType: "Users")
         
+        newPublicUserData.setObject(name,
+            forKey: "Name")
+        
+        publicDatabase.saveRecord(newPublicUserData) { newPublicUserData, error in
+            if error != nil {
+                print(error)
+            } else {
+                print("Public User Data beamed to iCloud \(newPublicUserData)")
+            }
+        }
+        
 //        newPublicUserData.set
     }
-    func privateUserHelper() {
+    func newPrivateUserHelper() {
         let container = CKContainer.defaultContainer()
         let privateDatabase = container.privateCloudDatabase
         let newPrivateUserData = CKRecord(recordType: "Users")

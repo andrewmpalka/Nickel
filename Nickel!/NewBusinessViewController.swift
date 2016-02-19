@@ -48,7 +48,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField) && textFieldChecker(self.businessEmailTextField) {
-          self.businessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
+          self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
         }
         return resignFirstResponder()
     }
