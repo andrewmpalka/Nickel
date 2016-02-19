@@ -29,4 +29,14 @@ extension UIViewController {
             }
         }
     }
+    func publicUserHelper(name: String) {
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let newPublicUserData = CKRecord(recordType: "Users")
+    }
+    func privateUserHelper() {
+        let container = CKContainer.defaultContainer()
+        let privateDatabase = container.privateCloudDatabase
+        let newPrivateUserData = CKRecord(recordType: "Users")
+    }
 }

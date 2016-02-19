@@ -20,7 +20,7 @@
 		7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BA1C761EE60052DB28 /* CKAccess.swift */; };
 		7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BC1C7623440052DB28 /* CKHelper.swift */; };
 		7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BE1C7650050052DB28 /* Constants.swift */; };
-		7B7D40C11C7668570052DB28 /* UIViewController + CreateBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40C01C7668570052DB28 /* UIViewController + CreateBusiness.swift */; };
+		7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -81,7 +81,7 @@
 		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
 		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
 		7B7D40BE1C7650050052DB28 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7B7D40C01C7668570052DB28 /* UIViewController + CreateBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + CreateBusiness.swift"; sourceTree = "<group>"; };
+		7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + CreateRecords.swift"; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				A87E33841C741643003930FB /* iCloudViewController.swift */,
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
-				7B7D40C01C7668570052DB28 /* UIViewController + CreateBusiness.swift */,
+				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
 				A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */,
 				A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */,
@@ -382,7 +382,7 @@
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
 				7B7D40791C7522AA0052DB28 /* Model.swift in Sources */,
-				7B7D40C11C7668570052DB28 /* UIViewController + CreateBusiness.swift in Sources */,
+				7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */,
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
 				A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
