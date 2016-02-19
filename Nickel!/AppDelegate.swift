@@ -13,7 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func reveal() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let myTabBar = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! SWRevealViewController
+        window?.rootViewController = myTabBar
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

@@ -17,7 +17,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
     
     let placePlacerholder = CLLocation()
     let coreLocationManager = CLLocationManager()
-    
+    let appDelegate = AppDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +53,9 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         if textFieldChecker(self.businessNameTextField, indicator: 1) && textFieldChecker(self.businessEmailTextField, indicator: 2) {
         self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
             performSegueWithIdentifier("success", sender: self)
+
+            return resignFirstResponder()
+
         }
         return resignFirstResponder()
     }

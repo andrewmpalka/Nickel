@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -29,6 +30,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
+        print(record.valueForKey("Name") as? String)
+        
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
