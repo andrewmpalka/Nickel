@@ -9,19 +9,22 @@
 import UIKit
 import CloudKit
 
-class NewBusinessViewController: UIViewController, UITextFieldDelegate {
+class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var businessNameTextField: UITextField!
     
     @IBOutlet weak var businessEmailTextField: UITextField!
     
     let placePlacerholder = CLLocation()
+    let coreLocationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.businessEmailTextField.delegate = self
         self.businessNameTextField.delegate = self
+        coreLocationManager.delegate = self
     }
     
     func textFieldChecker(textField: UITextField) -> Bool {

@@ -32,6 +32,39 @@ extension UIViewController {
             }
         }
     }
+    
+    func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {
+        
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let editedBusiness = CKRecord(recordType: "Businesses", recordID: recordID)
+        
+        var key = String()
+        switch index {
+        case 1:
+            key = "Name"
+        case 2:
+            key = "Email"
+        case 3:
+            key = "Location"
+        case 4:
+            key = "Employees"
+        case 5:
+            key = "Beacons"
+        default :
+            print("shrug")
+        }
+        
+        editedBusiness.setObject(editedData as? CKRecordValue, forKey: key)
+        
+        publicDatabase.saveRecord(editedBusiness) { editedBusiness, error in
+            if error != nil {
+                print(error)
+            } else {
+                print("Business beamed to iCloud: \(editedBusiness)")
+            }
+        }
+    }
     func newPublicUserHelper(name: String) {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
@@ -48,7 +81,7 @@ extension UIViewController {
             }
         }
         
-//        newPublicUserData.set
+        //        newPublicUserData.set
     }
     func newPrivateUserHelper() {
         let container = CKContainer.defaultContainer()
