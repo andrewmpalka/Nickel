@@ -12,7 +12,7 @@ import CloudKit
 
 
 extension UIViewController {
-    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation) {
+    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation){
         
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
@@ -31,6 +31,12 @@ extension UIViewController {
                 print("Business beamed to iCloud: \(newBiz)")
             }
         }
+        
+newBusiness.recordID.recordName
+        
+        CURRENT_BUSINESS_RECORD_NAME = newBusiness.recordID.recordName
+        CURRENT_BUSINESS_RECORD_ID = newBusiness.recordID
+
     }
     
     func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {

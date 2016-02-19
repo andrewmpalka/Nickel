@@ -8,6 +8,13 @@
 
 
 import UIKit
+import CloudKit
+
+
+var CURRENT_BUSINESS_RECORD_NAME: String?
+var CURRENT_USER_RECORD_NAME: String?
+var CURRENT_USER_RECORD_ID: CKRecordID?
+var CURRENT_BUSINESS_RECORD_ID: CKRecordID?
 
 func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextField) {
     let noTextAlertController: UIAlertController = UIAlertController(title: "Please enter a valid response" ,
@@ -22,9 +29,23 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
     
 }
 
-func validateFieldInput (text : String) -> Bool {
-    let regex = "[A-Z0-9a-z._%+-]{4}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
-    let range = text.rangeOfString(regex, options: .RegularExpressionSearch)
+func validateFieldInput (text : String, identifier: Int) -> Bool {
+    var regex = String?()
+    
+    switch(identifier) {
+    case 1:    if text.characters.count > 3 {
+        return true
+    } else {
+        return false
+        }
+    case 2:     regex = "[A-Z0-9a-z._%+-]{4}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
+    default:
+        return false
+    }
+    
+    let range = text.rangeOfString(regex!, options: .RegularExpressionSearch)
     let result = range != nil ? true : false
     return result
 }
+
+
