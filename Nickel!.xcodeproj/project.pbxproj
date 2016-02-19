@@ -19,6 +19,9 @@
 		7B7D40791C7522AA0052DB28 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40781C7522AA0052DB28 /* Model.swift */; };
 		7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BA1C761EE60052DB28 /* CKAccess.swift */; };
 		7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BC1C7623440052DB28 /* CKHelper.swift */; };
+		7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BE1C7650050052DB28 /* Constants.swift */; };
+		7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */; };
+		7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -39,7 +42,7 @@
 		A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */; };
 		A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */; };
 		A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33AB1C752DD4003930FB /* MenuViewController.swift */; };
-		A8D19FE71C76796200076A85 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D19FE61C76796200076A85 /* SWRevealViewController.m */; };
+		A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
 		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
+		7B7D40BE1C7650050052DB28 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + CreateRecords.swift"; sourceTree = "<group>"; };
+		7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +105,9 @@
 		A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
 		A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageTableViewCell.swift; sourceTree = "<group>"; };
 		A87E33AB1C752DD4003930FB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		A8D19FE41C76796200076A85 /* Nickel!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nickel!-Bridging-Header.h"; sourceTree = "<group>"; };
-		A8D19FE51C76796200076A85 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		A8D19FE61C76796200076A85 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A8D19FEA1C76845D00076A85 /* Nickel!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nickel!-Bridging-Header.h"; sourceTree = "<group>"; };
+		A8D19FEB1C76845E00076A85 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */,
 				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +140,7 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
-				A8D19FE21C76791C00076A85 /* SidebarMenu */,
+				7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */,
 				7B7D40711C7502110052DB28 /* CloudKit.framework */,
 				7B7D403C1C73C54E0052DB28 /* Nickel! */,
 				7B7D40541C73C54F0052DB28 /* Nickel!Tests */,
@@ -155,6 +162,7 @@
 		7B7D403C1C73C54E0052DB28 /* Nickel! */ = {
 			isa = PBXGroup;
 			children = (
+				A8D19FE81C76840E00076A85 /* SidebarMenu */,
 				7B7D40B91C761EB20052DB28 /* Data Services */,
 				7B7D40731C75211A0052DB28 /* Model */,
 				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
@@ -169,6 +177,7 @@
 				A87E33841C741643003930FB /* iCloudViewController.swift */,
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
+				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
 				A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */,
 				A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */,
@@ -221,24 +230,25 @@
 			children = (
 				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
 				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
+				7B7D40BE1C7650050052DB28 /* Constants.swift */,
 			);
 			name = "Data Services";
 			sourceTree = "<group>";
 		};
-		A8D19FE21C76791C00076A85 /* SidebarMenu */ = {
+		A8D19FE81C76840E00076A85 /* SidebarMenu */ = {
 			isa = PBXGroup;
 			children = (
-				A8D19FE31C76794500076A85 /* SWRevealViewController */,
+				A8D19FE91C76843C00076A85 /* SWRevealViewController */,
 			);
 			name = SidebarMenu;
 			sourceTree = "<group>";
 		};
-		A8D19FE31C76794500076A85 /* SWRevealViewController */ = {
+		A8D19FE91C76843C00076A85 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A8D19FE51C76796200076A85 /* SWRevealViewController.h */,
-				A8D19FE61C76796200076A85 /* SWRevealViewController.m */,
-				A8D19FE41C76796200076A85 /* Nickel!-Bridging-Header.h */,
+				A8D19FEB1C76845E00076A85 /* SWRevealViewController.h */,
+				A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */,
+				A8D19FEA1C76845D00076A85 /* Nickel!-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -390,7 +400,7 @@
 				A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */,
 				A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */,
 				A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */,
-				A8D19FE71C76796200076A85 /* SWRevealViewController.m in Sources */,
+				A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */,
 				A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */,
 				A87E338B1C741DF5003930FB /* TableViewCell.swift in Sources */,
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
@@ -400,6 +410,7 @@
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
 				7B7D40791C7522AA0052DB28 /* Model.swift in Sources */,
+				7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */,
 				7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */,
 				A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
@@ -412,6 +423,7 @@
 				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
 				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
+				7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!/Nickel!-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -578,7 +590,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!/Nickel!-Bridging-Header.h";
 			};
 			name = Release;
 		};

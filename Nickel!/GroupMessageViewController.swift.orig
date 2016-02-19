@@ -71,4 +71,10 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         sendGroupMessageTextField.resignFirstResponder()
     }
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 1bf127142e9489037327f201fcaed8208e33396d
 }

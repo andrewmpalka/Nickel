@@ -52,9 +52,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
     {
+<<<<<<< HEAD
+        self.searchBar.endEditing(true)
+        self.resignFirstResponder()
+    }
+=======
         searchBar.resignFirstResponder()
     }
 
 
+>>>>>>> 1bf127142e9489037327f201fcaed8208e33396d
 
 }
