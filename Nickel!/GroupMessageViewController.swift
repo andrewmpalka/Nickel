@@ -13,12 +13,22 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.groupMessageTableView.separatorColor = UIColor.clearColor()
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -59,9 +69,6 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func onSendButtonTapped(sender: AnyObject) {
 
         sendGroupMessageTextField.resignFirstResponder()
-
     }
-
-
 
 }
