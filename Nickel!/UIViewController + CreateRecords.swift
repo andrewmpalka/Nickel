@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 import CloudKit
 
+
 extension UIViewController {
-    func businessHelper(name: UITextField, email: UITextField) {
+    func businessHelper(name: UITextField, email: UITextField, location: CLLocation) {
+        
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let newBusiness = CKRecord(recordType: "Businesses")
         
-        newBusiness.setObject(name.text, forKey: "name")
-        newBusiness.setObject(email.text, forKey: "email")
+        newBusiness.setObject(name.text, forKey: "Name")
+        newBusiness.setObject(email.text, forKey: "Email")
+        newBusiness.setObject(location, forKey: "Location")
         
         //    setUID(newOrg, admin: newAdmin)
         
@@ -33,6 +36,8 @@ extension UIViewController {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let newPublicUserData = CKRecord(recordType: "Users")
+        
+//        newPublicUserData.set
     }
     func privateUserHelper() {
         let container = CKContainer.defaultContainer()

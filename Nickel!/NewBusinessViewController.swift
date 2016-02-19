@@ -15,6 +15,8 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var businessEmailTextField: UITextField!
     
+    let placePlacerholder = CLLocation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +48,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField) && textFieldChecker(self.businessEmailTextField) {
-          self.businessHelper(self.businessNameTextField, email: self.businessEmailTextField)
+          self.businessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
         }
         return resignFirstResponder()
     }
