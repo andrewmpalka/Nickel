@@ -17,6 +17,25 @@ class PrivateMessageViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.messageTableView.separatorColor = UIColor.clearColor()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,10 +53,20 @@ class PrivateMessageViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
 
-    @IBAction func didBeginTypingPrivateMessage(sender: AnyObject) {
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+
+        self.resignFirstResponder()
     }
+
     @IBAction func privateMessageSendButtonPressed(sender: AnyObject) {
-        resignFirstResponder()
+
+        enterPrivateMessageTextField.resignFirstResponder()
     }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
+        searchBar.resignFirstResponder()
+    }
+
 
 }

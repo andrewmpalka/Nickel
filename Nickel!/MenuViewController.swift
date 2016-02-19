@@ -16,7 +16,11 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func signOutButtonTapped(sender: AnyObject) {
+    }
  
+    @IBAction func adminButtonTapped(sender: AnyObject) {
+    }
     
 
 }

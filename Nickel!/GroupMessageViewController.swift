@@ -13,9 +13,36 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.groupMessageTableView.separatorColor = UIColor.clearColor()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
 
     }
 
@@ -34,11 +61,14 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
 
-    @IBAction func didBeginTypingGroupMessage(sender: AnyObject) {
+    @IBAction func DismissKeyboard(sender: AnyObject) {
+
+        self.resignFirstResponder()
     }
 
-    @IBAction func sendGroupMessageButtonPressed(sender: AnyObject) {
-        resignFirstResponder()
+    @IBAction func onSendButtonTapped(sender: AnyObject) {
+
+        sendGroupMessageTextField.resignFirstResponder()
     }
 
 }
