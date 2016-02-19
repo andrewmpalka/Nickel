@@ -12,16 +12,18 @@ import CloudKit
 
 
 extension UIViewController {
-    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation) {
+    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation){
         
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let newBusiness = CKRecord(recordType: "Businesses")
         
+        CURRENT_BUSINESS_RECORD_NAME = newBusiness.recordID.recordName
+        CURRENT_BUSINESS_RECORD_ID = newBusiness.recordID
+        
         newBusiness.setObject(name.text, forKey: "Name")
         newBusiness.setObject(email.text, forKey: "Email")
         newBusiness.setObject(location, forKey: "Location")
-        
         //    setUID(newOrg, admin: newAdmin)
         
         publicDatabase.saveRecord(newBusiness) { (newBiz, error) -> Void in
@@ -29,8 +31,10 @@ extension UIViewController {
                 print(error)
             } else {
                 print("Business beamed to iCloud: \(newBiz)")
+                newBusiness.recordID.recordName
             }
         }
+
     }
     
     func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {

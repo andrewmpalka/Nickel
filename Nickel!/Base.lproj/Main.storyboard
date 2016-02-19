@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -658,7 +658,7 @@
                         <outlet property="businessEmailTextField" destination="6Ki-ys-hWt" id="Ued-Jc-5kT"/>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
                         <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="u3G-7x-i1R"/>
-                        <segue destination="FJj-Km-tFV" kind="show" identifier="success" id="fJa-wO-beH"/>
+                        <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfJ-dy-W3a" sceneMemberID="firstResponder"/>
@@ -1652,7 +1652,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="VDQ-oK-Hii">
             <objects>
-                <viewController id="FJj-Km-tFV" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="FJj-Km-tFV" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pUD-Rc-Jga"/>
                         <viewControllerLayoutGuide type="bottom" id="4SH-pV-FLC"/>
@@ -1960,7 +1960,7 @@
         <image name="salmonLight" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cFM-l9-Uqr"/>
         <segue reference="qJI-Yr-grg"/>
+        <segue reference="6HL-pD-RxO"/>
     </inferredMetricsTieBreakers>
 </document>
