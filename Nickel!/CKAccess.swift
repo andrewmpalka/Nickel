@@ -22,10 +22,10 @@ class CloudKitAccess {
     func newRecord() {
         let timestamp = String(NSDate.timeIntervalSinceReferenceDate())
         let timestampParts = timestamp.componentsSeparatedByString(".")
-        let uid = timestampParts[0]
+        let UID = timestampParts[0]
         
         let record = CKRecord(recordType: "Users")
-        record.setObject(uid, forKey: "uid")
+        record.setObject(UID, forKey: "UID")
         
         publicDatabase.saveRecord(record) { (record, error) -> Void in
             if error != nil {
