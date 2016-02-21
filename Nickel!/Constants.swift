@@ -11,10 +11,17 @@ import UIKit
 import CloudKit
 
 
-var CURRENT_BUSINESS_RECORD_NAME: String?
-var CURRENT_USER_RECORD_NAME: String?
-var CURRENT_USER_RECORD_ID: CKRecordID?
-var CURRENT_BUSINESS_RECORD_ID: CKRecordID?
+let cka = CloudKitAccess()
+let userDefaults = NSUserDefaults.standardUserDefaults()
+let container = CKContainer.defaultContainer()
+let publicDatabase = container.publicCloudDatabase
+let privateDatabase = container.privateCloudDatabase
+let businessID = userDefaults.stringForKey("currentBusinessUID")
+let memberName = userDefaults.stringForKey("currentUserName")
+
+
+var CURRENT_USER_RECORD: CKRecord?
+var CURRENT_BUSINESS_RECORD: CKRecord?
 
 func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextField) {
     let noTextAlertController: UIAlertController = UIAlertController(title: "Please enter a valid response" ,
@@ -48,4 +55,12 @@ func validateFieldInput (text : String, identifier: Int) -> Bool {
     return result
 }
 
+//MARK: Custom Functions
+
+func fetchPublicDataFromCloud(recType: String) {
+    let privateDatabase = container.privateCloudDatabase
+    let predicate = NSPredicate(value: true)
+    
+    let query = CKQuery(recordType: recType, predicate: predicate)
+}
 
