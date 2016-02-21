@@ -69,7 +69,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 // MARK: Fetching CKData
     
     func getBusiness() {
-        let predicate = NSPredicate(format: "uid == %@", businessID!)
+        let predicate = NSPredicate(format: "UID == %@", businessID!)
         let query = CKQuery(recordType: "Organization", predicate: predicate)
         publicDatabase.performQuery(query, inZoneWithID: nil) { (organizations, error) -> Void in
             if error != nil {
