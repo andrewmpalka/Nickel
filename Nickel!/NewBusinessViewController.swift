@@ -30,6 +30,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         coreLocationManager.delegate = self
     }
 //MARK UITextField Functions
+    
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
         if(textField.text?.isEmpty == false) {
@@ -54,6 +55,8 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField, indicator: 1) && textFieldChecker(self.businessEmailTextField, indicator: 2) {
+            createBusiness()
+            
 //        self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
 //            self.appDelegate.reveal()
 
@@ -108,9 +111,6 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         newBusiness.setObject(self.businessNameTextField.text, forKey: "Name")
         newBusiness.setObject(self.businessEmailTextField.text, forKey: "Email")
         newBusiness.setObject(self.placePlacerholder, forKey: "Location")
-        
-        
-        
         
         setUID(newBusiness, employee: newUser)
         
