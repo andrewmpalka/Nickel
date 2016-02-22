@@ -59,6 +59,8 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         }
         return resignFirstResponder()
     }
+    
+
 }
 
 
