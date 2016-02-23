@@ -21,7 +21,7 @@ class iCloudViewController: UIViewController {
             cloudHelper = CKHelper()
             self.spinner.startAnimating()
             self.iCloudLoginAction()
-
+            
         }
     
         // Action to be called when the user taps "login with iCloud"
@@ -30,8 +30,9 @@ class iCloudViewController: UIViewController {
             
             self.iCloudLogin({ (success) -> () in
                 if success {
+                    userDefaults.setObject(true, forKey: "Logged in")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let viewController = storyboard.instantiateViewControllerWithIdentifier("navCon") as! UINavigationController
+                    let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
                     localUser = self.user
                     NSOperationQueue.mainQueue().addOperationWithBlock {
                         self.presentViewController(viewController, animated: false, completion: nil)

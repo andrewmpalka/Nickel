@@ -31,13 +31,14 @@ class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
         
         self.iCloudLogin({ (success) -> () in
             if success {
+                userDefaults.setValue( true, forUndefinedKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewControllerWithIdentifier("navCon") as! UINavigationController
-                    localUser = self.user
+                let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
+                localUser = self.user
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.presentViewController(viewController, animated: false, completion: nil)
+                   UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             } else {
                 // TODO error handling
             }

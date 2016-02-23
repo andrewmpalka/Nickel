@@ -610,7 +610,7 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-2n-WiX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Business Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-2n-WiX">
                                 <rect key="frame" x="54" y="150" width="267" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="hex-cN-0RM"/>
@@ -618,7 +618,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ki-ys-hWt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Business Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ki-ys-hWt">
                                 <rect key="frame" x="54" y="197" width="267" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="uwP-8s-kgU"/>
@@ -674,8 +674,8 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give yourself a nickname!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-gP-nJu">
-                                <rect key="frame" x="50" y="150" width="271" height="39"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Give yourself a nickname!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-gP-nJu">
+                                <rect key="frame" x="50" y="150" width="271" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="vdy-Nd-BqU"/>
                                 </constraints>
@@ -1641,7 +1641,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="VDQ-oK-Hii">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="FJj-Km-tFV" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="revCon" id="FJj-Km-tFV" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pUD-Rc-Jga"/>
                         <viewControllerLayoutGuide type="bottom" id="4SH-pV-FLC"/>
@@ -1665,7 +1665,7 @@
         <!--MENU-->
         <scene sceneID="8eH-0o-GN5">
             <objects>
-                <viewController id="si9-qU-R2z" customClass="MenuViewController" customModule="Nickel_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuVC" id="si9-qU-R2z" customClass="MenuViewController" customModule="Nickel_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YYI-Nv-VVg"/>
                         <viewControllerLayoutGuide type="bottom" id="3Rv-uc-REh"/>
@@ -1950,6 +1950,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qJI-Yr-grg"/>
-        <segue reference="6HL-pD-RxO"/>
+        <segue reference="cFM-l9-Uqr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@ var CURRENT_USER_RECORD: CKRecord?
 var CURRENT_BUSINESS_RECORD: CKRecord?
 
 var localUser: User?
+var checkInIndicator = false
 //MARK Custom Alerts
 
 func loadingAlert (loadMessage: String, vc: UIViewController){
@@ -52,8 +53,13 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
 
 func welcomePopAlert(vc: UIViewController, currentUser: User) {
     let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
-    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
-        print("We will eventually check this person in through this")
+//    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
+//        print("We will eventually check this person in through this")
+//        userDefaults.setBool(true, forKey: "Checked")
+//        checkInIndicator = true
+//    }
+    let yesAction: UIAlertAction = UIAlertAction(title: "Check In", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
+        checkInIndicator = true
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Default) { (noAction) -> Void in
         print("We will eventually add a reminder")

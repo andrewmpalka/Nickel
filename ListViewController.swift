@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var membersOnlineLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,59 +18,63 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
-//    var user: User?
-
+    var checker = false
+    //    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.searchBar.layer.borderColor = UIColor.clearColor().CGColor
-
+        
         self.tableView.separatorColor = UIColor.clearColor()
-
+        
         self.automaticallyAdjustsScrollViewInsets = false
-
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        if localUser != nil {
+        
+        if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
+//            if userDefaults.boolForKey("Checked in") {
         welcomePopAlert(self, currentUser: localUser!)
+//        }
         }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-//        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
-//        print(record.valueForKey("Name") as? String)
+        //        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
+        //        print(record.valueForKey("Name") as? String)
         
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
         cell.cellImageView?.image = UIImage(imageLiteral: "Kanye")
         cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
         cell.cellTitleLabel.text = "Kanye West"
         cell.detailTextLabel?.text = "@kanye"
-
+        
         return cell
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
     {
         searchBar.resignFirstResponder()
     }
-// MARK: Fetching CKData
+    // MARK: Fetching CKData
     
     func getBusiness() {
         let predicate = NSPredicate(format: "UID == %@", businessID!)
@@ -104,6 +108,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             })
         }
     }
-
-
+    
+    
 }
