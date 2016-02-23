@@ -57,7 +57,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
 //            createBusiness()
             
         self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
-            self.performSegueWithIdentifier("success", sender: self)
+            self.performSegueWithIdentifier("iCloudSegue", sender: self)
 
 //            self.appDelegate.reveal()
 

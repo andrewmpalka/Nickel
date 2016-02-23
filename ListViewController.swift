@@ -18,6 +18,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
+//    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        if localUser != nil {
+        welcomePopAlert(self, currentUser: localUser!)
         }
     }
     

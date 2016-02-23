@@ -20,6 +20,7 @@ let memberName = userDefaults.stringForKey("currentUserName")
 var CURRENT_USER_RECORD: CKRecord?
 var CURRENT_BUSINESS_RECORD: CKRecord?
 
+var localUser: User?
 //MARK Custom Alerts
 
 func loadingAlert (loadMessage: String, vc: UIViewController){
@@ -47,6 +48,22 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
     noTextAlertController.addAction(noTextAlertAction)
     vc.presentViewController(noTextAlertController, animated: true, completion: nil)
     
+}
+
+func welcomePopAlert(vc: UIViewController, currentUser: User) {
+    let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
+        print("We will eventually check this person in through this")
+    }
+    let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Default) { (noAction) -> Void in
+        print("We will eventually add a reminder")
+}
+    
+    welcomeAlertController.addAction(yesAction)
+    welcomeAlertController.addAction(noAction)
+    vc.presentViewController(welcomeAlertController, animated: true) { () -> Void in
+        print("Code will eventually go here")
+    }
 }
 
 func validateFieldInput (text : String, identifier: Int) -> Bool {
