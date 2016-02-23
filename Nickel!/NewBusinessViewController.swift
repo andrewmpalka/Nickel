@@ -54,9 +54,11 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField, indicator: 1) && textFieldChecker(self.businessEmailTextField, indicator: 2) {
-            createBusiness()
+//            createBusiness()
             
         self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
+            self.performSegueWithIdentifier("success", sender: self)
+
 //            self.appDelegate.reveal()
 
             return resignFirstResponder()
@@ -78,46 +80,46 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         userDefaults.setBool(true, forKey: "isEmployee")
     }
     
-    func saveRecords(recordsToSave: [CKRecord]) {
-        let saveOperation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
-        
-        saveOperation.modifyRecordsCompletionBlock = { saved, deleted, error in
-            if error != nil {
-                print(error)
-            } else {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        self.performSegueWithIdentifier("success", sender: self)
-                    })
-                })
-            }
-        }
-        publicDatabase.addOperation(saveOperation)
-    }
+//    func saveRecords(recordsToSave: [CKRecord]) {
+//        let saveOperation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
+//        
+//        saveOperation.modifyRecordsCompletionBlock = { saved, deleted, error in
+//            if error != nil {
+//                print(error)
+//            } else {
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+//                        self.performSegueWithIdentifier("success", sender: self)
+//                    })
+//                })
+//            }
+//        }
+//        publicDatabase.addOperation(saveOperation)
+//    }
     
     //MARK: Actions
-    func createBusiness() {
-//        loadingAlert("Creating Business...", viewController: self)
-        let newBusiness = CKRecord(recordType: "Businesses")
-        let newUser = CKRecord(recordType: "Employees")
-        
-        let userBizRef = CKReference.init(recordID: newBusiness.recordID, action: .None)
-        newUser.setObject(userBizRef, forKey: "UIDBusinesses")
-        let bizUserRef = CKReference.init(recordID: newUser.recordID, action: .None)
-        newBusiness.setObject(bizUserRef, forKey: "UIDEmployees")
-        
-        newBusiness.setObject(self.businessNameTextField.text, forKey: "Name")
-        newBusiness.setObject(self.businessEmailTextField.text, forKey: "Email")
-        newBusiness.setObject(self.placePlacerholder, forKey: "Location")
-        
-        setUID(newBusiness, employee: newUser)
-        
-        userDefaults.setValue(self.businessNameTextField, forKey: "currentBizName")
-        userDefaults.setBool(true, forKey: "isEmployee")
-        
-        saveRecords([newBusiness, newUser])
-    }
-    
+//    func createBusiness() {
+////        loadingAlert("Creating Business...", viewController: self)
+//        let newBusiness = CKRecord(recordType: "Businesses")
+//        let newUser = CKRecord(recordType: "Employees")
+//        
+//        let userBizRef = CKReference.init(recordID: newBusiness.recordID, action: .None)
+//        newUser.setObject(userBizRef, forKey: "UIDBusinesses")
+//        let bizUserRef = CKReference.init(recordID: newUser.recordID, action: .None)
+//        newBusiness.setObject(bizUserRef, forKey: "UIDEmployees")
+//        
+//        newBusiness.setObject(self.businessNameTextField.text, forKey: "Name")
+//        newBusiness.setObject(self.businessEmailTextField.text, forKey: "Email")
+//        newBusiness.setObject(self.placePlacerholder, forKey: "Location")
+//        
+//        setUID(newBusiness, employee: newUser)
+//        
+//        userDefaults.setValue(self.businessNameTextField, forKey: "currentBizName")
+//        userDefaults.setBool(true, forKey: "isEmployee")
+//        
+//        saveRecords([newBusiness, newUser])
+//    }
+//    
 
 }
 
