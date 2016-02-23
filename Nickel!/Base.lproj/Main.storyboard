@@ -558,7 +558,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to your workplace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-nX-R4G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting to your workplace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-nX-R4G">
                                 <rect key="frame" x="16" y="103" width="343" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="4gg-va-QYw"/>
@@ -567,15 +567,23 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-4l-QCu">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6ud-nX-R4G" secondAttribute="trailing" id="53Z-zq-xHG"/>
                             <constraint firstItem="6ud-nX-R4G" firstAttribute="top" secondItem="ogC-fa-dn8" secondAttribute="bottom" constant="39" id="PFN-Sy-yrh"/>
                             <constraint firstItem="6ud-nX-R4G" firstAttribute="leading" secondItem="B2l-T1-b9Q" secondAttribute="leadingMargin" id="Qu7-jK-5cd"/>
+                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="RQa-bA-haD"/>
+                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerY" secondItem="B2l-T1-b9Q" secondAttribute="centerY" id="eos-qp-Hx7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQQ-51-s42"/>
+                    <connections>
+                        <outlet property="spinner" destination="9Yv-4l-QCu" id="5tQ-Vm-PoS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aL-aH-Xul" sceneMemberID="firstResponder"/>
             </objects>
@@ -602,8 +610,8 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-2n-WiX">
-                                <rect key="frame" x="54" y="150" width="267" height="39"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-2n-WiX">
+                                <rect key="frame" x="54" y="150" width="267" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="hex-cN-0RM"/>
                                 </constraints>
@@ -1942,6 +1950,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qJI-Yr-grg"/>
-        <segue reference="cFM-l9-Uqr"/>
+        <segue reference="6HL-pD-RxO"/>
     </inferredMetricsTieBreakers>
 </document>

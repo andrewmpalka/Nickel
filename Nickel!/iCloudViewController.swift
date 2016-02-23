@@ -13,10 +13,13 @@ class iCloudViewController: UIViewController {
         var cloudHelper: CKHelper?
         var user: User?
         var window: UIWindow?
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
         
         override func viewDidLoad() {
             super.viewDidLoad()
             cloudHelper = CKHelper()
+            self.spinner.startAnimating()
             self.iCloudLoginAction()
 
         }
