@@ -58,13 +58,12 @@ func welcomePopAlert(vc: UIViewController, currentUser: User) {
 //        userDefaults.setBool(true, forKey: "Checked")
 //        checkInIndicator = true
 //    }
-    let yesAction: UIAlertAction = UIAlertAction(title: "Check In", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
+    let yesAction: UIAlertAction = UIAlertAction(title: "Check In", style: UIAlertActionStyle.Cancel) { (yesAction) -> Void in
         checkInIndicator = true
     }
-    let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Default) { (noAction) -> Void in
+    let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
         print("We will eventually add a reminder")
 }
-    
     welcomeAlertController.addAction(yesAction)
     welcomeAlertController.addAction(noAction)
     vc.presentViewController(welcomeAlertController, animated: true) { () -> Void in
