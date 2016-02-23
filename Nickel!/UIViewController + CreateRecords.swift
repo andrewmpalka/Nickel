@@ -32,6 +32,7 @@ extension UIViewController {
                 newBusiness.recordID.recordName
             }
         }
+        
 
     }
     
@@ -87,4 +88,6 @@ extension UIViewController {
         let privateDatabase = container.privateCloudDatabase
         let newPrivateUserData = CKRecord(recordType: "Users")
     }
+    
+    
 }

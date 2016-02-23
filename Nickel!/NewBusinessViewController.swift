@@ -57,7 +57,7 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         if textFieldChecker(self.businessNameTextField, indicator: 1) && textFieldChecker(self.businessEmailTextField, indicator: 2) {
             createBusiness()
             
-//        self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
+        self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
 //            self.appDelegate.reveal()
 
             return resignFirstResponder()
@@ -75,8 +75,8 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         UID.appendContentsOf(timestampParts[1])
         business.setObject(UID, forKey: "UID")
         employee.setObject(UID, forKey: "UID")
-        userDefaults.setValue(UID, forKey: "currentOrgUID")
-        userDefaults.setBool(true, forKey: "isAdmin:")
+        userDefaults.setValue(UID, forKey: "currentBusinessUID")
+        userDefaults.setBool(true, forKey: "isEmployee")
     }
     
     func saveRecords(recordsToSave: [CKRecord]) {
@@ -100,12 +100,12 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
     func createBusiness() {
 //        loadingAlert("Creating Business...", viewController: self)
         let newBusiness = CKRecord(recordType: "Businesses")
-        let newUser = CKRecord(recordType: "Users")
+        let newUser = CKRecord(recordType: "Employees")
         
         let userBizRef = CKReference.init(recordID: newBusiness.recordID, action: .None)
-        newUser.setObject(userBizRef, forKey: "UID")
+        newUser.setObject(userBizRef, forKey: "UIDBusinesses")
         let bizUserRef = CKReference.init(recordID: newUser.recordID, action: .None)
-        newBusiness.setObject(bizUserRef, forKey: "UID")
+        newBusiness.setObject(bizUserRef, forKey: "UIDEmployees")
         
         
         newBusiness.setObject(self.businessNameTextField.text, forKey: "Name")
