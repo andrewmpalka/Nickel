@@ -104,9 +104,9 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBAction func onSendButtonTapped(sender: AnyObject) {
 
-        if sendGroupMessageTextField.text == "" {
-            return
-        }
+        if !(sendGroupMessageTextField.text == "") {
+            
+        
 
         var messageRecord: CKRecord!
         var isEditingMessage: Bool!   // Flag declaration.
@@ -129,13 +129,12 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         let messageID = CKRecordID(recordName: timestampParts[0])
 
         // set messageRecord to the data we want to be saved and set the values
-        messageRecord = CKRecord(recordType: "Users", recordID: messageID)
+
+//        messageRecord = CKRecord(recordType: "Users", recordID: messageID)
 
             isEditingMessage = false   // False because it's a new note record.
-
         }
-
-        messageRecord.setObject(sendGroupMessageTextField.text, forKey: "PubliceMessage")
+        messageRecord.setObject(sendGroupMessageTextField.text, forKey: "PublicMessage")
         messageRecord.setObject(NSDate(), forKey: "Timestamp")
 
         // specify the container that is used in the app (in this case the default public one)
@@ -155,15 +154,13 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
 
         sendGroupMessageTextField.resignFirstResponder()
     }
+}
 
     // access the default container and the private database and creatate a query object so we can get the records we want
 
     func fetchMessages() {
 
         // specify the container that is used in the app (in this case the default public one)
-
-        let container = CKContainer.defaultContainer()
-        let privateDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(value: true)
 
         // CKQuesry accepts two arguments, the name of the record scheme (notes) and the predicate
