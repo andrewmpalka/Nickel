@@ -15,6 +15,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var membersOnlineLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    var memberArray = [CKRecord]()
+    var currentBusiness: CKRecord?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
-        print(record.valueForKey("Name") as? String)
+//        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
+//        print(record.valueForKey("Name") as? String)
         
     }
 
@@ -63,7 +66,40 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         searchBar.resignFirstResponder()
     }
-
+// MARK: Fetching CKData
+    
+    func getBusiness() {
+        let predicate = NSPredicate(format: "UID == %@", businessID!)
+        let query = CKQuery(recordType: "Organization", predicate: predicate)
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (organizations, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print("performing query, Businesses: \(organizations![0]["name"])")
+                self.currentBusiness = organizations![0] as CKRecord
+                self.getTasks()
+            }
+        }
+    }
+    
+    func getTasks() {
+        let taskReferenceArray = currentBusiness!.mutableArrayValueForKey("tasks")
+        for taskRef in taskReferenceArray {
+            publicDatabase.fetchRecordWithID(taskRef.recordID, completionHandler: { (task, error) -> Void in
+                if error != nil {
+                    print(error)
+                } else {
+                    if task != nil {
+                        self.memberArray.append(task!)
+                        print("appended task: \(task)")
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
+            })
+        }
+    }
 
 
 }

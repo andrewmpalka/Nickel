@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func reveal() {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let myTabBar = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! SWRevealViewController
+        let myTabBar = storyboard.instantiateViewControllerWithIdentifier("navCon") as! UINavigationController
         window?.rootViewController = myTabBar
     }
 

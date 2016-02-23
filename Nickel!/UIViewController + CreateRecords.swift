@@ -13,13 +13,11 @@ import CloudKit
 
 extension UIViewController {
     func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation){
-        
-        let container = CKContainer.defaultContainer()
-        let publicDatabase = container.publicCloudDatabase
+    
         let newBusiness = CKRecord(recordType: "Businesses")
         
-        CURRENT_BUSINESS_RECORD_NAME = newBusiness.recordID.recordName
-        CURRENT_BUSINESS_RECORD_ID = newBusiness.recordID
+//        CURRENT_BUSINESS_RECORD_NAME = newBusiness.recordID.recordName
+//        CURRENT_BUSINESS_RECORD_ID = newBusiness.recordID
         
         newBusiness.setObject(name.text, forKey: "Name")
         newBusiness.setObject(email.text, forKey: "Email")
@@ -39,8 +37,6 @@ extension UIViewController {
     
     func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {
         
-        let container = CKContainer.defaultContainer()
-        let publicDatabase = container.publicCloudDatabase
         let editedBusiness = CKRecord(recordType: "Businesses", recordID: recordID)
         
         var key = String()
@@ -70,8 +66,7 @@ extension UIViewController {
         }
     }
     func newPublicUserHelper(name: String) {
-        let container = CKContainer.defaultContainer()
-        let publicDatabase = container.publicCloudDatabase
+
         let newPublicUserData = CKRecord(recordType: "Users")
         
         newPublicUserData.setObject(name,

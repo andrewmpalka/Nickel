@@ -166,6 +166,7 @@
 				7B7D40B91C761EB20052DB28 /* Data Services */,
 				7B7D40731C75211A0052DB28 /* Model */,
 				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
+				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				A87E339F1C7511E4003930FB /* MyStatsViewController.swift */,
 				A87E339D1C7502FC003930FB /* AboutViewController.swift */,
@@ -177,7 +178,6 @@
 				A87E33841C741643003930FB /* iCloudViewController.swift */,
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
-				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
 				A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */,
 				A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */,
@@ -567,6 +567,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
@@ -585,6 +586,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickel;
