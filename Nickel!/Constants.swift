@@ -10,7 +10,6 @@
 import UIKit
 import CloudKit
 
-
 let cka = CloudKitAccess()
 let userDefaults = NSUserDefaults.standardUserDefaults()
 let container = CKContainer.defaultContainer()
@@ -20,6 +19,22 @@ let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberName = userDefaults.stringForKey("currentUserName")
 var CURRENT_USER_RECORD: CKRecord?
 var CURRENT_BUSINESS_RECORD: CKRecord?
+
+//MARK Custom Alerts
+
+func loadingAlert (loadMessage: String, vc: UIViewController){
+    let alert = UIAlertController(title: nil, message: loadMessage, preferredStyle: UIAlertControllerStyle.Alert)
+    alert.view.tintColor = UIColor.blackColor()
+    let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10,5,50,50)) as UIActivityIndicatorView
+    loadingIndicator.hidesWhenStopped = true
+    loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+    loadingIndicator.startAnimating()
+    
+    alert.view.addSubview(loadingIndicator)
+    
+    vc.presentViewController(alert, animated: true, completion: nil)
+    
+}
 
 func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextField) {
     let noTextAlertController: UIAlertController = UIAlertController(title: "Please enter a valid response" ,

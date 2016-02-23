@@ -11,7 +11,7 @@ import UIKit
 class MyStatsViewController: UIViewController {
 
     @IBOutlet weak var myHoursThisWeekLabel: UILabel!
-
+    
     @IBOutlet weak var avgHoursThisWeekLabel: UILabel!
 
     @IBOutlet weak var myHoursLastWeekLabel: UILabel!

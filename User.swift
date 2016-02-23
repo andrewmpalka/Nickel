@@ -9,5 +9,15 @@
 import Foundation
 import CloudKit
 
-class User {
+class User: NSObject {
+    
+    var userRecordID: CKRecordID
+    var firstName: String?
+    var lastName: String?
+    
+    
+    init(userRecordID: CKRecordID) {
+        self.userRecordID = userRecordID
+    }
+    
 }

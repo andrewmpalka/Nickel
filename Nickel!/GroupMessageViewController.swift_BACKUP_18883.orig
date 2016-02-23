@@ -7,12 +7,15 @@
 //
 
 import UIKit
+<<<<<<< HEAD
+=======
 import CloudKit
 
 // noteRecord is actual CKRecord we pass to the ListVC, the second parameter indicates whether the record is new or not, bc if new, it will just append the arrNotes array. If edited, then it will replace the proper CKRecord object to the arrNotes array
 protocol EditMessageViewControllerDelegate {
     func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 }
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
 
 class GroupMessageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -21,6 +24,9 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
+<<<<<<< HEAD
+
+=======
     // delclare delegate property
     var delegate: EditMessageViewControllerDelegate!
 
@@ -32,11 +38,14 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
 
     var messageRecord: CKRecord!
     
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
+<<<<<<< HEAD
+=======
         fetchMessages()
 
         if let editedMessage = editedMessageRecord
@@ -44,11 +53,15 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         sendGroupMessageTextField.text = editedMessage.valueForKey("PubliceMessage") as? String
         }
 
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
 
         if self.revealViewController() != nil {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -67,15 +80,28 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             self.view.frame.origin.y += keyboardSize.height
         }
+<<<<<<< HEAD
+
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+=======
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesArray.count
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
+<<<<<<< HEAD
+        cell.messageImageView.image = UIImage(imageLiteral: "Kanye")
+        cell.messageNameLabel.text = "Kanye West"
+        cell.messageTimeStamp.text = "4:20 PM"
+=======
 
         // assign each object of the arrNotes array to a local variable
         let messageRecord: CKRecord = messagesArray[indexPath.row]
@@ -92,6 +118,7 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
         cell.messageNameLabel.text = "Kanye West"
         cell.messageTimeStamp.text = "4:20 PM"
 
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
         cell.groupMessageTextField.text = "Hi Kany! I think you are super cool! Hi Kany! I think you are super cool! Hi Kany! I think you are super cool!"
 
         return cell
@@ -104,6 +131,17 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBAction func onSendButtonTapped(sender: AnyObject) {
 
+<<<<<<< HEAD
+        sendGroupMessageTextField.resignFirstResponder()
+    }
+
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 1bf127142e9489037327f201fcaed8208e33396d
+=======
         if !(sendGroupMessageTextField.text == "") {
             
         
@@ -191,4 +229,5 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+>>>>>>> 8891e6e5c51f3c57783372e1e88530171e2bafee
 }
