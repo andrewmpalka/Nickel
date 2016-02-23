@@ -115,7 +115,6 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
             messageRecord = editedMessage
 
             isEditingMessage = true // True because a note record has been edited.
-
         }
 
         else
@@ -161,7 +160,6 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     func fetchMessages() {
 
         // specify the container that is used in the app (in this case the default public one)
-
         let container = CKContainer.defaultContainer()
         let privateDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(value: true)

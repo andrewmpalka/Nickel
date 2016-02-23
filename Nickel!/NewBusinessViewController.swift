@@ -20,7 +20,6 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
     let appDelegate = AppDelegate()
     
     var UID: String!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +105,6 @@ class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocati
         newUser.setObject(userBizRef, forKey: "UID")
         let bizUserRef = CKReference.init(recordID: newUser.recordID, action: .None)
         newBusiness.setObject(bizUserRef, forKey: "UID")
-        
         
         newBusiness.setObject(self.businessNameTextField.text, forKey: "Name")
         newBusiness.setObject(self.businessEmailTextField.text, forKey: "Email")

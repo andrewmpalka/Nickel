@@ -10,7 +10,6 @@
 import UIKit
 import CloudKit
 
-
 let cka = CloudKitAccess()
 let userDefaults = NSUserDefaults.standardUserDefaults()
 let container = CKContainer.defaultContainer()

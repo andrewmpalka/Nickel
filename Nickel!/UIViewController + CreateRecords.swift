@@ -32,7 +32,6 @@ extension UIViewController {
                 newBusiness.recordID.recordName
             }
         }
-
     }
     
     func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {
