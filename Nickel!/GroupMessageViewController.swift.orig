@@ -160,6 +160,11 @@ class GroupMessageViewController: UIViewController, UITableViewDataSource, UITab
     func fetchMessages() {
 
         // specify the container that is used in the app (in this case the default public one)
+<<<<<<< HEAD
+=======
+        let container = CKContainer.defaultContainer()
+        let privateDatabase = container.publicCloudDatabase
+>>>>>>> d32114ec80b3cf8da79ac790f5e3f98a02a5ec71
         let predicate = NSPredicate(value: true)
 
         // CKQuesry accepts two arguments, the name of the record scheme (notes) and the predicate
