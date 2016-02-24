@@ -15,7 +15,7 @@ class CKHelper: NSObject {
     override init() {
         defaultContainer = CKContainer.defaultContainer()
     }
-    
+ //logging in with iCloud
     func requestPermission(completionHandler: (granted: Bool) -> ()) {
         defaultContainer!.requestApplicationPermission(CKApplicationPermissions.UserDiscoverability, completionHandler: { applicationPermissionStatus, error in
             if applicationPermissionStatus == CKApplicationPermissionStatus.Granted {
@@ -32,6 +32,7 @@ class CKHelper: NSObject {
             if error != nil {
                 completionHandler(success: false, user: nil)
             } else {
+//                userDefaults.setValue(userRecordID, forKey: "currentUserRID")
                 let privateDatabase = self.defaultContainer!.privateCloudDatabase
                 privateDatabase.fetchRecordWithID(userRecordID!, completionHandler: { (user: CKRecord?, anError) -> Void in
                     if (error != nil) {
@@ -55,5 +56,5 @@ class CKHelper: NSObject {
                 completionHandler(success: true, user: user)
             }
         }
-}
+    }
 }

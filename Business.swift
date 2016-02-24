@@ -9,5 +9,5 @@
 import Foundation
 import CloudKit
 
-class Business {
+class Business: CKRecord {
 }

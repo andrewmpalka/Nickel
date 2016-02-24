@@ -23,5 +23,4 @@ class WelcomeViewController: UIViewController {
 
     @IBAction func demoButtonTapped(sender: AnyObject) {
     }
-
 }

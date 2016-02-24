@@ -14,6 +14,8 @@ class User: NSObject {
     var userRecordID: CKRecordID
     var firstName: String?
     var lastName: String?
+    var name: String?
+    var nickname: String?
     
     
     init(userRecordID: CKRecordID) {

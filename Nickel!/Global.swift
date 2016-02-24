@@ -16,13 +16,16 @@ let container = CKContainer.defaultContainer()
 let publicDatabase = container.publicCloudDatabase
 let privateDatabase = container.privateCloudDatabase
 let businessID = userDefaults.stringForKey("currentBusinessUID")
+let memberID = userDefaults.stringForKey("currentUserRID")
 let memberName = userDefaults.stringForKey("currentUserName")
 var CURRENT_USER_RECORD: CKRecord?
+var CURRENT_USER_RID: CKRecordID?
 var CURRENT_BUSINESS_RECORD: CKRecord?
 
 var localUser: User?
 var checkInIndicator = false
-//MARK Custom Alerts
+
+//MARK: Custom Alerts
 
 func loadingAlert (loadMessage: String, vc: UIViewController){
     let alert = UIAlertController(title: nil, message: loadMessage, preferredStyle: UIAlertControllerStyle.Alert)
@@ -50,7 +53,20 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
     vc.presentViewController(noTextAlertController, animated: true, completion: nil)
     
 }
+func deviceInUseAlertPop(vc: UIViewController, user: User) {
+    let deviceAlertController: UIAlertController = UIAlertController(title: "Please sign out of other device" ,
+        message: user.firstName! + ", you are already logged into this workspace",
+        preferredStyle: .Alert)
+    let noDeviceAlertAction: UIAlertAction = UIAlertAction(title: "Sorry, won't happen again!",
+        style: UIAlertActionStyle.Cancel,
+        handler: nil)
+    
+    deviceAlertController.addAction(noDeviceAlertAction)
+    vc.presentViewController(deviceAlertController, animated: true, completion: nil)
+    
 
+    
+}
 func welcomePopAlert(vc: UIViewController, currentUser: User) {
     let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
 //    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in

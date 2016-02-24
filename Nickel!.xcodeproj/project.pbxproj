@@ -19,7 +19,7 @@
 		7B7D40791C7522AA0052DB28 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40781C7522AA0052DB28 /* Model.swift */; };
 		7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BA1C761EE60052DB28 /* CKAccess.swift */; };
 		7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BC1C7623440052DB28 /* CKHelper.swift */; };
-		7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BE1C7650050052DB28 /* Constants.swift */; };
+		7B7D40BF1C7650050052DB28 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40BE1C7650050052DB28 /* Global.swift */; };
 		7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */; };
 		7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
@@ -82,7 +82,7 @@
 		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
 		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
-		7B7D40BE1C7650050052DB28 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7B7D40BE1C7650050052DB28 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + CreateRecords.swift"; sourceTree = "<group>"; };
 		7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			children = (
 				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
 				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
-				7B7D40BE1C7650050052DB28 /* Constants.swift */,
+				7B7D40BE1C7650050052DB28 /* Global.swift */,
 			);
 			name = "Data Services";
 			sourceTree = "<group>";
@@ -423,7 +423,7 @@
 				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
 				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
-				7B7D40BF1C7650050052DB28 /* Constants.swift in Sources */,
+				7B7D40BF1C7650050052DB28 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
