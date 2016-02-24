@@ -58,15 +58,17 @@ func welcomePopAlert(vc: UIViewController, currentUser: User) {
 //        userDefaults.setBool(true, forKey: "Checked")
 //        checkInIndicator = true
 //    }
-    let yesAction: UIAlertAction = UIAlertAction(title: "Check In", style: UIAlertActionStyle.Cancel) { (yesAction) -> Void in
+    let yesAction: UIAlertAction = UIAlertAction(title: "Check In", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
         checkInIndicator = true
+
     }
-    let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
-        print("We will eventually add a reminder")
-}
+//    let noAction: UIAlertAction = UIAlertAction(title: "Remind Me Later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
+//        print("We will eventually add a reminder")
+
     welcomeAlertController.addAction(yesAction)
-    welcomeAlertController.addAction(noAction)
-    vc.presentViewController(welcomeAlertController, animated: true) { () -> Void in
+    
+//    welcomeAlertController.addAction(noAction)
+    vc.presentViewController(welcomeAlertController, animated: false) { () -> Void in
         print("Code will eventually go here")
     }
 }
@@ -98,3 +100,6 @@ func fetchPublicDataFromCloud(recType: String) {
     let query = CKQuery(recordType: recType, predicate: predicate)
 }
 
+func startTimerForCheckin() {
+    
+}
