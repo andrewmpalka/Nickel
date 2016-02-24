@@ -31,7 +31,7 @@ class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
         
         self.iCloudLogin({ (success) -> () in
             if success {
-                userDefaults.setValue( true, forUndefinedKey: "Logged in")
+                userDefaults.setBool( true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
                 localUser = self.user
