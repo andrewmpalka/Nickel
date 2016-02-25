@@ -63,28 +63,7 @@ extension UIViewController {
                 print("Business beamed to iCloud: \(editedBusiness)")
             }
         }
-    }
-    func newPublicUserHelper(name: String) {
 
-        let newPublicUserData = CKRecord(recordType: "Users")
-        
-        newPublicUserData.setObject(name,
-            forKey: "Name")
-        
-        publicDatabase.saveRecord(newPublicUserData) { newPublicUserData, error in
-            if error != nil {
-                print(error)
-            } else {
-                print("Public User Data beamed to iCloud \(newPublicUserData)")
-            }
-        }
-        
-        //        newPublicUserData.set
-    }
-    func newPrivateUserHelper() {
-        let container = CKContainer.defaultContainer()
-        let privateDatabase = container.privateCloudDatabase
-        let newPrivateUserData = CKRecord(recordType: "Users")
     }
     
     
