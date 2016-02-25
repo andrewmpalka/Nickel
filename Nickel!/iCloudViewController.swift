@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class iCloudViewController: UIViewController {
+class iCloudViewController: UIViewController, UITextFieldDelegate {
     
     var cloudHelper: CKHelper?
     var user: User?
@@ -31,10 +31,15 @@ class iCloudViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cloudHelper = CKHelper()
+        
         self.spinner.hidesWhenStopped = true
         self.spinner.startAnimating()
         self.iCloudLoginAction()
         
+        self.uidTextField.delegate = self
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return resignFirstResponder()
     }
     //MARK iCloud Authentication
     // Action to be called when the user taps "login with iCloud"
@@ -87,6 +92,8 @@ class iCloudViewController: UIViewController {
     }
     //MARK User Record Check
     func tiedToBusiness() -> Bool {
+        publicDatabase.fetchRecordWithID((newEmployee?.recordID)!) { record, error in
+        }
         if newEmployee?.recordID != nil {
             return true
         }
@@ -136,9 +143,9 @@ class iCloudViewController: UIViewController {
 //                        self.orgRecordToJoin = results![0]
                         
                         dispatch_async(dispatch_get_main_queue()) {
-                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                                self.performSegueWithIdentifier("enterNameSegue", sender: self)
-                            })
+//                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+//                                self.performSegueWithIdentifier("", sender: self)
+                            }
                         }
                     } else {
                         dispatch_async(dispatch_get_main_queue()) {
@@ -150,11 +157,10 @@ class iCloudViewController: UIViewController {
                 }
             }
         }
-    }
     func createMember() {
         if newEmployee == nil {
             newEmployee = CKRecord(recordType: "Employees")
-            newEmployee!.setValue(localUser?.name , forKey: "Name")
+            newEmployee!.setValue(localUser?.name, forKey: "Name")
             
             bizRef = CKReference(recordID: bizRecord!.recordID, action: .None)
             newEmployee!.setValue(bizRef, forKey: "UIDBusiness")

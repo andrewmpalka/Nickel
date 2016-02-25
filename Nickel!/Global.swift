@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Palka. All rights reserved.
 //
 
-
+import Foundation
 import UIKit
 import CloudKit
 
@@ -18,6 +18,9 @@ let privateDatabase = container.privateCloudDatabase
 let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
 let memberName = userDefaults.stringForKey("currentUserName")
+
+//CHANGE THESE THIS IS BAD MAKE THIS WORK WITHOUT VAR
+
 var CURRENT_USER_RECORD: CKRecord?
 var CURRENT_USER_RID: CKRecordID?
 var CURRENT_BUSINESS_RECORD: CKRecord?
@@ -53,6 +56,7 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
     vc.presentViewController(noTextAlertController, animated: true, completion: nil)
     
 }
+
 func deviceInUseAlertPop(vc: UIViewController, user: User) {
     let deviceAlertController: UIAlertController = UIAlertController(title: "Please sign out of other device" ,
         message: user.firstName! + ", you are already logged into this workspace",
@@ -64,19 +68,18 @@ func deviceInUseAlertPop(vc: UIViewController, user: User) {
     deviceAlertController.addAction(noDeviceAlertAction)
     vc.presentViewController(deviceAlertController, animated: true, completion: nil)
     
-
-    
 }
+
 func welcomePopAlert(vc: UIViewController, currentUser: User) {
     let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
-//    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
-//        print("We will eventually check this person in through this")
-//        userDefaults.setBool(true, forKey: "Checked")
-//        checkInIndicator = true
-//    }
+    //    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
+    //        print("We will eventually check this person in through this")
+    //        userDefaults.setBool(true, forKey: "Checked")
+    //        checkInIndicator = true
+    //    }
     let yesAction: UIAlertAction = UIAlertAction(title: "Check in", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
         checkInIndicator = true
-
+        
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
         print("We will eventually add a reminder")
@@ -88,6 +91,8 @@ func welcomePopAlert(vc: UIViewController, currentUser: User) {
         print("Code will eventually go here")
     }
 }
+
+
 
 func validateFieldInput (text : String, identifier: Int) -> Bool {
     var regex = String?()
