@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var membersOnlineLabel: UILabel!

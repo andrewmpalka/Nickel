@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompanyProfileViewController: UIViewController {
+class CompanyProfileViewController: SuperViewController {
 
     
     @IBOutlet weak var companyNameLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
+class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     var cloudHelper: CKHelper?
@@ -32,9 +32,12 @@ class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
         self.iCloudLogin({ (success) -> () in
             if success {
                 userDefaults.setBool( true, forKey: "Logged in")
+                let dvc = NewBusinessViewController()
+                self.localUser = dvc.localUser
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
-                localUser = self.user
+                let dvc = NewBusinessViewController()
+                self.localUser = dvc.localUser
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.presentViewController(viewController, animated: false, completion: nil)
                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -57,8 +60,8 @@ class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.cloudHelper!.getUser({ (success, user) -> () in
                     if success {
-                        self.user = user
-                        self.cloudHelper!.getUserInfo(self.user!, completionHandler: { (success, user) -> () in
+                        self.localUser = user
+                        self.cloudHelper!.getUserInfo(self.localUser!, completionHandler: { (success, user) -> () in
                             if success {
                                 completionHandler(success: true)
                             }
@@ -69,6 +72,10 @@ class BusinessiCloudViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class iCloudViewController: UIViewController, UITextFieldDelegate {
+class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
     var cloudHelper: CKHelper?
     var user: User?
@@ -51,7 +51,7 @@ class iCloudViewController: UIViewController, UITextFieldDelegate {
                 userDefaults.setObject(true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
-                localUser = self.user
+                self.localUser = self.user
 
                 self.uniqueMemberNameCheck()
 
@@ -110,7 +110,7 @@ class iCloudViewController: UIViewController, UITextFieldDelegate {
                         print("Error Fetching Names for Uniequness Test: \(error?.description)")
                     } else {
                         
-                        if resultRecord!["Name"] as? String == localUser?.name {
+                        if resultRecord!["Name"] as? String == self.localUser?.name {
                             dispatch_async(dispatch_get_main_queue()) {
 //                                self.dismissViewControllerAnimated(true, completion: { () -> Void in
 //                                    self.errorAlert("Error", message: "\(self.bizRecord!["Name"]!) is already an employee here. Please logout of other device")

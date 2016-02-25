@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class NewBusinessViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
+class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var businessNameTextField: UITextField!
     

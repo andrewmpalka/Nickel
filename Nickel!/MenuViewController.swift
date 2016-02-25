@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: SuperViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,16 +21,16 @@ let memberName = userDefaults.stringForKey("currentUserName")
 
 //CHANGE THESE THIS IS BAD MAKE THIS WORK WITHOUT VAR
 
-var CURRENT_USER_RECORD: CKRecord?
-var CURRENT_USER_RID: CKRecordID?
-var CURRENT_BUSINESS_RECORD: CKRecord?
-
-var localUser: User?
-var checkInIndicator = false
+//var CURRENT_USER_RECORD: CKRecord?
+//var CURRENT_USER_RID: CKRecordID?
+//var CURRENT_BUSINESS_RECORD: CKRecord?
+//
+//var localUser: User?
+//var checkInIndicator = false
 
 //MARK: Custom Alerts
 
-func loadingAlert (loadMessage: String, vc: UIViewController){
+func loadingAlert (loadMessage: String, vc: SuperViewController){
     let alert = UIAlertController(title: nil, message: loadMessage, preferredStyle: UIAlertControllerStyle.Alert)
     alert.view.tintColor = UIColor.blackColor()
     let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10,5,50,50)) as UIActivityIndicatorView
@@ -44,7 +44,7 @@ func loadingAlert (loadMessage: String, vc: UIViewController){
     
 }
 
-func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextField) {
+func popAlertForNoText(vc: SuperViewController, textFieldNotDisplayingText: UITextField) {
     let noTextAlertController: UIAlertController = UIAlertController(title: "Please enter a valid response" ,
         message: textFieldNotDisplayingText.placeholder,
         preferredStyle: .Alert)
@@ -57,7 +57,7 @@ func popAlertForNoText(vc: UIViewController, textFieldNotDisplayingText: UITextF
     
 }
 
-func deviceInUseAlertPop(vc: UIViewController, user: User) {
+func deviceInUseAlertPop(vc: SuperViewController, user: User) {
     let deviceAlertController: UIAlertController = UIAlertController(title: "Please sign out of other device" ,
         message: user.firstName! + ", you are already logged into this workspace",
         preferredStyle: .Alert)
@@ -70,7 +70,7 @@ func deviceInUseAlertPop(vc: UIViewController, user: User) {
     
 }
 
-func welcomePopAlert(vc: UIViewController, currentUser: User) {
+func welcomePopAlert(vc: SuperViewController, currentUser: User) {
     let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
     //    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
     //        print("We will eventually check this person in through this")
@@ -78,7 +78,7 @@ func welcomePopAlert(vc: UIViewController, currentUser: User) {
     //        checkInIndicator = true
     //    }
     let yesAction: UIAlertAction = UIAlertAction(title: "Check in", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
-        checkInIndicator = true
+        vc.checkInIndicator = true
         
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
