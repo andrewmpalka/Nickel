@@ -38,7 +38,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
 //            if userDefaults.boolForKey("Checked in") {
-        welcomePopAlert(self, currentUser: localUser!)
+        welcomePopAlert(self, currentUser: self.localUser!)
 //        }
         }
     }

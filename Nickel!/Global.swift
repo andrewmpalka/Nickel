@@ -19,6 +19,8 @@ let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
 let memberName = userDefaults.stringForKey("currentUserName")
 
+let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificationsViewController(), EditCompnayViewController(), CompanyProfileViewController(), EditProfileViewController(), DetailViewController(), iCloudViewController(), BusinessiCloudViewController(), NewBusinessViewController(), WelcomeViewController(), GroupMessageViewController(), PrivateMessageViewController(), UserProfileViewController(), ListViewController(), MenuViewController()]
+
 //CHANGE THESE THIS IS BAD MAKE THIS WORK WITHOUT VAR
 
 //var CURRENT_USER_RECORD: CKRecord?

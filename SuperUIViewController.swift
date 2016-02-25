@@ -17,4 +17,14 @@ class SuperViewController: UIViewController {
     
     var localUser: User?
     var checkInIndicator = false
+    
+}
+
+extension SuperViewController {
+    func updateVCList() {
+        for vc in SuperVCList {
+            vc.localUser = self.localUser
+        }
+        
+    }
 }

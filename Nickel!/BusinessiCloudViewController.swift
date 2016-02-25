@@ -12,7 +12,6 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     var cloudHelper: CKHelper?
-    var user: User?
     var window: UIWindow?
     
     override func viewDidLoad() {
@@ -32,12 +31,10 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
         self.iCloudLogin({ (success) -> () in
             if success {
                 userDefaults.setBool( true, forKey: "Logged in")
-                let dvc = NewBusinessViewController()
-                self.localUser = dvc.localUser
+                self.updateVCList()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
-                let dvc = NewBusinessViewController()
-                self.localUser = dvc.localUser
+                
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     self.presentViewController(viewController, animated: false, completion: nil)
                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
