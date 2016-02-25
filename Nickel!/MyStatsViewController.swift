@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyStatsViewController: UIViewController {
+class MyStatsViewController: SuperViewController {
 
     @IBOutlet weak var myHoursThisWeekLabel: UILabel!
     

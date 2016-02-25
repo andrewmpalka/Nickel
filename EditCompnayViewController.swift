@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditCompnayViewController: UIViewController {
+class EditCompnayViewController: SuperViewController {
 
     @IBOutlet weak var companyNameTextField: UITextField!
 

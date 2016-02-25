@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var membersOnlineLabel: UILabel!
@@ -38,7 +38,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
 //            if userDefaults.boolForKey("Checked in") {
-        welcomePopAlert(self, currentUser: localUser!)
+        welcomePopAlert(self, currentUser: self.localUser!)
 //        }
         }
     }
