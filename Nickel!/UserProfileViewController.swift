@@ -18,7 +18,6 @@ class UserProfileViewController: SuperViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
 }

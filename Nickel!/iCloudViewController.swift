@@ -179,7 +179,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         } else {
             employeeArray = bizRecord!.mutableArrayValueForKey("UIDEmployees")
             employeeArray.addObject(employeeRef!)
-            //                orgRecord?.setObject(memberArray, forKey: "members")
+//                            orgRecord?.setObject(memberArray, forKey: "members")
             modifyRecords([bizRecord!, newEmployee!])
         }
     }

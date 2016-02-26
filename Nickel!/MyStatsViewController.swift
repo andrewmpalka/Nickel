@@ -23,13 +23,8 @@ class MyStatsViewController: SuperViewController {
     @IBOutlet weak var avgHoursThisYearLabel: UILabel!
 
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
-
-
 }

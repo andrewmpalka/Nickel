@@ -27,4 +27,5 @@ class Business: CKRecord {
     var timestampList: [NSDate]?
     
     var employeePictureListAsData: [NSData]?
+    
 }

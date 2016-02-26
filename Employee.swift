@@ -13,6 +13,7 @@ class Employee: CKRecord {
     var name: String?
     var nickname: String?
     
+    
     var matchIndicatorBoolAsInt: Int?
     var permissionLevelBoolAsInt: Int?
     
@@ -22,4 +23,9 @@ class Employee: CKRecord {
     
     var UIDBussines: CKReference?
     var UIDMessage: [CKReference]?
+    
+    func makeEmployeeFromUser(user: User) {
+        self.name = user.name
+        self.nickname = user.nickname
+    }
 }

@@ -15,15 +15,21 @@ let userDefaults = NSUserDefaults.standardUserDefaults()
 let container = CKContainer.defaultContainer()
 let publicDatabase = container.publicCloudDatabase
 let privateDatabase = container.privateCloudDatabase
+
 let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
+
+let userString = userDefaults.valueForKey("userRecordID") as! String
+let memberName = userDefaults.stringForKey("currentUserName")
+let checkIndicator = userDefaults.boolForKey("checkIn")
+
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
 
-let userString = userDefaults.valueForKey("userRecordID") as! String
 
 
-let memberName = userDefaults.stringForKey("currentUserName")
+
+
 
 let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificationsViewController(), EditCompnayViewController(), CompanyProfileViewController(), EditProfileViewController(), DetailViewController(), iCloudViewController(), BusinessiCloudViewController(), NewBusinessViewController(), WelcomeViewController(), GroupMessageViewController(), PrivateMessageViewController(), UserProfileViewController(), ListViewController(), MenuViewController()]
 
@@ -78,7 +84,11 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
     //        checkInIndicator = true
     //    }
     let yesAction: UIAlertAction = UIAlertAction(title: "Check in", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
-        vc.checkInIndicator = true
+        
+        userDefaults.setBool(true, forKey: "checkIn")
+        
+
+        
         
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in

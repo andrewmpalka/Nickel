@@ -16,9 +16,7 @@ class SuperViewController: UIViewController {
     var CURRENT_BUSINESS_RECORD: CKRecord?
     
     var localUser: User?
-    var checkInIndicator = false
     var profilePicture: UIImage?
-    
     
 }
 
@@ -30,6 +28,7 @@ extension SuperViewController {
         print("\(rID)" + "RID")
         return User(userRecordID: rID)
     }
+    
     
     func updateVCList() {
         for vc in SuperVCList {
