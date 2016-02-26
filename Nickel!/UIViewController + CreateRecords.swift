@@ -33,7 +33,7 @@ extension SuperViewController {
             }
         } 
     }
-    func newEmployeeHelper(currentUser: User) {
+    func newEmployeeHelper() {
     let newEmployee = CKRecord(recordType: "Employees")
         newEmployee.setObject(currentUser.name, forKey: "Name")
         
