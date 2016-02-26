@@ -9,11 +9,10 @@
 import UIKit
 import CloudKit
 
-class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var membersOnlineLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var memberArray = [CKRecord]()
@@ -24,9 +23,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.searchBar.layer.borderColor = UIColor.clearColor().CGColor
-        
+                
         self.tableView.separatorColor = UIColor.clearColor()
         
         self.automaticallyAdjustsScrollViewInsets = false
@@ -76,10 +73,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar)
-    {
-        searchBar.resignFirstResponder()
-    }
     // MARK: Fetching CKData
     
     func getBusiness() {

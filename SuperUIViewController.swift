@@ -19,7 +19,6 @@ class SuperViewController: UIViewController {
     var checkInIndicator = false
     var profilePicture: UIImage?
     
-    
 }
 
 extension SuperViewController {
