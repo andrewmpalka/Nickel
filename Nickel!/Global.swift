@@ -22,7 +22,6 @@ let defaultUserDictionary = defaultUser as! NSDictionary
 
 let userString = userDefaults.valueForKey("userRecordID") as! String
 
-
 let memberName = userDefaults.stringForKey("currentUserName")
 
 let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificationsViewController(), EditCompnayViewController(), CompanyProfileViewController(), EditProfileViewController(), DetailViewController(), iCloudViewController(), BusinessiCloudViewController(), NewBusinessViewController(), WelcomeViewController(), GroupMessageViewController(), PrivateMessageViewController(), UserProfileViewController(), ListViewController(), MenuViewController()]
@@ -91,7 +90,6 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
         print("Code will eventually go here")
     }
 }
-
 
 
 func validateFieldInput (text : String, identifier: Int) -> Bool {
