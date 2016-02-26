@@ -115,15 +115,15 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
             return
         }
         
-        // save filled in information
         
-        
-        // send profile picture
-        
-        
-        // send filled information to server
-
-
+        // save filled in information and send to CK
+        User.sharedInstance.name = self.firstNameLabel.text
+        User.sharedInstance.name = self.lastNameLabel.text
+        User.sharedInstance.nickname = self.handleLabel.text
+        User.sharedInstance.positionTitle = self.userRoleLabel.text
+        User.sharedInstance.emailAddress = self.emailLabel.text
+        User.sharedInstance.profilePic = self.profileImageView.image
+    
 
     }
 
