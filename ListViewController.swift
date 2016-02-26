@@ -19,7 +19,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
     var checker = false
-    //    var user: User?
+    
+    var aUser = User?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,12 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
 //            if userDefaults.boolForKey("Checked in") {
-        welcomePopAlert(self, currentUser: self.localUser!)
+            print(userString)
+            let recID = CKRecordID(recordName: userString)
+            User.sharedInstance.userRecordID = recID
+            self.aUser = self.userGrabAndToss()
+            print(User.sharedInstance.name!)
+            welcomePopAlert(self, currentUser: User.sharedInstance)
 //        }
         }
     }

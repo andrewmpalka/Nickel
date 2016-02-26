@@ -53,6 +53,10 @@ class CKHelper: NSObject {
             } else {
                 user.firstName = info!.displayContact!.givenName
                 user.lastName = info!.displayContact!.familyName
+                user.setFullName()
+                userDefaults.setValue("\(user)", forKey: "userRecordID")
+                print(user.name!)
+                print("USER NAME")
                 completionHandler(success: true, user: user)
             }
         }

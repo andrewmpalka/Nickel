@@ -10,4 +10,21 @@ import Foundation
 import CloudKit
 
 class Business: CKRecord {
+
+    var name: String?
+    var email: String?
+    
+    var beacons: [String]?
+    var employees: [String]?
+    
+    var currentAvgTimestamp: Double?
+    var avgTimestampList: [Double]?
+    
+    var UIDEmployees: [CKReference]?
+    
+    var location: CLLocation?
+    
+    var timestampList: [NSDate]?
+    
+    var employeePictureListAsData: [NSData]?
 }

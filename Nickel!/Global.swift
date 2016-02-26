@@ -17,18 +17,16 @@ let publicDatabase = container.publicCloudDatabase
 let privateDatabase = container.privateCloudDatabase
 let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
+let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
+let defaultUserDictionary = defaultUser as! NSDictionary
+
+let userString = userDefaults.valueForKey("userRecordID") as! String
+
+
 let memberName = userDefaults.stringForKey("currentUserName")
 
 let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificationsViewController(), EditCompnayViewController(), CompanyProfileViewController(), EditProfileViewController(), DetailViewController(), iCloudViewController(), BusinessiCloudViewController(), NewBusinessViewController(), WelcomeViewController(), GroupMessageViewController(), PrivateMessageViewController(), UserProfileViewController(), ListViewController(), MenuViewController()]
 
-//CHANGE THESE THIS IS BAD MAKE THIS WORK WITHOUT VAR
-
-//var CURRENT_USER_RECORD: CKRecord?
-//var CURRENT_USER_RID: CKRecordID?
-//var CURRENT_BUSINESS_RECORD: CKRecord?
-//
-//var localUser: User?
-//var checkInIndicator = false
 
 //MARK: Custom Alerts
 
@@ -73,7 +71,7 @@ func deviceInUseAlertPop(vc: SuperViewController, user: User) {
 }
 
 func welcomePopAlert(vc: SuperViewController, currentUser: User) {
-    let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.firstName!) \(currentUser.lastName!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let welcomeAlertController = UIAlertController(title: "Welcome to Nickel, \(currentUser.name!)", message: "Ready to check-in to your workspace?", preferredStyle: UIAlertControllerStyle.ActionSheet)
     //    let yesAction: UIAlertAction = UIAlertAction(title: "Check Me In", style: UIAlertActionStyle.Default) { (yesAction) -> Void in
     //        print("We will eventually check this person in through this")
     //        userDefaults.setBool(true, forKey: "Checked")

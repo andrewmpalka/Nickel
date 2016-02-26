@@ -12,7 +12,7 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     var cloudHelper: CKHelper?
-    var window: UIWindow?
+    var aUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +57,12 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
             } else {
                 self.cloudHelper!.getUser({ (success, user) -> () in
                     if success {
-                        self.localUser = user
-                        self.cloudHelper!.getUserInfo(self.localUser!, completionHandler: { (success, user) -> () in
+                        print("\(user!.userRecordID)")
+//                        userDefaults.setValue("\(user!.userRecordID)", forKey: "userRecordID")
+                        self.aUser = user
+                        print("\(self.aUser!.userRecordID)")
+
+                        self.cloudHelper!.getUserInfo(self.aUser!, completionHandler: { (success, user) -> () in
                             if success {
                                 completionHandler(success: true)
                             }
