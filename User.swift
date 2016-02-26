@@ -20,6 +20,8 @@ class User {
     var lastName: String?
     var name = String?()
     var nickname: String?
+    var positionTitle: String?
+    var emailAddress: String?
     var profilePic: UIImage?
     var message: [String]?
 
