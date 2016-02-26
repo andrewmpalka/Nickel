@@ -14,9 +14,13 @@ protocol ModelDelegate {
     func modelUpdated()
 }
 class Model {
-    class func sharedInstance() -> Model {
-        return modelSingletonGlobal
-    }
+    
+    static let sharedInstance = Model()
+    
+//    class func sharedInstance() -> Model {
+    
+//        return modelSingletonGlobal
+//    }
     
     var delegate : ModelDelegate?
     
@@ -31,4 +35,3 @@ class Model {
     }
 }
 
-let modelSingletonGlobal = Model()

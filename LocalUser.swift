@@ -12,7 +12,7 @@ import CloudKit
 class LocalUser: User {
     static let SHARED_INSTANCE = LocalUser()
     
-    init() {
+    init(SHARED_INSTANCE) {
         print("$$$")
     }
 }
