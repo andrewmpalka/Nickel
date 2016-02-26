@@ -10,6 +10,10 @@ import UIKit
 import CloudKit
 
 class Employee: CKRecord {
+    
+    var firstName: String?
+    var lastName: String?
+    
     var name: String?
     var nickname: String?
     

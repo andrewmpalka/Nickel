@@ -44,7 +44,7 @@ extension SuperViewController {
         let nickname = user.nickname!
         let recordID = user.userRecordID
         
-        let userPropertiesDictionary:NSDictionary = ["name" : name, "nickname" : nickname, "recordID" : recordID]
+        let userPropertiesDictionary:NSDictionary = ["name" : name, "nickname" : nickname, "recordID" : recordID!]
         
         userDefaults.setValue(userPropertiesDictionary, forKey: "sharedInstanceOfUserAsDictionary")
     }
