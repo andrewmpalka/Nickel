@@ -18,7 +18,9 @@ class User {
     var lastName: String?
     var name = String?()
     var nickname: String?
-    
+    var profilePic: UIImage?
+    var message: [String]?
+
     init(userRecordID: CKRecordID) {
         self.userRecordID = userRecordID
     }
