@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrivateMessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var messageSearchBar: UISearchBar!
     @IBOutlet weak var messageTableView: UITableView!

@@ -9,15 +9,26 @@
 import Foundation
 import CloudKit
 
-class User: NSObject {
+class User {
     
+    static let sharedInstance = User(userRecordID: CKRecordID(recordName: userDefaults.valueForKey("userRecordID") as! String))
+
     var userRecordID: CKRecordID
     var firstName: String?
     var lastName: String?
-    
+    var name = String?()
+    var nickname: String?
     
     init(userRecordID: CKRecordID) {
         self.userRecordID = userRecordID
     }
     
+    func setFullName() {
+        self.name = "\(self.firstName!) \(self.lastName!)"
+        User.sharedInstance.name = self.name
+    }
+    
+    
 }
+
+//let userSingletonGlobal = User(userRecordID: CKRecordID(recordName: userDefaults.valueForKey("userRecordID") as! String))

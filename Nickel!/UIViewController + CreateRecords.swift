@@ -11,7 +11,7 @@ import UIKit
 import CloudKit
 
 
-extension UIViewController {
+extension SuperViewController {
     func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation){
     
         let newBusiness = CKRecord(recordType: "Businesses")
@@ -33,6 +33,21 @@ extension UIViewController {
             }
         } 
     }
+    func newEmployeeHelper(currentUser: User) {
+    let newEmployee = CKRecord(recordType: "Employees")
+        newEmployee.setObject(currentUser.name, forKey: "Name")
+        
+        publicDatabase.saveRecord(newEmployee) { (newUser, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print("Business beamed to iCloud: \(newUser)")
+                newEmployee.recordID.recordName
+            }
+        }
+        
+    }
+
     
     func editBusinessDataHelper(recordID: CKRecordID, index: Int, editedData: AnyObject) {
         
@@ -63,28 +78,7 @@ extension UIViewController {
                 print("Business beamed to iCloud: \(editedBusiness)")
             }
         }
-    }
-    func newPublicUserHelper(name: String) {
 
-        let newPublicUserData = CKRecord(recordType: "Users")
-        
-        newPublicUserData.setObject(name,
-            forKey: "Name")
-        
-        publicDatabase.saveRecord(newPublicUserData) { newPublicUserData, error in
-            if error != nil {
-                print(error)
-            } else {
-                print("Public User Data beamed to iCloud \(newPublicUserData)")
-            }
-        }
-        
-        //        newPublicUserData.set
-    }
-    func newPrivateUserHelper() {
-        let container = CKContainer.defaultContainer()
-        let privateDatabase = container.privateCloudDatabase
-        let newPrivateUserData = CKRecord(recordType: "Users")
     }
     
     

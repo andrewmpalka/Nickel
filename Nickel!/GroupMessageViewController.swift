@@ -14,7 +14,7 @@ protocol EditMessageViewControllerDelegate {
     func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 }
 
-class GroupMessageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!

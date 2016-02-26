@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var membersOnlineLabel: UILabel!
@@ -19,7 +19,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
     var checker = false
-    //    var user: User?
+    
+    var aUser = User?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
 //            if userDefaults.boolForKey("Checked in") {
-        welcomePopAlert(self, currentUser: localUser!)
+            print(userString)
+            let recID = CKRecordID(recordName: userString)
+            User.sharedInstance.userRecordID = recID
+            self.aUser = self.userGrabAndToss()
+            print(User.sharedInstance.name!)
+            welcomePopAlert(self, currentUser: User.sharedInstance)
 //        }
         }
     }

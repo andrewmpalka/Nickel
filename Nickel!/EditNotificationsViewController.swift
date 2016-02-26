@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditNotificationsViewController: UIViewController {
+class EditNotificationsViewController: SuperViewController {
 
     @IBOutlet weak var allNotificationsSwitch: UISwitch!
     @IBOutlet weak var justDMsSwtich: UISwitch!
