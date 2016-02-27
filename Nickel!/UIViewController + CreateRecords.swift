@@ -35,7 +35,7 @@ extension SuperViewController {
     }
     func newEmployeeHelper() {
     let newEmployee = CKRecord(recordType: "Employees")
-        newEmployee.setObject(currentUser.name, forKey: "Name")
+        newEmployee.setObject(User.sharedInstance.name, forKey: "Name")
         
         publicDatabase.saveRecord(newEmployee) { (newUser, error) -> Void in
             if error != nil {

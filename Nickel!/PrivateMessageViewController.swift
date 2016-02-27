@@ -8,9 +8,8 @@
 
 import UIKit
 
-class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var messageSearchBar: UISearchBar!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var enterPrivateMessageTextField: UITextField!
 
@@ -63,10 +62,7 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
         enterPrivateMessageTextField.resignFirstResponder()
     }
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar)
-    {
-        searchBar.resignFirstResponder()
-    }
+
 
 
 
