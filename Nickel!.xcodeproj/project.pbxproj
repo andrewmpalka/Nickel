@@ -24,6 +24,7 @@
 		7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */; };
 		7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */; };
 		7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD41C7FEAA70088299B /* Employee.swift */; };
+		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -89,6 +90,7 @@
 		7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperUIViewController.swift; sourceTree = "<group>"; };
 		7BA21CD41C7FEAA70088299B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				7B7D40781C7522AA0052DB28 /* Model.swift */,
 				7B7D40741C7521470052DB28 /* Business.swift */,
 				7B7D40761C7521620052DB28 /* User.swift */,
+				7BA21D151C83A5B90088299B /* Message.swift */,
 				7BA21CD41C7FEAA70088299B /* Employee.swift */,
 				7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */,
 			);
@@ -414,6 +417,7 @@
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
+				7BA21D161C83A5BB0088299B /* Message.swift in Sources */,
 				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
