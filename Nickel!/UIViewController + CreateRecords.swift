@@ -34,14 +34,8 @@ extension SuperViewController {
         }
     }
     //ONLY CALL THIS WHEN NEW BUSINESS IS BEING MADE OTHERWISE THERE WILL BE ERRORS
-    func newEmployeeHelperForBusiness(var bizRec: CKRecord) {
+    func newEmployeeHelperForBusiness(let bizRec: CKRecord) {
         
-    
-        
-        let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
-        
-
-                
 //        var array = [String]()
 //        
 //        var arrayOfRecords = [CKReference]()
@@ -63,11 +57,12 @@ extension SuperViewController {
         let employeeRef = CKReference(recordID: newEmployee.recordID, action: .DeleteSelf)
         
         let string = employeeRef.recordID.recordName
-        let arrayOfReferences = getArrayOfEmployeeReferences(string)
-
         
+        let arrayOfReferences = getArrayOfEmployeeReferences(string, ref: employeeRef)
 
-        fetchBizAndSave(bizRec, index: 6, editedData: arrayOfReferences)
+        let biz = bizRec
+        
+        fetchBizAndSave(biz, index: 6, editedData: arrayOfReferences)
         
         newEmployee.setObject(User.sharedInstance.name, forKey: "Name")
         newEmployee.setObject(bizRef, forKey: "UIDBusiness")
@@ -84,7 +79,7 @@ extension SuperViewController {
     }
     
     
-    func editBusinessDataHelper(editedBusiness: CKRecord, index: Int, var editedData: CKRecordValue) {
+    func editBusinessDataHelper(editedBusiness: CKRecord, index: Int, editedData: CKRecordValue) {
         
         print("EDITED BIZ \n\n\n sss\(editedBusiness)")
         
@@ -108,14 +103,14 @@ extension SuperViewController {
             
         case 6:
             key = "UIDEmployees"
-            editedData = editedData as! [CKReference]
+//            editedData = editedData as! [CKReference]
             print("EDITED DATA \(editedData)")
             
         default :
             print("shrug")
         }
         
-        editedBusiness.setObject(editedData, forKey: key)
+        Business.sharedInstance.setObject(editedData, forKey: key)
         
         var array = [CKRecord]()
         array.append(editedBusiness)
@@ -143,7 +138,7 @@ extension SuperViewController {
         
     }
     
-    func getArrayOfEmployeeReferences(string: String) -> [CKReference] {
+    func getArrayOfEmployeeReferences(string: String, ref: CKReference) -> [CKReference] {
         var array = [String]()
         
         var arrayOfRecords = [CKReference]()
@@ -158,26 +153,51 @@ extension SuperViewController {
                 let reference = CKReference(recordID: recordID, action: CKReferenceAction.DeleteSelf)
                 arrayOfRecords.append(reference)
             }
+        } else {
+            arrayOfRecords.append(ref)
         }
+        print("A/nR/nR/nA/nY")
+        print(arrayOfRecords)
+        Business.sharedInstance.setObject(arrayOfRecords, forKey: "UIDEmployees")
         return arrayOfRecords
     }
     
     func fetchBizAndSave(var bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
         
-        publicDatabase.fetchRecordWithID(bizRec.recordID) { record, error in
-            if error != nil {
-                print(error)
+        let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
+        fetchOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in
+            if errors != nil {
+                print("Error fetching records: \(errors!.localizedDescription)")
             } else {
-                print("Business grabbed from iCloud: \(record!)")
-                bizRec = record!
-                //            bizRef = CKReference(recordID: bizRec.recordID, action: CKReferenceAction.DeleteSelf)
-                print("Business IS \(bizRec.recordID.recordName)")
-                self.editBusinessDataHelper(bizRec, index: index, editedData: editedData)
-
+                print("Successfully fetched all the records")
+                
+                
+                var array = [CKRecord]()
+                let fetchedRecordAsDict: [CKRecordID: CKRecord] = fetchedRecords! as [CKRecordID: CKRecord]
+                let fetchedRecord = fetchedRecordAsDict[Business.sharedInstance.recordID]
+                
+                //needs to be changed eventually
+                let object = Business.sharedInstance.objectForKey("UIDEmployees")
+                let key = "UIDEmployees"
+                
+                //This is okay
+                fetchedRecord?.setObject(object, forKey: key)
+                print(fetchedRecord!)
+                array.append(fetchedRecord!)
+                
+                let modifyOperation: CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: array, recordIDsToDelete: nil)
+                modifyOperation.savePolicy = .IfServerRecordUnchanged
+                modifyOperation.modifyRecordsCompletionBlock = {savedRecords, deletedRecordsIDs, errors in
+                    if errors != nil {
+                        print("Error saving records: \(errors!.localizedDescription)")
+                    } else {
+                        print("Successfully updated all the records")
+                    }
+                }
+                publicDatabase.addOperation(modifyOperation)
             }
         }
-        
-        
+        publicDatabase.addOperation(fetchOp)
     }
     
     
