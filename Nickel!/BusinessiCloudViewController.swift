@@ -36,6 +36,7 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                 userDefaults.setBool( true, forKey: "Logged in")
                 self.updateVCList()
                 self.newEmployeeHelperForBusiness((Business.sharedInstance))
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
                 

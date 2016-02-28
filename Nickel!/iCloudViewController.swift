@@ -38,7 +38,6 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         self.spinner.hidesWhenStopped = true
         self.spinner.startAnimating()
         self.iCloudLoginAction()
-        loadingAlert("We're working hard to make sure your information stays secure", vc: self)
 
         
         bizRecord = Business.sharedInstance
@@ -54,6 +53,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         
         self.iCloudLogin({ (success) -> () in
             if success {
+                self.presentedViewController
                 userDefaults.setObject(true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
@@ -62,6 +62,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                 self.uniqueMemberNameCheck()
 
                 NSOperationQueue.mainQueue().addOperationWithBlock {
+
                     self.presentViewController(viewController, animated: false, completion: nil)
                 }
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false

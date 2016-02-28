@@ -102,8 +102,7 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
         userDefaults.setValue(true, forKey: "checkIn")
         print("checked in~~~~~~~~~~~~~~~~~~")
         print(vc.checkIndicator)
-
-        
+        vc.controllerThatNeedsToBeDismissed = welcomeAlertController
         
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
