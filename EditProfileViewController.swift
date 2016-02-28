@@ -24,7 +24,9 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+
+        self.title = "Edit Profile"
         
         // tap to hide keyboard
         let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")

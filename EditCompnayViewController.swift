@@ -19,6 +19,8 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Edit Company"
         
         // tap to hide keyboard
         let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")

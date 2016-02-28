@@ -24,10 +24,18 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // set bar button item fonts
+        if let font = UIFont(name: "Avenir", size: 15) {
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+
         self.title = "Nickel"
 
+        // remove cell lines
         self.tableView.separatorColor = UIColor.clearColor()
-        
+
+        // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
         
         if self.revealViewController() != nil {
