@@ -23,7 +23,9 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.title = "Nickel"
+
         self.businessEmailTextField.delegate = self
         self.businessNameTextField.delegate = self
         coreLocationManager.delegate = self

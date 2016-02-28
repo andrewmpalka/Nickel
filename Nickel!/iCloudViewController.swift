@@ -30,6 +30,9 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Nickel"
+
         cloudHelper = CKHelper()
         
         self.spinner.hidesWhenStopped = true

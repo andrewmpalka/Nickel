@@ -16,6 +16,9 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Nickel"
+
         cloudHelper = CKHelper()
     }
 

@@ -12,8 +12,8 @@ import CloudKit
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var membersOnlineLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
     
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
@@ -23,7 +23,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
+        self.title = "Nickel"
+
         self.tableView.separatorColor = UIColor.clearColor()
         
         self.automaticallyAdjustsScrollViewInsets = false
