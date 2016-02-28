@@ -36,7 +36,8 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         self.spinner.startAnimating()
         self.iCloudLoginAction()
         
-        self.uidTextField.delegate = self
+        bizRecord = Business.sharedInstance
+//        self.uidTextField.delegate = self
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return resignFirstResponder()
