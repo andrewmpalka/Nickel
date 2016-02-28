@@ -77,7 +77,7 @@ extension SuperViewController {
             if error != nil {
                 print(error)
             } else {
-                print("Employee beamed to iCloud: \(newUser)")
+                print("Employee beamed to iCloud: \(newUser!)")
                 newEmployee.recordID.recordName
             }
         }
@@ -86,11 +86,9 @@ extension SuperViewController {
     }
     
     
-    func editBusinessDataHelper(editedBusiness: CKRecord, index: Int, editedData: AnyObject) {
+    func editBusinessDataHelper(editedBusiness: CKRecord, index: Int, var editedData: CKRecordValue) {
         
-        
-        var editData = editedData as? CKRecordValue
-
+        print("EDITED BIZ \n\n\n sss\(editedBusiness)")
         
         var key = String()
         switch index {
@@ -112,13 +110,14 @@ extension SuperViewController {
             
         case 6:
             key = "UIDEmployees"
-            editData = editedData as! [CKReference]
+            editedData = editedData as! [CKReference]
+            print("EDITED DATA \(editedData)")
             
         default :
             print("shrug")
         }
         
-        editedBusiness.setObject(editData, forKey: key)
+        editedBusiness.setObject(editedData, forKey: key)
         
         var array = [CKRecord]()
         array.append(editedBusiness)
@@ -165,7 +164,7 @@ extension SuperViewController {
         return arrayOfRecords
     }
     
-    func fetchBizAndSave(var bizRec: CKRecord, index: Int, editedData: AnyObject) {
+    func fetchBizAndSave(var bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
         
         publicDatabase.fetchRecordWithID(bizRec.recordID) { record, error in
             if error != nil {
