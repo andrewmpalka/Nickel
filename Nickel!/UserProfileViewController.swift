@@ -15,9 +15,18 @@ class UserProfileViewController: SuperViewController {
     @IBOutlet weak var memberNameHandel: UILabel!
     @IBOutlet weak var memberRoleLabel: UILabel!
     @IBOutlet weak var memberEmailLabel: UILabel!
+    @IBOutlet weak var messageButton: UIBarButtonItem!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Profile"
+        
+        // set bar button item fonts
+        if let font = UIFont(name: "Avenir", size: 15) {
+            messageButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
     }
 
 }

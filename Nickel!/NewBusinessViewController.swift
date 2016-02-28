@@ -8,6 +8,8 @@
 
 import UIKit
 import CloudKit
+import CoreLocation
+
 
 class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
@@ -15,21 +17,80 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBOutlet weak var businessEmailTextField: UITextField!
     
-    let placePlacerholder = CLLocation()
-    let coreLocationManager = CLLocationManager()
+    @IBOutlet weak var locationButton: UIButton!
+    
+    @IBOutlet weak var continueButton: UIButton!
+    
+    let locationManager = CLLocationManager() //Jon Code
+    
+    let placePlacerholder = CLLocation() //prior code
+    let coreLocationManager = CLLocationManager() //prior code
     let appDelegate = AppDelegate()
     
     var UID: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Nickel"
         
+
         self.businessEmailTextField.delegate = self
         self.businessNameTextField.delegate = self
-        coreLocationManager.delegate = self
+        //coreLocationManager.delegate = self //prior code
+        
+        //Locate the businesses current location //Jon Code
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
     }
+    
+    //Jon Code
+    //MARK: Location Delegate Methods
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks, error) -> Void in
+            
+            if error != nil {
+                print("Error: " +  error!.localizedDescription)
+                return
+            }
+            
+            //Checks for actual placemarks returned
+            if placemarks?.count > 0 {
+                let pm = placemarks![0] as! CLPlacemark
+                self.displayLocationInfo(pm) //custom function to be later defined below
+            }
+        }
+    }
+    
+    //Jon Code
+    func displayLocationInfo(placemark: CLPlacemark) {
+        
+        self.locationManager.stopUpdatingLocation()
+        print(placemark.locality)
+        print(placemark.postalCode)
+        print(placemark.administrativeArea)
+        print(placemark.country)
+    }
+    
+    //Jon Code
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print("Error: " + error.localizedDescription)
+        
+    }
+    
+    
+    
 //MARK UITextField Functions
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.locationButton.backgroundColor = SALMON_COLOR
+    }
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
         if(textField.text?.isEmpty == false) {

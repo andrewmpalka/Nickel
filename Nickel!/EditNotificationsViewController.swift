@@ -18,6 +18,13 @@ class EditNotificationsViewController: SuperViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Edit Notifications"
+
+        // set bar button item fonts
+        if let font = UIFont(name: "Avenir", size: 15) {
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"

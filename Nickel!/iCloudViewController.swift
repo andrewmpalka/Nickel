@@ -30,13 +30,18 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Nickel"
+
         cloudHelper = CKHelper()
         
         self.spinner.hidesWhenStopped = true
         self.spinner.startAnimating()
         self.iCloudLoginAction()
+
         
-        self.uidTextField.delegate = self
+        bizRecord = Business.sharedInstance
+//        self.uidTextField.delegate = self
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return resignFirstResponder()
@@ -48,6 +53,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         
         self.iCloudLogin({ (success) -> () in
             if success {
+                self.presentedViewController
                 userDefaults.setObject(true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
@@ -56,6 +62,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                 self.uniqueMemberNameCheck()
 
                 NSOperationQueue.mainQueue().addOperationWithBlock {
+
                     self.presentViewController(viewController, animated: false, completion: nil)
                 }
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false

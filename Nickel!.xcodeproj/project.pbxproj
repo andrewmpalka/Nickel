@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */; };
 		7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */; };
 		7B7D40431C73C54E0052DB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40411C73C54E0052DB28 /* Main.storyboard */; };
 		7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40441C73C54E0052DB28 /* Nickel_.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 		7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */; };
 		7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */; };
 		7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD41C7FEAA70088299B /* Employee.swift */; };
+		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -65,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		7B7D403A1C73C54E0052DB28 /* Nickel!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nickel!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperUIViewController.swift; sourceTree = "<group>"; };
 		7BA21CD41C7FEAA70088299B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */,
 				7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */,
 				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
 			);
@@ -144,6 +149,7 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
+				4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */,
 				7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */,
 				7B7D40711C7502110052DB28 /* CloudKit.framework */,
 				7B7D403C1C73C54E0052DB28 /* Nickel! */,
@@ -224,6 +230,7 @@
 				7B7D40781C7522AA0052DB28 /* Model.swift */,
 				7B7D40741C7521470052DB28 /* Business.swift */,
 				7B7D40761C7521620052DB28 /* User.swift */,
+				7BA21D151C83A5B90088299B /* Message.swift */,
 				7BA21CD41C7FEAA70088299B /* Employee.swift */,
 				7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */,
 			);
@@ -414,6 +421,7 @@
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
+				7BA21D161C83A5BB0088299B /* Message.swift in Sources */,
 				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,

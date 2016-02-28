@@ -12,8 +12,8 @@ import CloudKit
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var membersOnlineLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
     
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
@@ -23,9 +23,19 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
+        // set bar button item fonts
+        if let font = UIFont(name: "Avenir", size: 15) {
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+
+        self.title = "Nickel"
+
+        // remove cell lines
         self.tableView.separatorColor = UIColor.clearColor()
-        
+
+        // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
         
         if self.revealViewController() != nil {
@@ -34,7 +44,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        if (userDefaults.valueForKey("Logged in") != nil) && checkIndicator == false {
+        if (userDefaults.valueForKey("Logged in") != nil) && self.checkIndicator == false {
             print(userString)
             let recID = CKRecordID(recordName: userString)
             User.sharedInstance.userRecordID = recID

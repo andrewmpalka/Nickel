@@ -11,9 +11,7 @@ import CloudKit
 
 class User {
     
-//      static let sharedInstance = User(userRecordID: (CKRecordID(recordName: "_7e72291a13bb1603ee4666e67b6d269d")))
-    
-        static let sharedInstance = User.userSingleton()
+    static let sharedInstance = User.userSingleton()
 
     weak var userRecordID: CKRecordID?
     var firstName: String?

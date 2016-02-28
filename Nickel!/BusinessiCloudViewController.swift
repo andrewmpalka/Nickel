@@ -16,6 +16,9 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Nickel"
+
         cloudHelper = CKHelper()
     }
 
@@ -32,6 +35,8 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
             if success {
                 userDefaults.setBool( true, forKey: "Logged in")
                 self.updateVCList()
+                self.newEmployeeHelperForBusiness((Business.sharedInstance))
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
                 
@@ -40,11 +45,12 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
             } else {
-                // TODO error handling
+                //MARK: TODO error handling
             }
         })
     }
     
+    //MARK: Nested
     // Nested CloudKit requests for permission; for getting user record and user information.
     private func iCloudLogin(completionHandler: (success: Bool) -> ()) {
         self.cloudHelper!.requestPermission { (granted) -> () in

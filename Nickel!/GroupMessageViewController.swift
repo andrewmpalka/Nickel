@@ -35,6 +35,21 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Message"
+
+        // remove search bar border
+    groupMessageSearchBar.backgroundImage = UIImage()
+
+
+
+    self.groupMessageTableView.separatorColor = UIColor.clearColor()
+
+        
+        // set bar button item fonts
+        if let font = UIFont(name: "Avenir", size: 15) {
+            menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
         fetchMessages()

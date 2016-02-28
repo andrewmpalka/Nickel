@@ -16,6 +16,11 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Message"
+
+        // remove space on top of cell
+        self.automaticallyAdjustsScrollViewInsets = false
+
         self.messageTableView.separatorColor = UIColor.clearColor()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
