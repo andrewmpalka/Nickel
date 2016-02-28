@@ -38,6 +38,8 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         self.spinner.hidesWhenStopped = true
         self.spinner.startAnimating()
         self.iCloudLoginAction()
+        loadingAlert("We're working hard to make sure your information stays secure", vc: self)
+
         
         bizRecord = Business.sharedInstance
 //        self.uidTextField.delegate = self

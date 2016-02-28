@@ -162,7 +162,7 @@ extension SuperViewController {
         return arrayOfRecords
     }
     
-    func fetchBizAndSave(var bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
+    func fetchBizAndSave( bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
         
         let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
         fetchOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in

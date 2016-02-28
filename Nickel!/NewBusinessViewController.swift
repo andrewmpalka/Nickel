@@ -15,6 +15,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBOutlet weak var businessEmailTextField: UITextField!
     
+    @IBOutlet weak var locationButton: UIButton!
+    
+    @IBOutlet weak var continueButton: UIButton!
+    
     let placePlacerholder = CLLocation()
     let coreLocationManager = CLLocationManager()
     let appDelegate = AppDelegate()
@@ -32,6 +36,9 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     }
 //MARK UITextField Functions
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.locationButton.backgroundColor = SALMON_COLOR
+    }
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
         if(textField.text?.isEmpty == false) {

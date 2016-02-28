@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -681,7 +681,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk6-Vr-eid"/>
-                                    <segue destination="bNL-gp-c1W" kind="show" id="ucl-Nf-vq0"/>
+                                    <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="ucl-Nf-vq0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -704,6 +704,8 @@
                     <connections>
                         <outlet property="businessEmailTextField" destination="6Ki-ys-hWt" id="Ued-Jc-5kT"/>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
+                        <outlet property="continueButton" destination="ioG-l6-lCh" id="KKS-84-4l0"/>
+                        <outlet property="locationButton" destination="HTV-RZ-md2" id="TNY-uA-i2T"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                     </connections>
                 </viewController>
@@ -1992,8 +1994,8 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="qJI-Yr-grg"/>
-        <segue reference="cFM-l9-Uqr"/>
+        <segue reference="ZCJ-N7-Ejz"/>
+        <segue reference="6HL-pD-RxO"/>
     </inferredMetricsTieBreakers>
 </document>
