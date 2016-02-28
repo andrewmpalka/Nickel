@@ -45,7 +45,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
-        
     }
     
     //Jon Code

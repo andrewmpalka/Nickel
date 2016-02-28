@@ -36,21 +36,21 @@ extension SuperViewController {
     //ONLY CALL THIS WHEN NEW BUSINESS IS BEING MADE OTHERWISE THERE WILL BE ERRORS
     func newEmployeeHelperForBusiness(let bizRec: CKRecord) {
         
-//        var array = [String]()
-//        
-//        var arrayOfRecords = [CKReference]()
-//        
-//        array = defaultEmployeeRecordsForBusinessArray as! Array
-//        
-//        if array.count > 0 {
-//            array.insert(string, atIndex: array.count - 1)
-//            
-//            for object in array {
-//                let recordID = CKRecordID(recordName: object as String)
-//                let reference = CKReference(recordID: recordID, action: CKReferenceAction.DeleteSelf)
-//                arrayOfRecords.append(reference)
-//            }
-//        }
+        //        var array = [String]()
+        //
+        //        var arrayOfRecords = [CKReference]()
+        //
+        //        array = defaultEmployeeRecordsForBusinessArray as! Array
+        //
+        //        if array.count > 0 {
+        //            array.insert(string, atIndex: array.count - 1)
+        //
+        //            for object in array {
+        //                let recordID = CKRecordID(recordName: object as String)
+        //                let reference = CKReference(recordID: recordID, action: CKReferenceAction.DeleteSelf)
+        //                arrayOfRecords.append(reference)
+        //            }
+        //        }
         
         let bizRef = CKReference(recordID: Business.sharedInstance.recordID, action: .DeleteSelf)
         let newEmployee = CKRecord(recordType: "Employees")
@@ -59,7 +59,7 @@ extension SuperViewController {
         let string = employeeRef.recordID.recordName
         
         let arrayOfReferences = getArrayOfEmployeeReferences(string, ref: employeeRef)
-
+        
         let biz = bizRec
         
         fetchBizAndSave(biz, index: 6, editedData: arrayOfReferences)
@@ -87,23 +87,23 @@ extension SuperViewController {
         switch index {
         case 1:
             key = "Name"
-
+            
         case 2:
             key = "Email"
-
+            
         case 3:
             key = "Location"
-
-
+            
+            
         case 4:
             key = "Employees"
-
+            
         case 5:
             key = "Beacons"
             
         case 6:
             key = "UIDEmployees"
-//            editedData = editedData as! [CKReference]
+            //            editedData = editedData as! [CKReference]
             print("EDITED DATA \(editedData)")
             
         default :
@@ -124,17 +124,17 @@ extension SuperViewController {
                 print("Successfully updated all the records")
             }
         }
-
-
+        
+        
         publicDatabase.addOperation(modifyOperation)
         print("Business successfully edited and beamed to the cloud")
-//        publicDatabase.saveRecord(editedBusiness) { editedBusiness, error in
-//            if error != nil {
-//                print(error)
-//            } else {
-//                print("Business beamed to iCloud: \(editedBusiness)")
-//            }
-//        }
+        //        publicDatabase.saveRecord(editedBusiness) { editedBusiness, error in
+        //            if error != nil {
+        //                print(error)
+        //            } else {
+        //                print("Business beamed to iCloud: \(editedBusiness)")
+        //            }
+        //        }
         
     }
     
@@ -143,7 +143,7 @@ extension SuperViewController {
         
         var arrayOfRecords = [CKReference]()
         if defaultEmployeeRecordsForBusinessArray != nil {
-        array = defaultEmployeeRecordsForBusinessArray as! Array
+            array = defaultEmployeeRecordsForBusinessArray as! Array
         }
         if array.count > 0 {
             array.insert(string, atIndex: array.count - 1)
@@ -152,9 +152,16 @@ extension SuperViewController {
                 let recordID = CKRecordID(recordName: object as String)
                 let reference = CKReference(recordID: recordID, action: CKReferenceAction.DeleteSelf)
                 arrayOfRecords.append(reference)
+                
             }
+            
+            userDefaults.setValue(arrayOfRecords, forKey: "currentEmployeeRecordsArray")
+            
         } else {
             arrayOfRecords.append(ref)
+            let recordName = ref.recordID.recordName
+            let initialAddToArrayOfRecords: Array = [recordName]
+            userDefaults.setValue(initialAddToArrayOfRecords, forKey: "currentEmployeeRecordsArray")
         }
         print("A/nR/nR/nA/nY")
         print(arrayOfRecords)
@@ -201,4 +208,53 @@ extension SuperViewController {
     }
     
     
+    func addMessageToBusinessMessageList(bizRec: CKRecord, employeeRec: CKRecord, messageRec: CKRecord, message: String) {
+        
+        if bizRec.objectForKey("UIDMessages") != nil {
+            
+            var array = [String]()
+            if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
+                array = userDefaults.objectForKey("currentMessageRecordsForBusinessArray") as! Array
+            }
+            array.append(message)
+            userDefaults.setValue(array, forKey: "currentMessageRecordsForBusinessArray")
+            
+            messageRec.setValue(array, forKey: "PublicMessages")
+            
+            let recordsToSave: [CKRecord] = [messageRec]
+            
+            let op:CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
+            
+            op.savePolicy = .IfServerRecordUnchanged
+            op.modifyRecordsCompletionBlock = {savedRecords, deletedRecordsIDs, errors in
+                if errors != nil {
+                    print("Error saving records: \(errors!.localizedDescription)")
+                } else {
+                    print("Successfully updated all the records")
+                }
+            }
+            publicDatabase.addOperation(op)
+        } else {
+            bizRec.setValue([message], forKey: "UIDMessages")
+            
+            userDefaults.setValue([message], forKey: "currentMessageRecordsForBusinessArray")
+            
+            messageRec.setValue([message], forKey: "PublicMessages")
+            
+            let recordsToSave: [CKRecord] = [messageRec]
+            
+            let op:CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
+            
+            op.savePolicy = .IfServerRecordUnchanged
+            op.modifyRecordsCompletionBlock = {savedRecords, deletedRecordsIDs, errors in
+                if errors != nil {
+                    print("Error saving records: \(errors!.localizedDescription)")
+                } else {
+                    print("Successfully updated all the records")
+                }
+            }
+            publicDatabase.addOperation(op)
+
+        }
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 import CloudKit
 
 class Employee: CKRecord {
+    static var sharedInstance = CKRecord(recordType: "Employees")
+
     
     var firstName: String?
     var lastName: String?
@@ -29,7 +31,15 @@ class Employee: CKRecord {
     var UIDMessage: [CKReference]?
     
     func makeEmployeeFromUser(user: User) {
+        let recordID = CKRecordID(recordName: (user.userRecordID?.recordName)!)
+//        let record = CKRecord(recordType: "Users", recordID: recordID)
+        let reference = CKReference(recordID: recordID, action: .DeleteSelf)
+        
+        Employee.sharedInstance.setValue(reference, forKey: "EmployeeToUserLinker")
+        
+        
         self.name = user.name
         self.nickname = user.nickname
+        
     }
 }
