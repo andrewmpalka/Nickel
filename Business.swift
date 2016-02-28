@@ -11,6 +11,8 @@ import CloudKit
 
 class Business: CKRecord {
 
+    static var sharedInstance = CKRecord(recordType: "Businesses")
+    
     var name: String?
     var email: String?
     
@@ -27,4 +29,6 @@ class Business: CKRecord {
     var timestampList: [NSDate]?
     
     var employeePictureListAsData: [NSData]?
+    
+    
 }

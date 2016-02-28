@@ -11,9 +11,11 @@ import CloudKit
 
 class User {
     
-    static let sharedInstance = User(userRecordID: CKRecordID(recordName: userDefaults.valueForKey("userRecordID") as! String))
+//      static let sharedInstance = User(userRecordID: (CKRecordID(recordName: "_7e72291a13bb1603ee4666e67b6d269d")))
+    
+        static let sharedInstance = User.userSingleton()
 
-    var userRecordID: CKRecordID
+    weak var userRecordID: CKRecordID?
     var firstName: String?
     var lastName: String?
     var name = String?()
@@ -30,6 +32,14 @@ class User {
     func setFullName() {
         self.name = "\(self.firstName!) \(self.lastName!)"
         User.sharedInstance.name = self.name
+    }
+    
+    private class func userSingleton() -> User {
+        if let ud = userDefaults.valueForKey("userRecordID") as? String {
+            return User(userRecordID: CKRecordID(recordName: ud))
+        } else {
+            return User(userRecordID: (CKRecordID(recordName: "_7e72291a13bb1603ee4666e67b6d269d")))
+        }
     }
     
     

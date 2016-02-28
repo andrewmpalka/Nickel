@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 import CloudKit
 
-let SALMON_COLOR = UIColor(red: 255, green: 102, blue: 102, alpha: 1.0)
-let DARK_GRAY_COLOR = UIColor(red: 102, green: 102, blue: 102, alpha: 1.0)
-let LIGHT_GRAY_COLOR = UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)
-
 let cka = CloudKitAccess()
 let userDefaults = NSUserDefaults.standardUserDefaults()
 let container = CKContainer.defaultContainer()
@@ -24,19 +20,11 @@ let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
 
 let userString = userDefaults.valueForKey("userRecordID") as! String
-let businessString = userDefaults.valueForKey("businessRecordID") as! String
-
 let memberName = userDefaults.stringForKey("currentUserName")
-//let checkIndicator = userDefaults.boolForKey("checkIn")
+let checkIndicator = userDefaults.boolForKey("checkIn")
 
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
-
-
-let defaultEmployeeRecordsForBusinessArray = userDefaults.valueForKey("currentEmployeeRecordsArray")
-let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMessageRecordsForBusinessArray")
-
-let defaultVisibleEmployeeRecordIDsAsArrayOfString = userDefaults.valueForKey("visibleEmployees")
 
 
 
@@ -49,17 +37,15 @@ let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificat
 //MARK: Custom Alerts
 
 func loadingAlert (loadMessage: String, vc: SuperViewController){
-    let alert = UIAlertController(title: "One moment, please", message: loadMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
-//    alert.view.tintColor = DARK_GRAY_COLOR
-//    alert.view.backgroundColor = LIGHT_GRAY_COLOR
-
-    let action = UIAlertAction(title: "Cancel", style: .Destructive) { alertAction in
-//        loadingIndicator.stopAnimating()
-    }
+    let alert = UIAlertController(title: nil, message: loadMessage, preferredStyle: UIAlertControllerStyle.Alert)
+    alert.view.tintColor = UIColor.blackColor()
+    let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10,5,50,50)) as UIActivityIndicatorView
+    loadingIndicator.hidesWhenStopped = true
+    loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+    loadingIndicator.startAnimating()
     
+    alert.view.addSubview(loadingIndicator)
     
-
-    alert.addAction(action)
     vc.presentViewController(alert, animated: true, completion: nil)
     
 }
@@ -99,10 +85,10 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
     //    }
     let yesAction: UIAlertAction = UIAlertAction(title: "Check in", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
         
-        userDefaults.setValue(true, forKey: "checkIn")
-        print("checked in~~~~~~~~~~~~~~~~~~")
-        print(vc.checkIndicator)
-        vc.controllerThatNeedsToBeDismissed = welcomeAlertController
+        userDefaults.setBool(true, forKey: "checkIn")
+        
+
+        
         
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in

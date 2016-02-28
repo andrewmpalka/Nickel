@@ -47,7 +47,7 @@ class CKHelper: NSObject {
     }
     
     func getUserInfo(user: User, completionHandler: (success: Bool, user: User?) -> ()) {
-        defaultContainer!.discoverUserInfoWithUserRecordID(user.userRecordID) { (info, fetchError) in
+        defaultContainer!.discoverUserInfoWithUserRecordID(user.userRecordID!) { (info, fetchError) in
             if fetchError != nil {
                 completionHandler(success: false, user: nil)
             } else {

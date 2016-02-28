@@ -16,10 +16,10 @@ class SuperViewController: UIViewController {
     var CURRENT_BUSINESS_RECORD: CKRecord?
     
     var localUser: User?
-    var checkInIndicator = false
     var profilePicture: UIImage?
-    
-    
+    var checkIndicator = userDefaults.boolForKey("checkIn")
+    var controllerThatNeedsToBeDismissed = UIAlertController?()
+
 }
 
 extension SuperViewController {
@@ -30,6 +30,7 @@ extension SuperViewController {
         print("\(rID)" + "RID")
         return User(userRecordID: rID)
     }
+    
     
     func updateVCList() {
         for vc in SuperVCList {
@@ -45,7 +46,7 @@ extension SuperViewController {
         let nickname = user.nickname!
         let recordID = user.userRecordID
         
-        let userPropertiesDictionary:NSDictionary = ["name" : name, "nickname" : nickname, "recordID" : recordID]
+        let userPropertiesDictionary:NSDictionary = ["name" : name, "nickname" : nickname, "recordID" : recordID!]
         
         userDefaults.setValue(userPropertiesDictionary, forKey: "sharedInstanceOfUserAsDictionary")
     }

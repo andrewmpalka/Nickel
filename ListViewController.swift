@@ -9,12 +9,11 @@
 import UIKit
 import CloudKit
 
-class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var membersOnlineLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
     
     var memberArray = [CKRecord]()
     var currentBusiness: CKRecord?
@@ -24,9 +23,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.searchBar.layer.borderColor = UIColor.clearColor().CGColor
-        
+
+        self.title = "Nickel"
+
         self.tableView.separatorColor = UIColor.clearColor()
         
         self.automaticallyAdjustsScrollViewInsets = false
@@ -37,8 +36,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        if (userDefaults.valueForKey("Logged in") != nil) && checkInIndicator == false {
-//            if userDefaults.boolForKey("Checked in") {
+        if (userDefaults.valueForKey("Logged in") != nil) && self.checkIndicator == false {
             print(userString)
             let recID = CKRecordID(recordName: userString)
             User.sharedInstance.userRecordID = recID
@@ -76,10 +74,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar)
-    {
-        searchBar.resignFirstResponder()
-    }
     // MARK: Fetching CKData
     
     func getBusiness() {
