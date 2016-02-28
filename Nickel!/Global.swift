@@ -20,11 +20,19 @@ let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")
 
 let userString = userDefaults.valueForKey("userRecordID") as! String
+let businessString = userDefaults.valueForKey("businessRecordID") as! String
+
 let memberName = userDefaults.stringForKey("currentUserName")
 let checkIndicator = userDefaults.boolForKey("checkIn")
 
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
+
+
+let defaultEmployeeRecordsForBusinessArray = userDefaults.valueForKey("currentEmployeeRecordsArray")
+let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMessageRecordsForBusinessArray")
+
+let defaultVisibleEmployeeRecordIDsAsArrayOfString = userDefaults.valueForKey("visibleEmployees")
 
 
 
