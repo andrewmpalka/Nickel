@@ -38,18 +38,16 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         self.title = "Message"
 
         // remove search bar border
-    groupMessageSearchBar.backgroundImage = UIImage()
+        groupMessageSearchBar.backgroundImage = UIImage()
 
+        // remove tableview lines
+        self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
-
-    self.groupMessageTableView.separatorColor = UIColor.clearColor()
-
-        
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-
+        
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
         fetchMessages()
@@ -103,7 +101,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         cell.messageTimeStamp.text = dateFormatter.stringFromDate(messageRecord.valueForKey("Timestamp") as! NSDate)
 
-        cell.messageImageView.image = UIImage(imageLiteral: "Kanye")
+        cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
         cell.messageNameLabel.text = "Kanye West"
         cell.messageTimeStamp.text = "4:20 PM"
 
@@ -121,8 +119,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         if !(sendGroupMessageTextField.text == "") {
             
-        
-
         var messageRecord: CKRecord!
         var isEditingMessage: Bool!   // Flag declaration.
 
