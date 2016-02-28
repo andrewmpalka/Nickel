@@ -27,7 +27,7 @@ let userString = userDefaults.valueForKey("userRecordID") as! String
 let businessString = userDefaults.valueForKey("businessRecordID") as! String
 
 let memberName = userDefaults.stringForKey("currentUserName")
-let checkIndicator = userDefaults.boolForKey("checkIn")
+//let checkIndicator = userDefaults.boolForKey("checkIn")
 
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
@@ -99,8 +99,9 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
     //    }
     let yesAction: UIAlertAction = UIAlertAction(title: "Check in", style: UIAlertActionStyle.Destructive) { (yesAction) -> Void in
         
-        userDefaults.setBool(true, forKey: "checkIn")
-        
+        userDefaults.setValue(true, forKey: "checkIn")
+        print("checked in~~~~~~~~~~~~~~~~~~")
+        print(vc.checkIndicator)
 
         
         

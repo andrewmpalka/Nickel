@@ -17,7 +17,8 @@ class SuperViewController: UIViewController {
     
     var localUser: User?
     var profilePicture: UIImage?
-    
+    var checkIndicator = userDefaults.boolForKey("checkIn")
+
 }
 
 extension SuperViewController {
