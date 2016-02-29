@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18EFC5CA8C309AF75E25C1AB /* Pods_Nickel_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */; };
+		4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */; };
 		7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */; };
 		7B7D40431C73C54E0052DB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40411C73C54E0052DB28 /* Main.storyboard */; };
 		7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40441C73C54E0052DB28 /* Nickel_.xcdatamodeld */; };
@@ -69,6 +71,8 @@
 /* Begin PBXFileReference section */
 		4DE285332BE5CC673A2C80B4 /* Pods_Nickel_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62EC5FDF2CB5FC5169FD4179 /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
+		2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
+		4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		7B7D403A1C73C54E0052DB28 /* Nickel!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nickel!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperUIViewController.swift; sourceTree = "<group>"; };
 		7BA21CD41C7FEAA70088299B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		A8D19FEB1C76845E00076A85 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		C87A1C6134B601DE44EDC722 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
+		BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +131,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */,
 				7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */,
 				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
-				B2C8BFF0009D981FB863CE51 /* Pods_Nickel_.framework in Frameworks */,
+				18EFC5CA8C309AF75E25C1AB /* Pods_Nickel_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,14 +175,15 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
+				4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */,
 				7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */,
 				7B7D40711C7502110052DB28 /* CloudKit.framework */,
 				7B7D403C1C73C54E0052DB28 /* Nickel! */,
 				7B7D40541C73C54F0052DB28 /* Nickel!Tests */,
 				7B7D405F1C73C54F0052DB28 /* Nickel!UITests */,
 				7B7D403B1C73C54E0052DB28 /* Products */,
-				0F9B1E3F412C214BD93DBBDB /* Pods */,
-				0372D5F4FC7AC9DF3940A2E7 /* Frameworks */,
+				9E042BADEFD844098F985C57 /* Pods */,
+				B5C056751E5022AE44568ADB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +276,15 @@
 			name = "Data Services";
 			sourceTree = "<group>";
 		};
+		9E042BADEFD844098F985C57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */,
+				96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A8D19FE81C76840E00076A85 /* SidebarMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +303,14 @@
 			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
+		B5C056751E5022AE44568ADB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,12 +318,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!" */;
 			buildPhases = (
-				7C26D168036F3C039112D7A3 /* Check Pods Manifest.lock */,
+				911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */,
 				7B7D40361C73C54E0052DB28 /* Sources */,
 				7B7D40371C73C54E0052DB28 /* Frameworks */,
 				7B7D40381C73C54E0052DB28 /* Resources */,
-				43F7498B8D0063539F986BC7 /* Embed Pods Frameworks */,
-				91CBAA05818E2CB1F338D428 /* Copy Pods Resources */,
+				37D19ED3BED888D9C3A298E8 /* Embed Pods Frameworks */,
+				568AFC47578D3026AFCD40EC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -427,7 +452,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43F7498B8D0063539F986BC7 /* Embed Pods Frameworks */ = {
+		37D19ED3BED888D9C3A298E8 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -442,22 +467,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7C26D168036F3C039112D7A3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		91CBAA05818E2CB1F338D428 /* Copy Pods Resources */ = {
+		568AFC47578D3026AFCD40EC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -470,6 +480,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -648,7 +673,7 @@
 		};
 		7B7D40661C73C54F0052DB28 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C87A1C6134B601DE44EDC722 /* Pods-Nickel!.debug.xcconfig */;
+			baseConfigurationReference = 2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -668,7 +693,7 @@
 		};
 		7B7D40671C73C54F0052DB28 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62EC5FDF2CB5FC5169FD4179 /* Pods-Nickel!.release.xcconfig */;
+			baseConfigurationReference = 96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
