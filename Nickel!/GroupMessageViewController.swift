@@ -119,7 +119,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         if !(sendGroupMessageTextField.text == "") {
 
-            addMessageToBusinessMessageList(<#T##bizRec: CKRecord##CKRecord#>, employeeRec: <#T##CKRecord#>, messageRec: <#T##CKRecord#>, message: <#T##String#>)
+//            addMessageToBusinessMessageList(<#T##bizRec: CKRecord##CKRecord#>, employeeRec: <#T##CKRecord#>, messageRec: <#T##CKRecord#>, message: <#T##String#>)
             
 //        var messageRecord: CKRecord!
 //        var isEditingMessage: Bool!   // Flag declaration.
