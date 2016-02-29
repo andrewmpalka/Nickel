@@ -21,6 +21,19 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
+    // empty string for Message
+    var messageString = ""
+
+    // empty string for User
+    var userName = ""
+
+    // empty array for Messages
+    var entiretyOfGroupMessages: [String] = []
+
+    // empty arry for Users
+    var entiretyOfUsers: [String] = []
+
+
     // delclare delegate property
 //    var delegate: EditMessageViewControllerDelegate!
 
@@ -35,6 +48,8 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        saveData()
+
         self.title = "Message"
 
         // remove search bar border
@@ -47,6 +62,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
+
         
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
@@ -68,6 +84,16 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+
+        if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
+            entiretyOfGroupMessages = userDefaults.objectForKey("currentMessageRecordsForBusinessArray" ) as! [String]
+            self.groupMessageTableView.reloadData()
+        }
+
+    }
+
     func keyboardWillShow(notification: NSNotification) {
 
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -83,7 +109,11 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if self.entiretyOfGroupMessages.count > 0 {
+            return self.entiretyOfGroupMessages.count
+        }
+
+        return 1
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -96,16 +126,28 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 //        cell.groupMessageTextField.text = messageRecord.valueForKey("PubliceMessage") as? String
 
         // convert date to a String using NSDateForamatter
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
 
 //        cell.messageTimeStamp.text = dateFormatter.stringFromDate(messageRecord.valueForKey("Timestamp") as! NSDate)
 
         cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
-        cell.messageNameLabel.text = "Kanye West"
-        cell.messageTimeStamp.text = "4:20 PM"
 
-        cell.groupMessageTextField.text = "Hi Kany! I think you are super cool! Hi Kany! I think you are super cool! Hi Kany! I think you are super cool!"
+
+        cell.messageNameLabel.text = "Kanye West"
+
+
+
+
+        cell.messageTimeStamp.text = "4:20 PM"
+//        if !(sendGroupMessageTextField.text == "")
+//        {
+        cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
+//        }
+//        else {
+//            cell.groupMessageTextField.text = "Type something! Start a conversation with your workspace"
+//        }
+        saveData()
 
         return cell
     }
@@ -116,11 +158,27 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
 
     @IBAction func onSendButtonTapped(sender: AnyObject) {
+//TODO add messageString to self.entiretyOfGroupMessages array via .append(messageString)
+//TODO after add, reload self.tableView via self.tableView.reloadData()
+//TODO add the messageString to the userDefaults.setValue(value: self.entiretyOfGroupMessages, forKey:"")
 
         if !(sendGroupMessageTextField.text == "") {
 
+            // save data to NS User Defaults
+            userDefaults.setObject(sendGroupMessageTextField.text, forKey: "message")
+            userDefaults.synchronize()
+            saveData()
+            sendGroupMessageTextField.resignFirstResponder()
+            sendGroupMessageTextField.text = ""
+
+            self.entiretyOfGroupMessages.append(messageString)
+            groupMessageTableView.reloadData()
+            userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
+
+
+
 //            addMessageToBusinessMessageList(<#T##bizRec: CKRecord##CKRecord#>, employeeRec: <#T##CKRecord#>, messageRec: <#T##CKRecord#>, message: <#T##String#>)
-            
+
 //        var messageRecord: CKRecord!
 //        var isEditingMessage: Bool!   // Flag declaration.
 //
@@ -197,6 +255,16 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 //                    self.groupMessageTableView.hidden = false
 //                })
 //            }
+        }
+    }
+
+    func saveData()
+    {
+        // display saved data
+        if let sentMessage = userDefaults.stringForKey("message")
+        {
+            messageString = "\(sentMessage)"
+
         }
     }
 }
