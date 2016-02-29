@@ -70,10 +70,11 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
-        cell.cellImageView?.image = UIImage(imageLiteral: "Kanye")
+        cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
         cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
         cell.cellTitleLabel.text = "Kanye West"
         cell.detailTextLabel?.text = "@kanye"
+        cell.cellGreenLightImage.hidden = false
         
         return cell
     }

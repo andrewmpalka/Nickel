@@ -50,6 +50,7 @@
 		A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */; };
 		A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33AB1C752DD4003930FB /* MenuViewController.swift */; };
 		A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */; };
+		B2C8BFF0009D981FB863CE51 /* Pods_Nickel_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE285332BE5CC673A2C80B4 /* Pods_Nickel_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DE285332BE5CC673A2C80B4 /* Pods_Nickel_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62EC5FDF2CB5FC5169FD4179 /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
 		4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4CFA6B971C83BC61004629E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,7 @@
 		A8D19FEA1C76845D00076A85 /* Nickel!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nickel!-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D19FEB1C76845E00076A85 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		C87A1C6134B601DE44EDC722 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
 		BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +161,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0372D5F4FC7AC9DF3940A2E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DE285332BE5CC673A2C80B4 /* Pods_Nickel_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F9B1E3F412C214BD93DBBDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C87A1C6134B601DE44EDC722 /* Pods-Nickel!.debug.xcconfig */,
+				62EC5FDF2CB5FC5169FD4179 /* Pods-Nickel!.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
