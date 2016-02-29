@@ -52,6 +52,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         self.title = "Message"
 
+
         // remove search bar border
         groupMessageSearchBar.backgroundImage = UIImage()
 
@@ -85,13 +86,14 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
 
     override func viewWillAppear(animated: Bool) {
+
         super.viewWillAppear(true)
+
+        self.groupMessageTableView.reloadData()
 
         if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
             entiretyOfGroupMessages = userDefaults.objectForKey("currentMessageRecordsForBusinessArray" ) as! [String]
-            self.groupMessageTableView.reloadData()
         }
-
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -110,6 +112,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.entiretyOfGroupMessages.count > 0 {
+
             return self.entiretyOfGroupMessages.count
         }
 
@@ -133,14 +136,11 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
 
-
         cell.messageNameLabel.text = "Kanye West"
 
-
-
-
         cell.messageTimeStamp.text = "4:20 PM"
-//        if !(sendGroupMessageTextField.text == "")
+
+//        if entiretyOfGroupMessages.count < 0
 //        {
         cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
 //        }
@@ -148,7 +148,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 //            cell.groupMessageTextField.text = "Type something! Start a conversation with your workspace"
 //        }
         saveData()
-
         return cell
     }
 
@@ -168,13 +167,14 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             userDefaults.setObject(sendGroupMessageTextField.text, forKey: "message")
             userDefaults.synchronize()
             saveData()
+
             sendGroupMessageTextField.resignFirstResponder()
             sendGroupMessageTextField.text = ""
 
-            self.entiretyOfGroupMessages.append(messageString)
-            groupMessageTableView.reloadData()
-            userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
+            self.entiretyOfGroupMessages.insert(messageString, atIndex: 0)
 
+            self.groupMessageTableView.reloadData()
+            userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
 
 
 //            addMessageToBusinessMessageList(<#T##bizRec: CKRecord##CKRecord#>, employeeRec: <#T##CKRecord#>, messageRec: <#T##CKRecord#>, message: <#T##String#>)
@@ -267,4 +267,5 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         }
     }
+
 }
