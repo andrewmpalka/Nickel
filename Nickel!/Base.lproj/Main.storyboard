@@ -641,7 +641,7 @@
                                     <constraint firstAttribute="height" constant="49" id="1jA-iR-AFD"/>
                                     <constraint firstAttribute="width" constant="261" id="pE0-gJ-gdu"/>
                                 </constraints>
-                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32549019607843138" green="0.32156862745098042" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
@@ -658,6 +658,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sf7-p9-ZRf"/>
+                                    <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="aIx-AG-D3B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioG-l6-lCh">
@@ -672,6 +673,7 @@
                                     <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="OnContinueTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="sQc-M5-Zvs"/>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk6-Vr-eid"/>
                                     <segue destination="bNL-gp-c1W" kind="show" id="ucl-Nf-vq0"/>
                                 </connections>
@@ -696,6 +698,7 @@
                     <connections>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
+                        <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="mYY-Sg-Pz8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfJ-dy-W3a" sceneMemberID="firstResponder"/>
@@ -730,7 +733,7 @@
                                     <constraint firstAttribute="width" constant="261" id="UVE-Ue-Bie"/>
                                     <constraint firstAttribute="height" constant="49" id="sVl-ka-7LU"/>
                                 </constraints>
-                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32549019610000002" green="0.32156862749999998" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1988,5 +1991,6 @@
         <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="P9f-Uf-xs3"/>
         <segue reference="6HL-pD-RxO"/>
+        <segue reference="mYY-Sg-Pz8"/>
     </inferredMetricsTieBreakers>
 </document>
