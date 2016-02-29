@@ -40,8 +40,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         //Locate the businesses current location //Jon Code
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
         
     }
     
@@ -73,6 +71,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         print(placemark.postalCode!)
         print(placemark.administrativeArea!)
         print(placemark.country!)
+        isYourLocation(self, location: placemark)
     }
     
     //Jon Code
@@ -113,6 +112,9 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBAction func onAddLocationTapped(sender: AnyObject) {
         //TODO make location popup work
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+
     }
     @IBAction func OnContinueTapped(sender: UIButton) {
         if userDefaults.valueForKey("PinkoSteve") != nil {

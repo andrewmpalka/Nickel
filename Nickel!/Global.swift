@@ -48,6 +48,27 @@ let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificat
 
 //MARK: Custom Alerts
 
+func isYourLocation(vc: SuperViewController, location: CLPlacemark) {
+    let alert = UIAlertController(title: "Is your location correct?", message: "\n\( location.locality!), \(location.administrativeArea!)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let action1 = UIAlertAction(title: "Yes", style: .Destructive) { action in
+        
+    }
+    let action2 = UIAlertAction(title: "Retry", style: .Destructive) { action in
+        
+    }
+    let action3 = UIAlertAction(title: "Cancel", style: .Destructive) { action in
+        
+    }
+    alert.addAction(action1)
+    alert.addAction(action2)
+    alert.addAction(action3)
+    
+    vc.presentViewController(alert, animated: false) { () in
+        print("Do Something")
+    }
+
+}
+
 func loadingAlert (loadMessage: String, vc: SuperViewController){
     let alert = UIAlertController(title: "One moment, please", message: loadMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
 //    alert.view.tintColor = DARK_GRAY_COLOR
@@ -66,7 +87,7 @@ func loadingAlert (loadMessage: String, vc: SuperViewController){
 
 func popAlertForNoText(vc: SuperViewController, textFieldNotDisplayingText: UITextField) {
     let noTextAlertController: UIAlertController = UIAlertController(title: "Please enter a valid response" ,
-        message: textFieldNotDisplayingText.placeholder,
+        message: "A business name should have at least 4 characters. \nTry adding \", Inc.\" if your name is too short",
         preferredStyle: .Alert)
     let noTextAlertAction: UIAlertAction = UIAlertAction(title: "Sorry, won't happen again!",
         style: UIAlertActionStyle.Cancel,
