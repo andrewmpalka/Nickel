@@ -1992,7 +1992,7 @@
     <resources>
         <image name="Kanye" width="500" height="500"/>
         <image name="google" width="1000" height="1000"/>
-        <image name="salmonLight" width="1000" height="1000"/>
+        <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ux9-PP-W9F"/>
