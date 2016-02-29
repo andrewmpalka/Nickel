@@ -111,12 +111,22 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         return false
     }
     
+    @IBAction func onAddLocationTapped(sender: AnyObject) {
+        //TODO make location popup work
+    }
+    @IBAction func OnContinueTapped(sender: UIButton) {
+        if userDefaults.valueForKey("PinkoSteve") != nil {
+        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+        } else {
+            
+        }
+    }
+
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField, indicator: 1) {
 //            createBusiness()
             
-//TODO MODIFY NewBusinessHelper
-        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+//TODO MODIFY NewBusinessHelper MOVE IT TO CONTINUE
 
 
 //            self.appDelegate.reveal()

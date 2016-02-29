@@ -658,6 +658,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sf7-p9-ZRf"/>
+                                    <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="0cE-n5-kGH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioG-l6-lCh">
@@ -672,6 +673,7 @@
                                     <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="OnAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="fRm-YI-Gb4"/>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk6-Vr-eid"/>
                                     <segue destination="bNL-gp-c1W" kind="show" id="ucl-Nf-vq0"/>
                                 </connections>
