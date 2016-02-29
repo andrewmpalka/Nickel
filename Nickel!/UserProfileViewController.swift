@@ -28,5 +28,12 @@ class UserProfileViewController: SuperViewController {
             messageButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+            self.memberImageView.image = profilePicture
+        }
+    }
 
 }

@@ -35,18 +35,27 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         self.view.addGestureRecognizer(hideTap)
         
         // tap to choose image
-        let imgTap = UITapGestureRecognizer(target: self, action: "loadImg:")
-        imgTap.numberOfTapsRequired = 1
+        let imageTap = UITapGestureRecognizer(target: self, action: "loadImg:")
+        imageTap.numberOfTapsRequired = 1
         profileImageView.userInteractionEnabled = true
-        profileImageView.addGestureRecognizer(imgTap)
+        profileImageView.addGestureRecognizer(imageTap)
         
         
         //rounds the image from a square to circle
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
         
-        // call alignment function
-        alignment()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("userPicture") != nil {
+         self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+        self.profileImageView.image = profilePicture
+        }
+        
         
     }
     
@@ -55,13 +64,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         self.view.endEditing(true)
     }
     
-    //Custom Function: Alignment
-    
-    func alignment() {
-        
-        //programatically assign page elements if necessary
-        
-    }
     
     // func to call UIImagePickerController
     func loadImg (recognizer : UITapGestureRecognizer) {
@@ -75,7 +77,13 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     //Method to finalize actions with UIImagePickerController
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         profileImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        let data = self.digitizePicture(profileImageView.image!)
+        userDefaults.setValue(data, forKey: "userPicture")
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -98,13 +106,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     //MARK: TextField Delegate Functions
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
-    }
-
-    @IBAction func editProfilePictureTapped(sender: AnyObject) {
-        
-        // send profile picture
-
-        
     }
     
     

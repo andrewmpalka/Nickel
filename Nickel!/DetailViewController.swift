@@ -37,6 +37,14 @@ class DetailViewController: SuperViewController {
 
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+            self.imageView.image = profilePicture
+        }
+    }
+
 
 
 }

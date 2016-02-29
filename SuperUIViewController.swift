@@ -17,6 +17,7 @@ class SuperViewController: UIViewController {
     
     var localUser: User?
     var profilePicture: UIImage?
+    var companyProfilePicture: UIImage?
     var checkIndicator = userDefaults.boolForKey("checkIn")
     var controllerThatNeedsToBeDismissed = UIAlertController?()
     
@@ -57,5 +58,9 @@ extension SuperViewController {
     }
     func profilePicFromData(data: NSData) {
         profilePicture = UIImage(data: data, scale: 1)
+    }
+    
+    func companyProfilePicFromData(data: NSData) {
+        companyProfilePicture = UIImage(data: data, scale: 1)
     }
 }
