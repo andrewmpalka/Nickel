@@ -25,6 +25,7 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         self.iCloudLoginAction()
+        loadingAlert(self)
         return resignFirstResponder()
     }
     // Action to be called when the user taps "login with iCloud"
@@ -71,6 +72,8 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                         self.cloudHelper!.getUserInfo(self.aUser!, completionHandler: { (success, user) -> () in
                             if success {
                                 completionHandler(success: true)
+                                alertConst.removeFromParentViewController()
+
                             }
                         })
                     } else {

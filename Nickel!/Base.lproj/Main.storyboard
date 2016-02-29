@@ -642,7 +642,7 @@
                                     <constraint firstAttribute="width" constant="261" id="pE0-gJ-gdu"/>
                                 </constraints>
                                 <color key="textColor" red="0.32549019607843138" green="0.32156862745098042" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-RZ-md2">
@@ -675,7 +675,6 @@
                                 <connections>
                                     <action selector="OnContinueTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="sQc-M5-Zvs"/>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk6-Vr-eid"/>
-                                    <segue destination="bNL-gp-c1W" kind="show" id="ucl-Nf-vq0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -697,6 +696,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
+                        <outlet property="continueButton" destination="ioG-l6-lCh" id="65I-nA-vUd"/>
+                        <outlet property="locationButton" destination="HTV-RZ-md2" id="mL6-0Q-5vY"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                         <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="mYY-Sg-Pz8"/>
                     </connections>
@@ -1988,9 +1989,8 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="P9f-Uf-xs3"/>
+        <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="6HL-pD-RxO"/>
-        <segue reference="mYY-Sg-Pz8"/>
     </inferredMetricsTieBreakers>
 </document>

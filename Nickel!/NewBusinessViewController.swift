@@ -32,7 +32,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         super.viewDidLoad()
 
         self.title = "Nickel"
-        
+        self.continueButton.hidden = true
 
         self.businessNameTextField.delegate = self
         //coreLocationManager.delegate = self //prior code
@@ -114,15 +114,18 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         //TODO make location popup work
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        self.continueButton.hidden = false
 
     }
     @IBAction func OnContinueTapped(sender: UIButton) {
-        if userDefaults.valueForKey("PinkoSteve") != nil {
+        
+        if textFieldChecker(businessNameTextField, indicator: 1) {
         self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
-        } else {
+        performSegueWithIdentifier("iCloudSegue", sender: self)
+        }
             
         }
-    }
+    
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textFieldChecker(self.businessNameTextField, indicator: 1) {

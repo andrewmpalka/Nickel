@@ -140,13 +140,13 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
 
         cell.messageTimeStamp.text = "4:20 PM"
-//        if !(sendGroupMessageTextField.text == "")
-//        {
+        if !(sendGroupMessageTextField.text == "")
+        {
         cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
-//        }
-//        else {
-//            cell.groupMessageTextField.text = "Type something! Start a conversation with your workspace"
-//        }
+        }
+        else {
+            cell.groupMessageTextField.text = "Type something! Start a conversation with your workspace"
+        }
         saveData()
 
         return cell

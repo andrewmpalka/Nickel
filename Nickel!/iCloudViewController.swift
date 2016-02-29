@@ -139,7 +139,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         
         let predicate = NSPredicate(format: "uid == %@", uidTextField.text!)
         let query = CKQuery(recordType: "Businesses", predicate: predicate)
-        loadingAlert("Joining Group...", vc: self)
+        loadingAlert(self)
         
         publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
             if error != nil {

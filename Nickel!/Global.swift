@@ -39,6 +39,7 @@ let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMes
 let defaultVisibleEmployeeRecordIDsAsArrayOfString = userDefaults.valueForKey("visibleEmployees")
 
 
+let alertConst = UIAlertController(title: "One moment, please", message: "We are setting up your workspace", preferredStyle: UIAlertControllerStyle.ActionSheet)
 
 
 
@@ -69,8 +70,8 @@ func isYourLocation(vc: SuperViewController, location: CLPlacemark) {
 
 }
 
-func loadingAlert (loadMessage: String, vc: SuperViewController){
-    let alert = UIAlertController(title: "One moment, please", message: loadMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
+func loadingAlert (vc: SuperViewController){
+//    let alert = UIAlertController(title: "One moment, please", message: loadMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
 //    alert.view.tintColor = DARK_GRAY_COLOR
 //    alert.view.backgroundColor = LIGHT_GRAY_COLOR
 
@@ -80,8 +81,8 @@ func loadingAlert (loadMessage: String, vc: SuperViewController){
     
     
 
-    alert.addAction(action)
-    vc.presentViewController(alert, animated: true, completion: nil)
+    alertConst.addAction(action)
+    vc.presentViewController(alertConst, animated: true, completion: nil)
     
 }
 
