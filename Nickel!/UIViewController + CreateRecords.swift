@@ -154,14 +154,16 @@ extension SuperViewController {
                 arrayOfRecords.append(reference)
                 
             }
-            
-            userDefaults.setValue(arrayOfRecords, forKey: "currentEmployeeRecordsArray")
+                self.createArrayOfRecordNamesFromArrayOfReferencesAndThenSaveThatToUserDefaults(arrayOfRecords)
+//            userDefaults.setValue(arrayOfRecords, forKey: "currentEmployeeRecordsArray")
             
         } else {
             arrayOfRecords.append(ref)
-            let recordName = ref.recordID.recordName
+            let recordName = ref
             let initialAddToArrayOfRecords: Array = [recordName]
-            userDefaults.setValue(initialAddToArrayOfRecords, forKey: "currentEmployeeRecordsArray")
+//            userDefaults.setValue(initialAddToArrayOfRecords, forKey: "currentEmployeeRecordsArray")
+            self.createArrayOfRecordNamesFromArrayOfReferencesAndThenSaveThatToUserDefaults(initialAddToArrayOfRecords)
+            
         }
         print("A/nR/nR/nA/nY")
         print(arrayOfRecords)
@@ -207,6 +209,19 @@ extension SuperViewController {
         publicDatabase.addOperation(fetchOp)
     }
     
+    func createArrayOfRecordNamesFromArrayOfReferencesAndThenSaveThatToUserDefaults(array: [CKReference]) {
+        var stringArray:[String]?
+        for record in array {
+        
+        let string = record.recordID.recordName
+            
+        stringArray?.append(string)
+        }
+        
+        
+        userDefaults.setValue(stringArray, forKey: "currentEmployeeRecordsArray")
+        
+    }
     
     func addMessageToBusinessMessageList(bizRec: CKRecord, employeeRec: CKRecord, messageRec: CKRecord, message: String) {
         

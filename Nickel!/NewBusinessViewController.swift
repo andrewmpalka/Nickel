@@ -71,10 +71,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     func displayLocationInfo(placemark: CLPlacemark) {
         
         self.locationManager.stopUpdatingLocation()
-        print(placemark.locality)
-        print(placemark.postalCode)
-        print(placemark.administrativeArea)
-        print(placemark.country)
+        print(placemark.locality!)
+        print(placemark.postalCode!)
+        print(placemark.administrativeArea!)
+        print(placemark.country!)
     }
     
     //Jon Code
@@ -89,7 +89,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
 //MARK UITextField Functions
     
     func textFieldDidEndEditing(textField: UITextField) {
-        self.locationButton.backgroundColor = SALMON_COLOR
+//        self.locationButton.backgroundColor = SALMON_COLOR
     }
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
