@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FJj-Km-tFV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -282,7 +282,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="XkW-4v-nqq"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="membersOnlineLabel" destination="FB3-xt-jBF" id="gd8-cq-ZUa"/>
                         <outlet property="menuButton" destination="XkW-4v-nqq" id="F2a-nE-a7K"/>
                         <outlet property="tableView" destination="ezc-gx-Ts8" id="oNd-vZ-7qn"/>
                     </connections>
@@ -1995,8 +1994,8 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ux9-PP-W9F"/>
-        <segue reference="6HL-pD-RxO"/>
+        <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="qJI-Yr-grg"/>
+        <segue reference="cFM-l9-Uqr"/>
     </inferredMetricsTieBreakers>
 </document>
