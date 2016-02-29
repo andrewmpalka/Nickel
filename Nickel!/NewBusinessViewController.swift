@@ -129,7 +129,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     func dismissKeyboard(){
         self.setEditing(false, animated: true)
     }
+    
+    
  //MARK CK Custom Functions
+    
     func setUID(business: CKRecord, employee: CKRecord) {
         let timestamp = String(NSDate.timeIntervalSinceReferenceDate())
         let timestampParts = timestamp.componentsSeparatedByString(".")

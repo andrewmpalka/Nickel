@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FJj-Km-tFV">
+=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JKC-hR-xIx">
+>>>>>>> 442e3ac88b87998aaa104f6956ae989a1252ee59
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -191,7 +195,11 @@
                                         <rect key="frame" x="0.0" y="92" width="383" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vSR-J9-Qqx" id="gyz-eZ-n55">
+<<<<<<< HEAD
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="89"/>
+=======
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="89.5"/>
+>>>>>>> 442e3ac88b87998aaa104f6956ae989a1252ee59
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kanye" translatesAutoresizingMaskIntoConstraints="NO" id="Nh3-m7-hHR">
@@ -2001,6 +2009,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZCJ-N7-Ejz"/>
         <segue reference="P9f-Uf-xs3"/>
+<<<<<<< HEAD
+        <segue reference="mHL-8X-KiJ"/>
+=======
         <segue reference="6HL-pD-RxO"/>
+>>>>>>> 442e3ac88b87998aaa104f6956ae989a1252ee59
     </inferredMetricsTieBreakers>
 </document>
