@@ -645,17 +645,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Business Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ki-ys-hWt">
-                                <rect key="frame" x="54" y="595" width="267" height="30"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="267" id="P00-A9-krG"/>
-                                    <constraint firstAttribute="height" constant="30" id="SGR-HF-6cf"/>
-                                </constraints>
-                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-RZ-md2">
                                 <rect key="frame" x="57" y="207" width="261" height="49"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -694,12 +683,10 @@
                             <constraint firstItem="GYG-Ur-45V" firstAttribute="top" secondItem="svg-Qe-Fvq" secondAttribute="bottom" constant="39" id="4Kp-tI-pGf"/>
                             <constraint firstItem="wBT-2n-WiX" firstAttribute="top" secondItem="GYG-Ur-45V" secondAttribute="bottom" constant="8" id="AUn-xo-jyk"/>
                             <constraint firstItem="ioG-l6-lCh" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="ELX-uR-oDF"/>
-                            <constraint firstItem="6Ki-ys-hWt" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="IVw-Ec-V6y"/>
                             <constraint firstItem="HTV-RZ-md2" firstAttribute="top" secondItem="wBT-2n-WiX" secondAttribute="bottom" constant="8" id="LN1-O9-aA6"/>
                             <constraint firstItem="ioG-l6-lCh" firstAttribute="top" secondItem="HTV-RZ-md2" secondAttribute="bottom" constant="8" id="Q3I-B1-Fzc"/>
                             <constraint firstItem="HTV-RZ-md2" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="cOb-rd-spR"/>
                             <constraint firstItem="wBT-2n-WiX" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="seT-Nc-dYf"/>
-                            <constraint firstItem="Qn8-1l-8gp" firstAttribute="top" secondItem="6Ki-ys-hWt" secondAttribute="bottom" constant="42" id="wge-kp-0l1"/>
                             <constraint firstItem="GYG-Ur-45V" firstAttribute="leading" secondItem="5bI-JE-45S" secondAttribute="leadingMargin" id="xDH-v1-YqD"/>
                         </constraints>
                     </view>
@@ -707,7 +694,6 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Q9L-BG-Vi8"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="businessEmailTextField" destination="6Ki-ys-hWt" id="Ued-Jc-5kT"/>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                     </connections>
