@@ -15,7 +15,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBOutlet weak var businessNameTextField: UITextField!
     
-    @IBOutlet weak var businessEmailTextField: UITextField!
     
     @IBOutlet weak var locationButton: UIButton!
     
@@ -35,7 +34,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         self.title = "Nickel"
         
 
-        self.businessEmailTextField.delegate = self
         self.businessNameTextField.delegate = self
         //coreLocationManager.delegate = self //prior code
         
@@ -100,7 +98,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
             else {
                 textField.textColor = .redColor()
                 if textField == businessNameTextField {
-                    businessEmailTextField.enabled = false
+//                    businessEmailTextField.enabled = false
                     popAlertForNoText(self, textFieldNotDisplayingText: textField)
                 } else {
                     popAlertForNoText(self, textFieldNotDisplayingText: textField)
@@ -114,11 +112,12 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textFieldChecker(self.businessNameTextField, indicator: 1) && textFieldChecker(self.businessEmailTextField, indicator: 2) {
+        if textFieldChecker(self.businessNameTextField, indicator: 1) {
 //            createBusiness()
             
-        self.newBusinessHelper(self.businessNameTextField, email: self.businessEmailTextField, location: placePlacerholder)
-            self.performSegueWithIdentifier("iCloudSegue", sender: self)
+//TODO MODIFY NewBusinessHelper
+        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+
 
 //            self.appDelegate.reveal()
 
