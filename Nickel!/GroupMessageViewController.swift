@@ -30,14 +30,11 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     Each dictionary is a unique post, seperated into keys
     
     "user": Employee.sharedInstance
-    "messageString: messageString
+    "messageString": messageString
     "timeStampString": timeStampString
-    
-    
+
     */
-    
-    
-    
+
     
     // method for timeStamp
     let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
@@ -57,23 +54,13 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     // empty array for Users
     var entiretyOfUsers: [String] = []
     
-    
-    // delclare delegate property
-    //    var delegate: EditMessageViewControllerDelegate!
-    
-    // make an array of type CKRecord
-    //    var messagesArray: Array<CKRecord> = []
-    
-    // declare property. the "editedNoteRecored" is the CDRecord object the should be edited after it is selected
-    //    var editedMessageRecord: CKRecord!
-    
-    //    var messageRecord: CKRecord!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.groupMessageTableView.reloadData()
-        
+//        self.groupMessageTableView.reloadData()
+
         self.title = "Message"
         
         // remove search bar border
@@ -89,16 +76,8 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         
         self.sendGroupMessageTextField.delegate = self
         
-        
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
-        
-        //        fetchMessages()
-        
-        //        if let editedMessage = editedMessageRecord
-        //        {
-        //        sendGroupMessageTextField.text = editedMessage.valueForKey("PubliceMessage") as? String
-        //        }
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
@@ -117,7 +96,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         //        saveData()
         
         self.groupMessageTableView.reloadData()
-        
+
         if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
             entiretyOfGroupMessages = userDefaults.objectForKey("currentMessageRecordsForBusinessArray" ) as! [String]
         } else {
@@ -154,7 +133,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             
             return self.entiretyOfGroupMessages.count
         }
-        
         return 1
     }
     
@@ -163,6 +141,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
         
         if self.postAsArrayOfDictionaries.count > 0 {
+            
             let contents = self.postAsArrayOfDictionaries[indexPath.row]
             
             let poster = contents["user"] as! CKRecord
@@ -189,7 +168,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
                 cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
             }
             else {
-                print(entiretyOfGroupMessages.description)
+                print("Users array: (entiretyOfGroupMessages.description)")
             }
             
             if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
@@ -197,7 +176,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
                 cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
             }
             else {
-                print(timeStampOfUsers.description)
+                print("Timestamp Array: \(timeStampOfUsers.description)")
             }
         }
         return cell
@@ -226,86 +205,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             
             self.groupMessageTableView.reloadData()
             userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
-            
-            
-            //            addMessageToBusinessMessageList(<#T##bizRec: CKRecord##CKRecord#>, employeeRec: <#T##CKRecord#>, messageRec: <#T##CKRecord#>, message: <#T##String#>)
-            
-            //        var messageRecord: CKRecord!
-            //        var isEditingMessage: Bool!   // Flag declaration.
-            //
-            //        if let editedMessage = editedMessageRecord {
-            //            messageRecord = editedMessage
-            //
-            //            isEditingMessage = true // True because a note record has been edited.
-            //        }
-            //
-            //        else
-            //        {
-            //
-            //        // add a time stamp and use it as a unique identifier
-            //        let timestampAsString = String(format: "%f", NSDate.timeIntervalSinceReferenceDate())
-            //        let timestampParts = timestampAsString.componentsSeparatedByString(".")
-            //
-            //        // create "messageID" object which is the key to new record
-            //        let messageID = CKRecordID(recordName: timestampParts[0])
-            //
-            //        // set messageRecord to the data we want to be saved and set the values
-            //
-            ////        messageRecord = CKRecord(recordType: "Users", recordID: messageID)
-            //
-            //            isEditingMessage = false   // False because it's a new note record.
-            //        }
-            //        messageRecord.setObject(sendGroupMessageTextField.text, forKey: "PublicMessage")
-            //        messageRecord.setObject(NSDate(), forKey: "Timestamp")
-            //
-            //        // specify the container that is used in the app (in this case the default public one)
-            //        let container = CKContainer.defaultContainer()
-            //        let publicDatabase = container.publicCloudDatabase
-            //
-            //        // now we can SAVE the record to CLOUDKIT
-            //        publicDatabase.saveRecord(messageRecord, completionHandler: { (record, error) -> Void in
-            //            if (error != nil) {
-            //                print(error)
-            //            }
-            //                // call the delegate method we declared with else case the indicates saving succussful
-            //            else {
-            //                self.delegate.didSaveMessage(messageRecord, wasEditingMessage: isEditingMessage)
-            //            }
-            //        })
-            //
-            //        sendGroupMessageTextField.resignFirstResponder()
-            //    }
-            //}
-            //
-            //    // access the default container and the private database and creatate a query object so we can get the records we want
-            //
-            //    func fetchMessages() {
-            //
-            //        // specify the container that is used in the app (in this case the default public one)
-            //        let predicate = NSPredicate(value: true)
-            //
-            //        // CKQuesry accepts two arguments, the name of the record scheme (notes) and the predicate
-            //        let query = CKQuery(recordType: "Users", predicate: predicate)
-            //
-            //        // now run the query
-            //        privateDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
-            //            if error != nil {
-            //                print(error)
-            //            }
-            //            else {
-            //                // print results so you can see what the fetched records contain
-            //                print(results)
-            //
-            //                // keep all the found records in the arrNotes array
-            //                for result in results! {
-            //                    self.messagesArray.append(result as! CKRecord)
-            //                }
-            //
-            //                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-            //                    self.groupMessageTableView.reloadData()
-            //                    self.groupMessageTableView.hidden = false
-            //                })
-            //            }
+
         }
     }
     
