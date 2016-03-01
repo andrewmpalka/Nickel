@@ -28,7 +28,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-//            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            //            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
         self.title = "Nickel"
@@ -59,7 +59,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                         }
                     }
                     else {
-
+                        
                         print("W U T I S G O I N G O N")
                     }
                 }
@@ -104,20 +104,36 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         return 0
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
-        cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
-        cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-        cell.cellTitleLabel.text = "Kanye West"
-        cell.detailTextLabel?.text = "@Kanye"
-        cell.cellGreenLightImage.hidden = false
         
-        //For data saved to Cloudkit will override the default cell
-        if profilePicture != nil {
-            cell.cellImageView.image = profilePicture
+        if User.sharedInstance.name != nil {
+            cell.cellTitleLabel.text = User.sharedInstance.name
+        }
+        if User.sharedInstance.nickname != nil {
+            cell.detailTextLabel?.text = User.sharedInstance.nickname
+        }
+        
+        //Andy's code
+        if self.memberArray.count > 0 {
+            let member = memberArray[indexPath.row]
+            
+            if member.valueForKey("ProfilePictureAsNSData") != nil {
+                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
+            }
+            //        let pic = self.profilePicFromData(data)
+            
+            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+            if profilePicture != nil {
+                cell.cellImageView.image = profilePicture
+            } else {
+                cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
+            }
+            
             print(member.recordID.recordName)
             cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
+            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
+            
             //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
             
         } else {
@@ -130,12 +146,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             if profilePicture != nil {
                 cell.cellImageView.image = profilePicture
             }
-        }
-        if User.sharedInstance.name != nil {
-            cell.cellTitleLabel.text = User.sharedInstance.name
-        }
-        if User.sharedInstance.nickname != nil {
-            cell.detailTextLabel?.text = User.sharedInstance.nickname
         }
         
         return cell
