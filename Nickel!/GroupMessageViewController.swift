@@ -24,15 +24,23 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     // empty string for Message
     var messageString = ""
 
+    // method for timeStamp
+    let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
+    // empty string for TimeStamp
+    var timeStampString = ""
+
     // empty string for User
     var userName = ""
 
     // empty array for Messages
     var entiretyOfGroupMessages: [String] = []
 
-    // empty arry for Users
-    var entiretyOfUsers: [String] = []
+    // empty arry for TimeStamp
+    var timeStampOfUsers: [String] = []
 
+    // empty array for Users
+    var entiretyOfUsers: [String] = []
 
     // delclare delegate property
 //    var delegate: EditMessageViewControllerDelegate!
@@ -48,10 +56,9 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        saveData()
+        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
-
 
         // remove search bar border
         groupMessageSearchBar.backgroundImage = UIImage()
@@ -89,10 +96,14 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         super.viewWillAppear(true)
 
+//        saveData()
+
         self.groupMessageTableView.reloadData()
 
         if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
             entiretyOfGroupMessages = userDefaults.objectForKey("currentMessageRecordsForBusinessArray" ) as! [String]
+        } else {
+            entiretyOfGroupMessages.append("Type something! Start a conversation with your workspace")
         }
     }
 
@@ -123,41 +134,27 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
 
-        // assign each object of the arrNotes array to a local variable
-//        let messageRecord: CKRecord = messagesArray[indexPath.row]
-
-//        cell.groupMessageTextField.text = messageRecord.valueForKey("PubliceMessage") as? String
-
-        // convert date to a String using NSDateForamatter
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
-
-//        cell.messageTimeStamp.text = dateFormatter.stringFromDate(messageRecord.valueForKey("Timestamp") as! NSDate)
-
         cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
-
         cell.messageNameLabel.text = "Kanye West"
 
-        cell.messageTimeStamp.text = "4:20 PM"
-
-
-
-        cell.messageTimeStamp.text = "4:20 PM"
-        if !(sendGroupMessageTextField.text == "")
+        if entiretyOfGroupMessages.count > 0
         {
         cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
         }
         else {
-            cell.groupMessageTextField.text = "Type something! Start a conversation with your workspace"
+            print(entiretyOfGroupMessages.description)
         }
-        saveData()
+
+        if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
+        {
+            cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
+        }
+        else {
+            print(timeStampOfUsers.description)
+        }
         return cell
     }
 
-    @IBAction func DismissKeyboard(sender: AnyObject) {
-
-        self.resignFirstResponder()
-    }
 
     @IBAction func onSendButtonTapped(sender: AnyObject) {
 //TODO add messageString to self.entiretyOfGroupMessages array via .append(messageString)
@@ -168,13 +165,16 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
             // save data to NS User Defaults
             userDefaults.setObject(sendGroupMessageTextField.text, forKey: "message")
+            userDefaults.setObject(timestamp, forKey: "timeStamp")
             userDefaults.synchronize()
             saveData()
+            groupMessageTableView.reloadData()
 
             sendGroupMessageTextField.resignFirstResponder()
             sendGroupMessageTextField.text = ""
 
             self.entiretyOfGroupMessages.insert(messageString, atIndex: 0)
+            self.timeStampOfUsers.insert(timeStampString, atIndex: 0)
 
             self.groupMessageTableView.reloadData()
             userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
@@ -269,6 +269,14 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             messageString = "\(sentMessage)"
 
         }
-    }
+        if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
+        {
+            timeStampString = "\(sentTimeStamp)"
 
+        }
+    }
 }
+
+
+
+

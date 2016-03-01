@@ -16,7 +16,6 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var companyImageView: UIImageView!
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +32,6 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
         imgTap.numberOfTapsRequired = 1
         companyImageView.userInteractionEnabled = true
         companyImageView.addGestureRecognizer(imgTap)
-        
         
         //rounds the image from a square to circle
         companyImageView.layer.cornerRadius = companyImageView.frame.size.width / 2
