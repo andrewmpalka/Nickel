@@ -43,28 +43,31 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         self.automaticallyAdjustsScrollViewInsets = false
         
         if Business.sharedInstance.objectForKey("UIDEmployees") != nil {
-        let references = Business.sharedInstance.objectForKey("UIDEmployees") as! [CKReference]
-        
-        let singleRef = references[0]
-        
-        self.getOneRecordOfType("Employees", reference: singleRef)
-        
-        let possiblyTaintedArray = [self.begottenRecord]
+            let references = Business.sharedInstance.objectForKey("UIDEmployees") as! [CKReference]
+            
+            let singleRef = references[0]
+            
+            self.getOneRecordOfType("Employees", reference: singleRef)
+            
+            let possiblyTaintedArray = [self.begottenRecord]
             var cleanArray: [CKRecord] = []
             var straightUpDisgustingArray: [CKRecord] = []
             if possiblyTaintedArray.count > 0 {
-            for possibleTaint in possiblyTaintedArray {
-            
-                if possibleTaint?.valueForKey("Name") != nil {
-                    cleanArray.append(possibleTaint!)
-                } else {
-                    straightUpDisgustingArray.append(possibleTaint!)
+                for possibleTaint in possiblyTaintedArray {
+                    if possibleTaint != nil {
+                        if possibleTaint!.valueForKey("Name") != nil {
+                            cleanArray.append(possibleTaint!)
+                        } else {
+                            straightUpDisgustingArray.append(possibleTaint!)
+                        }
+                    }
+                    else {
+
+                        print("W U T I S G O I N G O N")
+                    }
                 }
-            }
-            memberArray = cleanArray
-            print("BINGO \(straightUpDisgustingArray.description)")
-            } else {
-            print("W U T I S G O I N G O N")
+                memberArray = cleanArray
+                print("BINGO \(straightUpDisgustingArray.description)")
             }
         }
         
@@ -86,7 +89,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-    
+        
         
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
@@ -108,18 +111,18 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
         if self.memberArray.count > 0 {
-        let member = memberArray[indexPath.row]
-        
-            if member.valueForKey("ProfilePictureAsNSData") != nil {
-        let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
-            }
-//        let pic = self.profilePicFromData(data)
+            let member = memberArray[indexPath.row]
             
-        cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-        cell.cellImageView.image = profilePicture
-        print(member.recordID.recordName)
-        cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
-//        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
+            if member.valueForKey("ProfilePictureAsNSData") != nil {
+                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
+            }
+            //        let pic = self.profilePicFromData(data)
+            
+            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+            cell.cellImageView.image = profilePicture
+            print(member.recordID.recordName)
+            cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
+            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
             
         } else {
             cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
