@@ -47,20 +47,25 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         let singleRef = references[0]
         
-        let possiblyTaintedArray = [self.getOneRecordOfType("Employees", reference: singleRef)]
+        self.getOneRecordOfType("Employees", reference: singleRef)
+        
+        let possiblyTaintedArray = [self.begottenRecord]
             var cleanArray: [CKRecord] = []
             var straightUpDisgustingArray: [CKRecord] = []
-        
+            if possiblyTaintedArray.count > 0 {
             for possibleTaint in possiblyTaintedArray {
             
-                if possibleTaint.valueForKey("Name") != nil {
-                    cleanArray.append(possibleTaint)
+                if possibleTaint?.valueForKey("Name") != nil {
+                    cleanArray.append(possibleTaint!)
                 } else {
-                    straightUpDisgustingArray.append(possibleTaint)
+                    straightUpDisgustingArray.append(possibleTaint!)
                 }
             }
             memberArray = cleanArray
             print("BINGO \(straightUpDisgustingArray.description)")
+            } else {
+            print("W U T I S G O I N G O N")
+            }
         }
         
         if self.revealViewController() != nil {
@@ -93,6 +98,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if self.memberArray.count > 0 {
+            
             return self.memberArray.count
         }
         

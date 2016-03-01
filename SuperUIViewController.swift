@@ -25,6 +25,8 @@ class SuperViewController: UIViewController {
     
     var testEmployeesInBizRecord: CKRecord?
     var employeesInBizRecord: [CKRecord]?
+    
+    var begottenRecord: CKRecord?
 }
 
 extension SuperViewController {
