@@ -17,7 +17,8 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
-
+    
+    var user: User?
     
     // value to hold keyboard frmae size
     var keyboard = CGRect()
@@ -27,6 +28,23 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         super.viewDidLoad()
 
         self.title = "Edit Profile"
+        
+        
+        if User.sharedInstance.name != nil {
+            firstNameLabel.text = User.sharedInstance.name
+        }
+        
+        if User.sharedInstance.nickname != nil {
+            handleLabel.text = User.sharedInstance.nickname
+        }
+        
+        if User.sharedInstance.positionTitle != nil {
+            userRoleLabel.text = User.sharedInstance.positionTitle
+        }
+        
+        if User.sharedInstance.emailAddress != nil {
+            emailLabel.text = User.sharedInstance.emailAddress
+        }
         
         // tap to hide keyboard
         let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")
@@ -55,7 +73,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
          self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         self.profileImageView.image = profilePicture
         }
-        
         
     }
     
@@ -121,11 +138,9 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         
         // save filled in information and send to CK
         User.sharedInstance.name = self.firstNameLabel.text
-        User.sharedInstance.name = self.lastNameLabel.text
         User.sharedInstance.nickname = self.handleLabel.text
         User.sharedInstance.positionTitle = self.userRoleLabel.text
         User.sharedInstance.emailAddress = self.emailLabel.text
-        User.sharedInstance.profilePic = self.profileImageView.image
     
 
     }

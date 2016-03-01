@@ -52,10 +52,12 @@ extension SuperViewController {
         
         userDefaults.setValue(userPropertiesDictionary, forKey: "sharedInstanceOfUserAsDictionary")
     }
+    
     func digitizePicture(pic: UIImage) -> NSData {
         let data = UIImagePNGRepresentation(pic)
         return data!
     }
+    
     func profilePicFromData(data: NSData) {
         profilePicture = UIImage(data: data, scale: 1)
     }
