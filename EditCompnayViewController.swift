@@ -39,6 +39,13 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("companyPicture") != nil {
+            self.companyProfilePicFromData(userDefaults.valueForKey("companyPicture") as! NSData)
+            self.companyImageView.image = companyProfilePicture
+        }
+    }
+    
     // Custom Function: to hide keyboard
     func hideKeyboard() {
         self.view.endEditing(true)
@@ -56,6 +63,8 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
     //Method to finalize actions with UIImagePickerController
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         companyImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        let data = self.digitizePicture(companyImageView.image!)
+        userDefaults.setValue(data, forKey: "companyPicture")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -17,8 +17,7 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
-
-    
+        
     // value to hold keyboard frmae size
     var keyboard = CGRect()
 
@@ -28,6 +27,23 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
 
         self.title = "Edit Profile"
         
+        
+        if User.sharedInstance.name != nil {
+            firstNameLabel.text = User.sharedInstance.name
+        }
+        
+        if User.sharedInstance.nickname != nil {
+            handleLabel.text = User.sharedInstance.nickname
+        }
+        
+        if User.sharedInstance.positionTitle != nil {
+            userRoleLabel.text = User.sharedInstance.positionTitle
+        }
+        
+        if User.sharedInstance.emailAddress != nil {
+            emailLabel.text = User.sharedInstance.emailAddress
+        }
+        
         // tap to hide keyboard
         let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")
         hideTap.numberOfTapsRequired = 1
@@ -35,18 +51,26 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         self.view.addGestureRecognizer(hideTap)
         
         // tap to choose image
-        let imgTap = UITapGestureRecognizer(target: self, action: "loadImg:")
-        imgTap.numberOfTapsRequired = 1
+        let imageTap = UITapGestureRecognizer(target: self, action: "loadImg:")
+        imageTap.numberOfTapsRequired = 1
         profileImageView.userInteractionEnabled = true
-        profileImageView.addGestureRecognizer(imgTap)
+        profileImageView.addGestureRecognizer(imageTap)
         
         
         //rounds the image from a square to circle
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
         
-        // call alignment function
-        alignment()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("userPicture") != nil {
+         self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+        self.profileImageView.image = profilePicture
+        }
         
     }
     
@@ -55,13 +79,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         self.view.endEditing(true)
     }
     
-    //Custom Function: Alignment
-    
-    func alignment() {
-        
-        //programatically assign page elements if necessary
-        
-    }
     
     // func to call UIImagePickerController
     func loadImg (recognizer : UITapGestureRecognizer) {
@@ -75,7 +92,13 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     //Method to finalize actions with UIImagePickerController
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         profileImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        let data = self.digitizePicture(profileImageView.image!)
+        userDefaults.setValue(data, forKey: "userPicture")
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -99,13 +122,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
-
-    @IBAction func editProfilePictureTapped(sender: AnyObject) {
-        
-        // send profile picture
-
-        
-    }
     
     
     //User pressed the save button to update the profile information
@@ -120,32 +136,11 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         
         // save filled in information and send to CK
         User.sharedInstance.name = self.firstNameLabel.text
-        User.sharedInstance.name = self.lastNameLabel.text
         User.sharedInstance.nickname = self.handleLabel.text
         User.sharedInstance.positionTitle = self.userRoleLabel.text
         User.sharedInstance.emailAddress = self.emailLabel.text
-        User.sharedInstance.profilePic = self.profileImageView.image
     
 
     }
-
-    @IBAction func firstNameEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func lastNameEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func handleEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func roleEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func emailEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-
-
-
-
-}
+    
+}//end of class

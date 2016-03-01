@@ -36,6 +36,13 @@ class CompanyProfileViewController: SuperViewController {
         }
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("companyPicture") != nil {
+            self.companyProfilePicFromData(userDefaults.valueForKey("companyPicture") as! NSData)
+            self.companyImageView.image = companyProfilePicture
+        }
+    }
 
 
 }

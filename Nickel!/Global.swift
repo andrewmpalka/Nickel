@@ -32,6 +32,8 @@ let memberName = userDefaults.stringForKey("currentUserName")
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
 
+let defaultProfilePic = userDefaults.valueForKey("userPicture")
+
 
 let defaultEmployeeRecordsForBusinessArray = userDefaults.valueForKey("currentEmployeeRecordsArray")
 let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMessageRecordsForBusinessArray")

@@ -11,6 +11,7 @@ import CloudKit
 
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!    
     @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
@@ -58,6 +59,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
+        
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+        }
         //        let record = CKRecord(recordType: "Businesses", recordID: (CURRENT_BUSINESS_RECORD_ID!))
         //        print(record.valueForKey("Name") as? String)
         
@@ -75,6 +80,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         cell.cellTitleLabel.text = "Kanye West"
         cell.detailTextLabel?.text = "@kanye"
         cell.cellGreenLightImage.hidden = false
+        
+        if profilePicture != nil {
+            cell.cellImageView.image = profilePicture
+        }
         
         return cell
     }
