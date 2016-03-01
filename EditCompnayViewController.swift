@@ -21,6 +21,19 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
 
         self.title = "Edit Company"
         
+        
+        if userDefaults.valueForKey("currentBusinessName") != nil {
+            companyNameTextField.text = (userDefaults.valueForKey("currentBusinessName") as! String)
+        }
+        
+        if userDefaults.valueForKey("currentBusinessLocation") != nil {
+            companyLocationTextField.text = (userDefaults.valueForKey("currentBusinessLocation") as! String)
+        }
+        
+        if userDefaults.valueForKey("currentBusinessEmail") != nil {
+            companyEmailTextField.text = (userDefaults.valueForKey("currentBusinessEmail") as! String)
+        }
+        
         // tap to hide keyboard
         let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")
         hideTap.numberOfTapsRequired = 1
@@ -62,9 +75,13 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
     
     //Method to finalize actions with UIImagePickerController
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
         companyImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
         let data = self.digitizePicture(companyImageView.image!)
+        Business.sharedInstance.setValue(data, forKey: "CompanyProfilePicture")
         userDefaults.setValue(data, forKey: "companyPicture")
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -81,44 +98,22 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
         return textField.resignFirstResponder()
     }
     
-    // regex restrictions for email textfield
-    func validateEmail (email : String) -> Bool {
-        let regex = "[A-Z0-9a-z._%+-]{4}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
-        let range = email.rangeOfString(regex, options: .RegularExpressionSearch)
-        let result = range != nil ? true : false
-        return result
-    }
-
 
     @IBAction func companySaveButtonTapped(sender: AnyObject) {
         
-        // if incorrect email according to regex
-        if !validateEmail(companyEmailTextField.text!) {
-            alert("Incorrect email", message: "please provide correct email address")
-            return
-        }
-        
-        //User.sharedInstance.userRecordID = recID
         
         // save filled in information and send to CK
-
-    }
-
-    @IBAction func companyNameEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-
-    @IBAction func companyLocationEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-
-    @IBAction func companyEmailEdit(sender: AnyObject) {
-        resignFirstResponder()
+        let companyNameText = companyNameTextField.text
+        userDefaults.setValue(companyNameText, forKey: "currentBusinessName")
+        
+        let companyLocationText = companyLocationTextField.text
+        userDefaults.setValue(companyLocationText, forKey: "currentBusinessLocation")
+        
+        let companyEmailText = companyEmailTextField.text
+        userDefaults.setValue(companyEmailText, forKey: "currentBusinessEmail")
+        
+        
     }
 
 
-
-
-
-
-}
+} //end of class

@@ -23,15 +23,12 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var aUser = User?()
     
     override func viewDidLoad() {
-        
-        
-        
         super.viewDidLoad()
         
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-            //            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+//            numberOfUsersOnlineButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
         self.title = "Nickel"
@@ -110,15 +107,14 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
-        if self.memberArray.count > 0 {
-            let member = memberArray[indexPath.row]
-            
-            if member.valueForKey("ProfilePictureAsNSData") != nil {
-                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
-            }
-            //        let pic = self.profilePicFromData(data)
-            
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+        cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
+        cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+        cell.cellTitleLabel.text = "Kanye West"
+        cell.detailTextLabel?.text = "@Kanye"
+        cell.cellGreenLightImage.hidden = false
+        
+        //For data saved to Cloudkit will override the default cell
+        if profilePicture != nil {
             cell.cellImageView.image = profilePicture
             print(member.recordID.recordName)
             cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
@@ -134,6 +130,12 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             if profilePicture != nil {
                 cell.cellImageView.image = profilePicture
             }
+        }
+        if User.sharedInstance.name != nil {
+            cell.cellTitleLabel.text = User.sharedInstance.name
+        }
+        if User.sharedInstance.nickname != nil {
+            cell.detailTextLabel?.text = User.sharedInstance.nickname
         }
         
         return cell

@@ -30,6 +30,8 @@ class Employee: CKRecord {
     var UIDBussines: CKReference?
     var UIDMessage: [CKReference]?
     
+    var insideField: Int?
+    
     func makeEmployeeFromUser(user: User) {
         let recordID = CKRecordID(recordName: (user.userRecordID?.recordName)!)
 //        let record = CKRecord(recordType: "Users", recordID: recordID)

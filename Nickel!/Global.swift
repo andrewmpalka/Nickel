@@ -28,6 +28,9 @@ let businessString = userDefaults.valueForKey("businessRecordID") as! String
 
 let memberName = userDefaults.stringForKey("currentUserName")
 //let checkIndicator = userDefaults.boolForKey("checkIn")
+let businessName = userDefaults.stringForKey("currentBusinessName")
+let businessLocation = userDefaults.stringForKey("currentBusinessLocation")
+let businessEmail = userDefaults.stringForKey("currentBusinessEmail")
 
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
