@@ -12,8 +12,7 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
 
     @IBOutlet weak var profileImageView: UIImageView!
 
-    @IBOutlet weak var firstNameLabel: UITextField!
-    @IBOutlet weak var lastNameLabel: UITextField!
+    @IBOutlet weak var firstNameLabel: UITextField! //This actually encompasses the full user name
     @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!

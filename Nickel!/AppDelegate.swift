@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
 //    let ice2016Region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "ice")
     
-    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 23042, minor: 9334, identifier: "ice")
+    let iceBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 23042, minor: 9334, identifier: "ice")
     
     let locationManager = CLLocationManager()
     /////////
@@ -142,9 +142,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
         case .AuthorizedAlways:
             
-            locationManager.startMonitoringForRegion(beaconRegion)
-            locationManager.startRangingBeaconsInRegion(beaconRegion)
-            locationManager.requestStateForRegion(beaconRegion)
+            locationManager.startMonitoringForRegion(iceBeaconRegion)
+            locationManager.startRangingBeaconsInRegion(iceBeaconRegion)
+            locationManager.requestStateForRegion(iceBeaconRegion)
             
             print("Beacon successfully identified")
             
