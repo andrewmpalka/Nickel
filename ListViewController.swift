@@ -69,7 +69,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -78,11 +78,20 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
         cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
         cell.cellTitleLabel.text = "Kanye West"
-        cell.detailTextLabel?.text = "@kanye"
+        cell.detailTextLabel?.text = "@Kanye"
         cell.cellGreenLightImage.hidden = false
         
+        //For data saved to Cloudkit will override the default cell
         if profilePicture != nil {
             cell.cellImageView.image = profilePicture
+        }
+        
+        if User.sharedInstance.name != nil {
+            cell.cellTitleLabel.text = User.sharedInstance.name
+        }
+        
+        if User.sharedInstance.nickname != nil {
+            cell.detailTextLabel?.text = User.sharedInstance.nickname
         }
         
         return cell
