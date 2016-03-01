@@ -272,4 +272,36 @@ extension SuperViewController {
 
         }
     }
+    
+    func getOneRecordOfType(recordType: String, reference: CKReference)  -> CKRecord {
+        var record = CKRecord(recordType: recordType)
+
+        let fOp = CKFetchRecordsOperation(recordIDs: [reference.recordID])
+        fOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in
+            if errors != nil {
+                print("Error fetching records: \(errors!.localizedDescription)")
+            } else {
+                print("Successfully fetched all the records")
+                record = fetchedRecords![reference.recordID]! as CKRecord
+            }
+        publicDatabase.addOperation(fOp)
+        
+        
+    }
+        return record
+
+    }
+    
+    func getRecordsofType(recordType: String, references: [CKReference]) -> [CKRecord]{
+        self.recordsFromReference(references)
+        
+        return [CKRecord(recordType: recordType)]
+    }
+    
+    func oneRecordFromReference(reference: CKReference) {
+        
+    }
+    func recordsFromReference(references: [CKReference]) {
+        
+    }
 }

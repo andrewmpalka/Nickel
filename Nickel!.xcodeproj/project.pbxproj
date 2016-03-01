@@ -30,6 +30,7 @@
 		7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */; };
 		7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD41C7FEAA70088299B /* Employee.swift */; };
 		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
+		7BA21D181C8554220088299B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D171C8554220088299B /* Messages.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -101,6 +102,7 @@
 		7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperUIViewController.swift; sourceTree = "<group>"; };
 		7BA21CD41C7FEAA70088299B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7BA21D171C8554220088299B /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = "Nickel!/Messages.swift"; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				7B7D40741C7521470052DB28 /* Business.swift */,
 				7B7D40761C7521620052DB28 /* User.swift */,
 				7BA21D151C83A5B90088299B /* Message.swift */,
+				7BA21D171C8554220088299B /* Messages.swift */,
 				7BA21CD41C7FEAA70088299B /* Employee.swift */,
 				4CFA6B9B1C849ED2004629E5 /* Notifications.swift */,
 				7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */,
@@ -499,6 +502,7 @@
 				7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */,
 				A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */,
 				A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */,
+				7BA21D181C8554220088299B /* Messages.swift in Sources */,
 				A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */,
 				A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */,
 				7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */,

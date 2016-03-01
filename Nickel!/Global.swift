@@ -34,6 +34,9 @@ let defaultUserDictionary = defaultUser as! NSDictionary
 
 let defaultProfilePic = userDefaults.valueForKey("userPicture")
 
+let currentUserProfilepic = userDefaults.valueForKey("employeePic")
+let allEmployeesProfilePicsArray = userDefaults.valueForKey("allEmployeesPics")
+
 
 let defaultEmployeeRecordsForBusinessArray = userDefaults.valueForKey("currentEmployeeRecordsArray")
 let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMessageRecordsForBusinessArray")
@@ -127,7 +130,7 @@ func welcomePopAlert(vc: SuperViewController, currentUser: User) {
         print("checked in~~~~~~~~~~~~~~~~~~")
         print(vc.checkIndicator)
         vc.controllerThatNeedsToBeDismissed = welcomeAlertController
-        
+        userDefaults.setValue(true, forKey: "Logged in")
     }
     let noAction: UIAlertAction = UIAlertAction(title: "Remind me later", style: UIAlertActionStyle.Destructive) { (noAction) -> Void in
         print("We will eventually add a reminder")

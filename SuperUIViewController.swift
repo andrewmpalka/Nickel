@@ -21,7 +21,8 @@ class SuperViewController: UIViewController {
     var checkIndicator = userDefaults.boolForKey("checkIn")
     var controllerThatNeedsToBeDismissed = UIAlertController?()
     
-
+    var profileImageArray: [UIImage] = []
+    
 }
 
 extension SuperViewController {
@@ -55,11 +56,14 @@ extension SuperViewController {
     
     func digitizePicture(pic: UIImage) -> NSData {
         let data = UIImagePNGRepresentation(pic)
+        //ADD TO CLOUDKIT
+        Employee.sharedInstance.setObject(data, forKey: "EmployeePicture")
         return data!
     }
     
     func profilePicFromData(data: NSData) {
         profilePicture = UIImage(data: data, scale: 1)
+
     }
     
     func companyProfilePicFromData(data: NSData) {
