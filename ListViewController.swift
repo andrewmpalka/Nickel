@@ -82,6 +82,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             print(User.sharedInstance.name!)
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
+        
+        self.updateUsersOnlineLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,6 +95,11 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
         
         
+    }
+    
+    func updateUsersOnlineLabel() {
+        
+        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray.count)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,6 +137,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
             }
             
+            if member.valueForKey("InsideField") as! Int == 1 {
+            cell.cellGreenLightImage.hidden = true
+            }
+            
             print(member.recordID.recordName)
             cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
             //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
@@ -147,6 +158,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 cell.cellImageView.image = profilePicture
             }
         }
+        
+        
         
         return cell
     }
@@ -190,5 +203,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
     }
     
+
     
 }
