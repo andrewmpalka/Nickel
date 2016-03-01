@@ -13,15 +13,20 @@ import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
-    //Beacon Region code - JK
+//Beacon Region code - JK
     var beacons = []
     
     var enteredRegion = false
+
+    //Previous Beacon code that only searched for generic UUID
+//    let ice2016Region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "ice")
     
-    let ice2016Region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "ice")
+    
+    //More specific beacon based on the Major and Minor values of a beacon
+    let iceBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 23042, minor: 9334, identifier: "ice")
     
     let locationManager = CLLocationManager()
-    /////////
+/////////////////
     
     var window: UIWindow?
     
@@ -33,13 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        ///////Beacon location code - JK
+///////Beacon location code - JK
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
         
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         
-        ////////////////////
+////////////////////
         
         
         return true
@@ -138,11 +143,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status{
             
-        case .AuthorizedAlways:
+        case .AuthorizedAlways: //Be sure plist includes 'NSLocationAlwaysUsageDescription'
             
-            locationManager.startMonitoringForRegion(ice2016Region)
-            locationManager.startRangingBeaconsInRegion(ice2016Region)
-            locationManager.requestStateForRegion(ice2016Region)
+            locationManager.startMonitoringForRegion(iceBeaconRegion)
+            locationManager.startRangingBeaconsInRegion(iceBeaconRegion)
+            locationManager.requestStateForRegion(iceBeaconRegion)
+            
+            print("Beacon successfully identified")
             
         case .Denied:
             
@@ -152,8 +159,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
             
+            print("Beacon denied")
+
+            
         default:
-            print("default case")
+            print("Bypassing both AuthorizedAlways and Denied cases")
             
         }
         
@@ -179,7 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             var text : String = "Why aren't you here? :("
             
             if !enteredRegion {
-                text = "You just left Mobile Makers. Why?!?!?!"
+                text = "You just left Mobile Makers. Have a great Day!"
                 userDefaults.setValue(nil, forKey: "Logged in")
             }
             Notifications.display(text)

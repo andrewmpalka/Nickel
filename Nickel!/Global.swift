@@ -28,6 +28,9 @@ let businessString = userDefaults.valueForKey("businessRecordID") as! String
 
 let memberName = userDefaults.stringForKey("currentUserName")
 //let checkIndicator = userDefaults.boolForKey("checkIn")
+let businessName = userDefaults.stringForKey("currentBusinessName")
+let businessLocation = userDefaults.stringForKey("currentBusinessLocation")
+let businessEmail = userDefaults.stringForKey("currentBusinessEmail")
 
 let defaultUser = userDefaults.valueForKey("sharedInstanceOfUserAsDictionary")
 let defaultUserDictionary = defaultUser as! NSDictionary
@@ -48,8 +51,6 @@ let alertConst = UIAlertController(title: "One moment, please", message: "We are
 
 
 
-
-let SuperVCList = [MyStatsViewController(), AboutViewController(), EditNotificationsViewController(), EditCompnayViewController(), CompanyProfileViewController(), EditProfileViewController(), DetailViewController(), iCloudViewController(), BusinessiCloudViewController(), NewBusinessViewController(), WelcomeViewController(), GroupMessageViewController(), PrivateMessageViewController(), UserProfileViewController(), ListViewController(), MenuViewController()]
 
 
 //MARK: Custom Alerts

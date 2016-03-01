@@ -34,6 +34,17 @@ class CompanyProfileViewController: SuperViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+//Once CloudKit saves EditProfile data, the labels should update
+        if userDefaults.valueForKey("currentBusinessName") != nil {
+            companyNameLabel.text = (userDefaults.valueForKey("currentBusinessName") as! String)
+        }
+        if userDefaults.valueForKey("currentBusinessLocation") != nil {
+            companyLocationLabel.text = (userDefaults.valueForKey("currentBusinessLocation") as! String)
+        }
+        if userDefaults.valueForKey("currentBusinessEmail") != nil {
+            companyEmailLabel.text = (userDefaults.valueForKey("currentBusinessEmail") as! String)
+        }
 
     }
     

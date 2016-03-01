@@ -12,8 +12,7 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
 
     @IBOutlet weak var profileImageView: UIImageView!
 
-    @IBOutlet weak var firstNameLabel: UITextField!
-    @IBOutlet weak var lastNameLabel: UITextField!
+    @IBOutlet weak var firstNameLabel: UITextField! //This actually encompasses the full user name
     @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
@@ -102,14 +101,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     }
     
     
-    // regex restrictions for email textfield
-    func validateEmail (email : String) -> Bool {
-        let regex = "[A-Z0-9a-z._%+-]{4}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
-        let range = email.rangeOfString(regex, options: .RegularExpressionSearch)
-        let result = range != nil ? true : false
-        return result
-    }
-    
     // alert message function
     func alert (error: String, message : String) {
         let alert = UIAlertController(title: error, message: message, preferredStyle: .Alert)
@@ -127,20 +118,14 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     //User pressed the save button to update the profile information
     @IBAction func saveButtonTapped(sender: AnyObject) {
         
-        // if incorrect email according to regex
-        if !validateEmail(emailLabel.text!) {
-            alert("Incorrect email", message: "please provide correct email address")
-            return
-        }
-        
         
         // save filled in information and send to CK
         User.sharedInstance.name = self.firstNameLabel.text
         User.sharedInstance.nickname = self.handleLabel.text
         User.sharedInstance.positionTitle = self.userRoleLabel.text
         User.sharedInstance.emailAddress = self.emailLabel.text
-    
-
+        
+        
     }
     
 }//end of class

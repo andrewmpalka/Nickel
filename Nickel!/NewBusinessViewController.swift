@@ -22,7 +22,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     let locationManager = CLLocationManager() //Jon Code
     
-    let placePlacerholder = CLLocation() //prior code
+    var placePlacerholder = CLLocation() //prior code
     let coreLocationManager = CLLocationManager() //prior code
     let appDelegate = AppDelegate()
     
@@ -56,6 +56,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
             }
             
             //Checks for actual placemarks returned
+            self.placePlacerholder = manager.location!
             if placemarks?.count > 0 {
                 let pm = placemarks![0] as! CLPlacemark
                 self.displayLocationInfo(pm) //custom function to be later defined below

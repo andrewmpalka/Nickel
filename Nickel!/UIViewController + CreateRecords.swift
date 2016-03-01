@@ -16,13 +16,12 @@ extension SuperViewController {
         
         let newBusiness = CKRecord(recordType: "Businesses")
         
-        //        CURRENT_BUSINESS_RECORD_NAME = newBusiness.recordID.recordName
-        //        CURRENT_BUSINESS_RECORD_ID = newBusiness.recordID
-        
         newBusiness.setObject(name.text, forKey: "Name")
         newBusiness.setObject(email.text, forKey: "Email")
         newBusiness.setObject(location, forKey: "Location")
-        //    setUID(newOrg, admin: newAdmin)
+
+        
+    
         
         publicDatabase.saveRecord(newBusiness) { (newBiz, error) -> Void in
             if error != nil {
@@ -30,6 +29,7 @@ extension SuperViewController {
             } else {
                 print("Business beamed to iCloud: \(newBiz)")
                 Business.sharedInstance = newBusiness
+                
             }
         }
     }
@@ -171,6 +171,24 @@ extension SuperViewController {
         return arrayOfRecords
     }
     
+    func fetchBisuness(bizRec: CKRecord) {
+    
+    let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
+        fetchOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in
+            if errors != nil {
+                print("Error fetching records: \(errors!.localizedDescription)")
+            } else {
+                print("Successfully fetched all the records")
+                let record = fetchedRecords![bizRec.recordID]!
+
+                
+                userDefaults.setValue(record.recordID.recordName, forKey: "BusinessRecordIDName")
+            }
+            
+    }
+        publicDatabase.addOperation(fetchOp)
+    }
+    
     func fetchBizAndSave( bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
         
         let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
@@ -273,7 +291,7 @@ extension SuperViewController {
         }
     }
     
-    func getOneRecordOfType(recordType: String, reference: CKReference)  -> CKRecord {
+    func getOneRecordOfType(recordType: String, reference: CKReference) {
         var record = CKRecord(recordType: recordType)
 
         let fOp = CKFetchRecordsOperation(recordIDs: [reference.recordID])
@@ -283,13 +301,11 @@ extension SuperViewController {
             } else {
                 print("Successfully fetched all the records")
                 record = fetchedRecords![reference.recordID]! as CKRecord
+                self.begottenRecord = record
             }
+        }
         publicDatabase.addOperation(fOp)
         
-        
-    }
-        return record
-
     }
     
     func getRecordsofType(recordType: String, references: [CKReference]) -> [CKRecord]{

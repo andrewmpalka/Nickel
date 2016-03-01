@@ -34,7 +34,22 @@ class DetailViewController: SuperViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
+        
+        if User.sharedInstance.name != nil {
+            userNameLabel.text = User.sharedInstance.name
+        }
+        
+        if User.sharedInstance.nickname != nil {
+            userHandleLabel.text = User.sharedInstance.nickname
+        }
+        
+        if User.sharedInstance.positionTitle != nil {
+            userTitleLabel.text = User.sharedInstance.positionTitle
+        }
+        
+        if User.sharedInstance.emailAddress != nil {
+            userEmailLabel.text = User.sharedInstance.emailAddress
+        }
 
     }
     

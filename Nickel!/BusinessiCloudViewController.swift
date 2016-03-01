@@ -35,7 +35,6 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
         self.iCloudLogin({ (success) -> () in
             if success {
                 userDefaults.setBool( true, forKey: "Logged in")
-                self.updateVCList()
                 self.newEmployeeHelperForBusiness((Business.sharedInstance))
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

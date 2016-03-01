@@ -23,6 +23,10 @@ class SuperViewController: UIViewController {
     
     var profileImageArray: [UIImage] = []
     
+    var testEmployeesInBizRecord: CKRecord?
+    var employeesInBizRecord: [CKRecord]?
+    
+    var begottenRecord: CKRecord?
 }
 
 extension SuperViewController {
@@ -35,11 +39,6 @@ extension SuperViewController {
     }
     
     
-    func updateVCList() {
-        for vc in SuperVCList {
-            vc.localUser = self.localUser
-        }
-    }
     func businessSplitter(biz: Business) {
         
     }
