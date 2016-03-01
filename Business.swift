@@ -30,5 +30,7 @@ class Business: CKRecord {
     
     var employeePictureListAsData: [NSData]?
     
+    var companyProfilePicture: NSData?
+    
     
 }
