@@ -144,24 +144,5 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     
 
     }
-
-    @IBAction func firstNameEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func lastNameEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func handleEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func roleEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-    @IBAction func emailEdit(sender: AnyObject) {
-        resignFirstResponder()
-    }
-
-
-
-
-}
+    
+}//end of class
