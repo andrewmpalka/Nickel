@@ -45,7 +45,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        if (userDefaults.valueForKey("Logged in") != nil) && self.checkIndicator == false {
+        if (userDefaults.valueForKey("Logged in") == nil) {
             print(userString)
             let recID = CKRecordID(recordName: userString)
             User.sharedInstance.userRecordID = recID

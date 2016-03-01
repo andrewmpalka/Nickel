@@ -180,6 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             if !enteredRegion {
                 text = "You just left Mobile Makers. Why?!?!?!"
+                userDefaults.setValue(nil, forKey: "Logged in")
             }
             Notifications.display(text)
             

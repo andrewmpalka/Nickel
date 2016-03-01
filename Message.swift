@@ -11,8 +11,11 @@ import CloudKit
 
 class Message: CKRecord {
     
-    static var sharedInstance = CKRecord(recordType: "Messages")
+    var sentBy: CKReference?  
     
-    var privateMessages: [String]?
-    var publicMessages: [String]?
+    var postersName: String?
+    var postersPictureAsData: NSData?
+    
+    var postContents: String?
+    var postTimeStampString: String?
 }
