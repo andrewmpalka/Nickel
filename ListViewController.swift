@@ -85,11 +85,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         if profilePicture != nil {
             cell.cellImageView.image = profilePicture
         }
-        
         if User.sharedInstance.name != nil {
             cell.cellTitleLabel.text = User.sharedInstance.name
         }
-        
         if User.sharedInstance.nickname != nil {
             cell.detailTextLabel?.text = User.sharedInstance.nickname
         }
