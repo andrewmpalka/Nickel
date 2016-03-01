@@ -98,22 +98,8 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
         return textField.resignFirstResponder()
     }
     
-    // regex restrictions for email textfield
-    func validateEmail (email : String) -> Bool {
-        let regex = "[A-Z0-9a-z._%+-]{4}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}"
-        let range = email.rangeOfString(regex, options: .RegularExpressionSearch)
-        let result = range != nil ? true : false
-        return result
-    }
-
 
     @IBAction func companySaveButtonTapped(sender: AnyObject) {
-        
-        // if incorrect email according to regex
-        if !validateEmail(companyEmailTextField.text!) {
-            alert("Incorrect email", message: "please provide correct email address")
-            return
-        }
         
         
         // save filled in information and send to CK
