@@ -17,9 +17,7 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
-    
-    var user: User?
-    
+        
     // value to hold keyboard frmae size
     var keyboard = CGRect()
 
