@@ -171,6 +171,24 @@ extension SuperViewController {
         return arrayOfRecords
     }
     
+    func fetchBisuness(bizRec: CKRecord) {
+    
+    let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])
+        fetchOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in
+            if errors != nil {
+                print("Error fetching records: \(errors!.localizedDescription)")
+            } else {
+                print("Successfully fetched all the records")
+                let record = fetchedRecords![bizRec.recordID]!
+
+                
+                userDefaults.setValue(record.recordID.recordName, forKey: "BusinessRecordIDName")
+            }
+            
+    }
+        publicDatabase.addOperation(fetchOp)
+    }
+    
     func fetchBizAndSave( bizRec: CKRecord, index: Int, editedData: CKRecordValue) {
         
         let fetchOp = CKFetchRecordsOperation(recordIDs: [bizRec.recordID])

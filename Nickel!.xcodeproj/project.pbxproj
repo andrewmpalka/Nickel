@@ -31,6 +31,7 @@
 		7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21CD41C7FEAA70088299B /* Employee.swift */; };
 		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
 		7BA21D181C8554220088299B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D171C8554220088299B /* Messages.swift */; };
+		7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -103,6 +104,7 @@
 		7BA21CD41C7FEAA70088299B /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7BA21D171C8554220088299B /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = "Nickel!/Messages.swift"; sourceTree = "<group>"; };
+		7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController + Feed .swift"; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				A87E33A11C751554003930FB /* UserProfileViewController.swift */,
 				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
 				A87E33881C741D96003930FB /* ListViewController.swift */,
+				7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */,
 				A87E33AB1C752DD4003930FB /* MenuViewController.swift */,
 				7B7D40411C73C54E0052DB28 /* Main.storyboard */,
 				7B7D40491C73C54E0052DB28 /* LaunchScreen.storyboard */,
@@ -511,6 +514,7 @@
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
+				7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */,
 				7BA21D161C83A5BB0088299B /* Message.swift in Sources */,
 				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
