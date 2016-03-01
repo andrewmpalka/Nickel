@@ -111,6 +111,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         return 0
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
         
@@ -158,9 +159,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 cell.cellImageView.image = profilePicture
             }
         }
-        
-        
-        
+    
         return cell
     }
     
