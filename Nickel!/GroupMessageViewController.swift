@@ -14,12 +14,13 @@ import CloudKit
 //    func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 //}
 
-class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
 
     @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+
 
     // empty string for Message
     var messageString = ""
@@ -70,6 +71,8 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
+        
+        self.sendGroupMessageTextField.delegate = self
 
         
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
@@ -106,7 +109,18 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             entiretyOfGroupMessages.append("Type something! Start a conversation with your workspace")
         }
     }
-
+    
+    //LIMITS KEYBOARD CHARACTERS
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+            let currentCharacterCount = textField.text?.characters.count ?? 0
+            if (range.length + range.location > currentCharacterCount) {
+                return false
+            }
+            let newLength = currentCharacterCount + string.characters.count - range.length
+            return newLength <= 28
+    }
+    
     func keyboardWillShow(notification: NSNotification) {
 
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
