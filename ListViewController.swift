@@ -16,7 +16,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
     
-    var memberArray = [CKRecord]()
+    var memberArray = [CKRecord]?()
+    var insideFieldMembers = [CKRecord]?()
     var currentBusiness: CKRecord?
     var checker = false
     
@@ -98,15 +99,14 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     }
     
     func updateUsersOnlineLabel() {
-        
-        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray.count)
+        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray!.count)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.memberArray.count > 0 {
+        if self.memberArray!.count > 0 {
             
-            return self.memberArray.count
+            return self.memberArray!.count
         }
         
         return 0
@@ -122,8 +122,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
         
         //Andy's code
-        if self.memberArray.count > 0 {
-            let member = memberArray[indexPath.row]
+        if self.memberArray!.count > 0 {
+            let member = memberArray![indexPath.row]
             
             if member.valueForKey("ProfilePictureAsNSData") != nil {
                 let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
@@ -192,7 +192,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                     print(error)
                 } else {
                     if task != nil {
-                        self.memberArray.append(task!)
+//                        self.memberArray.append(task!)
                         print("appended task: \(task)")
                     }
                 }
