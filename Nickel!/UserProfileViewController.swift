@@ -27,6 +27,15 @@ class UserProfileViewController: SuperViewController {
         if let font = UIFont(name: "Avenir", size: 15) {
             messageButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+            self.memberImageView.image = profilePicture
+        }
+        
         
         //Once user data is stored in CK, this should override default data
         if User.sharedInstance.name != nil {
@@ -43,13 +52,6 @@ class UserProfileViewController: SuperViewController {
         
         if User.sharedInstance.emailAddress != nil {
             memberEmailLabel.text = User.sharedInstance.emailAddress
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        if userDefaults.valueForKey("userPicture") != nil {
-            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
-            self.memberImageView.image = profilePicture
         }
     }
 
