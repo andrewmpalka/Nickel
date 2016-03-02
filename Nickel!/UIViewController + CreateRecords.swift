@@ -65,7 +65,8 @@ extension SuperViewController {
         fetchBizAndSave(biz, index: 6, editedData: arrayOfReferences)
         
         newEmployee.setObject(User.sharedInstance.name, forKey: "Name")
-        newEmployee.setObject(<#T##object: CKRecordValue?##CKRecordValue?#>, forKey: <#T##String#>)
+        newEmployee.setObject("@\(User.sharedInstance.name!)", forKey: "Nickname")
+        newEmployee.setObject(1, forKey: "InsideField")
         newEmployee.setObject(bizRef, forKey: "UIDBusiness")
         //        newEmployee.setObject(bizRec.recordID.recordName, forKey: "UIDBusiness")
         

@@ -81,12 +81,15 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         if self.memberArray!.count > 0 {
             
             return self.memberArray!.count
+        } else {
+            self.viewDidLoad()
         }
         
         return 0
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
+        
         
         if User.sharedInstance.name != nil {
             cell.cellTitleLabel.text = User.sharedInstance.name
@@ -111,13 +114,14 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
             }
             
-//            if member.valueForKey("InsideField") as! Int == 1 {
-//            cell.cellGreenLightImage.hidden = true
-//            }
-            
+            if member.valueForKey("InsideField") as! Int == 1 {
+            cell.cellGreenLightImage.hidden = false
+            }
             print(member.recordID.recordName)
             cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
-            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
+            cell.cellDetailLabel.text = (member.valueForKey("Nickname")! as! String)
+            print(" N I C K N A M E")
+            print(member.valueForKey("Nickname")!)
             
             //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
             
