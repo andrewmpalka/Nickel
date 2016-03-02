@@ -53,6 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
 ////////////////////
         
+        //Dynamic icon for 3D Touch
+        if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
+            let dynamicShortcut = UIMutableApplicationShortcutItem(type: "Group Message", localizedTitle: "Group Message", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "groupmessage"), userInfo: nil)
+            
+            application.shortcutItems = [dynamicShortcut]
+        }
+        
         
         return true
     }
@@ -235,6 +242,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         self.beacons = beacons
         
         NSNotificationCenter.defaultCenter().postNotificationName("updateBeaconTableView", object: self.beacons)
+    }
+    
+    //MARK: - 3D Touch Shortcutitems
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        
+        if shortcutItem.type == "Group Message" {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let groupMessageVC = sb.instantiateViewControllerWithIdentifier("GroupMessageVC") as! GroupMessageViewController
+            let root = UIApplication.sharedApplication().keyWindow?.rootViewController
+            
+            root?.presentViewController(groupMessageVC, animated: false, completion: nil)
+
+        }
+
     }
 
 }

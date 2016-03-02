@@ -1432,12 +1432,12 @@
         <!--Group Message View Controller-->
         <scene sceneID="y6o-RE-3Cu">
             <objects>
-                <viewController id="qCT-xQ-nUY" customClass="GroupMessageViewController" customModule="Nickel_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupMessageVC" id="qCT-xQ-nUY" customClass="GroupMessageViewController" customModule="Nickel_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wSE-uE-NUS"/>
                         <viewControllerLayoutGuide type="bottom" id="Znq-9X-iwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qgS-kq-U8Q">
+                    <view key="view" tag="100" contentMode="scaleToFill" id="qgS-kq-U8Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
