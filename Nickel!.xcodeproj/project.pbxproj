@@ -32,6 +32,7 @@
 		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
 		7BA21D181C8554220088299B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D171C8554220088299B /* Messages.swift */; };
 		7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */; };
+		A86243F31C8642680027A227 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F21C8642680027A227 /* AdminViewController.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -106,6 +107,7 @@
 		7BA21D171C8554220088299B /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = "Nickel!/Messages.swift"; sourceTree = "<group>"; };
 		7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController + Feed .swift"; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
+		A86243F21C8642680027A227 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				A87E339F1C7511E4003930FB /* MyStatsViewController.swift */,
+				A86243F21C8642680027A227 /* AdminViewController.swift */,
 				A87E339D1C7502FC003930FB /* AboutViewController.swift */,
 				A87E339B1C74EC0C003930FB /* EditNotificationsViewController.swift */,
 				A87E33981C74E6F0003930FB /* EditCompnayViewController.swift */,
@@ -500,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86243F31C8642680027A227 /* AdminViewController.swift in Sources */,
 				A87E33A01C7511E4003930FB /* MyStatsViewController.swift in Sources */,
 				A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */,
 				7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */,
