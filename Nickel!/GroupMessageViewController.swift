@@ -16,7 +16,7 @@ import CloudKit
 
 class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
     
-    @IBOutlet weak var groupMessageSearchBar: UISearchBar!
+//    @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -58,14 +58,17 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // remove space on top of cell
+        self.automaticallyAdjustsScrollViewInsets = false
+
 //        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
         
         // remove search bar border
-        groupMessageSearchBar.backgroundImage = UIImage()
-        
+//        groupMessageSearchBar.backgroundImage = UIImage()
+
         // remove tableview lines
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
         
@@ -159,25 +162,37 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             
         } else {
             
-            cell.messageImageView.image = profilePicture
-            //        cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
-            cell.messageNameLabel.text = "Kanye West"
+//            cell.messageImageView.image = profilePicture
+            cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
+            cell.messageNameLabel.text = "Jennifer Smith"
             
             if entiretyOfGroupMessages.count > 0
             {
                 cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
+
+
+                if User.sharedInstance.name != nil {
+                    cell.messageNameLabel.text = User.sharedInstance.name
+                }
+
+                    if userDefaults.valueForKey("userPicture") != nil {
+                        self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+                        cell.messageImageView.image = profilePicture
+                    }
+
+                cell.messageTimeStamp.text = timeStampString
             }
             else {
                 print("Users array: (entiretyOfGroupMessages.description)")
             }
             
-            if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
-            {
-                cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
-            }
-            else {
-                print("Timestamp Array: \(timeStampOfUsers.description)")
-            }
+//            if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
+//            {
+//                cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
+//            }
+//            else {
+//                print("Timestamp Array: \(timeStampOfUsers.description)")
+//            }
         }
         return cell
     }

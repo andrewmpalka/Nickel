@@ -23,14 +23,10 @@ class AboutViewController: SuperViewController {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
 
-
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
     }
-
-
 }

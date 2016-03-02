@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 
+
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var cellImageView: UIImageView!
@@ -25,6 +26,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    
         
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {

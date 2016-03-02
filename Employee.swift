@@ -19,7 +19,6 @@ class Employee: CKRecord {
     var name: String?
     var nickname: String?
     
-    
     var matchIndicatorBoolAsInt: Int?
     var permissionLevelBoolAsInt: Int?
     
