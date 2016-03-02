@@ -12,6 +12,7 @@
 		4CFA6B981C83BC61004629E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B971C83BC61004629E5 /* Foundation.framework */; };
 		4CFA6B9A1C83BCAE004629E5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */; };
 		4CFA6B9C1C849ED2004629E5 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA6B9B1C849ED2004629E5 /* Notifications.swift */; };
+		4CFA6BCA1C867838004629E5 /* GroupMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */; };
 		7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */; };
 		7B7D40431C73C54E0052DB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40411C73C54E0052DB28 /* Main.storyboard */; };
 		7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40441C73C54E0052DB28 /* Nickel_.xcdatamodeld */; };
@@ -49,7 +50,6 @@
 		A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A11C751554003930FB /* UserProfileViewController.swift */; };
 		A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */; };
 		A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */; };
-		A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */; };
 		A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */; };
 		A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33AB1C752DD4003930FB /* MenuViewController.swift */; };
 		A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */; };
@@ -78,6 +78,7 @@
 		4CFA6B971C83BC61004629E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4CFA6B9B1C849ED2004629E5 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = "Nickel!/Notifications.swift"; sourceTree = "<group>"; };
+		4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
 		7B7D403A1C73C54E0052DB28 /* Nickel!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nickel!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		A87E33A11C751554003930FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
 		A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
-		A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
 		A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageTableViewCell.swift; sourceTree = "<group>"; };
 		A87E33AB1C752DD4003930FB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A8D19FEA1C76845D00076A85 /* Nickel!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nickel!-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
 				A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */,
+				4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
-				A87E33A71C7529AD003930FB /* GroupMessageViewController.swift */,
 				A87E33A51C751A51003930FB /* PrivateMessageTableViewCell.swift */,
 				A87E33A31C7519B0003930FB /* PrivateMessageViewController.swift */,
 				A87E33A11C751554003930FB /* UserProfileViewController.swift */,
@@ -509,7 +509,6 @@
 				A87E33951C74E2BA003930FB /* CompanyProfileViewController.swift in Sources */,
 				A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */,
 				7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */,
-				A87E33A81C7529AD003930FB /* GroupMessageViewController.swift in Sources */,
 				A87E338B1C741DF5003930FB /* TableViewCell.swift in Sources */,
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
@@ -532,6 +531,7 @@
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
 				A87E339E1C7502FC003930FB /* AboutViewController.swift in Sources */,
 				A87E339C1C74EC0C003930FB /* EditNotificationsViewController.swift in Sources */,
+				4CFA6BCA1C867838004629E5 /* GroupMessageViewController.swift in Sources */,
 				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 				7B7D40BF1C7650050052DB28 /* Global.swift in Sources */,

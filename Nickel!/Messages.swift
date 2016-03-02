@@ -12,9 +12,12 @@ import CloudKit
 class Messages: CKRecord {
     
     static var sharedInstance = CKRecord(recordType: "Messages")
+    static var groupMessage = Messages(recordType: "Messages")
     
     var privateMessages: [String]?
     var publicMessages: [String]?
     
     var ContainsMessages: [CKReference]?
+    
+    var messageRecords: [CKRecord]?
 }
