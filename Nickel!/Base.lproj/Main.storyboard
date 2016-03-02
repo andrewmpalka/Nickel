@@ -605,48 +605,12 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-RZ-md2">
-                                <rect key="frame" x="57" y="207" width="261" height="49"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="261" id="ACM-9V-Pxf"/>
-                                    <constraint firstAttribute="height" constant="49" id="DSd-Jo-ZUq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Add my business location">
-                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sf7-p9-ZRf"/>
-                                    <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="aIx-AG-D3B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioG-l6-lCh">
-                                <rect key="frame" x="57" y="264" width="261" height="49"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="07J-9b-cMY"/>
-                                    <constraint firstAttribute="width" constant="261" id="8hS-cE-ZfV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="OnContinueTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="sQc-M5-Zvs"/>
-                                    <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk6-Vr-eid"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="GYG-Ur-45V" secondAttribute="trailing" id="0Xs-SQ-6Na"/>
                             <constraint firstItem="GYG-Ur-45V" firstAttribute="top" secondItem="svg-Qe-Fvq" secondAttribute="bottom" constant="39" id="4Kp-tI-pGf"/>
                             <constraint firstItem="wBT-2n-WiX" firstAttribute="top" secondItem="GYG-Ur-45V" secondAttribute="bottom" constant="8" id="AUn-xo-jyk"/>
-                            <constraint firstItem="ioG-l6-lCh" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="ELX-uR-oDF"/>
-                            <constraint firstItem="HTV-RZ-md2" firstAttribute="top" secondItem="wBT-2n-WiX" secondAttribute="bottom" constant="8" id="LN1-O9-aA6"/>
-                            <constraint firstItem="ioG-l6-lCh" firstAttribute="top" secondItem="HTV-RZ-md2" secondAttribute="bottom" constant="8" id="Q3I-B1-Fzc"/>
-                            <constraint firstItem="HTV-RZ-md2" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="cOb-rd-spR"/>
                             <constraint firstItem="wBT-2n-WiX" firstAttribute="centerX" secondItem="5bI-JE-45S" secondAttribute="centerX" id="seT-Nc-dYf"/>
                             <constraint firstItem="GYG-Ur-45V" firstAttribute="leading" secondItem="5bI-JE-45S" secondAttribute="leadingMargin" id="xDH-v1-YqD"/>
                         </constraints>
@@ -656,8 +620,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
-                        <outlet property="continueButton" destination="ioG-l6-lCh" id="65I-nA-vUd"/>
-                        <outlet property="locationButton" destination="HTV-RZ-md2" id="mL6-0Q-5vY"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                         <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="mYY-Sg-Pz8"/>
                     </connections>
@@ -678,7 +640,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with my iCloud account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-EE-EWI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just one more step!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-EE-EWI">
                                 <rect key="frame" x="16" y="103" width="343" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="wjr-G4-pje"/>
@@ -2042,8 +2004,8 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6HL-pD-RxO"/>
         <segue reference="P9f-Uf-xs3"/>
         <segue reference="ZCJ-N7-Ejz"/>
-        <segue reference="mHL-8X-KiJ"/>
     </inferredMetricsTieBreakers>
 </document>

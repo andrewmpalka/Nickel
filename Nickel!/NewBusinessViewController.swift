@@ -32,7 +32,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         super.viewDidLoad()
 
         self.title = "Nickel"
-        self.continueButton.hidden = true
+        //self.continueButton.hidden = true
 
         self.businessNameTextField.delegate = self
         //coreLocationManager.delegate = self //prior code
@@ -82,13 +82,16 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         
     }
     
-    
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        confirmLocation()
+        
+        //        self.locationButton.backgroundColor = SALMON_COLOR
+    }
     
 //MARK UITextField Functions
     
-    func textFieldDidEndEditing(textField: UITextField) {
-//        self.locationButton.backgroundColor = SALMON_COLOR
-    }
+
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
         if(textField.text?.isEmpty == false) {
@@ -110,40 +113,42 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         popAlertForNoText(self, textFieldNotDisplayingText: textField)
         return false
     }
+//    
+//    @IBAction func onAddLocationTapped(sender: AnyObject) {
+//        //TODO make location popup work
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
+//        self.continueButton.hidden = false
+//
+//    }
+//    @IBAction func OnContinueTapped(sender: UIButton) {
+//        
+//        if textFieldChecker(businessNameTextField, indicator: 1) {
+//        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+//        performSegueWithIdentifier("iCloudSegue", sender: self)
+//        }
+//            
+//        }
     
-    @IBAction func onAddLocationTapped(sender: AnyObject) {
-        //TODO make location popup work
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        self.continueButton.hidden = false
-
-    }
-    @IBAction func OnContinueTapped(sender: UIButton) {
-        
-        if textFieldChecker(businessNameTextField, indicator: 1) {
-        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
-        performSegueWithIdentifier("iCloudSegue", sender: self)
-        }
-            
-        }
+    
     
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textFieldChecker(self.businessNameTextField, indicator: 1) {
-//            createBusiness()
-            
-//TODO MODIFY NewBusinessHelper MOVE IT TO CONTINUE
-
-
-//            self.appDelegate.reveal()
-
-            return resignFirstResponder()
-        }
-        return resignFirstResponder()
-    }
-    func dismissKeyboard(){
-        self.setEditing(false, animated: true)
-    }
+//    //func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        if textFieldChecker(self.businessNameTextField, indicator: 1) {
+////            createBusiness()
+//            
+////TODO MODIFY NewBusinessHelper MOVE IT TO CONTINUE
+//
+//
+////            self.appDelegate.reveal()
+//
+//            return resignFirstResponder()
+//        }
+//        return resignFirstResponder()
+//    }
+//    func dismissKeyboard(){
+//        self.setEditing(false, animated: true)
+//    }
     
     
  //MARK CK Custom Functions
@@ -199,8 +204,47 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
 //        saveRecords([newBusiness, newUser])
 //    }
 //    
+    
+    //MARK: - Matt's code
+    
+    // Add Location Function
+    func addLocation()
+    {
+        //TODO make location popup work
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+    
+    func confirmLocation()
+    {
+        if textFieldChecker(businessNameTextField, indicator: 1)
+        {
+            self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+            performSegueWithIdentifier("iCloudSegue", sender: self)
+        }
+    }
+    
+    // resign keyboard if user touches anywhere on screen
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        businessNameTextField.resignFirstResponder()
+    }
+    
+    // resign keyboard and do stuff if return tapped
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
 
-}
+        if textFieldChecker(self.businessNameTextField, indicator: 1)
+        {
+            self.view.endEditing(true)
+            addLocation()
+            businessNameTextField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    
+
+}//end of class
 
 
 
