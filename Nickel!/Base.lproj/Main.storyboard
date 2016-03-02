@@ -269,7 +269,11 @@
                     <navigationItem key="navigationItem" id="acA-zT-4Ze">
                         <barButtonItem key="backBarButtonItem" title=" " id="vb5-vb-Cba"/>
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="XkW-4v-nqq"/>
-                        <barButtonItem key="rightBarButtonItem" id="nPN-eE-tEU"/>
+                        <barButtonItem key="rightBarButtonItem" id="nPN-eE-tEU">
+                            <connections>
+                                <action selector="onRefreshTapped:" destination="Aab-kA-Ft3" id="ahB-rr-RSM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="XkW-4v-nqq" id="F2a-nE-a7K"/>
