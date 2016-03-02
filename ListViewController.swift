@@ -39,35 +39,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
-        
-        if Business.sharedInstance.objectForKey("UIDEmployees") != nil {
-            let references = Business.sharedInstance.objectForKey("UIDEmployees") as! [CKReference]
-            
-            let singleRef = references[0]
-            
-            self.getOneRecordOfType("Employees", reference: singleRef)
-            
-            let possiblyTaintedArray = [self.begottenRecord]
-            var cleanArray: [CKRecord] = []
-            var straightUpDisgustingArray: [CKRecord] = []
-            if possiblyTaintedArray.count > 0 {
-                for possibleTaint in possiblyTaintedArray {
-                    if possibleTaint != nil {
-                        if possibleTaint!.valueForKey("Name") != nil {
-                            cleanArray.append(possibleTaint!)
-                        } else {
-                            straightUpDisgustingArray.append(possibleTaint!)
-                        }
-                    }
-                    else {
-                        
-                        print("W U T I S G O I N G O N")
-                    }
-                }
-                memberArray = cleanArray
-                print("BINGO \(straightUpDisgustingArray.description)")
-            }
-        }
+//        self.fetchUsers()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -84,12 +56,14 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
-        self.updateUsersOnlineLabel()
+//        self.updateUsersOnlineLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
+        self.fetchUsers()
+        self.updateUsersOnlineLabel()
         
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
@@ -137,9 +111,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
             }
             
-            if member.valueForKey("InsideField") as! Int == 1 {
-            cell.cellGreenLightImage.hidden = true
-            }
+//            if member.valueForKey("InsideField") as! Int == 1 {
+//            cell.cellGreenLightImage.hidden = true
+//            }
             
             print(member.recordID.recordName)
             cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
@@ -183,7 +157,42 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             }
         }
     }
+    func fetchUsers() {
+        if Business.sharedInstance.objectForKey("UIDEmployees") != nil {
+            let references = Business.sharedInstance.objectForKey("UIDEmployees") as! [CKReference]
+            
+            let singleRef = references[0]
+            
+            self.getOneRecordOfType("Employees", reference: singleRef)
+            
+            let possiblyTaintedArray = [self.begottenRecord]
+            var cleanArray: [CKRecord] = []
+            var straightUpDisgustingArray: [CKRecord] = []
+            if possiblyTaintedArray.count > 0 {
+                for possibleTaint in possiblyTaintedArray {
+                    if possibleTaint != nil {
+                        if possibleTaint!.valueForKey("Name") != nil {
+                            cleanArray.append(possibleTaint!)
+                        } else {
+                            straightUpDisgustingArray.append(possibleTaint!)
+                        }
+                    }
+                    else {
+                        
+                        print("W U T I S G O I N G O N")
+                    }
+                }
+                memberArray = cleanArray
+                print("BINGO \(straightUpDisgustingArray.description)")
+            }
+        }
+    }
     
+    @IBAction func onRefreshTapped(sender: UIBarButtonItem) {
+        self.fetchUsers()
+        self.updateUsersOnlineLabel()
+        self.tableView.reloadData()
+    }
     func getTasks() {
         let taskReferenceArray = currentBusiness!.mutableArrayValueForKey("tasks")
         for taskRef in taskReferenceArray {

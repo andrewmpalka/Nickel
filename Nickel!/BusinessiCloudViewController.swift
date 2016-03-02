@@ -74,7 +74,7 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                         self.cloudHelper!.getUserInfo(self.aUser!, completionHandler: { (success, user) -> () in
                             if success {
                                 completionHandler(success: true)
-
+    
                             }
                         })
                     } else {

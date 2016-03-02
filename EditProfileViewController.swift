@@ -126,6 +126,8 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         User.sharedInstance.emailAddress = self.emailLabel.text
         
         
+        
+        
     }
     
 }//end of class
