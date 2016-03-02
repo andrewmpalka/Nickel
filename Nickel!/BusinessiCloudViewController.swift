@@ -37,10 +37,13 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                 userDefaults.setBool( true, forKey: "Logged in")
                 self.newEmployeeHelperForBusiness((Business.sharedInstance))
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
-                
+
                 NSOperationQueue.mainQueue().addOperationWithBlock {
+                    alertConst.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
+
                     self.presentViewController(viewController, animated: false, completion: nil)
                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
@@ -71,8 +74,7 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
                         self.cloudHelper!.getUserInfo(self.aUser!, completionHandler: { (success, user) -> () in
                             if success {
                                 completionHandler(success: true)
-                                alertConst.removeFromParentViewController()
-
+    
                             }
                         })
                     } else {

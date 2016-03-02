@@ -65,6 +65,8 @@ extension SuperViewController {
         fetchBizAndSave(biz, index: 6, editedData: arrayOfReferences)
         
         newEmployee.setObject(User.sharedInstance.name, forKey: "Name")
+        newEmployee.setObject("@\(User.sharedInstance.name!)", forKey: "Nickname")
+        newEmployee.setObject(1, forKey: "InsideField")
         newEmployee.setObject(bizRef, forKey: "UIDBusiness")
         //        newEmployee.setObject(bizRec.recordID.recordName, forKey: "UIDBusiness")
         
@@ -293,15 +295,21 @@ extension SuperViewController {
     
     func getOneRecordOfType(recordType: String, reference: CKReference) {
         var record = CKRecord(recordType: recordType)
-
+        print("REFERENCE RECORD")
+        print(reference.recordID.recordName)
+        
+        
         let fOp = CKFetchRecordsOperation(recordIDs: [reference.recordID])
         fOp.fetchRecordsCompletionBlock = {fetchedRecords, errors in
             if errors != nil {
                 print("Error fetching records: \(errors!.localizedDescription)")
             } else {
-                print("Successfully fetched all the records")
+                print("Successfully found the begotten record")
                 record = fetchedRecords![reference.recordID]! as CKRecord
+                
+                print("BEGOTTEN RECORD")
                 self.begottenRecord = record
+                print(self.begottenRecord?.recordID.recordName)
             }
         }
         publicDatabase.addOperation(fOp)

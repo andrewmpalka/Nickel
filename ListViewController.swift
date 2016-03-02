@@ -16,7 +16,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
     
-    var memberArray = [CKRecord]()
+    var memberArray = [CKRecord]?()
+    var insideFieldMembers = [CKRecord]?()
     var currentBusiness: CKRecord?
     var checker = false
     
@@ -38,7 +39,128 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
+//        self.fetchUsers()
         
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        if (userDefaults.valueForKey("Logged in") == nil) {
+            print(userString)
+            let recID = CKRecordID(recordName: userString)
+            User.sharedInstance.userRecordID = recID
+            self.aUser = self.userGrabAndToss()
+            print(User.sharedInstance.name!)
+            welcomePopAlert(self, currentUser: User.sharedInstance)
+        }
+        
+//        self.updateUsersOnlineLabel()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.fetchUsers()
+        self.updateUsersOnlineLabel()
+        
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+        }
+        
+        
+    }
+    
+    func updateUsersOnlineLabel() {
+        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray!.count)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.memberArray!.count > 0 {
+            
+            return self.memberArray!.count
+        } else {
+            self.viewDidLoad()
+        }
+        
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
+        
+        
+        if User.sharedInstance.name != nil {
+            cell.cellTitleLabel.text = User.sharedInstance.name
+        }
+        if User.sharedInstance.nickname != nil {
+            cell.detailTextLabel?.text = User.sharedInstance.nickname
+        }
+        
+        //Andy's code
+        if self.memberArray!.count > 0 {
+            let member = memberArray![indexPath.row]
+            
+            if member.valueForKey("ProfilePictureAsNSData") != nil {
+                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
+            }
+            //        let pic = self.profilePicFromData(data)
+            
+            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+            if profilePicture != nil {
+                cell.cellImageView.image = profilePicture
+            } else {
+                cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
+            }
+            
+            if member.valueForKey("InsideField") as! Int == 1 {
+            cell.cellGreenLightImage.hidden = false
+            }
+            print(member.recordID.recordName)
+            cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
+            cell.cellDetailLabel.text = (member.valueForKey("Nickname")! as! String)
+            print(" N I C K N A M E")
+            print(member.valueForKey("Nickname")!)
+            
+            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
+            
+        } else {
+            cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
+            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
+            cell.cellTitleLabel.text = "Kanye West"
+            cell.detailTextLabel?.text = "@kanye"
+            cell.cellGreenLightImage.hidden = false
+            
+            if profilePicture != nil {
+                cell.cellImageView.image = profilePicture
+            }
+        }
+    
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: Fetching CKData
+    
+    func getBusiness() {
+        let predicate = NSPredicate(format: " == %@", businessID!)
+        let query = CKQuery(recordType: "Businesses", predicate: predicate)
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (organizations, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print("performing query, Businesses: \(organizations![0]["name"])")
+                self.currentBusiness = organizations![0] as CKRecord
+                //                self.getTasks()
+            }
+        }
+    }
+    func fetchUsers() {
         if Business.sharedInstance.objectForKey("UIDEmployees") != nil {
             let references = Business.sharedInstance.objectForKey("UIDEmployees") as! [CKReference]
             
@@ -67,123 +189,13 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                 print("BINGO \(straightUpDisgustingArray.description)")
             }
         }
-        
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
-        if (userDefaults.valueForKey("Logged in") == nil) {
-            print(userString)
-            let recID = CKRecordID(recordName: userString)
-            User.sharedInstance.userRecordID = recID
-            self.aUser = self.userGrabAndToss()
-            print(User.sharedInstance.name!)
-            welcomePopAlert(self, currentUser: User.sharedInstance)
-        }
-        
+    }
+    
+    @IBAction func onRefreshTapped(sender: UIBarButtonItem) {
+        self.fetchUsers()
         self.updateUsersOnlineLabel()
+        self.tableView.reloadData()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        
-        
-        if userDefaults.valueForKey("userPicture") != nil {
-            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
-        }
-        
-        
-    }
-    
-    func updateUsersOnlineLabel() {
-        
-        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray.count)
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.memberArray.count > 0 {
-            
-            return self.memberArray.count
-        }
-        
-        return 0
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
-        
-        if User.sharedInstance.name != nil {
-            cell.cellTitleLabel.text = User.sharedInstance.name
-        }
-        if User.sharedInstance.nickname != nil {
-            cell.detailTextLabel?.text = User.sharedInstance.nickname
-        }
-        
-        //Andy's code
-        if self.memberArray.count > 0 {
-            let member = memberArray[indexPath.row]
-            
-            if member.valueForKey("ProfilePictureAsNSData") != nil {
-                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
-            }
-            //        let pic = self.profilePicFromData(data)
-            
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            } else {
-                cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
-            }
-            
-            if member.valueForKey("InsideField") as! Int == 1 {
-            cell.cellGreenLightImage.hidden = true
-            }
-            
-            print(member.recordID.recordName)
-            cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
-            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
-            
-            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
-            
-        } else {
-            cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            cell.cellTitleLabel.text = "Kanye West"
-            cell.detailTextLabel?.text = "@kanye"
-            cell.cellGreenLightImage.hidden = false
-            
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            }
-        }
-        
-        
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-    // MARK: Fetching CKData
-    
-    func getBusiness() {
-        let predicate = NSPredicate(format: " == %@", businessID!)
-        let query = CKQuery(recordType: "Businesses", predicate: predicate)
-        publicDatabase.performQuery(query, inZoneWithID: nil) { (organizations, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                print("performing query, Businesses: \(organizations![0]["name"])")
-                self.currentBusiness = organizations![0] as CKRecord
-                //                self.getTasks()
-            }
-        }
-    }
-    
     func getTasks() {
         let taskReferenceArray = currentBusiness!.mutableArrayValueForKey("tasks")
         for taskRef in taskReferenceArray {
@@ -192,7 +204,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                     print(error)
                 } else {
                     if task != nil {
-                        self.memberArray.append(task!)
+//                        self.memberArray.append(task!)
                         print("appended task: \(task)")
                     }
                 }
