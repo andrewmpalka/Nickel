@@ -14,7 +14,7 @@ import CloudKit
 //    func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 //}
 
-class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
@@ -54,17 +54,21 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     // empty array for Users
     var entiretyOfUsers: [String] = []
     
+    // Filtered array of searchbar messages
+    var filteredMessages = [String]()
+    
+    var resultSearchController = UISearchController()
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
         
         // remove search bar border
-        groupMessageSearchBar.backgroundImage = UIImage()
+//        groupMessageSearchBar.backgroundImage = UIImage()
         
         // remove tableview lines
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
@@ -87,6 +91,18 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        //
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        
+        self.groupMessageTableView.tableHeaderView = self.resultSearchController.searchBar
+        
+        //Adds the search bar at the top of the tableview
+        self.groupMessageTableView.reloadData()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -129,18 +145,29 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.entiretyOfGroupMessages.count > 0 {
-            
+        
+        if self.resultSearchController.active {
+            return self.filteredMessages.count
+        } else {
             return self.entiretyOfGroupMessages.count
         }
-        return 1
+        
+//        if self.entiretyOfGroupMessages.count > 0 {
+//            
+//            return self.entiretyOfGroupMessages.count
+//        }
+//        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
         
-        if self.postAsArrayOfDictionaries.count > 0 {
+        if self.resultSearchController.active {
+            cell.textLabel?.text = self.filteredMessages[indexPath.row]
+        }
+        
+        else if self.postAsArrayOfDictionaries.count > 0 {
             
             let contents = self.postAsArrayOfDictionaries[indexPath.row]
             
@@ -180,6 +207,20 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             }
         }
         return cell
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        
+        self.filteredMessages.removeAll(keepCapacity: false)
+        
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        
+        let array = (self.entiretyOfGroupMessages as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        
+        self.filteredMessages = array as! [String]
+        
+        self.groupMessageTableView.reloadData()
     }
     
     
