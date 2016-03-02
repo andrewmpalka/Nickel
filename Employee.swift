@@ -19,7 +19,6 @@ class Employee: CKRecord {
     var name: String?
     var nickname: String?
     
-    
     var matchIndicatorBoolAsInt: Int?
     var permissionLevelBoolAsInt: Int?
     
@@ -38,8 +37,7 @@ class Employee: CKRecord {
         let reference = CKReference(recordID: recordID, action: .DeleteSelf)
         
         Employee.sharedInstance.setValue(reference, forKey: "EmployeeToUserLinker")
-        
-        
+
         self.name = user.name
         self.nickname = user.nickname
         

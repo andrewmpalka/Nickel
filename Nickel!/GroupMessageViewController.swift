@@ -9,14 +9,9 @@
 import UIKit
 import CloudKit
 
-// noteRecord is actual CKRecord we pass to the ListVC, the second parameter indicates whether the record is new or not, bc if new, it will just append the arrNotes array. If edited, then it will replace the proper CKRecord object to the arrNotes array
-//protocol EditMessageViewControllerDelegate {
-//    func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
-//}
 
-class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
     
-    @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -62,10 +57,10 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 //        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
-        
-        // remove search bar border
-        groupMessageSearchBar.backgroundImage = UIImage()
-        
+
+        // remove space on top of cell
+        self.automaticallyAdjustsScrollViewInsets = false
+
         // remove tableview lines
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
         
@@ -170,15 +165,18 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             else {
                 print("Users array: (entiretyOfGroupMessages.description)")
             }
+
+            cell.messageTimeStamp.text = timeStampString
             
-            if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
-            {
-                cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
-            }
-            else {
-                print("Timestamp Array: \(timeStampOfUsers.description)")
-            }
+//            if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
+//            {
+//                cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
+//            }
+//            else {
+//                print("Timestamp Array: \(timeStampOfUsers.description)")
+//            }
         }
+        self.groupMessageTableView.reloadData()
         return cell
     }
     
@@ -188,8 +186,8 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         //TODO after add, reload self.tableView via self.tableView.reloadData()
         //TODO add the messageString to the userDefaults.setValue(value: self.entiretyOfGroupMessages, forKey:"")
         
-        if !(sendGroupMessageTextField.text == "") {
-            
+        if !(sendGroupMessageTextField.text == "")
+        {            
             // save data to NS User Defaults
             userDefaults.setObject(sendGroupMessageTextField.text, forKey: "message")
             userDefaults.setObject(timestamp, forKey: "timeStamp")
@@ -205,7 +203,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             
             self.groupMessageTableView.reloadData()
             userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
-
         }
     }
     
@@ -220,7 +217,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
         {
             timeStampString = "\(sentTimeStamp)"
-            
         }
     }
 }

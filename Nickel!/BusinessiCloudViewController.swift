@@ -86,5 +86,12 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
     }
-    
+
+    // resign keyboard if user touches anywhere on screen
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        textField.resignFirstResponder()
+    }
+
+
+
 }

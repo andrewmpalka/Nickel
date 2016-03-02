@@ -47,10 +47,7 @@ let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMes
 let defaultVisibleEmployeeRecordIDsAsArrayOfString = userDefaults.valueForKey("visibleEmployees")
 
 
-let alertConst = UIAlertController(title: "One moment, please", message: "We are setting up your workspace", preferredStyle: UIAlertControllerStyle.ActionSheet)
-
-
-
+let alertConst = UIAlertController(title: "Verifying my Apple ID...", message: "this may take a moment depending on connection", preferredStyle: UIAlertControllerStyle.ActionSheet)
 
 
 //MARK: Custom Alerts

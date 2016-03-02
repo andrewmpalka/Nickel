@@ -89,7 +89,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }

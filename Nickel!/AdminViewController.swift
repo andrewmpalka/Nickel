@@ -37,7 +37,6 @@ class AdminViewController: UIViewController, UITextFieldDelegate {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
     }
 
     // resign keyboard if user touches anywhere on screen
@@ -64,7 +63,7 @@ class AdminViewController: UIViewController, UITextFieldDelegate {
         majorTextField.text = ""
     }
 
-
+    // resign keyboard if return tapped
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
