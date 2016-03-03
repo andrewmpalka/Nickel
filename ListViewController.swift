@@ -90,6 +90,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
+        cell.selectionStyle = .None
+        
         let employee = self.employees[indexPath.row]
         
         cell.cellTitleLabel.text = employee.name
@@ -98,9 +100,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
     
     // MARK: Fetching CKData
     
@@ -172,6 +171,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = self.tableView.indexPathForSelectedRow
+        let dvc = segue.destinationViewController as! UserProfileViewController
+        dvc.selectedEmployee = self.employees[indexPath!.row]
+    }
     
 }

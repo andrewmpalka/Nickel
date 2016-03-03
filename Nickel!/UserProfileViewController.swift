@@ -17,6 +17,8 @@ class UserProfileViewController: SuperViewController {
     @IBOutlet weak var memberEmailLabel: UILabel!
     @IBOutlet weak var messageButton: UIBarButtonItem!
 
+    var selectedEmployee: EmployeeObj?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class UserProfileViewController: SuperViewController {
         
         //Once user data is stored in CK, this should override default data
         if User.sharedInstance.name != nil {
-            memberNameLabel.text = User.sharedInstance.name
+            memberNameLabel.text = self.selectedEmployee?.name
         }
         
         if User.sharedInstance.nickname != nil {
@@ -51,6 +53,11 @@ class UserProfileViewController: SuperViewController {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
             self.memberImageView.image = profilePicture
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! PrivateMessageViewController
+        dvc.employee = self.selectedEmployee!
     }
 
 }
