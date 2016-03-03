@@ -15,8 +15,9 @@ class DataServices {
     class func updateFirebaseEmployee(status: String) {
         
         let ref = Firebase(url: nickelEmployees)
-        ref.setValue("employeeNode")
+
         if let name = User.sharedInstance.name {
+            ref.setValue(name)
             ref.childByAutoId().setValue(["name": name, "status": status])
         }
     }
