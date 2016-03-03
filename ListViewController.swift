@@ -107,9 +107,24 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         let fullName = employee.name
         let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
         let firstName = fullNameArr[0]
-
+        
         cell.cellDetailLabel.text = "@\(firstName)"
-
+        
+        if fullName == "Andrew Palka" || fullName == "Matt Deuschle" || fullName == "Jonathan Kilgore" {
+            let image = userProfilePicDict[fullName]
+            
+//            let h = cell.imageView?.frame.size.height
+//            let l = cell.imageView?.frame.size.width
+            
+            
+            
+//            cell.imageView?.image = image
+//            cell.imageView?.sizeToFit()
+//            cell.imageView?.clipsToBounds = true
+        } else {
+            print("NOOOOPE")
+            cell.imageView?.image = UIImage(imageLiteral: "defaultProfile")
+        }
 
         // TRYING TO FIGURe Out BEACONS
         let beacon = AppDelegate()

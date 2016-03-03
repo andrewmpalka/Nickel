@@ -43,8 +43,8 @@ class DataServices {
                     messages.append(msg)
                     } else {
                         let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: "0:00 AM")
+                    messages.append(msg)
                     }
-                    
 }
 //                else {
 //                    let msg = MessageObj(name: map["from"] as! String, message: map["message"], timestamp: "0:00 AM")
