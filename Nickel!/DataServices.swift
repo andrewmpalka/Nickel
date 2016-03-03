@@ -26,16 +26,12 @@ class DataServices {
         ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
             var employees = [EmployeeObj]()
             
-            for employee in snapshot.children {
-                print(employee)
-                if  let name = employee["name"] as? String,
-                    let status = employee["status"] as? String {
-                        employees.append(EmployeeObj(name: name, status: status))
+            for employee in snapshot.children.allObjects as! [FDataSnapshot] {
+                if let map = employee.value as? [String: AnyObject] {
+                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String))
                 }
             }
-            
-            
-            
+
             completionHandler(employees: employees)
             
             }) { (error) -> Void in
