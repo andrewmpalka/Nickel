@@ -28,6 +28,11 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let andy = People(name: "Andrew Palka", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "andy"))
+        let matt = People(name: "Matthew Deuschle", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "matt"))
+        let jon = People(name: "Jonathan Kilgore", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "jon"))
+
+
         print("number of people \(self.employees.count) ")
 
 
@@ -60,9 +65,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             print(User.sharedInstance.name!)
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
-        
-        
-        
+
     }
     
     override func viewWillAppear(animated: Bool) {
