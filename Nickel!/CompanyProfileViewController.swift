@@ -35,7 +35,17 @@ class CompanyProfileViewController: SuperViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-//Once CloudKit saves EditProfile data, the labels should update
+
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if userDefaults.valueForKey("companyPicture") != nil {
+            self.companyProfilePicFromData(userDefaults.valueForKey("companyPicture") as! NSData)
+            self.companyImageView.image = companyProfilePicture
+        }
+        
+        //Once CloudKit saves EditProfile data, the labels should update
         if userDefaults.valueForKey("currentBusinessName") != nil {
             companyNameLabel.text = (userDefaults.valueForKey("currentBusinessName") as! String)
         }
@@ -44,14 +54,6 @@ class CompanyProfileViewController: SuperViewController {
         }
         if userDefaults.valueForKey("currentBusinessEmail") != nil {
             companyEmailLabel.text = (userDefaults.valueForKey("currentBusinessEmail") as! String)
-        }
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        if userDefaults.valueForKey("companyPicture") != nil {
-            self.companyProfilePicFromData(userDefaults.valueForKey("companyPicture") as! NSData)
-            self.companyImageView.image = companyProfilePicture
         }
     }
 
