@@ -38,8 +38,17 @@ class DataServices {
             print(snapshot)
             for message in snapshot.children.allObjects as! [FDataSnapshot] {
                 if let map = message.value as? [String: AnyObject] {
+                    if map["timestamp"] != nil {
                     let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: map["timestamp"] as! String)
-                    messages.append(msg)                }
+                    messages.append(msg)
+                    } else {
+                        let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: "0:00 AM")
+                    }
+                    
+}
+//                else {
+//                    let msg = MessageObj(name: map["from"] as! String, message: map["message"], timestamp: "0:00 AM")
+//}
                 
             }
             
@@ -67,8 +76,19 @@ class DataServices {
             
             print(snapshot)
             for message in snapshot.children.allObjects as! [FDataSnapshot] {
+                
+                
+                
                 if let map = message.value as? [String: AnyObject] {
-                    let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: map["timestamp"] as! String)
+                    if map["timeStamp"] != nil {
+                let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: map["timestamp"] as! String)
+                    messages.append(msg)
+                    } else {
+                        let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: "0:00 AM")
+                    messages.append(msg)
+                    }
+                } else {
+                    let msg = MessageObj(name: "", message: "", timestamp: "0")
                     messages.append(msg)
                 }
             }
