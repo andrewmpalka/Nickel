@@ -2,13 +2,16 @@ PODS:
   - EstimoteIndoorSDK (2.1.0):
     - EstimoteSDK (~> 3.8)
   - EstimoteSDK (3.8.2)
+  - Firebase (2.5.1)
 
 DEPENDENCIES:
   - EstimoteIndoorSDK
   - EstimoteSDK
+  - Firebase (>= 2.3.2)
 
 SPEC CHECKSUMS:
   EstimoteIndoorSDK: 98a5c8a6fd049477b572eaec3d4eb58750db975d
   EstimoteSDK: 5e36b596f9f28161bff35b086d9f70282be5f513
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
 
 COCOAPODS: 0.39.0

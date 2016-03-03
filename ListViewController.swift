@@ -56,8 +56,21 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
+        let email = User.sharedInstance.emailAddress
+        print("User Email: \(User.sharedInstance.emailAddress)")
+        
 //        self.updateUsersOnlineLabel()
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
+//            self.performSegueWithIdentifier(<#T##identifier: String##String#>, sender: <#T##AnyObject?#>)
+//        }
+//        
+//        
+//    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)

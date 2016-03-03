@@ -13,6 +13,7 @@
 		4CFA6B9A1C83BCAE004629E5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */; };
 		4CFA6B9C1C849ED2004629E5 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA6B9B1C849ED2004629E5 /* Notifications.swift */; };
 		4CFA6BCA1C867838004629E5 /* GroupMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */; };
+		4CFA6BCC1C87BA63004629E5 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA6BCB1C87BA63004629E5 /* Firebase.swift */; };
 		7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */; };
 		7B7D40431C73C54E0052DB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40411C73C54E0052DB28 /* Main.storyboard */; };
 		7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40441C73C54E0052DB28 /* Nickel_.xcdatamodeld */; };
@@ -80,6 +81,7 @@
 		4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4CFA6B9B1C849ED2004629E5 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = "Nickel!/Notifications.swift"; sourceTree = "<group>"; };
 		4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
+		4CFA6BCB1C87BA63004629E5 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		7B7D403A1C73C54E0052DB28 /* Nickel!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nickel!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
 				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
 				7B7D40BE1C7650050052DB28 /* Global.swift */,
+				4CFA6BCB1C87BA63004629E5 /* Firebase.swift */,
 			);
 			name = "Data Services";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
+				4CFA6BCC1C87BA63004629E5 /* Firebase.swift in Sources */,
 				7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */,
 				7BA21D161C83A5BB0088299B /* Message.swift in Sources */,
 				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,

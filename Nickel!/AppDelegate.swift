@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
