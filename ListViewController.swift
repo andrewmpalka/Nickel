@@ -11,12 +11,15 @@ import CloudKit
 import Firebase
 
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
-    
+
+    var people = [People]()
+
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfUsersOnlineButton: UIBarButtonItem!
-    
+
+
     var memberArray = [CKRecord]?()
     var insideFieldMembers = [CKRecord]?()
     var currentBusiness: CKRecord?
@@ -27,6 +30,12 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let andy = People(name: "Andrew Palka", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "andy"))
+        let matt = People(name: "Matthew Deuschle", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "matt"))
+        let jon = People(name: "Jonathan Kilgore", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "jon"))
+
+        people = [andy, matt, jon]
 
         print("number of people \(self.employees.count) ")
 
@@ -60,9 +69,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             print(User.sharedInstance.name!)
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
-        
-        
-        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -109,6 +116,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         let firstName = fullNameArr[0]
 
         cell.cellDetailLabel.text = "@\(firstName)"
+
+        let person = people[indexPath.row]
+        cell.imageView?.image = person.profileImage
 
 
         // TRYING TO FIGURe Out BEACONS
