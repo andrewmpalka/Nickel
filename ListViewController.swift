@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import Firebase
 
 class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -56,7 +57,9 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
-//        self.updateUsersOnlineLabel()
+        DataServices.updateFirebaseEmployee("loggedIn")
+        DataServices.listenForEmployeeUpdates()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
