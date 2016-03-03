@@ -13,28 +13,36 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var profileImageView: UIImageView!
 
     @IBOutlet weak var firstNameLabel: UITextField! //This actually encompasses the full user name
-    @IBOutlet weak var handleLabel: UITextField!
+ //   @IBOutlet weak var handleLabel: UITextField!
     @IBOutlet weak var userRoleLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
         
     // value to hold keyboard frmae size
     var keyboard = CGRect()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+        let str = NSAttributedString(string: "Enter name", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        firstNameLabel.attributedPlaceholder = str
+
+        let str2 = NSAttributedString(string: "Enter job title", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        userRoleLabel.attributedPlaceholder = str2
+
+        let str3 = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        emailLabel.attributedPlaceholder = str3
+
         self.title = "Edit Profile"
-        
         
         if User.sharedInstance.name != nil {
             firstNameLabel.text = User.sharedInstance.name
         }
-        
-        if User.sharedInstance.nickname != nil {
-            handleLabel.text = User.sharedInstance.nickname
-        }
-        
+
+ //       if User.sharedInstance.nickname != nil {
+ //           handleLabel.text = User.sharedInstance.nickname
+  //      }
+
         if User.sharedInstance.positionTitle != nil {
             userRoleLabel.text = User.sharedInstance.positionTitle
         }
@@ -59,9 +67,6 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         //rounds the image from a square to circle
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
-        
-        
-        
         
     }
     
@@ -118,16 +123,19 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
     //User pressed the save button to update the profile information
     @IBAction func saveButtonTapped(sender: AnyObject) {
         
-        
         // save filled in information and send to CK
         User.sharedInstance.name = self.firstNameLabel.text
-        User.sharedInstance.nickname = self.handleLabel.text
+//        User.sharedInstance.nickname = self.handleLabel.text
         User.sharedInstance.positionTitle = self.userRoleLabel.text
         User.sharedInstance.emailAddress = self.emailLabel.text
-        
-        
-        
-        
+
+
     }
+
+    @IBAction func dismisskeyboardOnSavePressed(sender: AnyObject) {
+        resignFirstResponder()
+
+    }
+
     
 }//end of class

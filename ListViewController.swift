@@ -23,10 +23,14 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var checker = false
     
     var aUser = User?()
+    var employees = [EmployeeObj]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        print("number of people \(self.employees.count) ")
+
+
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
@@ -40,7 +44,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
-//        self.fetchUsers()
+        //        self.fetchUsers()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -57,10 +61,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
-        DataServices.updateFirebaseEmployee("some other status")
-        DataServices.listenForEmployeeUpdates { (employees) -> Void in
-            print(employees.count)
-        }
+        
         
     }
     
@@ -73,82 +74,69 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
-        
-        
+
+        DataServices.updateFirebaseEmployee("going to sleep")
+        DataServices.listenForEmployeeUpdates { (employees) -> Void in
+            self.employees = employees
+            self.tableView.reloadData()
+        }
     }
+    
     
     func updateUsersOnlineLabel() {
         self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray!.count)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.memberArray!.count > 0 {
-            
-            return self.memberArray!.count
-        } else {
-            self.viewDidLoad()
-        }
-        
-        return 0
+
+        numberOfUsersOnlineButton.title = String(self.employees.count)
+
+
+        return self.employees.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
+        cell.selectionStyle = .None
         
+        let employee = self.employees[indexPath.row]
         
-        if User.sharedInstance.name != nil {
-            cell.cellTitleLabel.text = User.sharedInstance.name
-        }
-        if User.sharedInstance.nickname != nil {
-            cell.detailTextLabel?.text = User.sharedInstance.nickname
-        }
-        
-        //Andy's code
-        if self.memberArray!.count > 0 {
-            let member = memberArray![indexPath.row]
-            
-            if member.valueForKey("ProfilePictureAsNSData") != nil {
-                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
-            }
-            //        let pic = self.profilePicFromData(data)
-            
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            } else {
-                cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
-            }
-            
-            if member.valueForKey("InsideField") as! Int == 1 {
+        cell.cellTitleLabel.text = employee.name
+//        cell.cellDetailLabel.text = employee.status
+
+        let fullName = employee.name
+        let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
+        let firstName = fullNameArr[0]
+
+        cell.cellDetailLabel.text = "@\(firstName)"
+
+
+        // TRYING TO FIGURe Out BEACONS
+        let beacon = AppDelegate()
+
+        if beacon.enteredRegion == false
+        {
             cell.cellGreenLightImage.hidden = false
-            }
-            print(member.recordID.recordName)
-            cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
-            cell.cellDetailLabel.text = (member.valueForKey("Nickname")! as! String)
-            print(" N I C K N A M E")
-            print(member.valueForKey("Nickname")!)
-            
-            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
-            
-        } else {
-            cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            cell.cellTitleLabel.text = "Kanye West"
-            cell.detailTextLabel?.text = "@kanye"
-            cell.cellGreenLightImage.hidden = false
-            
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            }
         }
-    
+        else
+        {
+            cell.cellGreenLightImage.hidden = true
+        }
+
+        print ("Entered ?:\(beacon.enteredRegion)")
+
+
+
+//        // TRYING TO ADD PICS
+//        if userDefaults.valueForKey("userPicture") != nil {
+//            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+//            cell.imageView?.image = profilePicture
+//        }
+
+
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
     
     // MARK: Fetching CKData
     
@@ -209,7 +197,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                     print(error)
                 } else {
                     if task != nil {
-//                        self.memberArray.append(task!)
+                        //                        self.memberArray.append(task!)
                         print("appended task: \(task)")
                     }
                 }
@@ -220,6 +208,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
     }
     
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = self.tableView.indexPathForSelectedRow
+        let dvc = segue.destinationViewController as! UserProfileViewController
+        dvc.selectedEmployee = self.employees[indexPath!.row]
+    }
     
 }

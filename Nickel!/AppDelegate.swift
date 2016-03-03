@@ -216,7 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 userDefaults.setValue(nil, forKey: "Logged in")
             }
             Notifications.display(text)
-            
+        
         }
     }
     
