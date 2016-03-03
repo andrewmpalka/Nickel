@@ -17,8 +17,7 @@ class DataServices {
         let ref = Firebase(url: nickelEmployees)
 
         if let name = User.sharedInstance.name {
-            ref.setValue(name)
-            ref.childByAutoId().setValue(["name": name, "status": status])
+            ref.childByAppendingPath(name).setValue(["name": name, "status": status])
         }
     }
     

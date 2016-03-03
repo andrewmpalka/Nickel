@@ -72,7 +72,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
         
-        DataServices.updateFirebaseEmployee("status")
+        DataServices.updateFirebaseEmployee("something updated")
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
             self.employees = employees
             self.tableView.reloadData()
