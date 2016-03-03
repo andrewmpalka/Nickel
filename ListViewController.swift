@@ -61,6 +61,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         DataServices.updateFirebaseEmployee("some other status")
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
             self.employees = employees
+            self.tableView.reloadData()
         }
         
     }
@@ -100,7 +101,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         cell.cellTitleLabel.text = employee.name
         cell.cellDetailLabel.text = employee.status
-                
+        
         return cell
     }
     
