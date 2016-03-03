@@ -10,7 +10,34 @@ import Firebase
 
 class DataServices {
     
-    static let nickelEmployees = "https://nickelapp.firebaseio.com/nickelData/employees"
+    static let nickelEmployees = "https://nickelapp.firebaseio.com/employees"
+    static let nickelGroupMessages = "https://nickelapp.firebaseio.com/groupMessages"
+    
+    class func sendGroupMessage(message: String) {
+        let ref = Firebase(url: nickelGroupMessages)
+        if let name = User.sharedInstance.name {
+            ref.childByAutoId().setValue(["from": name, "message": message])
+        }
+    }
+    
+    class func listenForGroupMessages(completionHandler: (messages: [MessageObj]) -> Void)  {
+        let ref = Firebase(url: nickelGroupMessages)
+        ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
+            var messages = [MessageObj]()
+            
+            print(snapshot)
+            for message in snapshot.children.allObjects as! [FDataSnapshot] {
+                if let map = message.value as? [String: AnyObject] {
+                    messages.append(MessageObj(name: map["from"] as! String, message: map["message"] as! String))
+                }
+            }
+            print(messages) 
+            completionHandler(messages: messages)
+            
+            }) { (error) -> Void in
+                print(error.description)
+        }
+    }
     
     class func updateFirebaseEmployee(status: String) {
         
