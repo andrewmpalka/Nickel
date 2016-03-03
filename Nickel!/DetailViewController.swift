@@ -35,9 +35,7 @@ class DetailViewController: SuperViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        if User.sharedInstance.name != nil {
-            userNameLabel.text = User.sharedInstance.name
-        }
+
 
         let fullName = User.sharedInstance.name
         let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
@@ -48,13 +46,7 @@ class DetailViewController: SuperViewController {
 //            userHandleLabel.text = User.sharedInstance.nickname
 //        }
 
-        if User.sharedInstance.positionTitle != nil {
-            userTitleLabel.text = User.sharedInstance.positionTitle
-        }
-        
-        if User.sharedInstance.emailAddress != nil {
-            userEmailLabel.text = User.sharedInstance.emailAddress
-        }
+
 
     }
     
@@ -62,6 +54,18 @@ class DetailViewController: SuperViewController {
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
             self.imageView.image = profilePicture
+        }
+        
+        if User.sharedInstance.name != nil {
+            userNameLabel.text = User.sharedInstance.name
+        }
+        
+        if User.sharedInstance.positionTitle != nil {
+            userTitleLabel.text = User.sharedInstance.positionTitle
+        }
+        
+        if User.sharedInstance.emailAddress != nil {
+            userEmailLabel.text = User.sharedInstance.emailAddress
         }
     }
 
