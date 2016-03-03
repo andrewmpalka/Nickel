@@ -58,11 +58,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
-        DataServices.updateFirebaseEmployee("some other status")
-        DataServices.listenForEmployeeUpdates { (employees) -> Void in
-            self.employees = employees
-            self.tableView.reloadData()
-        }
+        
         
     }
     
@@ -76,23 +72,21 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
         
-        
+        DataServices.updateFirebaseEmployee("some other status")
+        DataServices.listenForEmployeeUpdates { (employees) -> Void in
+            self.employees = employees
+            print(self.employees)
+            self.tableView.reloadData()
+        }
     }
+    
     
     func updateUsersOnlineLabel() {
         self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray!.count)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.memberArray!.count > 0 {
-            
-            return self.memberArray!.count
-        } else {
-            self.viewDidLoad()
-        }
-        
-        return 0
+        return self.employees.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

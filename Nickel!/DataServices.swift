@@ -15,20 +15,25 @@ class DataServices {
     class func updateFirebaseEmployee(status: String) {
         
         let ref = Firebase(url: nickelEmployees)
+        ref.setValue("employeeNode")
         if let name = User.sharedInstance.name {
-            ref.childByAppendingPath(name).setValue(["name": name, "status": status])
+            ref.childByAutoId().setValue(["name": name, "status": status])
         }
     }
     
     class func listenForEmployeeUpdates(completionHandler: (employees: [EmployeeObj]) -> Void) {
-        let ref = Firebase(url: "\(nickelEmployees)/\(User.sharedInstance.name!)")
-        ref.queryOrderedByChild("employeeName").observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
+        let ref = Firebase(url: nickelEmployees)
+        ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
             var employees = [EmployeeObj]()
-
-            if  let name = snapshot?.value.objectForKey("name") as? String,
-                let status = snapshot?.value.objectForKey("status") as? String {
-                employees.append(EmployeeObj(name: name, status: status))
+            
+            for employee in snapshot.children {
+                print(employee)
+                if  let name = employee["name"] as? String,
+                    let status = employee["status"] as? String {
+                        employees.append(EmployeeObj(name: name, status: status))
+                }
             }
+            
             
             
             completionHandler(employees: employees)
