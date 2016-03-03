@@ -5,8 +5,9 @@ use_frameworks!
 
 target 'Nickel!' do
 
-pod 'EstimoteSDK'
-pod 'EstimoteIndoorSDK'
+    pod 'EstimoteSDK'
+    pod 'EstimoteIndoorSDK'
+    pod 'Firebase', '>= 2.5.0'
 
 
 end
