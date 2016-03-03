@@ -13,8 +13,6 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var enterPrivateMessageTextField: UITextField!
 
-    var defaults = NSUserDefaults.standardUserDefaults()
-
     var timeStampString = ""
 
     var employee: EmployeeObj?
@@ -95,7 +93,6 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
 
     @IBAction func privateMessageSendButtonPressed(sender: AnyObject)
     {
-        timeStampFunction()
 
         DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
         enterPrivateMessageTextField.text = ""
@@ -105,27 +102,11 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
     // gets rid of the keyboard when hit return
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {   
-        timeStampFunction()
 
         DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
         enterPrivateMessageTextField.text = ""
         enterPrivateMessageTextField.resignFirstResponder()
         return true
-    }
-
-    func timeStampFunction()
-    {
-        // method for timeStamp
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
-
-
-        defaults.setObject(timestamp, forKey: "timeStamp")
-
-        if let timestampLet = defaults.stringForKey("timeStamp")
-        {
-            timeStampString = (timestampLet)
-        }
-
     }
 
 

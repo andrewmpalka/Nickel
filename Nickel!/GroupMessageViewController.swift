@@ -21,8 +21,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
-    var defaults = NSUserDefaults.standardUserDefaults()
-
 
     
     // empty string for Message
@@ -57,8 +55,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     
     // empty array for Users
     var entiretyOfUsers: [String] = []
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,12 +157,15 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         }
 
 
-
         let communication = self.messages[indexPath.row]
         cell.messageNameLabel.text = communication.name
         cell.groupMessageTextField.text = communication.message
 
-        cell.messageTimeStamp.text = timeStampString
+        cell.messageTimeStamp.text = communication.timestamp
+
+
+
+//        cell.messageTimeStamp.text = timeStampString
 
         
         return cell
@@ -179,46 +178,17 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
                 DataServices.sendGroupMessage(message)
             }
         }
-        timeStampFunction()
         sendGroupMessageTextField.resignFirstResponder()
         self.sendGroupMessageTextField.text = ""
     }
-    
-//    func saveData()
-//    {
-//        // display saved data
-//        if let sentMessage = userDefaults.stringForKey("message")
-//        {
-//            messageString = "\(sentMessage)"
-//            
-//        }
-//        if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
-//        {
-//            timeStampString = "\(sentTimeStamp)"
-//            
-//        }
-//    }
-
-    func timeStampFunction()
-    {
-        // method for timeStamp
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
 
 
-        defaults.setObject(timestamp, forKey: "timeStamp")
 
-        if let timestampLet = defaults.stringForKey("timeStamp")
-        {
-            timeStampString = (timestampLet)
-        }
-        
-    }
+
 
     // gets rid of the keyboard when hit return
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        timeStampFunction()
-        timeStampFunction()
         sendGroupMessageTextField.text = ""
         sendGroupMessageTextField.resignFirstResponder()
         return true

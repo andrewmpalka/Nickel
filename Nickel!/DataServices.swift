@@ -6,10 +6,17 @@
 //  Copyright © 2016 Andrew Palka. All rights reserved.
 //
 
+import Foundation
 import Firebase
 
 class DataServices {
-    
+
+    // method for timeStamp
+    class func generateTimestamp() -> String {
+        return  NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+    }
+
+
     static let nickelEmployees = "https://nickelapp.firebaseio.com/employees"
     static let nickelGroupMessages = "https://nickelapp.firebaseio.com/groupMessages"
     static let nickelPrivateMessages = "https://nickelapp.firebaseio.com/privateMessages"
@@ -31,8 +38,8 @@ class DataServices {
             print(snapshot)
             for message in snapshot.children.allObjects as! [FDataSnapshot] {
                 if let map = message.value as? [String: AnyObject] {
-                    messages.append(MessageObj(toUser: map["to"] as! String, fromUser: map["from"]  as! String, message: map["message"] as! String))
-                }
+                    let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: map["timestamp"] as! String)
+                    messages.append(msg)                }
                 
             }
             
@@ -62,7 +69,8 @@ class DataServices {
             print(snapshot)
             for message in snapshot.children.allObjects as! [FDataSnapshot] {
                 if let map = message.value as? [String: AnyObject] {
-                    messages.append(MessageObj(name: map["from"] as! String, message: map["message"] as! String))
+                    let msg = MessageObj(name: map["from"] as! String, message: map["message"] as! String, timestamp: map["timestamp"] as! String)
+                    messages.append(msg)
                 }
             }
             print(messages)
