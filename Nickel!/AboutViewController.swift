@@ -12,17 +12,18 @@ class AboutViewController: SuperViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
+    @IBOutlet weak var aboutTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "About"
 
+
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
-
 
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()

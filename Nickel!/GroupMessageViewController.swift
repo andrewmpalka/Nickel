@@ -14,13 +14,14 @@ import CloudKit
 //    func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 //}
 
-class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
     
-    @IBOutlet weak var groupMessageSearchBar: UISearchBar!
+  //  @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+
+
     
     // empty string for Message
     var messageString = ""
@@ -35,10 +36,11 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
     */
 
+    var messages = [MessageObj]()
     
-    // method for timeStamp
-    let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
-    
+//    // method for timeStamp
+//    let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
     // empty string for TimeStamp
     var timeStampString = ""
     
@@ -54,17 +56,18 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     // empty array for Users
     var entiretyOfUsers: [String] = []
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // remove space on top of cell
+        self.automaticallyAdjustsScrollViewInsets = false
+
 //        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
         
         // remove search bar border
-        groupMessageSearchBar.backgroundImage = UIImage()
+  //      groupMessageSearchBar.backgroundImage = UIImage()
         
         // remove tableview lines
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
@@ -86,6 +89,13 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        DataServices.listenForGroupMessages { (messages) -> Void in
+            for message in messages {
+                self.messages.append(message)
+                self.groupMessageTableView.reloadData()
+            }
         }
     }
     
@@ -129,99 +139,59 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.entiretyOfGroupMessages.count > 0 {
-            
-            return self.entiretyOfGroupMessages.count
-        }
-        return 1
+        return self.messages.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
-        
-        if self.postAsArrayOfDictionaries.count > 0 {
-            
-            let contents = self.postAsArrayOfDictionaries[indexPath.row]
-            
-            let poster = contents["user"] as! CKRecord
-            let post = contents["messageString"] as! String
-            let timeStamp = contents["timeStampString"] as! String
-            
-            let imageData = poster.valueForKey("EmployeePic") as! NSData
-            
-            self.profilePicFromData(imageData)
-            let image = self.profilePicture
-            
-            cell.messageNameLabel.text = post
-            cell.messageTimeStamp.text = timeStamp
-            cell.messageImageView.image = image
-            
-        } else {
-            
+
+
+
+
+        // TRYING TO ADD PICS
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
             cell.messageImageView.image = profilePicture
-            //        cell.messageImageView.image = UIImage(imageLiteral: "defaultProfile")
-            cell.messageNameLabel.text = "Kanye West"
-            
-            if entiretyOfGroupMessages.count > 0
-            {
-                cell.groupMessageTextField.text = entiretyOfGroupMessages[indexPath.row]
-            }
-            else {
-                print("Users array: (entiretyOfGroupMessages.description)")
-            }
-            
-            if timeStampOfUsers.count > 0 && timeStampOfUsers.count > indexPath.row
-            {
-                cell.messageTimeStamp.text = timeStampOfUsers[indexPath.row]
-            }
-            else {
-                print("Timestamp Array: \(timeStampOfUsers.description)")
-            }
         }
+
+
+        let communication = self.messages[indexPath.row]
+        cell.messageNameLabel.text = communication.name
+        cell.groupMessageTextField.text = communication.message
+
+        cell.messageTimeStamp.text = communication.timestamp
+
+
+
+//        cell.messageTimeStamp.text = timeStampString
+
+        
         return cell
     }
     
     
     @IBAction func onSendButtonTapped(sender: AnyObject) {
-        //TODO add messageString to self.entiretyOfGroupMessages array via .append(messageString)
-        //TODO after add, reload self.tableView via self.tableView.reloadData()
-        //TODO add the messageString to the userDefaults.setValue(value: self.entiretyOfGroupMessages, forKey:"")
-        
-        if !(sendGroupMessageTextField.text == "") {
-            
-            // save data to NS User Defaults
-            userDefaults.setObject(sendGroupMessageTextField.text, forKey: "message")
-            userDefaults.setObject(timestamp, forKey: "timeStamp")
-            userDefaults.synchronize()
-            saveData()
-            groupMessageTableView.reloadData()
-            
-            sendGroupMessageTextField.resignFirstResponder()
-            sendGroupMessageTextField.text = ""
-            
-            self.entiretyOfGroupMessages.insert(messageString, atIndex: 0)
-            self.timeStampOfUsers.insert(timeStampString, atIndex: 0)
-            
-            self.groupMessageTableView.reloadData()
-            userDefaults.setObject(self.entiretyOfGroupMessages, forKey: "currentMessageRecordsForBusinessArray")
-
+        if let message = self.sendGroupMessageTextField.text {
+            if !message.isEmpty {
+                DataServices.sendGroupMessage(message)
+            }
         }
+        sendGroupMessageTextField.resignFirstResponder()
+        self.sendGroupMessageTextField.text = ""
     }
-    
-    func saveData()
+
+
+
+
+
+    // gets rid of the keyboard when hit return
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        // display saved data
-        if let sentMessage = userDefaults.stringForKey("message")
-        {
-            messageString = "\(sentMessage)"
-            
-        }
-        if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
-        {
-            timeStampString = "\(sentTimeStamp)"
-            
-        }
+        sendGroupMessageTextField.text = ""
+        sendGroupMessageTextField.resignFirstResponder()
+        return true
     }
 }
 

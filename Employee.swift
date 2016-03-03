@@ -11,15 +11,13 @@ import CloudKit
 
 class Employee: CKRecord {
     static var sharedInstance = CKRecord(recordType: "Employees")
-
     
     var firstName: String?
     var lastName: String?
     
     var name: String?
     var nickname: String?
-    
-    
+
     var matchIndicatorBoolAsInt: Int?
     var permissionLevelBoolAsInt: Int?
     

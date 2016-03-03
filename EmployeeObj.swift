@@ -11,7 +11,8 @@ import Foundation
 class EmployeeObj {
     let name: String!
     let status: String!
-    
+
+
     init(name: String, status: String) {
         self.name = name
         self.status = status

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18EFC5CA8C309AF75E25C1AB /* Pods_Nickel_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */; };
+		4CB39C0B1C87F23E00AD05CC /* MessageObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */; };
 		4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */; };
 		4CFA6B981C83BC61004629E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B971C83BC61004629E5 /* Foundation.framework */; };
 		4CFA6B9A1C83BCAE004629E5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */; };
@@ -36,6 +37,7 @@
 		7BA21D181C8554220088299B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D171C8554220088299B /* Messages.swift */; };
 		7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */; };
 		A86243F31C8642680027A227 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F21C8642680027A227 /* AdminViewController.swift */; };
+		A86243F51C88A5F10027A227 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F41C88A5F10027A227 /* People.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
 		A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */; };
 		A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33821C74161E003930FB /* NewBusinessViewController.swift */; };
@@ -77,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
+		4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageObj.swift; sourceTree = "<group>"; };
 		4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4CFA6B971C83BC61004629E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,7 @@
 		7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController + Feed .swift"; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A86243F21C8642680027A227 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		A86243F41C88A5F10027A227 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A87E337E1C7415CF003930FB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessiCloudViewController.swift; sourceTree = "<group>"; };
 		A87E33821C74161E003930FB /* NewBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBusinessViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 		7B7D40311C73C54E0052DB28 = {
 			isa = PBXGroup;
 			children = (
+				A86243F41C88A5F10027A227 /* People.swift */,
 				4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */,
 				7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */,
 				7B7D40711C7502110052DB28 /* CloudKit.framework */,
@@ -263,6 +268,7 @@
 				4CFA6B9B1C849ED2004629E5 /* Notifications.swift */,
 				7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */,
 				4CFA6BCF1C87D6E0004629E5 /* EmployeeObj.swift */,
+				4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -513,6 +519,7 @@
 				A87E33A01C7511E4003930FB /* MyStatsViewController.swift in Sources */,
 				A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */,
 				4CFA6BD01C87D6E0004629E5 /* EmployeeObj.swift in Sources */,
+				A86243F51C88A5F10027A227 /* People.swift in Sources */,
 				7BA21CD11C7F6D1F0088299B /* SuperUIViewController.swift in Sources */,
 				A87E33811C74160D003930FB /* BusinessiCloudViewController.swift in Sources */,
 				A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */,
@@ -547,6 +554,7 @@
 				A87E33991C74E6F0003930FB /* EditCompnayViewController.swift in Sources */,
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 				7B7D40BF1C7650050052DB28 /* Global.swift in Sources */,
+				4CB39C0B1C87F23E00AD05CC /* MessageObj.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
