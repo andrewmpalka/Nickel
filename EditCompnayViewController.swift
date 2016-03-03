@@ -20,6 +20,15 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
         super.viewDidLoad()
 
         self.title = "Edit Company"
+
+        let str4 = NSAttributedString(string: "Enter company name", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        companyNameTextField.attributedPlaceholder = str4
+
+        let str5 = NSAttributedString(string: "Enter company location", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        companyLocationTextField.attributedPlaceholder = str5
+
+        let str6 = NSAttributedString(string: "Enter company email", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        companyEmailTextField.attributedPlaceholder = str6
         
         
         if userDefaults.valueForKey("currentBusinessName") != nil {

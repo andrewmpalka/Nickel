@@ -27,7 +27,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        print("number of people \(self.employees.count) ")
+
+
         // set bar button item fonts
         if let font = UIFont(name: "Avenir", size: 15) {
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
@@ -71,7 +74,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
-        
+
         DataServices.updateFirebaseEmployee("going to sleep")
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
             self.employees = employees
@@ -85,6 +88,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        numberOfUsersOnlineButton.title = String(self.employees.count)
+
+
         return self.employees.count
     }
     
@@ -95,8 +102,38 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         let employee = self.employees[indexPath.row]
         
         cell.cellTitleLabel.text = employee.name
-        cell.cellDetailLabel.text = employee.status
-        
+//        cell.cellDetailLabel.text = employee.status
+
+        let fullName = employee.name
+        let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
+        let firstName = fullNameArr[0]
+
+        cell.cellDetailLabel.text = "@\(firstName)"
+
+
+        // TRYING TO FIGURe Out BEACONS
+        let beacon = AppDelegate()
+
+        if beacon.enteredRegion == false
+        {
+            cell.cellGreenLightImage.hidden = false
+        }
+        else
+        {
+            cell.cellGreenLightImage.hidden = true
+        }
+
+        print ("Entered ?:\(beacon.enteredRegion)")
+
+
+
+//        // TRYING TO ADD PICS
+//        if userDefaults.valueForKey("userPicture") != nil {
+//            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+//            cell.imageView?.image = profilePicture
+//        }
+
+
         return cell
     }
     

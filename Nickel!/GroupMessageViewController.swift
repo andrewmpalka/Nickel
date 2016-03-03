@@ -14,13 +14,16 @@ import CloudKit
 //    func didSaveMessage(messageRecord: CKRecord, wasEditingMessage: Bool)
 //}
 
-class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , UITextFieldDelegate{
+class GroupMessageViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
     
-    @IBOutlet weak var groupMessageSearchBar: UISearchBar!
+  //  @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
     @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+
+    var defaults = NSUserDefaults.standardUserDefaults()
+
+
     
     // empty string for Message
     var messageString = ""
@@ -37,9 +40,9 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
     var messages = [MessageObj]()
     
-    // method for timeStamp
-    let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
-    
+//    // method for timeStamp
+//    let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
     // empty string for TimeStamp
     var timeStampString = ""
     
@@ -59,13 +62,16 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // remove space on top of cell
+        self.automaticallyAdjustsScrollViewInsets = false
+
 //        self.groupMessageTableView.reloadData()
 
         self.title = "Message"
         
         // remove search bar border
-        groupMessageSearchBar.backgroundImage = UIImage()
+  //      groupMessageSearchBar.backgroundImage = UIImage()
         
         // remove tableview lines
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
@@ -141,12 +147,28 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
-        
+
+
+
+
+        // TRYING TO ADD PICS
+        if userDefaults.valueForKey("userPicture") != nil {
+            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
+            cell.messageImageView.image = profilePicture
+        }
+
+
+
         let communication = self.messages[indexPath.row]
         cell.messageNameLabel.text = communication.name
         cell.groupMessageTextField.text = communication.message
+
+        cell.messageTimeStamp.text = timeStampString
+
+        
         return cell
     }
     
@@ -157,23 +179,49 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
                 DataServices.sendGroupMessage(message)
             }
         }
-        
+        timeStampFunction()
+        sendGroupMessageTextField.resignFirstResponder()
         self.sendGroupMessageTextField.text = ""
     }
     
-    func saveData()
+//    func saveData()
+//    {
+//        // display saved data
+//        if let sentMessage = userDefaults.stringForKey("message")
+//        {
+//            messageString = "\(sentMessage)"
+//            
+//        }
+//        if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
+//        {
+//            timeStampString = "\(sentTimeStamp)"
+//            
+//        }
+//    }
+
+    func timeStampFunction()
     {
-        // display saved data
-        if let sentMessage = userDefaults.stringForKey("message")
+        // method for timeStamp
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
+
+        defaults.setObject(timestamp, forKey: "timeStamp")
+
+        if let timestampLet = defaults.stringForKey("timeStamp")
         {
-            messageString = "\(sentMessage)"
-            
+            timeStampString = (timestampLet)
         }
-        if let sentTimeStamp = userDefaults.stringForKey("timeStamp")
-        {
-            timeStampString = "\(sentTimeStamp)"
-            
-        }
+        
+    }
+
+    // gets rid of the keyboard when hit return
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        timeStampFunction()
+        timeStampFunction()
+        sendGroupMessageTextField.text = ""
+        sendGroupMessageTextField.resignFirstResponder()
+        return true
     }
 }
 

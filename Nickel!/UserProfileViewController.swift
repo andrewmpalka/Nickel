@@ -34,11 +34,16 @@ class UserProfileViewController: SuperViewController {
         if User.sharedInstance.name != nil {
             memberNameLabel.text = self.selectedEmployee?.name
         }
+
+        let fullName = self.selectedEmployee?.name
+        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
+        let firstName = fullNameArr[0]
+        memberNameHandel.text = "@\(firstName)"
         
-        if User.sharedInstance.nickname != nil {
-            memberNameHandel.text = User.sharedInstance.nickname
-        }
-        
+//        if User.sharedInstance.nickname != nil {
+//            memberNameHandel.text = User.sharedInstance.nickname
+//        }
+
         if User.sharedInstance.positionTitle != nil {
             memberRoleLabel.text = User.sharedInstance.positionTitle
         }

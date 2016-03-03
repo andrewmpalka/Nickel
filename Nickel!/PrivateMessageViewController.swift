@@ -8,16 +8,22 @@
 
 import UIKit
 
-class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
+class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var enterPrivateMessageTextField: UITextField!
+
+    var defaults = NSUserDefaults.standardUserDefaults()
+
+    var timeStampString = ""
 
     var employee: EmployeeObj?
     var messages = [MessageObj]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        enterPrivateMessageTextField.delegate = self
 
         self.title = "Message"
 
@@ -35,7 +41,6 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
             self.messageTableView.reloadData()
         }
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         if userDefaults.valueForKey("userPicture") != nil {
@@ -67,10 +72,9 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
         
         let communication = self.messages[indexPath.row]
         
-        cell.pmImageView?.image = profilePicture
 //        cell.pmImageView?.image = UIImage(imageLiteral: "defaultProfile")
         cell.pmNameLabel.text = communication.name
-        cell.pmTimeStamp?.text = "4:20 PM"
+        cell.pmTimeStamp?.text = timeStampString
         cell.pmTextField.text = communication.message
 
         if User.sharedInstance.name != nil {
@@ -85,12 +89,44 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
         self.resignFirstResponder()
     }
 
-    @IBAction func privateMessageSendButtonPressed(sender: AnyObject) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        enterPrivateMessageTextField.resignFirstResponder()
+    }
+
+    @IBAction func privateMessageSendButtonPressed(sender: AnyObject)
+    {
+        timeStampFunction()
+
         DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
         enterPrivateMessageTextField.text = ""
         enterPrivateMessageTextField.resignFirstResponder()
     }
 
+    // gets rid of the keyboard when hit return
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {   
+        timeStampFunction()
+
+        DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
+        enterPrivateMessageTextField.text = ""
+        enterPrivateMessageTextField.resignFirstResponder()
+        return true
+    }
+
+    func timeStampFunction()
+    {
+        // method for timeStamp
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
+
+        defaults.setObject(timestamp, forKey: "timeStamp")
+
+        if let timestampLet = defaults.stringForKey("timeStamp")
+        {
+            timeStampString = (timestampLet)
+        }
+
+    }
 
 
 

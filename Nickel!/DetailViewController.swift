@@ -38,11 +38,16 @@ class DetailViewController: SuperViewController {
         if User.sharedInstance.name != nil {
             userNameLabel.text = User.sharedInstance.name
         }
-        
-        if User.sharedInstance.nickname != nil {
-            userHandleLabel.text = User.sharedInstance.nickname
-        }
-        
+
+        let fullName = User.sharedInstance.name
+        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
+        let firstName = fullNameArr[0]
+        userHandleLabel.text = "@\(firstName)"
+
+//        if User.sharedInstance.nickname != nil {
+//            userHandleLabel.text = User.sharedInstance.nickname
+//        }
+
         if User.sharedInstance.positionTitle != nil {
             userTitleLabel.text = User.sharedInstance.positionTitle
         }
