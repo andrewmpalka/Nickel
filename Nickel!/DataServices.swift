@@ -51,7 +51,6 @@ class DataServices {
                 print(error.description)
         }
         
-        
     }
     
     class func sendGroupMessage(message: String) {
