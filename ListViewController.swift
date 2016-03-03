@@ -57,8 +57,10 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             welcomePopAlert(self, currentUser: User.sharedInstance)
         }
         
-        DataServices.updateFirebaseEmployee("loggedIn")
-        DataServices.listenForEmployeeUpdates()
+        DataServices.updateFirebaseEmployee("some other status")
+        DataServices.listenForEmployeeUpdates { (employees) -> Void in
+            print(employees)
+        }
         
     }
     
