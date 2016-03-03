@@ -59,7 +59,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         DataServices.updateFirebaseEmployee("some other status")
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
-            print(employees)
+            print(employees.count)
         }
         
     }
