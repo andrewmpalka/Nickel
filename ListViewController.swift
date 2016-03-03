@@ -23,6 +23,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var checker = false
     
     var aUser = User?()
+    var employees = [EmployeeObj]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         // remove space on top of cell
         self.automaticallyAdjustsScrollViewInsets = false
-//        self.fetchUsers()
+        //        self.fetchUsers()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -59,7 +60,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         DataServices.updateFirebaseEmployee("some other status")
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
-            print(employees.count)
+            self.employees = employees
         }
         
     }
@@ -95,54 +96,11 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
+        let employee = self.employees[indexPath.row]
         
-        
-        if User.sharedInstance.name != nil {
-            cell.cellTitleLabel.text = User.sharedInstance.name
-        }
-        if User.sharedInstance.nickname != nil {
-            cell.detailTextLabel?.text = User.sharedInstance.nickname
-        }
-        
-        //Andy's code
-        if self.memberArray!.count > 0 {
-            let member = memberArray![indexPath.row]
-            
-            if member.valueForKey("ProfilePictureAsNSData") != nil {
-                let data = member.valueForKey("ProfilePictureAsNSData") as! NSData
-            }
-            //        let pic = self.profilePicFromData(data)
-            
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            } else {
-                cell.cellImageView.image = UIImage(imageLiteral: "defaultProfile")
-            }
-            
-            if member.valueForKey("InsideField") as! Int == 1 {
-            cell.cellGreenLightImage.hidden = false
-            }
-            print(member.recordID.recordName)
-            cell.cellTitleLabel.text = (member.valueForKey("Name") as! String)
-            cell.cellDetailLabel.text = (member.valueForKey("Nickname")! as! String)
-            print(" N I C K N A M E")
-            print(member.valueForKey("Nickname")!)
-            
-            //        cell.detailTextLabel?.text = (member.valueForKey("Nickname") as! String)
-            
-        } else {
-            cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
-            cell.cellGreenLightImage.image = UIImage(imageLiteral: "salmonLight")
-            cell.cellTitleLabel.text = "Kanye West"
-            cell.detailTextLabel?.text = "@kanye"
-            cell.cellGreenLightImage.hidden = false
-            
-            if profilePicture != nil {
-                cell.cellImageView.image = profilePicture
-            }
-        }
-    
+        cell.cellTitleLabel.text = employee.name
+        cell.cellDetailLabel.text = employee.status
+                
         return cell
     }
     
@@ -209,7 +167,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
                     print(error)
                 } else {
                     if task != nil {
-//                        self.memberArray.append(task!)
+                        //                        self.memberArray.append(task!)
                         print("appended task: \(task)")
                     }
                 }
@@ -220,6 +178,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         }
     }
     
-
+    
     
 }
