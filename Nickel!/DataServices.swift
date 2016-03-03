@@ -24,25 +24,26 @@ class DataServices {
     class func listenForPrivateMessages(completionHandler: (messages: [MessageObj]) -> Void) {
         let ref = Firebase(url: nickelPrivateMessages)
         
-        if let name = User.sharedInstance.name {
-            ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
-                var messages = [MessageObj]()
-                
-                for message in snapshot.children.allObjects as! [FDataSnapshot] {
-                    if let map = message.value as? [String: AnyObject] {
-                        let toUser = map["to"] as! String
-                        if name == toUser {
-                            messages.append(MessageObj(name: map["from"] as! String, message: map["message"] as! String))
-                        }
-                    }
+        
+        ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
+            var messages = [MessageObj]()
+            
+            print(snapshot)
+            for message in snapshot.children.allObjects as! [FDataSnapshot] {
+                if let map = message.value as? [String: AnyObject] {
+                    messages.append(MessageObj(toUser: map["to"] as! String, fromUser: map["from"]  as! String, message: map["message"] as! String))
                 }
-                print(messages)
-                completionHandler(messages: messages)
                 
-                }) { (error) -> Void in
-                    print(error.description)
             }
+            
+            if let name = User.sharedInstance.name {
+                completionHandler(messages: messages.filter( { $0.name == name || $0.from == name } ))
+            }
+            
+            }) { (error) -> Void in
+                print(error.description)
         }
+        
         
     }
     
@@ -75,7 +76,7 @@ class DataServices {
     class func updateFirebaseEmployee(status: String) {
         
         let ref = Firebase(url: nickelEmployees)
-
+        
         if let name = User.sharedInstance.name {
             ref.childByAppendingPath(name).setValue(["name": name, "status": status])
         }
@@ -91,7 +92,7 @@ class DataServices {
                     employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String))
                 }
             }
-
+            
             completionHandler(employees: employees)
             
             }) { (error) -> Void in
