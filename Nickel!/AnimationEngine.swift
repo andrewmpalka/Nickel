@@ -27,12 +27,17 @@ class AnimationEngine {
     var constraints: [NSLayoutConstraint]
     init(constraints: [NSLayoutConstraint]) {
         for constraint in constraints {
+            print(constraint)
             OriginalConstants.append(constraint.constant)
             constraint.constant = AnimationEngine.offScreenRightPosition.x
+            print(constraint)
         }
         self.constraints = constraints
     }
     func animateOnScreen(delay: Int64?, control: Int) {
+        
+        
+        print("Called")
         
         var animDelay: Int64 = 0
         
@@ -60,11 +65,11 @@ class AnimationEngine {
             repeat {
                 let moveAnim: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
                 moveAnim.toValue = self.OriginalConstants[index]
-                moveAnim.springSpeed = 12
-                moveAnim.springBounciness = 12
+                moveAnim.springBounciness = 1
+                moveAnim.springSpeed = 4
                 
                 if (index > 0) {
-                    moveAnim.dynamicsFriction += 12 + CGFloat(index)
+                    moveAnim.dynamicsFriction += 2 + CGFloat(index)
 
                 }
                 
@@ -77,14 +82,16 @@ class AnimationEngine {
         }
     }
     
-    class func animateToPosition(view: UIView, position: CGPoint, completion: ((POPAnimation!, Bool) -> Void)) {
+    class func animateItemToPosition(item: AnyObject, position: CGPoint, completion: ((POPAnimation!, Bool) -> Void)) {
         let moveAnim = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-        moveAnim.toValue = NSValue(CGPoint: position)
-        moveAnim.springBounciness = 8
-        moveAnim.springSpeed = 8
-        moveAnim.completionBlock = completion
-        view.pop_addAnimation(moveAnim, forKey: "moveToPosition")
-        print("THIS HAS BEEN HIT")
         
+        let updatedPosition = CGPoint(x: ScreenCenterPosition.x, y: position.y )
+        moveAnim.toValue = NSValue(CGPoint: updatedPosition)
+        moveAnim.springBounciness = 1
+        moveAnim.springSpeed = 4
+        moveAnim.completionBlock = completion
+        item.pop_addAnimation(moveAnim, forKey: "moveItemToPosition")
+        print("THIS HAS BEEN HIT")
     }
+    
 }

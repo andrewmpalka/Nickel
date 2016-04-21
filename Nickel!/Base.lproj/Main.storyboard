@@ -642,7 +642,9 @@
                     <connections>
                         <outlet property="businessNameTextField" destination="wBT-2n-WiX" id="qNx-qI-xLc"/>
                         <outlet property="continueButton" destination="ioG-l6-lCh" id="65I-nA-vUd"/>
+                        <outlet property="continueConstraint" destination="ELX-uR-oDF" id="O1g-jZ-uwH"/>
                         <outlet property="locationButton" destination="HTV-RZ-md2" id="mL6-0Q-5vY"/>
+                        <outlet property="locationConstraint" destination="cOb-rd-spR" id="A0O-To-8ec"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
                         <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="mYY-Sg-Pz8"/>
                     </connections>
@@ -2034,8 +2036,8 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6HL-pD-RxO"/>
         <segue reference="qJI-Yr-grg"/>
         <segue reference="ZCJ-N7-Ejz"/>
-        <segue reference="cFM-l9-Uqr"/>
     </inferredMetricsTieBreakers>
 </document>

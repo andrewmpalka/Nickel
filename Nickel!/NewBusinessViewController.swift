@@ -9,16 +9,23 @@
 import UIKit
 import CloudKit
 import CoreLocation
+import pop
 
 
 class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var businessNameTextField: UITextField!
     
+    @IBOutlet weak var locationConstraint: NSLayoutConstraint!
+    @IBOutlet weak var continueConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var locationButton: UIButton!
-    
     @IBOutlet weak var continueButton: UIButton!
+    
+    var locationButtonCenter: CGPoint?
+    var continueButtonCenter: CGPoint?
+    
+    var animationEngine: AnimationEngine?
     
     let locationManager = CLLocationManager() //Jon Code
     
@@ -28,11 +35,25 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     var UID: String!
     
+//    var animationEngine: AnimationEngine!
+//    var animationEngine1: AnimationEngine!
+//    var animationEngine2: AnimationEngine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationButtonCenter = self.locationButton.center
+        self.continueButtonCenter = self.continueButton.center
 
+//        
+        self.animationEngine = AnimationEngine(constraints: [locationConstraint,
+                                                            continueConstraint])
+//
+//        self.animationEngine1 = AnimationEngine(constraints: [locationConstraint])
+//        self.animationEngine2 = AnimationEngine(constraints: [continueConstraint])
+        
         self.title = "Nickel"
-        self.continueButton.hidden = true
+        self.continueButton.hidden = false
 
         self.businessNameTextField.delegate = self
         //coreLocationManager.delegate = self //prior code
@@ -40,6 +61,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         //Locate the businesses current location //Jon Code
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+
         
     }
     
@@ -88,11 +111,13 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     func textFieldDidEndEditing(textField: UITextField) {
 //        self.locationButton.backgroundColor = SALMON_COLOR
+        print("HAPPENING")
     }
     func textFieldChecker(textField: UITextField, indicator: Int) -> Bool {
         
         if(textField.text?.isEmpty == false) {
             if(validateFieldInput(textField.text!, identifier: indicator) == true) {
+                self.dismissKeyboard()
                 return true
             }
             else {
@@ -113,9 +138,14 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBAction func onAddLocationTapped(sender: AnyObject) {
         //TODO make location popup work
+        
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
-        self.continueButton.hidden = false
+        AnimationEngine.animateItemToPosition(self.continueButton, position: self.continueButtonCenter!, completion: {
+            (anim: POPAnimation!, finished: Bool) -> Void in
+            print("HITTING THIS")
+            
+        })
 
     }
     @IBAction func OnContinueTapped(sender: UIButton) {
@@ -133,12 +163,22 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
 //            createBusiness()
             
 //TODO MODIFY NewBusinessHelper MOVE IT TO CONTINUE
+            AnimationEngine.animateItemToPosition(self.locationButton, position: self.locationButtonCenter!, completion: {
+                (anim: POPAnimation!, finished: Bool) -> Void in
+                print("HITTING THIS")
+            
+            })
 
+            
+            print("WORKS")
 
 //            self.appDelegate.reveal()
 
             return resignFirstResponder()
         }
+        
+        print("DOESN'T WORK")
+
         return resignFirstResponder()
     }
     func dismissKeyboard(){
