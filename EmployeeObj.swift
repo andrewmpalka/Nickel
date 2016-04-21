@@ -11,10 +11,11 @@ import Foundation
 class EmployeeObj {
     let name: String!
     let status: String!
+    let inRange: Bool!
 
-
-    init(name: String, status: String) {
+    init(name: String, status: String, inRange: Bool) {
         self.name = name
         self.status = status
+        self.inRange = inRange
     }
 }

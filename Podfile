@@ -4,7 +4,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Nickel!' do
-
+    
+    pod 'pop', '~> 1.0'
     pod 'EstimoteSDK'
     pod 'EstimoteIndoorSDK'
     pod 'Firebase', '>= 2.5.0'

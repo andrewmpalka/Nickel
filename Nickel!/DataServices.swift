@@ -100,12 +100,12 @@ class DataServices {
         }
     }
     
-    class func updateFirebaseEmployee(status: String) {
+    class func updateFirebaseEmployee(status: String, inRange: Bool) {
         
         let ref = Firebase(url: nickelEmployees)
         
         if let name = User.sharedInstance.name {
-            ref.childByAppendingPath(name).setValue(["name": name, "status": status])
+            ref.childByAppendingPath(name).setValue(["name": name, "status": status, "inRange": inRange])
         }
     }
     
@@ -116,7 +116,12 @@ class DataServices {
             
             for employee in snapshot.children.allObjects as! [FDataSnapshot] {
                 if let map = employee.value as? [String: AnyObject] {
-                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String))
+                    if map["inRange"] == nil {
+                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String, inRange: true))
+
+                    } else {
+                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String, inRange: map["inRange"] as! Bool))
+}
                 }
             }
             

@@ -44,13 +44,13 @@ class EditCompnayViewController: SuperViewController, UITextFieldDelegate, UIIma
         }
         
         // tap to hide keyboard
-        let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(EditCompnayViewController.hideKeyboard))
         hideTap.numberOfTapsRequired = 1
         self.view.userInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
         
         // tap to choose image
-        let imgTap = UITapGestureRecognizer(target: self, action: "loadImg:")
+        let imgTap = UITapGestureRecognizer(target: self, action: #selector(EditCompnayViewController.loadImg(_:)))
         imgTap.numberOfTapsRequired = 1
         companyImageView.userInteractionEnabled = true
         companyImageView.addGestureRecognizer(imgTap)

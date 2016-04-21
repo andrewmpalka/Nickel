@@ -81,13 +81,13 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GroupMessageViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GroupMessageViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         if self.revealViewController() != nil {
             
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         

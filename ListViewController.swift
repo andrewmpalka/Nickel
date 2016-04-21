@@ -53,7 +53,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -78,7 +78,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
 
-        DataServices.updateFirebaseEmployee("going to sleep")
+        DataServices.updateFirebaseEmployee("offline", inRange: false)
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
             self.employees = employees
             self.tableView.reloadData()

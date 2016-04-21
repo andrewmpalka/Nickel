@@ -52,13 +52,13 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         }
         
         // tap to hide keyboard
-        let hideTap = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.hideKeyboard))
         hideTap.numberOfTapsRequired = 1
         self.view.userInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
         
         // tap to choose image
-        let imageTap = UITapGestureRecognizer(target: self, action: "loadImg:")
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.loadImg(_:)))
         imageTap.numberOfTapsRequired = 1
         profileImageView.userInteractionEnabled = true
         profileImageView.addGestureRecognizer(imageTap)

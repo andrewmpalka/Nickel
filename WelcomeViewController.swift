@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import pop
+
 
 class WelcomeViewController: SuperViewController {
 
+    @IBOutlet weak var connectConstraint: NSLayoutConstraint!
+    @IBOutlet weak var newBizConstraint: NSLayoutConstraint!
+    @IBOutlet weak var demoConstraint: NSLayoutConstraint!
+
+    var animationEngine: AnimationEngine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.animationEngine = AnimationEngine(constraints: [connectConstraint,
+                                                             newBizConstraint,
+                                                             demoConstraint])
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+      self.animationEngine.animateOnScreen(nil, control: 1)
     }
 
     @IBAction func connectYourBusinessButtonTapped(sender: AnyObject) {
