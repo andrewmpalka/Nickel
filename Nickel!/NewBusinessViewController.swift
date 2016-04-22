@@ -19,6 +19,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     @IBOutlet weak var locationConstraint: NSLayoutConstraint!
     @IBOutlet weak var continueConstraint: NSLayoutConstraint!
     
+    
+    
+    
+    
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     
@@ -26,6 +30,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     var continueButtonCenter: CGPoint?
     
     var animationEngine: AnimationEngine?
+    var originalLocationConstraints: [NSLayoutConstraint]?
+    var originalContinueConstraints: [NSLayoutConstraint]?
     
     let locationManager = CLLocationManager() //Jon Code
     
@@ -42,21 +48,18 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("reloaded")
+        
         self.locationButtonCenter = self.locationButton.center
         self.continueButtonCenter = self.continueButton.center
-
-//        
+        
+        self.originalLocationConstraints = self.locationButton.constraints
+        self.originalContinueConstraints = self.continueButton.constraints
+        
         self.animationEngine = AnimationEngine(constraints: [locationConstraint,
                                                             continueConstraint])
-//
-//        self.animationEngine1 = AnimationEngine(constraints: [locationConstraint])
-//        self.animationEngine2 = AnimationEngine(constraints: [continueConstraint])
-        
         self.title = "Nickel"
-        self.continueButton.hidden = false
-
         self.businessNameTextField.delegate = self
-        //coreLocationManager.delegate = self //prior code
         
         //Locate the businesses current location //Jon Code
         self.locationManager.delegate = self
@@ -143,6 +146,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         self.locationManager.startUpdatingLocation()
         AnimationEngine.animateItemToPosition(self.continueButton, position: self.continueButtonCenter!, completion: {
             (anim: POPAnimation!, finished: Bool) -> Void in
+            self.continueButton.addConstraints(self.originalContinueConstraints!)
             print("HITTING THIS")
             
         })
@@ -166,7 +170,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
             AnimationEngine.animateItemToPosition(self.locationButton, position: self.locationButtonCenter!, completion: {
                 (anim: POPAnimation!, finished: Bool) -> Void in
                 print("HITTING THIS")
-            
+                self.locationButton.addConstraints(self.originalLocationConstraints!)
             })
 
             

@@ -64,7 +64,7 @@ let alertConst = UIAlertController(title: "One moment, please", message: "We are
 func isYourLocation(vc: SuperViewController, location: CLPlacemark) {
     let alert = UIAlertController(title: "Is your location correct?", message: "\n\( location.locality!), \(location.administrativeArea!)", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let action1 = UIAlertAction(title: "Yes", style: .Destructive) { action in
-        
+        alert.removeFromParentViewController()
     }
     let action2 = UIAlertAction(title: "Retry", style: .Destructive) { action in
         
@@ -77,7 +77,6 @@ func isYourLocation(vc: SuperViewController, location: CLPlacemark) {
     alert.addAction(action3)
     
     vc.presentViewController(alert, animated: false) { () in
-        print("Do Something")
     }
 
 }
