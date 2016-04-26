@@ -24,29 +24,31 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     var bizRef: CKReference?
     var employeeArray = [] as NSMutableArray
     var seguedFromMemberSelect: Bool?
-
+    
     @IBOutlet weak var btnLogin: UIButton!
-
+    @IBOutlet weak var iCloudLogin: UIButton!
+    
+    
     
     @IBOutlet weak var uidTextField: UITextField!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.navigationBarHidden = false
-
-
+        
+        
         self.title = "Nickel"
-
+        
         cloudHelper = CKHelper()
         
-//        self.iCloudLoginAction()
+        //        self.iCloudLoginAction()
         
         Digits.sharedInstance().logOut()
         
         bizRecord = Business.sharedInstance
-//        self.uidTextField.delegate = self
+        //        self.uidTextField.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -59,16 +61,17 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         
         self.iCloudLogin({ (success) -> () in
             if success {
+                print("S U C C E S S")
                 self.presentedViewController
                 userDefaults.setObject(true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
                 self.localUser = self.user
-
+                
                 self.uniqueMemberNameCheck()
-
+                
                 NSOperationQueue.mainQueue().addOperationWithBlock {
-
+                    
                     self.presentViewController(viewController, animated: false, completion: nil)
                 }
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -125,9 +128,9 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                         
                         if resultRecord!["Name"] as? String == self.localUser?.name {
                             dispatch_async(dispatch_get_main_queue()) {
-//                                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//                                    self.errorAlert("Error", message: "\(self.bizRecord!["Name"]!) is already an employee here. Please logout of other device")
-//                                })
+                                //                                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                //                                    self.errorAlert("Error", message: "\(self.bizRecord!["Name"]!) is already an employee here. Please logout of other device")
+                                //                                })
                             }
                         } else {
                             self.createMember()
@@ -138,10 +141,10 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         }
         
     }
-//MARK: Attaching New Employee To Biz
+    //MARK: Attaching New Employee To Biz
     func joinBiz() {
         
-//        uidTextField.resignFirstResponder()
+        //        uidTextField.resignFirstResponder()
         
         let predicate = NSPredicate(format: "uid == %@", uidTextField.text!)
         let query = CKQuery(recordType: "Businesses", predicate: predicate)
@@ -153,23 +156,23 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             } else {
                 if results != nil {
                     if (results!.count > 0) {
-//                        self.orgRecordToJoin = results![0]
+                        //                        self.orgRecordToJoin = results![0]
                         
                         dispatch_async(dispatch_get_main_queue()) {
-//                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//                                self.performSegueWithIdentifier("", sender: self)
-                            }
+                            //                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            //                                self.performSegueWithIdentifier("", sender: self)
                         }
-                    } else {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-//                                self.errorAlert("Oops!", message: "That invite code doesn't exist. Please try again.")
-                            })
-                        }
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            //                                self.errorAlert("Oops!", message: "That invite code doesn't exist. Please try again.")
+                        })
                     }
                 }
             }
         }
+    }
     func createMember() {
         if newEmployee == nil {
             newEmployee = CKRecord(recordType: "Employees")
@@ -192,7 +195,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         } else {
             employeeArray = bizRecord!.mutableArrayValueForKey("UIDEmployees")
             employeeArray.addObject(employeeRef!)
-//                            orgRecord?.setObject(memberArray, forKey: "members")
+            //                            orgRecord?.setObject(memberArray, forKey: "members")
             modifyRecords([bizRecord!, newEmployee!])
         }
     }
@@ -209,9 +212,9 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                 print("Successfully saved")
             }
             dispatch_async(dispatch_get_main_queue()) {
-                //                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                //                    self.performSegueWithIdentifier("logInSegue", sender: self)
-                //                })
+                                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                    self.performSegueWithIdentifier("logInSegue", sender: self)
+                                })
             }
         }
         publicDatabase.addOperation(saveRecordsOperation)
@@ -239,6 +242,8 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             
         }
     }
+    @IBAction func oniCloudTapped(sender: UIButton) {
+        self.iCloudLoginAction()
+    }
 }
-
 

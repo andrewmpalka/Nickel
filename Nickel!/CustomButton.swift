@@ -11,7 +11,7 @@ import pop
 
 @IBDesignable
 class CustomButton: UIButton {
-    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+    @IBInspectable var cornerRadius: CGFloat = 3.0 {
         didSet {
             self.setUpView(1)
         }

@@ -68,7 +68,7 @@ extension SuperViewController {
         newEmployee.setObject("@\(User.sharedInstance.name!)", forKey: "Nickname")
         newEmployee.setObject(1, forKey: "InsideField")
         newEmployee.setObject(bizRef, forKey: "UIDBusiness")
-        //        newEmployee.setObject(bizRec.recordID.recordName, forKey: "UIDBusiness")
+//                newEmployee.setObject(bizRec.recordID.recordName, forKey: "UIDBusiness")
         
         publicDatabase.saveRecord(newEmployee) { (newUser, error) -> Void in
             if error != nil {

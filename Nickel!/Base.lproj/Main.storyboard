@@ -560,6 +560,7 @@
                                 <connections>
                                     <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="96L-W1-Mmj"/>
                                     <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="2Bj-Mu-jp0"/>
+                                    <action selector="oniCloudTapped:" destination="8Ko-vE-fpS" eventType="touchUpInside" id="Azt-u1-gOZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dt-7R-FAH">
@@ -591,6 +592,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQQ-51-s42"/>
+                    <connections>
+                        <outlet property="iCloudLogin" destination="PKG-3M-DXK" id="5bX-vj-ddw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aL-aH-Xul" sceneMemberID="firstResponder"/>
             </objects>
