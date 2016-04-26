@@ -387,6 +387,7 @@
 				7B7D40381C73C54E0052DB28 /* Resources */,
 				37D19ED3BED888D9C3A298E8 /* Embed Pods Frameworks */,
 				568AFC47578D3026AFCD40EC /* Copy Pods Resources */,
+				7B05B2001CCFF8F600798966 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -544,6 +545,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7B05B2001CCFF8F600798966 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b7d116409e258f9d3b65397998b8aec7b71bcbd1 ac8de994bb1c070bb1721d0fb95fca495f34ca4c070292ee5980a40e2576b884";
 		};
 		911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

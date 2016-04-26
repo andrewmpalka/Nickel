@@ -20,12 +20,19 @@ class WelcomeViewController: SuperViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.animationEngine = AnimationEngine(constraints: [connectConstraint,
                                                              newBizConstraint,
                                                              demoConstraint])
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     override func viewDidAppear(animated: Bool) {
+        
       self.animationEngine.animateOnScreen(nil, control: 1)
     }
 

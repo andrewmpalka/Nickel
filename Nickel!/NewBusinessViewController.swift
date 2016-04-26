@@ -45,6 +45,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBarHidden = false
+
         print("reloaded")
         
         self.locationButtonCenter = self.locationButton.center

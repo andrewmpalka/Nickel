@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import CoreLocation
+import Fabric
+import DigitsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -37,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //  MARK: Faric and Digits code
+        Fabric.with([Digits.self])
+
         
 ///////Beacon location code - JK
         

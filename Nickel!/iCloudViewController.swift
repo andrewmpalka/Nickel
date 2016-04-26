@@ -8,6 +8,8 @@
 
 import UIKit
 import CloudKit
+import DigitsKit
+
 
 class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
@@ -22,27 +24,31 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     var bizRef: CKReference?
     var employeeArray = [] as NSMutableArray
     var seguedFromMemberSelect: Bool?
+
+    @IBOutlet weak var btnLogin: UIButton!
+
     
-    
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var uidTextField: UITextField!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBarHidden = false
+
+
         self.title = "Nickel"
 
         cloudHelper = CKHelper()
         
-        self.spinner.hidesWhenStopped = true
-        self.spinner.startAnimating()
-        self.iCloudLoginAction()
-
+//        self.iCloudLoginAction()
+        
+        Digits.sharedInstance().logOut()
         
         bizRecord = Business.sharedInstance
 //        self.uidTextField.delegate = self
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return resignFirstResponder()
     }
@@ -209,6 +215,29 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             }
         }
         publicDatabase.addOperation(saveRecordsOperation)
+    }
+    
+    @IBAction func didTapButton(sender: UIButton) {
+        
+        let configuration = DGTAuthenticationConfiguration(accountFields: .DefaultOptionMask)
+        configuration.appearance = DGTAppearance()
+        
+        configuration.appearance.logoImage = UIImage(named: "AppIcon")
+        
+        configuration.appearance.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        configuration.appearance.bodyFont = UIFont(name: "HelveticaNeue-Italic", size: 16)
+        
+        configuration.appearance.accentColor = LIGHT_GRAY_COLOR
+        configuration.appearance.backgroundColor = SALMON_COLOR
+        Digits.sharedInstance().authenticateWithViewController(self, configuration: configuration) { (session, error) -> Void in
+            if (session != nil) {
+                self.btnLogin.setTitle("Your Digits User ID is " + session.userID, forState: UIControlState.Normal)
+            }
+            else {
+                print(error.localizedDescription)
+            }
+            
+        }
     }
 }
 

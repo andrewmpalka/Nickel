@@ -17,6 +17,8 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBarHidden = false
+
         self.title = "Nickel"
 
         cloudHelper = CKHelper()

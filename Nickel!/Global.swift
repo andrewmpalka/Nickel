@@ -16,9 +16,9 @@ let jonImage = UIImage(imageLiteral: "andy")
 
 let userProfilePicDict: [String: UIImage] = ["Matt Deuschle": mattImage, "Andrew Palka": andyImage, "Jonathan Kilgore": jonImage]
 
-let SALMON_COLOR = UIColor(red: 255, green: 102, blue: 102, alpha: 1.0)
-let DARK_GRAY_COLOR = UIColor(red: 102, green: 102, blue: 102, alpha: 1.0)
-let LIGHT_GRAY_COLOR = UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)
+let SALMON_COLOR = UIColor(red: 255/255, green: 102/255, blue: 102/255, alpha: 1.0)
+let DARK_GRAY_COLOR = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1.0)
+let LIGHT_GRAY_COLOR = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)
 
 let cka = CloudKitAccess()
 let userDefaults = NSUserDefaults.standardUserDefaults()

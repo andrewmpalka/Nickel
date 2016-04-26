@@ -518,15 +518,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-4l-QCu">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="4gq-X6-JGs"/>
-                                    <constraint firstAttribute="width" constant="37" id="CKw-oJ-5xH"/>
-                                </constraints>
-                                <color key="color" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting to my workspace with iCloud..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-nX-R4G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to connect to your workspace" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-nX-R4G">
                                 <rect key="frame" x="61" y="103" width="253" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="253" id="mbj-Cb-yKC"/>
@@ -536,23 +528,69 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccv-u6-eeJ">
+                                <rect key="frame" x="57" y="321" width="261" height="49"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="9Tw-ho-WwY"/>
+                                    <constraint firstAttribute="width" constant="261" id="BCl-lA-p9L"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="261" id="lGm-BW-XUW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Sign up with your phone number">
+                                    <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapButton:" destination="8Ko-vE-fpS" eventType="touchUpInside" id="aCJ-6J-5FV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKG-3M-DXK">
+                                <rect key="frame" x="57" y="264" width="261" height="49"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="NkA-PP-yZv"/>
+                                    <constraint firstAttribute="width" constant="261" id="TZQ-l5-srH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="261" id="puw-hO-yCN"/>
+                                    <constraint firstAttribute="height" constant="49" id="rcQ-4T-V68"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Sign up with your iCloud">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="96L-W1-Mmj"/>
+                                    <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="2Bj-Mu-jp0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dt-7R-FAH">
+                                <rect key="frame" x="53" y="598" width="269" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="fpp-d9-9Sf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Already have an account?">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bDb-NN-q5n"/>
+                                    <action selector="onAddLocationTapped:" destination="5RT-qL-KP6" eventType="touchUpInside" id="l2X-Da-HTd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6ud-nX-R4G" firstAttribute="top" secondItem="ogC-fa-dn8" secondAttribute="bottom" constant="39" id="0fI-b9-cIt"/>
                             <constraint firstItem="6ud-nX-R4G" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="1kz-ka-64O"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="D21-Nh-MaR"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerY" secondItem="B2l-T1-b9Q" secondAttribute="centerY" id="G3K-zI-gIa"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="RQa-bA-haD"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerY" secondItem="B2l-T1-b9Q" secondAttribute="centerY" id="VEK-Nz-uUD"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerY" secondItem="B2l-T1-b9Q" secondAttribute="centerY" id="eos-qp-Hx7"/>
-                            <constraint firstItem="9Yv-4l-QCu" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="sOW-ZW-ajl"/>
+                            <constraint firstItem="w4C-LU-bMS" firstAttribute="top" secondItem="2dt-7R-FAH" secondAttribute="bottom" constant="20" id="9Nb-Em-4Nd"/>
+                            <constraint firstItem="ccv-u6-eeJ" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="BMY-kP-WjQ"/>
+                            <constraint firstItem="ccv-u6-eeJ" firstAttribute="top" secondItem="PKG-3M-DXK" secondAttribute="bottom" constant="8" id="BcI-8J-KPS"/>
+                            <constraint firstItem="PKG-3M-DXK" firstAttribute="top" secondItem="6ud-nX-R4G" secondAttribute="bottom" constant="89" id="dkU-b5-z9k"/>
+                            <constraint firstItem="PKG-3M-DXK" firstAttribute="centerX" secondItem="B2l-T1-b9Q" secondAttribute="centerX" id="svy-7a-DPJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2dt-7R-FAH" secondAttribute="trailing" constant="37" id="uiM-qa-A2r"/>
+                            <constraint firstItem="2dt-7R-FAH" firstAttribute="leading" secondItem="B2l-T1-b9Q" secondAttribute="leadingMargin" constant="37" id="xbK-3B-YgV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQQ-51-s42"/>
-                    <connections>
-                        <outlet property="spinner" destination="9Yv-4l-QCu" id="5tQ-Vm-PoS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aL-aH-Xul" sceneMemberID="firstResponder"/>
             </objects>
