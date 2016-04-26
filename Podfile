@@ -5,6 +5,9 @@ use_frameworks!
 
 target 'Nickel!' do
     
+    pod 'Fabric'
+    pod 'Digits'
+    pod 'TwitterCore'
     pod 'pop', '~> 1.0'
     pod 'EstimoteSDK'
     pod 'EstimoteIndoorSDK'

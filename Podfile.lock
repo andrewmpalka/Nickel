@@ -1,20 +1,31 @@
 PODS:
+  - Digits (2.0.2):
+    - TwitterCore (= 2.0.2)
   - EstimoteIndoorSDK (2.2.0):
     - EstimoteSDK (~> 3.8)
   - EstimoteSDK (3.8.2)
+  - Fabric (1.6.7)
   - Firebase (2.5.1)
   - pop (1.0.9)
+  - TwitterCore (2.0.2):
+    - Fabric
 
 DEPENDENCIES:
+  - Digits
   - EstimoteIndoorSDK
   - EstimoteSDK
+  - Fabric
   - Firebase (>= 2.5.0)
   - pop (~> 1.0)
+  - TwitterCore
 
 SPEC CHECKSUMS:
+  Digits: a5c8ddfed18d5e0496e9b6f459f0bca44de588db
   EstimoteIndoorSDK: 4e0a3fc860041915341dcac0f858803f9a0f0c80
   EstimoteSDK: 5e36b596f9f28161bff35b086d9f70282be5f513
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
 
 COCOAPODS: 0.39.0

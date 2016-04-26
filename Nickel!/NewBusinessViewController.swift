@@ -18,10 +18,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     
     @IBOutlet weak var locationConstraint: NSLayoutConstraint!
     @IBOutlet weak var continueConstraint: NSLayoutConstraint!
-    
-    
-    
-    
+
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
@@ -177,8 +174,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
             print("WORKS")
 
 //            self.appDelegate.reveal()
+            self.dismissKeyboard()
 
             return resignFirstResponder()
+            
         }
         
         print("DOESN'T WORK")
