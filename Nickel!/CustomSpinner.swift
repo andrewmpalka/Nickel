@@ -10,7 +10,7 @@ import UIKit
 
 class CustomSpinner: UIActivityIndicatorView {
     
-    @IBInspectable var spColor: UIColor? = OLIVE_GREEN {
+    @IBInspectable var spColor: UIColor? = SALMON_COLOR {
         didSet{
             self.setUpView()
         }
