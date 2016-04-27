@@ -97,16 +97,16 @@
 		7B05B17C1CC982BA00798966 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7B05B1801CC9830D00798966 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B05B2011CD01A7400798966 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		7B7D403A1C73C54E0052DB28 /* Nickel!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nickel!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B7D403A1C73C54E0052DB28 /* Nickel28.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nickel28.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B7D40451C73C54E0052DB28 /* Nickel_.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nickel_.xcdatamodel; sourceTree = "<group>"; };
 		7B7D404A1C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B7D404C1C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B7D40511C73C54F0052DB28 /* Nickel!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nickel!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B7D40511C73C54F0052DB28 /* Nickel28.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nickel28.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D40551C73C54F0052DB28 /* Nickel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickel_Tests.swift; sourceTree = "<group>"; };
 		7B7D40571C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B7D405C1C73C54F0052DB28 /* Nickel!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nickel!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B7D405C1C73C54F0052DB28 /* Nickel28.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nickel28.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D40601C73C54F0052DB28 /* Nickel_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickel_UITests.swift; sourceTree = "<group>"; };
 		7B7D40621C73C54F0052DB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B7D40701C7502040052DB28 /* Nickel!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Nickel!.entitlements"; sourceTree = "<group>"; };
@@ -257,9 +257,9 @@
 		7B7D403B1C73C54E0052DB28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B7D403A1C73C54E0052DB28 /* Nickel!.app */,
-				7B7D40511C73C54F0052DB28 /* Nickel!Tests.xctest */,
-				7B7D405C1C73C54F0052DB28 /* Nickel!UITests.xctest */,
+				7B7D403A1C73C54E0052DB28 /* Nickel28.app */,
+				7B7D40511C73C54F0052DB28 /* Nickel28.xctest */,
+				7B7D405C1C73C54F0052DB28 /* Nickel28.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,9 +380,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B7D40391C73C54E0052DB28 /* Nickel! */ = {
+		7B7D40391C73C54E0052DB28 /* Nickel28 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!" */;
+			buildConfigurationList = 7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28" */;
 			buildPhases = (
 				911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */,
 				7B7D40361C73C54E0052DB28 /* Sources */,
@@ -396,14 +396,14 @@
 			);
 			dependencies = (
 			);
-			name = "Nickel!";
+			name = Nickel28;
 			productName = "Nickel!";
-			productReference = 7B7D403A1C73C54E0052DB28 /* Nickel!.app */;
+			productReference = 7B7D403A1C73C54E0052DB28 /* Nickel28.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7B7D40501C73C54F0052DB28 /* Nickel!Tests */ = {
+		7B7D40501C73C54F0052DB28 /* Nickel28Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B7D40681C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!Tests" */;
+			buildConfigurationList = 7B7D40681C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28Tests" */;
 			buildPhases = (
 				7B7D404D1C73C54F0052DB28 /* Sources */,
 				7B7D404E1C73C54F0052DB28 /* Frameworks */,
@@ -414,14 +414,14 @@
 			dependencies = (
 				7B7D40531C73C54F0052DB28 /* PBXTargetDependency */,
 			);
-			name = "Nickel!Tests";
+			name = Nickel28Tests;
 			productName = "Nickel!Tests";
-			productReference = 7B7D40511C73C54F0052DB28 /* Nickel!Tests.xctest */;
+			productReference = 7B7D40511C73C54F0052DB28 /* Nickel28.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7B7D405B1C73C54F0052DB28 /* Nickel!UITests */ = {
+		7B7D405B1C73C54F0052DB28 /* Nickel28UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B7D406B1C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!UITests" */;
+			buildConfigurationList = 7B7D406B1C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28UITests" */;
 			buildPhases = (
 				7B7D40581C73C54F0052DB28 /* Sources */,
 				7B7D40591C73C54F0052DB28 /* Frameworks */,
@@ -432,9 +432,9 @@
 			dependencies = (
 				7B7D405E1C73C54F0052DB28 /* PBXTargetDependency */,
 			);
-			name = "Nickel!UITests";
+			name = Nickel28UITests;
 			productName = "Nickel!UITests";
-			productReference = 7B7D405C1C73C54F0052DB28 /* Nickel!UITests.xctest */;
+			productReference = 7B7D405C1C73C54F0052DB28 /* Nickel28.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -471,7 +471,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7B7D40351C73C54E0052DB28 /* Build configuration list for PBXProject "Nickel!" */;
+			buildConfigurationList = 7B7D40351C73C54E0052DB28 /* Build configuration list for PBXProject "Nickel28" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -484,9 +484,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B7D40391C73C54E0052DB28 /* Nickel! */,
-				7B7D40501C73C54F0052DB28 /* Nickel!Tests */,
-				7B7D405B1C73C54F0052DB28 /* Nickel!UITests */,
+				7B7D40391C73C54E0052DB28 /* Nickel28 */,
+				7B7D40501C73C54F0052DB28 /* Nickel28Tests */,
+				7B7D405B1C73C54F0052DB28 /* Nickel28UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -653,12 +653,12 @@
 /* Begin PBXTargetDependency section */
 		7B7D40531C73C54F0052DB28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B7D40391C73C54E0052DB28 /* Nickel! */;
+			target = 7B7D40391C73C54E0052DB28 /* Nickel28 */;
 			targetProxy = 7B7D40521C73C54F0052DB28 /* PBXContainerItemProxy */;
 		};
 		7B7D405E1C73C54F0052DB28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B7D40391C73C54E0052DB28 /* Nickel! */;
+			target = 7B7D40391C73C54E0052DB28 /* Nickel28 */;
 			targetProxy = 7B7D405D1C73C54F0052DB28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -778,7 +778,7 @@
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickelapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nickel28;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!/Nickel!-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -798,7 +798,7 @@
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickelapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nickel28;
 				PROVISIONING_PROFILE = "9386555f-8118-4f1c-936f-4c0cb83a9b3a";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!/Nickel!-Bridging-Header.h";
 			};
@@ -811,8 +811,8 @@
 				INFOPLIST_FILE = "Nickel!Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nickel!.app/Nickel!";
+				PRODUCT_NAME = Nickel28;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nickel28.app/Nickel28";
 			};
 			name = Debug;
 		};
@@ -823,8 +823,8 @@
 				INFOPLIST_FILE = "Nickel!Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nickel!.app/Nickel!";
+				PRODUCT_NAME = Nickel28;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nickel28.app/Nickel28";
 			};
 			name = Release;
 		};
@@ -834,7 +834,7 @@
 				INFOPLIST_FILE = "Nickel!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nickel28;
 				TEST_TARGET_NAME = "Nickel!";
 				USES_XCTRUNNER = YES;
 			};
@@ -846,7 +846,7 @@
 				INFOPLIST_FILE = "Nickel!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nickel.Nickel-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nickel28;
 				TEST_TARGET_NAME = "Nickel!";
 				USES_XCTRUNNER = YES;
 			};
@@ -855,7 +855,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7B7D40351C73C54E0052DB28 /* Build configuration list for PBXProject "Nickel!" */ = {
+		7B7D40351C73C54E0052DB28 /* Build configuration list for PBXProject "Nickel28" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B7D40631C73C54F0052DB28 /* Debug */,
@@ -864,7 +864,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!" */ = {
+		7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B7D40661C73C54F0052DB28 /* Debug */,
@@ -873,7 +873,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B7D40681C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!Tests" */ = {
+		7B7D40681C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B7D40691C73C54F0052DB28 /* Debug */,
@@ -882,7 +882,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B7D406B1C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel!UITests" */ = {
+		7B7D406B1C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B7D406C1C73C54F0052DB28 /* Debug */,

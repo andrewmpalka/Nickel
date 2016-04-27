@@ -11,8 +11,8 @@ import UIKit
 
 @IBDesignable
 class CustomTextField: UITextField {
-    @IBInspectable var inset: CGFloat = 0
-    @IBInspectable var cornerRadius: CGFloat = 5.0 {
+    @IBInspectable var inset: CGFloat = 5.0
+    @IBInspectable var cornerRadius: CGFloat = 3.0 {
         didSet{
             self.setUpView()
         }
@@ -24,7 +24,7 @@ class CustomTextField: UITextField {
         return self.textRectForBounds(bounds)
     }
     override func awakeFromNib() {
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 3.0
     }
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()

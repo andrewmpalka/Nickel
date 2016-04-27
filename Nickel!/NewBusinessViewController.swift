@@ -55,8 +55,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         self.originalLocationConstraints = self.locationButton.constraints
         self.originalContinueConstraints = self.continueButton.constraints
         
-        self.animationEngine = AnimationEngine(constraints: [locationConstraint,
-                                                            continueConstraint])
+//        self.animationEngine = AnimationEngine(constraints: [locationConstraint,
+//                                                            continueConstraint])
         self.title = "Nickel"
         self.businessNameTextField.delegate = self
         
@@ -143,13 +143,13 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
-        AnimationEngine.animateItemToPosition(self.continueButton, position: self.continueButtonCenter!, completion: {
+  /*      AnimationEngine.animateItemToPosition(self.continueButton, position: self.continueButtonCenter!, completion: {
             (anim: POPAnimation!, finished: Bool) -> Void in
             self.continueButton.addConstraints(self.originalContinueConstraints!)
             print("HITTING THIS")
             
         })
-
+*/
     }
     @IBAction func OnContinueTapped(sender: UIButton) {
         
@@ -166,13 +166,14 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
 //            createBusiness()
             
 //TODO MODIFY NewBusinessHelper MOVE IT TO CONTINUE
+          /*
             AnimationEngine.animateItemToPosition(self.locationButton, position: self.locationButtonCenter!, completion: {
                 (anim: POPAnimation!, finished: Bool) -> Void in
                 print("HITTING THIS")
                 self.locationButton.addConstraints(self.originalLocationConstraints!)
             })
 
-            
+            */
             print("WORKS")
 
 //            self.appDelegate.reveal()

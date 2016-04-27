@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 import DigitsKit
+import Firebase
 
 
 class iCloudViewController: SuperViewController, UITextFieldDelegate {
@@ -74,7 +75,6 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                     
                     self.presentViewController(viewController, animated: false, completion: nil)
                 }
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             } else {
                 // TODO error handling
             }
@@ -220,6 +220,31 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         publicDatabase.addOperation(saveRecordsOperation)
     }
     
+    func guestLogin() {
+        let ref = Firebase(url: "https://nickelapp.firebaseio.com")
+        ref.authAnonymouslyWithCompletionBlock { error, authData in
+            if error != nil {
+                // There was an error logging in anonymously
+            } else {
+                // We are now logged in
+                print("Guest Signed in")
+                
+                userDefaults.setObject(true, forKey: "Logged in")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    print("P R E S E N T I N G")
+                    self.presentViewController(viewController, animated: false, completion: nil)
+                }
+
+            }
+        }
+
+    }
+    
+    
     @IBAction func didTapButton(sender: UIButton) {
         
         let configuration = DGTAuthenticationConfiguration(accountFields: .DefaultOptionMask)
@@ -243,7 +268,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         }
     }
     @IBAction func oniCloudTapped(sender: UIButton) {
-        self.iCloudLoginAction()
+        self.guestLogin()
     }
 }
 
