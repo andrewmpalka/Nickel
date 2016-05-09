@@ -54,9 +54,12 @@ extension SuperViewController {
     }
     
     func digitizePicture(pic: UIImage) -> NSData {
+        
         let data = UIImagePNGRepresentation(pic)
+        let string = data?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         //ADD TO CLOUDKIT
-        Employee.sharedInstance.setObject(data, forKey: "EmployeePicture")
+        EmployeeObj.sharedInstance.profilePic = string
+        setValue(data, forKey: "EmployeePicture")
         return data!
     }
     

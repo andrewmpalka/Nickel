@@ -24,13 +24,13 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
         super.viewDidLoad()
 
 
-        let str = NSAttributedString(string: "Enter name", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        let str = NSAttributedString(string: "Enter name", attributes: [NSForegroundColorAttributeName:UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)])
         firstNameLabel.attributedPlaceholder = str
 
-        let str2 = NSAttributedString(string: "Enter job title", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        let str2 = NSAttributedString(string: "Enter job title", attributes: [NSForegroundColorAttributeName:UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)])
         userRoleLabel.attributedPlaceholder = str2
 
-        let str3 = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor(red: 230, green: 230, blue: 230, alpha: 1.0)])
+        let str3 = NSAttributedString(string: "Enter email", attributes: [NSForegroundColorAttributeName:UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)])
         emailLabel.attributedPlaceholder = str3
 
         self.title = "Edit Profile"

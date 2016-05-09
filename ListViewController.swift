@@ -8,9 +8,10 @@
 
 import UIKit
 import CloudKit
+import CoreLocation
 import Firebase
 
-class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: SuperViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -22,16 +23,25 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var currentBusiness: CKRecord?
     var checker = false
     
+    let locationManager = CLLocationManager()
+    var placePlaceholder = CLLocation()
     var aUser = User?()
     var employees = [EmployeeObj]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         let andy = People(name: "Andrew Palka", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "andy"))
         let matt = People(name: "Matthew Deuschle", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "matt"))
         let jon = People(name: "Jonathan Kilgore", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "jon"))
 
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
 
         print("number of people \(self.employees.count) ")
 
@@ -84,6 +94,43 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.tableView.reloadData()
         }
     }
+//MARK: Location Delegate Methods
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks, error) -> Void in
+            
+            if error != nil {
+                print("Error: " +  error!.localizedDescription)
+                return
+            }
+            
+            //Checks for actual placemarks returned
+            self.placePlaceholder = manager.location!
+            if placemarks?.count > 0 {
+                let pm = placemarks![0] as! CLPlacemark
+                self.displayLocationInfo(pm) //custom function to be later defined below
+            }
+        }
+    }
+    
+    //Jon Code
+    func displayLocationInfo(placemark: CLPlacemark) {
+        
+        self.locationManager.stopUpdatingLocation()
+        print(placemark.locality!)
+        print(placemark.postalCode!)
+        print(placemark.administrativeArea!)
+        print(placemark.country!)
+        isYourLocation(self, location: placemark)
+    }
+    
+    //Jon Code
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print("Error: " + error.localizedDescription)
+        
+    }
     
     
     func updateUsersOnlineLabel() {
@@ -108,13 +155,13 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
 //        cell.cellDetailLabel.text = employee.status
 
         let fullName = employee.name
-        let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
+        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
         let firstName = fullNameArr[0]
         
         cell.cellDetailLabel.text = "@\(firstName)"
         
         if fullName == "Andrew Palka" || fullName == "Matt Deuschle" || fullName == "Jonathan Kilgore" {
-            let image = userProfilePicDict[fullName]
+            let image = userProfilePicDict[fullName!]
             
 //            let h = cell.imageView?.frame.size.height
 //            let l = cell.imageView?.frame.size.width

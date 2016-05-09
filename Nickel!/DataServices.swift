@@ -8,6 +8,8 @@
 
 import Foundation
 import Firebase
+import GeoFire
+import CoreLocation
 
 class DataServices {
 
@@ -16,20 +18,27 @@ class DataServices {
         return  NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
     }
 
-
-    static let nickelEmployees = "https://nickelapp.firebaseio.com/employees"
-    static let nickelGroupMessages = "https://nickelapp.firebaseio.com/groupMessages"
-    static let nickelPrivateMessages = "https://nickelapp.firebaseio.com/privateMessages"
+    static let geofireRef = Firebase(url: stdRef + "bussines/location")
+    static let geoFire = GeoFire(firebaseRef: geofireRef)
     
+    static let stdRef = "https://nickelapp.firebaseio.com/"
+    
+    static let nickelUser = "https://nickelapp.firebaseio.com/user"
+    static let nickelEmployees = "https://nickelapp.firebaseio.com/business/employees"
+    static let nickelBusiness = "https://nickelapp.firebaseio.com/business"
+    static let nickelBeams = "https://nickelapp.firebaseio.com/business/employees/beams"
+    static let nickelGroupBeam = "https://nickelapp.firebaseio.com/business/employees/beams/groupBeam"
+    static let nickelPrivateBeam = "https://nickelapp.firebaseio.com/business/employees/beams/privateBeam"
+ 
     class func sendPrivateMessage(toUser: String, message: String) {
-        let ref = Firebase(url: nickelPrivateMessages)
+        let ref = Firebase(url: nickelPrivateBeam)
         if let name = User.sharedInstance.name {
             ref.childByAutoId().setValue(["from": name, "to": toUser, "message": message])
         }
     }
     
     class func listenForPrivateMessages(completionHandler: (messages: [MessageObj]) -> Void) {
-        let ref = Firebase(url: nickelPrivateMessages)
+        let ref = Firebase(url: nickelPrivateBeam)
         
         
         ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
@@ -63,14 +72,14 @@ class DataServices {
     }
     
     class func sendGroupMessage(message: String) {
-        let ref = Firebase(url: nickelGroupMessages)
+        let ref = Firebase(url: nickelGroupBeam)
         if let name = User.sharedInstance.name {
             ref.childByAutoId().setValue(["from": name, "message": message])
         }
     }
     
     class func listenForGroupMessages(completionHandler: (messages: [MessageObj]) -> Void)  {
-        let ref = Firebase(url: nickelGroupMessages)
+        let ref = Firebase(url: nickelGroupBeam)
         ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
             var messages = [MessageObj]()
             
@@ -117,10 +126,10 @@ class DataServices {
             for employee in snapshot.children.allObjects as! [FDataSnapshot] {
                 if let map = employee.value as? [String: AnyObject] {
                     if map["inRange"] == nil {
-                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String, inRange: true))
+                        employees.append(EmployeeObj(id: map["id"] as! String, name: map["name"] as! String, status: map["status"] as! String, profilePic: map["profilePic"] as! String, inRange: true))
 
                     } else {
-                    employees.append(EmployeeObj(name: map["name"] as! String, status: map["status"] as! String, inRange: map["inRange"] as! Bool))
+                    employees.append(EmployeeObj(id: map["id"] as! String, name: map["name"] as! String, status: map["status"] as! String, profilePic: map["profilePic"] as! String, inRange: map["inRange"] as! Bool))
 }
                 }
             }
@@ -131,5 +140,28 @@ class DataServices {
                 print(error.description)
         }
     }
+    
+    class func locationSet(location: CLLocation, city: String) {
+        
+        geoFire.setLocation(location, forKey: city) { (error) in
+            if (error != nil) {
+                print("An error occured: \(error)")
+            } else {
+                print("Saved location successfully!")
+            }
+        }
+    }
+    
+    class func businessSet(business: BusinessObj) {
+        
+        let ref = Firebase(url: nickelBusiness)
+        
+//        var business = BusinessObj(id: "NULL", name: "NULL", profilePic: "NULL", location: <#T##CLLocation#>)
+        
+        ref.childByAppendingPath(business.id).setValue(["name": business.name!, "profilePic": business.profilePic!])
+    
+        
+    }
+    
     
 }

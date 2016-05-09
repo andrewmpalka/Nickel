@@ -65,6 +65,7 @@ func isYourLocation(vc: SuperViewController, location: CLPlacemark) {
     let alert = UIAlertController(title: "Is your location correct?", message: "\n\( location.locality!), \(location.administrativeArea!)", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let action1 = UIAlertAction(title: "Yes", style: .Destructive) { action in
         alert.removeFromParentViewController()
+        BusinessObj.sharedInstance.location = location.location
     }
     let action2 = UIAlertAction(title: "Retry", style: .Destructive) { action in
         

@@ -7,8 +7,8 @@
 //
 
 import Foundation
+import Firebase
 import CloudKit
-
 class User {
     
     static let sharedInstance = User.userSingleton()

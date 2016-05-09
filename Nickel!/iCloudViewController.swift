@@ -212,9 +212,9 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                 print("Successfully saved")
             }
             dispatch_async(dispatch_get_main_queue()) {
-                                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                                    self.performSegueWithIdentifier("logInSegue", sender: self)
-                                })
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.performSegueWithIdentifier("logInSegue", sender: self)
+                })
             }
         }
         publicDatabase.addOperation(saveRecordsOperation)
@@ -238,10 +238,10 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
                     print("P R E S E N T I N G")
                     self.presentViewController(viewController, animated: false, completion: nil)
                 }
-
+                
             }
         }
-
+        
     }
     
     
@@ -259,7 +259,40 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         configuration.appearance.backgroundColor = SALMON_COLOR
         Digits.sharedInstance().authenticateWithViewController(self, configuration: configuration) { (session, error) -> Void in
             if (session != nil) {
+                //
+                // TODO: associate the session userID with your user model
                 self.btnLogin.setTitle("Your Digits User ID is " + session.userID, forState: UIControlState.Normal)
+                
+//                let ref = Firebase(url: DataServices.nickelUser)
+                let ref = Firebase(url: "https://nickelapp.firebaseio.com")
+                
+            
+                let params = ["oauth_token" : session.authToken, "oauth_token_secret" : session.authTokenSecret, "user_id" : session.userID ] as [NSObject : AnyObject]!
+                    var int = 0
+                ref.authWithCustomToken(params["oauth_token"] as! String, withCompletionBlock: { error, authData in
+                    repeat {
+                    print("Error \(error.description) or Auth \(authData) ")
+                    //                    })
+                    int += 1
+                    } while int < 10
+            })
+
+            /*
+                ref.authWithOAuthProvider("twitter", parameters: params, withCompletionBlock: { error, authData in
+                repeat {
+                    print("Error \(error.description) or Auth \(authData) ")
+//                    })
+                    int += 1
+                } while int < 10
+                })
+              */
+                let message = "Phone number: \(session!.phoneNumber)"
+                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .Alert)
+                
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: .None))
+                
+                
+                self.presentViewController(alertController, animated: true, completion: .None)
             }
             else {
                 print(error.localizedDescription)

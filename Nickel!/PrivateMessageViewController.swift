@@ -94,7 +94,7 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
     @IBAction func privateMessageSendButtonPressed(sender: AnyObject)
     {
 
-        DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
+        DataServices.sendPrivateMessage(self.employee!.name!, message: self.enterPrivateMessageTextField.text!)
         enterPrivateMessageTextField.text = ""
         enterPrivateMessageTextField.resignFirstResponder()
     }
@@ -103,7 +103,7 @@ class PrivateMessageViewController: SuperViewController, UITableViewDelegate, UI
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {   
 
-        DataServices.sendPrivateMessage(self.employee!.name, message: self.enterPrivateMessageTextField.text!)
+        DataServices.sendPrivateMessage(self.employee!.name!, message: self.enterPrivateMessageTextField.text!)
         enterPrivateMessageTextField.text = ""
         enterPrivateMessageTextField.resignFirstResponder()
         return true

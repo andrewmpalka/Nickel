@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     //Customer delegate method to assign a token to a device
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
+        UserObj.sharedInstance.device = "\(deviceToken)"
         print("DEVICE TOKEN = \(deviceToken)")
     }
     

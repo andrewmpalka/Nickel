@@ -9,13 +9,24 @@
 import Foundation
 
 class EmployeeObj {
-    let name: String!
-    let status: String!
-    let inRange: Bool!
+    
+    static var sharedInstance = EmployeeObj(id: "NULL", name: "NULL", status: "NULL", profilePic: "NULL", inRange: true)
+    
 
-    init(name: String, status: String, inRange: Bool) {
+    
+    var id: String?
+    var name: String?
+    var status: String!?
+    var profilePic: String?
+    let inRange: Bool?
+    
+
+    init(id: String, name: String, status: String, profilePic: String, inRange: Bool) {
+        self.id = id
         self.name = name
         self.status = status
+        self.profilePic = profilePic
         self.inRange = inRange
     }
+    
 }

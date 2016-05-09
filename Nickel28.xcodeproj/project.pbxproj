@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18EFC5CA8C309AF75E25C1AB /* Pods_Nickel_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */; };
+		0017CDFC494AFD927BF1555E /* Pods_Nickel28Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E856FFF81C70C8D93234C665 /* Pods_Nickel28Tests.framework */; };
 		4CB39C0B1C87F23E00AD05CC /* MessageObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */; };
 		4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */; };
 		4CFA6B981C83BC61004629E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFA6B971C83BC61004629E5 /* Foundation.framework */; };
@@ -41,6 +41,10 @@
 		7BA21D161C83A5BB0088299B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D151C83A5B90088299B /* Message.swift */; };
 		7BA21D181C8554220088299B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D171C8554220088299B /* Messages.swift */; };
 		7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */; };
+		7BDC659B1CE11184007055FF /* twitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC659A1CE11184007055FF /* twitterAuthHelper.m */; };
+		7BDC65A01CE1419D007055FF /* BusinessObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC659F1CE1419D007055FF /* BusinessObj.swift */; };
+		7BDC65A21CE14877007055FF /* UserObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC65A11CE14877007055FF /* UserObj.swift */; };
+		7C4AD829421A4842BF31EBB1 /* Pods_Nickel28.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A53B6FBF74FD8985438D71 /* Pods_Nickel28.framework */; };
 		A86243F31C8642680027A227 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F21C8642680027A227 /* AdminViewController.swift */; };
 		A86243F51C88A5F10027A227 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F41C88A5F10027A227 /* People.swift */; };
 		A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E337E1C7415CF003930FB /* WelcomeViewController.swift */; };
@@ -63,6 +67,7 @@
 		A87E33AA1C7529DE003930FB /* GroupMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33A91C7529DE003930FB /* GroupMessageTableViewCell.swift */; };
 		A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E33AB1C752DD4003930FB /* MenuViewController.swift */; };
 		A8D19FED1C76845E00076A85 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */; };
+		D0694CB7438CFB47A910C2F0 /* Pods_Nickel28UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E41F72FC683D5826B572063 /* Pods_Nickel28UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +88,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ABD11495B9F72606F900B23 /* Pods-Nickel28.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28/Pods-Nickel28.debug.xcconfig"; sourceTree = "<group>"; };
+		20BFB0796884FC481189C2BD /* Pods-Nickel28UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28UITests/Pods-Nickel28UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.debug.xcconfig"; sourceTree = "<group>"; };
+		3287FEAD5F003A44C81BC452 /* Pods-Nickel28Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28Tests/Pods-Nickel28Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3D63DAAE5A4E0E971BD979EE /* Pods-Nickel28.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28/Pods-Nickel28.release.xcconfig"; sourceTree = "<group>"; };
 		4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageObj.swift; sourceTree = "<group>"; };
 		4CFA6B951C83B6E9004629E5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4CFA6B971C83BC61004629E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +101,7 @@
 		4CFA6BC91C867838004629E5 /* GroupMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageViewController.swift; sourceTree = "<group>"; };
 		4CFA6BCD1C87CF89004629E5 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		4CFA6BCF1C87D6E0004629E5 /* EmployeeObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeObj.swift; sourceTree = "<group>"; };
+		4E41F72FC683D5826B572063 /* Pods_Nickel28UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel28UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B05B17A1CC982BA00798966 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		7B05B17B1CC982BA00798966 /* CustomSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSpinner.swift; sourceTree = "<group>"; };
 		7B05B17C1CC982BA00798966 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -114,8 +124,8 @@
 		7B7D40741C7521470052DB28 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		7B7D40761C7521620052DB28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B7D40781C7522AA0052DB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAccess.swift; sourceTree = "<group>"; };
-		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHelper.swift; sourceTree = "<group>"; };
+		7B7D40BA1C761EE60052DB28 /* CKAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKAccess.swift; path = "Nickel!/CKAccess.swift"; sourceTree = "<group>"; };
+		7B7D40BC1C7623440052DB28 /* CKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKHelper.swift; path = "Nickel!/CKHelper.swift"; sourceTree = "<group>"; };
 		7B7D40BE1C7650050052DB28 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + CreateRecords.swift"; sourceTree = "<group>"; };
 		7B7D40C21C76A2E60052DB28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -124,6 +134,10 @@
 		7BA21D151C83A5B90088299B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7BA21D171C8554220088299B /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = "Nickel!/Messages.swift"; sourceTree = "<group>"; };
 		7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController + Feed .swift"; sourceTree = "<group>"; };
+		7BDC65991CE11184007055FF /* twitterAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = twitterAuthHelper.h; path = ../../../PersonalProjects.swift/Swift/Push4Yeezy/Push4Yeezy/twitterAuthHelper.h; sourceTree = "<group>"; };
+		7BDC659A1CE11184007055FF /* twitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = twitterAuthHelper.m; path = ../../../PersonalProjects.swift/Swift/Push4Yeezy/Push4Yeezy/twitterAuthHelper.m; sourceTree = "<group>"; };
+		7BDC659F1CE1419D007055FF /* BusinessObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessObj.swift; sourceTree = "<group>"; };
+		7BDC65A11CE14877007055FF /* UserObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObj.swift; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A86243F21C8642680027A227 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		A86243F41C88A5F10027A227 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
@@ -149,7 +163,10 @@
 		A8D19FEA1C76845D00076A85 /* Nickel!-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nickel!-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D19FEB1C76845E00076A85 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		A8D19FEC1C76845E00076A85 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE95C4694437EF2AE1664E8 /* Pods-Nickel28Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28Tests/Pods-Nickel28Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D294B5220B4A7D76E2D21B8F /* Pods-Nickel28UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel28UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel28UITests/Pods-Nickel28UITests.release.xcconfig"; sourceTree = "<group>"; };
+		D3A53B6FBF74FD8985438D71 /* Pods_Nickel28.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel28.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E856FFF81C70C8D93234C665 /* Pods_Nickel28Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nickel28Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +179,7 @@
 				4CFA6B961C83B6E9004629E5 /* CoreBluetooth.framework in Frameworks */,
 				7B7D40C31C76A2E60052DB28 /* CoreLocation.framework in Frameworks */,
 				7B7D40721C7502110052DB28 /* CloudKit.framework in Frameworks */,
-				18EFC5CA8C309AF75E25C1AB /* Pods_Nickel_.framework in Frameworks */,
+				7C4AD829421A4842BF31EBB1 /* Pods_Nickel28.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0017CDFC494AFD927BF1555E /* Pods_Nickel28Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0694CB7438CFB47A910C2F0 /* Pods_Nickel28UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +292,10 @@
 				7B05B17C1CC982BA00798966 /* CustomTextField.swift */,
 				A8D19FE81C76840E00076A85 /* SidebarMenu */,
 				7B7D40B91C761EB20052DB28 /* Data Services */,
-				7B7D40731C75211A0052DB28 /* Model */,
 				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				7B05B1831CC987B100798966 /* Log In */,
 				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
-				7B05B1841CC987D300798966 /* Settings */,
 				7B05B1861CC9883500798966 /* Profile */,
 				7B05B1871CC9885300798966 /* Messages */,
 				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
@@ -313,16 +330,10 @@
 		7B7D40731C75211A0052DB28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B7D40781C7522AA0052DB28 /* Model.swift */,
-				7B7D40741C7521470052DB28 /* Business.swift */,
-				7B7D40761C7521620052DB28 /* User.swift */,
-				7BA21D151C83A5B90088299B /* Message.swift */,
-				7BA21D171C8554220088299B /* Messages.swift */,
-				7BA21CD41C7FEAA70088299B /* Employee.swift */,
+				7BDC659C1CE13C65007055FF /* CloudKit */,
 				4CFA6B9B1C849ED2004629E5 /* Notifications.swift */,
 				7BA21CD01C7F6D1F0088299B /* SuperUIViewController.swift */,
-				4CFA6BCF1C87D6E0004629E5 /* EmployeeObj.swift */,
-				4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */,
+				7BDC659D1CE14168007055FF /* Firebase */,
 			);
 			name = Model;
 			path = ..;
@@ -331,8 +342,8 @@
 		7B7D40B91C761EB20052DB28 /* Data Services */ = {
 			isa = PBXGroup;
 			children = (
-				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
-				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
+				7BDC65981CE1114D007055FF /* Auth */,
+				7B7D40731C75211A0052DB28 /* Model */,
 				7B7D40BE1C7650050052DB28 /* Global.swift */,
 				4CFA6BCD1C87CF89004629E5 /* DataServices.swift */,
 				7B05B1801CC9830D00798966 /* Constants.swift */,
@@ -340,11 +351,52 @@
 			name = "Data Services";
 			sourceTree = "<group>";
 		};
+		7BDC65981CE1114D007055FF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC65991CE11184007055FF /* twitterAuthHelper.h */,
+				7BDC659A1CE11184007055FF /* twitterAuthHelper.m */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		7BDC659C1CE13C65007055FF /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B7D40BA1C761EE60052DB28 /* CKAccess.swift */,
+				7B7D40BC1C7623440052DB28 /* CKHelper.swift */,
+				7B7D40781C7522AA0052DB28 /* Model.swift */,
+				7B7D40741C7521470052DB28 /* Business.swift */,
+				7B7D40761C7521620052DB28 /* User.swift */,
+				7BA21D151C83A5B90088299B /* Message.swift */,
+				7BA21D171C8554220088299B /* Messages.swift */,
+				7BA21CD41C7FEAA70088299B /* Employee.swift */,
+			);
+			name = CloudKit;
+			sourceTree = "<group>";
+		};
+		7BDC659D1CE14168007055FF /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				4CFA6BCF1C87D6E0004629E5 /* EmployeeObj.swift */,
+				4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */,
+				7BDC659F1CE1419D007055FF /* BusinessObj.swift */,
+				7BDC65A11CE14877007055FF /* UserObj.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		9E042BADEFD844098F985C57 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */,
 				96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */,
+				0ABD11495B9F72606F900B23 /* Pods-Nickel28.debug.xcconfig */,
+				3D63DAAE5A4E0E971BD979EE /* Pods-Nickel28.release.xcconfig */,
+				CEE95C4694437EF2AE1664E8 /* Pods-Nickel28Tests.debug.xcconfig */,
+				3287FEAD5F003A44C81BC452 /* Pods-Nickel28Tests.release.xcconfig */,
+				20BFB0796884FC481189C2BD /* Pods-Nickel28UITests.debug.xcconfig */,
+				D294B5220B4A7D76E2D21B8F /* Pods-Nickel28UITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -352,6 +404,7 @@
 		A8D19FE81C76840E00076A85 /* SidebarMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7B05B1841CC987D300798966 /* Settings */,
 				A8D19FE91C76843C00076A85 /* SWRevealViewController */,
 			);
 			name = SidebarMenu;
@@ -372,7 +425,9 @@
 			children = (
 				4CFA6B991C83BCAE004629E5 /* SystemConfiguration.framework */,
 				4CFA6B971C83BC61004629E5 /* Foundation.framework */,
-				BF58C30176D87D27A8741F27 /* Pods_Nickel_.framework */,
+				D3A53B6FBF74FD8985438D71 /* Pods_Nickel28.framework */,
+				E856FFF81C70C8D93234C665 /* Pods_Nickel28Tests.framework */,
+				4E41F72FC683D5826B572063 /* Pods_Nickel28UITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,12 +439,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B7D40651C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28" */;
 			buildPhases = (
-				911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */,
+				911F9AECE3896580DCF292A3 /* 📦 Check Pods Manifest.lock */,
 				7B7D40361C73C54E0052DB28 /* Sources */,
 				7B7D40371C73C54E0052DB28 /* Frameworks */,
 				7B7D40381C73C54E0052DB28 /* Resources */,
-				37D19ED3BED888D9C3A298E8 /* Embed Pods Frameworks */,
-				568AFC47578D3026AFCD40EC /* Copy Pods Resources */,
+				37D19ED3BED888D9C3A298E8 /* 📦 Embed Pods Frameworks */,
+				568AFC47578D3026AFCD40EC /* 📦 Copy Pods Resources */,
 				7B05B2001CCFF8F600798966 /* ShellScript */,
 			);
 			buildRules = (
@@ -405,9 +460,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B7D40681C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28Tests" */;
 			buildPhases = (
+				216D9851EA10552442A1676A /* 📦 Check Pods Manifest.lock */,
 				7B7D404D1C73C54F0052DB28 /* Sources */,
 				7B7D404E1C73C54F0052DB28 /* Frameworks */,
 				7B7D404F1C73C54F0052DB28 /* Resources */,
+				FD7380A7CE81F7071AACD415 /* 📦 Embed Pods Frameworks */,
+				3E0323575058A9E061CFCC06 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,9 +481,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B7D406B1C73C54F0052DB28 /* Build configuration list for PBXNativeTarget "Nickel28UITests" */;
 			buildPhases = (
+				69FAFCF37C31AD6952C5AD01 /* 📦 Check Pods Manifest.lock */,
 				7B7D40581C73C54F0052DB28 /* Sources */,
 				7B7D40591C73C54F0052DB28 /* Frameworks */,
 				7B7D405A1C73C54F0052DB28 /* Resources */,
+				DFB601028E06C4B62829668A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -519,34 +579,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37D19ED3BED888D9C3A298E8 /* Embed Pods Frameworks */ = {
+		216D9851EA10552442A1676A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		568AFC47578D3026AFCD40EC /* Copy Pods Resources */ = {
+		37D19ED3BED888D9C3A298E8 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel28/Pods-Nickel28-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E0323575058A9E061CFCC06 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel28Tests/Pods-Nickel28Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		568AFC47578D3026AFCD40EC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel28/Pods-Nickel28-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69FAFCF37C31AD6952C5AD01 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7B05B2001CCFF8F600798966 /* ShellScript */ = {
@@ -562,19 +667,49 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" b7d116409e258f9d3b65397998b8aec7b71bcbd1 ac8de994bb1c070bb1721d0fb95fca495f34ca4c070292ee5980a40e2576b884";
 		};
-		911F9AECE3896580DCF292A3 /* Check Pods Manifest.lock */ = {
+		911F9AECE3896580DCF292A3 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFB601028E06C4B62829668A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel28UITests/Pods-Nickel28UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD7380A7CE81F7071AACD415 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nickel28Tests/Pods-Nickel28Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -598,9 +733,11 @@
 				7BA21CD51C7FEAA70088299B /* Employee.swift in Sources */,
 				A87E338B1C741DF5003930FB /* TableViewCell.swift in Sources */,
 				7B7D40BD1C7623440052DB28 /* CKHelper.swift in Sources */,
+				7BDC65A01CE1419D007055FF /* BusinessObj.swift in Sources */,
 				A87E337F1C7415CF003930FB /* WelcomeViewController.swift in Sources */,
 				A87E33851C741643003930FB /* iCloudViewController.swift in Sources */,
 				7B05B17F1CC982BA00798966 /* CustomTextField.swift in Sources */,
+				7BDC65A21CE14877007055FF /* UserObj.swift in Sources */,
 				7B05B17E1CC982BA00798966 /* CustomSpinner.swift in Sources */,
 				7BA21D1C1C85F9120088299B /* ListViewController + Feed .swift in Sources */,
 				7BA21D161C83A5BB0088299B /* Message.swift in Sources */,
@@ -619,6 +756,7 @@
 				7B05B17D1CC982BA00798966 /* AnimationEngine.swift in Sources */,
 				4CFA6B9C1C849ED2004629E5 /* Notifications.swift in Sources */,
 				7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */,
+				7BDC659B1CE11184007055FF /* twitterAuthHelper.m in Sources */,
 				A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */,
 				A87E33931C74CCD2003930FB /* EditProfileViewController.swift in Sources */,
 				A87E339E1C7502FC003930FB /* AboutViewController.swift in Sources */,
@@ -767,13 +905,14 @@
 		};
 		7B7D40661C73C54F0052DB28 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A90553492E2BD9DAAC645C1 /* Pods-Nickel!.debug.xcconfig */;
+			baseConfigurationReference = 0ABD11495B9F72606F900B23 /* Pods-Nickel28.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -787,13 +926,14 @@
 		};
 		7B7D40671C73C54F0052DB28 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */;
+			baseConfigurationReference = 3D63DAAE5A4E0E971BD979EE /* Pods-Nickel28.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Palka (82B34H4YSW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Palka (82B34H4YSW)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -806,6 +946,7 @@
 		};
 		7B7D40691C73C54F0052DB28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEE95C4694437EF2AE1664E8 /* Pods-Nickel28Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Nickel!Tests/Info.plist";
@@ -818,6 +959,7 @@
 		};
 		7B7D406A1C73C54F0052DB28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3287FEAD5F003A44C81BC452 /* Pods-Nickel28Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Nickel!Tests/Info.plist";
@@ -830,6 +972,7 @@
 		};
 		7B7D406C1C73C54F0052DB28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20BFB0796884FC481189C2BD /* Pods-Nickel28UITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Nickel!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -842,6 +985,7 @@
 		};
 		7B7D406D1C73C54F0052DB28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D294B5220B4A7D76E2D21B8F /* Pods-Nickel28UITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Nickel!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

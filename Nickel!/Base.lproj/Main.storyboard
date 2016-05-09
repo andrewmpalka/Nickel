@@ -572,6 +572,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gQQ-51-s42"/>
                     <connections>
+                        <outlet property="btnLogin" destination="ccv-u6-eeJ" id="jMw-LX-fFX"/>
                         <outlet property="iCloudLogin" destination="PKG-3M-DXK" id="5bX-vj-ddw"/>
                     </connections>
                 </viewController>
@@ -670,7 +671,7 @@
                         <outlet property="locationButton" destination="HTV-RZ-md2" id="mL6-0Q-5vY"/>
                         <outlet property="locationConstraint" destination="cOb-rd-spR" id="A0O-To-8ec"/>
                         <segue destination="Qly-R3-kAY" kind="show" identifier="success" id="6HL-pD-RxO"/>
-                        <segue destination="bNL-gp-c1W" kind="show" identifier="iCloudSegue" id="mYY-Sg-Pz8"/>
+                        <segue destination="8Ko-vE-fpS" kind="show" identifier="iCloudSegue" id="gFY-M8-cgb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfJ-dy-W3a" sceneMemberID="firstResponder"/>
@@ -686,11 +687,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ISw-gs-gMP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MwU-OD-Lht">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with my iCloud account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-EE-EWI">
-                                <rect key="frame" x="16" y="103" width="343" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign in with my iCloud account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-EE-EWI">
+                                <rect key="frame" x="20" y="103" width="560" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="wjr-G4-pje"/>
                                 </constraints>
@@ -698,8 +699,8 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give yourself a nickname!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-gP-nJu" customClass="CustomTextField" customModule="Nickel28" customModuleProvider="target">
-                                <rect key="frame" x="57" y="150" width="261" height="49"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give yourself a nickname!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-gP-nJu" customClass="CustomTextField" customModule="Nickel28" customModuleProvider="target">
+                                <rect key="frame" x="170" y="150" width="261" height="49"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="UVE-Ue-Bie"/>
@@ -733,7 +734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1c-NA-Y4x" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1016.5" y="655.5"/>
+            <point key="canvasLocation" x="-797" y="622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z1V-mL-01l">
@@ -2060,6 +2061,7 @@
         <image name="salmonLight" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gFY-M8-cgb"/>
         <segue reference="6HL-pD-RxO"/>
         <segue reference="qJI-Yr-grg"/>
         <segue reference="ZCJ-N7-Ejz"/>

@@ -12,8 +12,10 @@ import CloudKit
 
 
 extension SuperViewController {
-    func newBusinessHelper(name: UITextField, email: UITextField, location: CLLocation){
+    func newBusinessHelper(){
         
+        DataServices.businessSet(BusinessObj.sharedInstance)
+        /*
         let newBusiness = CKRecord(recordType: "Businesses")
         
         newBusiness.setObject(name.text, forKey: "Name")
@@ -32,6 +34,7 @@ extension SuperViewController {
                 
             }
         }
+     */
     }
     //ONLY CALL THIS WHEN NEW BUSINESS IS BEING MADE OTHERWISE THERE WILL BE ERRORS
     func newEmployeeHelperForBusiness(let bizRec: CKRecord) {

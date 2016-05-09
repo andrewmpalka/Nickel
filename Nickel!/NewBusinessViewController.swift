@@ -33,7 +33,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     let locationManager = CLLocationManager() //Jon Code
     
     var placePlacerholder = CLLocation() //prior code
-    let coreLocationManager = CLLocationManager() //prior code
     let appDelegate = AppDelegate()
     
     var UID: String!
@@ -64,6 +63,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.hideKeyboard))
+        hideTap.numberOfTapsRequired = 1
+        self.view.userInteractionEnabled = true
+        self.view.addGestureRecognizer(hideTap)
 
         
     }
@@ -154,7 +157,9 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     @IBAction func OnContinueTapped(sender: UIButton) {
         
         if textFieldChecker(businessNameTextField, indicator: 1) {
-        self.newBusinessHelper(self.businessNameTextField, email: self.businessNameTextField, location: placePlacerholder)
+        BusinessObj.sharedInstance.name = businessNameTextField.text
+        BusinessObj.sharedInstance.id = BusinessObj.sharedInstance.name! + "FROM" + UserObj.sharedInstance.device!
+        self.newBusinessHelper()
         performSegueWithIdentifier("iCloudSegue", sender: self)
         }
             
