@@ -44,6 +44,7 @@
 		7BDC659B1CE11184007055FF /* twitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC659A1CE11184007055FF /* twitterAuthHelper.m */; };
 		7BDC65A01CE1419D007055FF /* BusinessObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC659F1CE1419D007055FF /* BusinessObj.swift */; };
 		7BDC65A21CE14877007055FF /* UserObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC65A11CE14877007055FF /* UserObj.swift */; };
+		7BDC65A61CE18BAF007055FF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC65A51CE18BAF007055FF /* Keys.swift */; };
 		7C4AD829421A4842BF31EBB1 /* Pods_Nickel28.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A53B6FBF74FD8985438D71 /* Pods_Nickel28.framework */; };
 		A86243F31C8642680027A227 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F21C8642680027A227 /* AdminViewController.swift */; };
 		A86243F51C88A5F10027A227 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86243F41C88A5F10027A227 /* People.swift */; };
@@ -138,6 +139,7 @@
 		7BDC659A1CE11184007055FF /* twitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = twitterAuthHelper.m; path = ../../../PersonalProjects.swift/Swift/Push4Yeezy/Push4Yeezy/twitterAuthHelper.m; sourceTree = "<group>"; };
 		7BDC659F1CE1419D007055FF /* BusinessObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessObj.swift; sourceTree = "<group>"; };
 		7BDC65A11CE14877007055FF /* UserObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObj.swift; sourceTree = "<group>"; };
+		7BDC65A51CE18BAF007055FF /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		96A8130E3E0790ED2695889B /* Pods-Nickel!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nickel!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nickel!/Pods-Nickel!.release.xcconfig"; sourceTree = "<group>"; };
 		A86243F21C8642680027A227 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		A86243F41C88A5F10027A227 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
+				7BDC65A51CE18BAF007055FF /* Keys.swift */,
 			);
 			name = "Log In";
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				A87E33A61C751A51003930FB /* PrivateMessageTableViewCell.swift in Sources */,
 				A87E33AC1C752DD4003930FB /* MenuViewController.swift in Sources */,
 				A87E33831C74161E003930FB /* NewBusinessViewController.swift in Sources */,
+				7BDC65A61CE18BAF007055FF /* Keys.swift in Sources */,
 				7B05B1811CC9830D00798966 /* Constants.swift in Sources */,
 				7B7D40791C7522AA0052DB28 /* Model.swift in Sources */,
 				7B7D40C11C7668570052DB28 /* UIViewController + CreateRecords.swift in Sources */,

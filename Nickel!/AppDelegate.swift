@@ -11,6 +11,7 @@ import CoreData
 import CoreLocation
 import Fabric
 import DigitsKit
+import OAuthSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -167,6 +168,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
     
+    // MARK: - oauth web scheme
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if (url.host == "oauth-callback") {
+            if (options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String == "com.apple.SafariViewService") {
+            OAuthSwift.handleOpenURL(url)
+            }
+        }
+        return true
+    }
     
     //MARK: - Beacon location Code - JK
     

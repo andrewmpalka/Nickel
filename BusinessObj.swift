@@ -19,6 +19,7 @@ class BusinessObj {
     var location: CLLocation?
     var status: String?
     var profilePic: String?
+    var city: String?
     
     init(id: String, name: String, profilePic: String, location: CLLocation) {
         self.id = id

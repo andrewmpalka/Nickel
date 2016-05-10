@@ -12,6 +12,7 @@ target 'Nickel28' do
     pod 'EstimoteSDK'
     pod 'EstimoteIndoorSDK'
     
+    pod 'OAuthSwift', '~> 0.5.0'
     pod 'Firebase', '>= 2.5.0'
     pod 'GeoFire', '>= 1.1'
 

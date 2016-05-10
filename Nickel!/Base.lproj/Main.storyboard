@@ -1680,7 +1680,7 @@
                                     <constraint firstAttribute="height" constant="35" id="n7a-5S-D3i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Message">
+                                <state key="normal" title="Activity">
                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -1732,7 +1732,7 @@
                                     <constraint firstAttribute="height" constant="35" id="txy-5g-4d3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Admin">
+                                <state key="normal" title="Services">
                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -2062,8 +2062,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gFY-M8-cgb"/>
-        <segue reference="6HL-pD-RxO"/>
-        <segue reference="qJI-Yr-grg"/>
+        <segue reference="P9f-Uf-xs3"/>
         <segue reference="ZCJ-N7-Ejz"/>
+        <segue reference="mHL-8X-KiJ"/>
     </inferredMetricsTieBreakers>
 </document>

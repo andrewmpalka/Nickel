@@ -226,8 +226,11 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             if error != nil {
                 // There was an error logging in anonymously
             } else {
+                UserObj.sharedInstance.id = authData.uid
+                UserObj.sharedInstance.name = authData.provider
                 // We are now logged in
                 print("Guest Signed in")
+                DataServices.addGuest()
                 
                 userDefaults.setObject(true, forKey: "Logged in")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

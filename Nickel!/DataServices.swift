@@ -15,18 +15,31 @@ class DataServices {
 
     // method for timeStamp
     class func generateTimestamp() -> String {
-        return  NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        let time = NSDate(timeIntervalSinceNow: NSTimeInterval())
+
+            print(time.description)
+            print("NOT THE PROBLEM")
+        
+        
+        
+        return  NSDateFormatter.localizedStringFromDate(time, dateStyle: .ShortStyle, timeStyle: .MediumStyle)
     }
 
-    static let geofireRef = Firebase(url: stdRef + "bussines/location")
-    static let geoFire = GeoFire(firebaseRef: geofireRef)
+//    static let geofireRef = Firebase(url: stdRef + "business/location")
+//    static let geoFire = GeoFire(firebaseRef: geofireRef)
     
     static let stdRef = "https://nickelapp.firebaseio.com/"
     
+    static var nickelZone = "https://nickelapp.firebaseio.com/zone/SHRUG"
+    
     static let nickelUser = "https://nickelapp.firebaseio.com/user"
-    static let nickelEmployees = "https://nickelapp.firebaseio.com/business/employees"
+
     static let nickelBusiness = "https://nickelapp.firebaseio.com/business"
-    static let nickelBeams = "https://nickelapp.firebaseio.com/business/employees/beams"
+    static var nickelLog = "https://nickelapp.firebaseio.com/business/\(BusinessObj.sharedInstance.id!)/"
+    static var nickelOccupants = "https://nickelapp.firebaseio.com/business/\(BusinessObj.sharedInstance.id!)/occupants"
+    static var nickelEmployees = "https://nickelapp.firebaseio.com/business/\(BusinessObj.sharedInstance.id!)/occupants/employees"
+    static var nickelGuests = "https://nickelapp.firebaseio.com/business/\(BusinessObj.sharedInstance.id!)/occupants/guests"
+    static let nickelBeams = "https://nickelapp.firebaseio.com/business/\(BusinessObj.sharedInstance.id!)/occupants/employees/\(UserObj.sharedInstance.id!)/beams"
     static let nickelGroupBeam = "https://nickelapp.firebaseio.com/business/employees/beams/groupBeam"
     static let nickelPrivateBeam = "https://nickelapp.firebaseio.com/business/employees/beams/privateBeam"
  
@@ -34,7 +47,15 @@ class DataServices {
         let ref = Firebase(url: nickelPrivateBeam)
         if let name = User.sharedInstance.name {
             ref.childByAutoId().setValue(["from": name, "to": toUser, "message": message])
+    
         }
+    }
+    
+    class func stamp(event: String) {
+        let tStamp = DataServices.generateTimestamp()
+        let ref = Firebase(url: nickelLog)
+        ref.childByAppendingPath("log").setValue([event: tStamp])
+        
     }
     
     class func listenForPrivateMessages(completionHandler: (messages: [MessageObj]) -> Void) {
@@ -118,6 +139,17 @@ class DataServices {
         }
     }
     
+    class func addGuest() {
+        let uref = Firebase(url: nickelUser)
+        let ref = Firebase(url: nickelGuests)
+        
+        ref.childByAppendingPath(UserObj.sharedInstance.id).setValue(["name": UserObj.sharedInstance.name!, "device": UserObj.sharedInstance.device!])
+        uref.childByAppendingPath(UserObj.sharedInstance.id).setValue(["name": UserObj.sharedInstance.name!, "device": UserObj.sharedInstance.device!])
+        
+        DataServices.stamp("A new guest has entered")
+    }
+    
+    
     class func listenForEmployeeUpdates(completionHandler: (employees: [EmployeeObj]) -> Void) {
         let ref = Firebase(url: nickelEmployees)
         ref.observeEventType(FEventType.Value, withBlock: { (snapshot) -> Void in
@@ -143,7 +175,10 @@ class DataServices {
     
     class func locationSet(location: CLLocation, city: String) {
         
-        geoFire.setLocation(location, forKey: city) { (error) in
+        let gref = Firebase(url: "")
+        let gFire = GeoFire(firebaseRef: gref)
+        
+        gFire.setLocation(location, forKey: city) { (error) in
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
@@ -155,10 +190,19 @@ class DataServices {
     class func businessSet(business: BusinessObj) {
         
         let ref = Firebase(url: nickelBusiness)
+        let gref = Firebase(url: nickelBusiness + "/\(business.id!)/")
+        let gFire = GeoFire(firebaseRef: gref)
         
 //        var business = BusinessObj(id: "NULL", name: "NULL", profilePic: "NULL", location: <#T##CLLocation#>)
         
-        ref.childByAppendingPath(business.id).setValue(["name": business.name!, "profilePic": business.profilePic!])
+        ref.childByAppendingPath(business.id).setValue(["name": business.name!, "profilePic": business.profilePic!, "city" : business.city!])
+        gFire.setLocation(business.location, forKey: "location") { (error) in
+            if (error != nil) {
+                print("An error occured: \(error)")
+            } else {
+                print("Saved location successfully!")
+            }
+        }
     
         
     }

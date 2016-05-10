@@ -14,6 +14,8 @@ import UIKit
 class UserObj {
     static let sharedInstance = UserObj()
     
+    var id = String?()
     var device = String?()
+    var name = String?()
     
 }
