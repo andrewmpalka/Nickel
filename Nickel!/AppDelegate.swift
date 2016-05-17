@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
+        userDefaults.setValue(false, forKey: "ERROR_LOG")
         //  MARK: Faric and Digits code
         Fabric.with([Digits.self])
 
@@ -169,9 +171,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     // MARK: - oauth web scheme
+    
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        if (url.host == "oauth-callback") {
-            if (options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String == "com.apple.SafariViewService") {
+        print("1. Loading")
+        print(url)
+        print(url.absoluteString)
+        if (url.absoluteString.containsString("nickel28://oauth-callback/github")) {
+            print("2. Firing")
+            print(options.description)
+            if (options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String == "com.apple.mobilesafari") {
+                ("3. Bullseye")
             OAuthSwift.handleOpenURL(url)
             }
         }

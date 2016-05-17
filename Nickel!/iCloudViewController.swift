@@ -10,9 +10,11 @@ import UIKit
 import CloudKit
 import DigitsKit
 import Firebase
+import GeoFire
+import OAuthSwift
 
 
-class iCloudViewController: SuperViewController, UITextFieldDelegate {
+class iCloudViewController: SuperViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     var cloudHelper: CKHelper?
     var user: User?
@@ -28,8 +30,13 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var iCloudLogin: UIButton!
+    @IBOutlet weak var workspaceLabel: UILabel!
     
     
+    
+    let locationManager = CLLocationManager()
+    var placePlacerholder = CLLocation()
+
     
     @IBOutlet weak var uidTextField: UITextField!
     
@@ -40,7 +47,9 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         self.navigationController?.navigationBarHidden = false
         
         
-        self.title = "Nickel"
+        self.title = "Nickel28"
+        
+
         
         cloudHelper = CKHelper()
         
@@ -48,10 +57,114 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
         
         Digits.sharedInstance().logOut()
         
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
         bizRecord = Business.sharedInstance
         //        self.uidTextField.delegate = self
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+    }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks, error) -> Void in
+            
+            if error != nil {
+                print("Error: " +  error!.localizedDescription)
+                return
+            }
+            
+            //Checks for actual placemarks returned
+            self.placePlacerholder = manager.location!
+            if placemarks?.count > 0 {
+                let pm = placemarks![0] as! CLPlacemark
+                self.displayLocationInfo(pm) //custom function to be later defined below
+            }
+        }
+    }
+    
+    //Jon Code
+    func displayLocationInfo(placemark: CLPlacemark) {
+        
+        self.locationManager.stopUpdatingLocation()
+        print(placemark.locality!)
+        print(placemark.postalCode!)
+        print(placemark.administrativeArea!)
+        print(placemark.country!)
+        ///
+        let center = placemark.location
+        // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
+    
+        let circleQuery = DataServices.geoFire.queryAtLocation(center, withRadius: 0.1)
+        
+        let queryHandle = circleQuery.observeEventType(.KeyEntered, withBlock: { key,location in
+            print("Key '\(key)' entered the search area and is at location '\(location)'")
+            })
+        
+        circleQuery.observeReadyWithBlock { 
+            print("Everything is all good")
+        }
+        
+        
+        ///
+        BusinessObj.sharedInstance.name = "AYYYY"
+        if let msg = BusinessObj.sharedInstance.name {
+        let alert = UIAlertController(title: "Workspace Finder", message: "Are you trying to access \(msg)?", preferredStyle: .ActionSheet)
+            
+        let yesActn = UIAlertAction(title: "Yes", style: .Destructive, handler: { alertAction in
+            
+//            var biz = BusinessObj?()
+//            BusinessObj.sharedInstance.name = biz?.name
+            self.workspaceLabel.text = msg
+            print("CHANGE TITLE LABEL")
+            
+        })
+        let retryActn = UIAlertAction(title: "Retry", style: .Destructive, handler: { alertAction in
+            
+            self.locationManager.startUpdatingLocation()
+            alert.dismissViewControllerAnimated(true, completion: {
+                print("WORKING")
+                self.locationManager.startUpdatingLocation()
+            })
+        })
+        let setupActn = UIAlertAction(title: "I don't have a workspace", style: .Destructive, handler: { alertAction in
+            self.performSegueWithIdentifier("noBusiness", sender: alertAction)
+        })
+            alert.addAction(yesActn)
+            alert.addAction(retryActn)
+            alert.addAction(setupActn)
+            
+            self.presentViewController(alert, animated: true, completion: { 
+            
+            })
+//        isYourLocation(self, location: placemark)
+        }
+    }
+    
+    //Jon Code
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print("Error: " + error.localizedDescription)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                print("No access")
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                print("Access")
+            default:
+                print("...")
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+        
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return resignFirstResponder()
     }
@@ -156,7 +269,7 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             } else {
                 if results != nil {
                     if (results!.count > 0) {
-                        //                        self.orgRecordToJoin = results![0]
+                        //                   self.orgRecordToJoin = results![0]
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             //                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -221,13 +334,16 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     }
     
     func guestLogin() {
+        print("GUEST REQUEST")
         let ref = Firebase(url: "https://nickelapp.firebaseio.com")
         ref.authAnonymouslyWithCompletionBlock { error, authData in
             if error != nil {
                 // There was an error logging in anonymously
             } else {
+                print("HIT")
                 UserObj.sharedInstance.id = authData.uid
-                UserObj.sharedInstance.name = authData.provider
+                UserObj.sharedInstance.device = authData.provider
+                UserObj.sharedInstance.name = "Anonymous"
                 // We are now logged in
                 print("Guest Signed in")
                 DataServices.addGuest()
@@ -250,6 +366,52 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
     
     @IBAction func didTapButton(sender: UIButton) {
         
+        let oauthswift = OAuth2Swift(
+            consumerKey:    GIT_CONSUMER_KEY,
+            consumerSecret: GIT_SECRET_KEY,
+            authorizeUrl:   "https://github.com/login/oauth/authorize",
+            accessTokenUrl: "https://github.com/login/oauth/access_token",
+            responseType:   "token"
+        )
+        
+        let state: String = generateStateWithLength(20) as String
+        oauthswift.authorizeWithCallbackURL( NSURL(string: "nickel28://oauth-callback/github")!, scope: "user:email,user:follow", state: state, success: {
+            credential, response, parameters in
+        
+            
+            print("GOOD HERE")
+            let ref = Firebase(url: "https://nickelapp.firebaseio.com/")
+            print("CHECK")
+            
+            ref.authWithOAuthProvider("github", token:credential.oauth_token,
+                withCompletionBlock: { error, authData in
+                    if error != nil {
+                        print("ERROR: \(error.description)")
+                        // There was an error during log in
+                    } else {
+//                        print("Success!")
+                        
+//                        print(authData.auth)
+                        
+                        
+                        typealias API_INFO = [String: AnyObject]
+                        
+                        let providerData = authData.providerData! as! Dictionary<String, AnyObject>
+                        UserObj.sharedInstance.device = "github"
+                        UserObj.sharedInstance.mapToSingletonFromDictionary(self.parseApiData(providerData))
+                        print("Success!")
+                        
+                        DataServices.addGuest()
+                        // We have a logged in Github user
+                    }
+            })
+            }, failure: { error in
+                print(error.localizedDescription)
+        })
+        
+    }
+    
+        /*
         let configuration = DGTAuthenticationConfiguration(accountFields: .DefaultOptionMask)
         configuration.appearance = DGTAppearance()
         
@@ -302,9 +464,87 @@ class iCloudViewController: SuperViewController, UITextFieldDelegate {
             }
             
         }
-    }
+     }
+ */
+    
     @IBAction func oniCloudTapped(sender: UIButton) {
         self.guestLogin()
     }
 }
 
+extension iCloudViewController {
+    func parseApiData(providerData: [String: AnyObject]) -> [String: AnyObject] {
+        
+        var dictionary = [String: AnyObject]()
+
+        for tuple in providerData {
+        /*
+        tuple.0
+        -------
+        0
+        profileImageURL
+        1
+        accessToken
+        2
+        id
+        3
+        displayName
+        4
+        cachedUserProfile
+        5
+        username
+        
+         
+        tuple.1
+        -------
+         0
+         https://avatars.githubusercontent.com/u/16229834?v=3
+         1
+         cdf06a0931321a6b8c3e87e7e8bc4bdcb87d4120
+         2
+         16229834
+         3
+         Andy Palka
+         4
+         {
+         "avatar_url" = "https://avatars.githubusercontent.com/u/16229834?v=3";
+         bio = "<null>";
+         blog = "<null>";
+         company = "<null>";
+         "created_at" = "2015-12-09T19:13:28Z";
+         email = "<null>";
+         "events_url" = "https://api.github.com/users/andrewmpalka/events{/privacy}";
+         followers = 6;
+         "followers_url" = "https://api.github.com/users/andrewmpalka/followers";
+         following = 4;
+         "following_url" = "https://api.github.com/users/andrewmpalka/following{/other_user}";
+         "gists_url" = "https://api.github.com/users/andrewmpalka/gists{/gist_id}";
+         "gravatar_id" = "";
+         hireable = "<null>";
+         "html_url" = "https://github.com/andrewmpalka";
+         id = 16229834;
+         location = "Chicago, IL";
+         login = andrewmpalka;
+         name = "Andy Palka";
+         "organizations_url" = "https://api.github.com/users/andrewmpalka/orgs";
+         "public_gists" = 0;
+         "public_repos" = 22;
+         "received_events_url" = "https://api.github.com/users/andrewmpalka/received_events";
+         "repos_url" = "https://api.github.com/users/andrewmpalka/repos";
+         "site_admin" = 0;
+         "starred_url" = "https://api.github.com/users/andrewmpalka/starred{/owner}{/repo}";
+         "subscriptions_url" = "https://api.github.com/users/andrewmpalka/subscriptions";
+         type = User;
+         "updated_at" = "2016-05-08T06:51:58Z";
+         url = "https://api.github.com/users/andrewmpalka";
+         }
+         5
+         andrewmpalka
+         */
+        dictionary.updateValue(tuple.1, forKey: tuple.0)
+        print(dictionary)
+            }
+        return dictionary
+    }
+
+}

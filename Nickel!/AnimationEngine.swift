@@ -15,6 +15,9 @@ class AnimationEngine {
     class var offScreenRightPosition: CGPoint {
         return CGPointMake(UIScreen.mainScreen().bounds.width, CGRectGetMidY(UIScreen.mainScreen().bounds) - 50)
     }
+    class var offScreenDownPosition: CGPoint {
+        return CGPointMake(CGRectGetMidX(UIScreen.mainScreen().bounds), CGRectGetMaxY(UIScreen.mainScreen().bounds) + 50)
+    }
     //Negative because you want this to go left
     class var offScreenLeftPosition: CGPoint {
         return CGPointMake(-(UIScreen.mainScreen().bounds.width), CGRectGetMidY(UIScreen.mainScreen().bounds) - 50)
@@ -22,14 +25,23 @@ class AnimationEngine {
     class var ScreenCenterPosition: CGPoint {
         return CGPointMake(CGRectGetMidX(UIScreen.mainScreen().bounds), CGRectGetMidY(UIScreen.mainScreen().bounds) - 50)
     }
+    class var ScreenOffCenterPosition: CGPoint {
+        return CGPointMake(CGRectGetMidX(UIScreen.mainScreen().bounds), (UIScreen.mainScreen().bounds.midY/2) - 50)
+    }
+
     
     var OriginalConstants = [CGFloat]()
     var constraints: [NSLayoutConstraint]
-    init(constraints: [NSLayoutConstraint]) {
+    init(constraints: [NSLayoutConstraint], control: Int) {
         for constraint in constraints {
             print(constraint)
             OriginalConstants.append(constraint.constant)
+            if control == 1 {
             constraint.constant = AnimationEngine.offScreenRightPosition.x
+            } else {
+                print("YOU ARE DUMB")
+                constraint.constant = AnimationEngine.offScreenDownPosition.y
+            }
             print(constraint)
         }
         self.constraints = constraints
@@ -45,13 +57,14 @@ class AnimationEngine {
         case 1:
             animDelay = ANIM_DELAY_TOP
         case 2:
-            animDelay = ANIM_DELAY_MID
+            animDelay = ANIM_DELAY_TOP
         case 3:
             animDelay = ANIM_DELAY_BOT
         default:
-            animDelay = 0
+            animDelay = ANIM_DELAY_TOP
         }
         
+        print("CONTROL \(control)")
         
         /* TERNARY OPERATIONS: let variable =  THE VALUE OF  [ (boolean expression == true) ? (DO THIS) : (ELSE THIS)) ]
  */
@@ -63,19 +76,31 @@ class AnimationEngine {
         dispatch_after(t, dispatch_get_main_queue()) { 
             var index = 0
             repeat {
+                
+                if control == 2 {
+                let moveAnim: POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPLayoutConstraintConstant)
+                    moveAnim.toValue = self.OriginalConstants[index]
+                    let duration = Double.init(integerLiteral: animDelay)
+                    moveAnim.duration = duration
+                    moveAnim.timingFunction = POPBasicAnimation.linearAnimation().timingFunction
+                    
+                    print("BASIC ANIMATION HAPPENING")
+                    
+                    let constraint = self.constraints[index]
+                    constraint.pop_addAnimation(moveAnim, forKey: "moveOnScreenLinear")
+                } else {
                 let moveAnim: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
-                moveAnim.toValue = self.OriginalConstants[index]
-                moveAnim.springBounciness = 1
-                moveAnim.springSpeed = 4
+                    moveAnim.toValue = self.OriginalConstants[index]
+                    moveAnim.springBounciness = 1
+                    moveAnim.springSpeed = 4
                 
                 if (index > 0) {
                     moveAnim.dynamicsFriction += 2 + CGFloat(index)
-
                 }
                 
                 let constraint = self.constraints[index]
                 constraint.pop_addAnimation(moveAnim, forKey: "moveOnScreen")
-                
+                }
                 index += 1
                 
             } while index < self.constraints.count

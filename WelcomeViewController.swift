@@ -23,7 +23,7 @@ class WelcomeViewController: SuperViewController {
         
         self.animationEngine = AnimationEngine(constraints: [connectConstraint,
                                                              newBizConstraint,
-                                                             demoConstraint])
+                                                             demoConstraint], control: 1)
     }
     
     override func viewWillAppear(animated: Bool) {

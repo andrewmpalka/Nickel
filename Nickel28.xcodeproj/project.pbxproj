@@ -211,7 +211,6 @@
 				A87E33801C74160D003930FB /* BusinessiCloudViewController.swift */,
 				A87E33821C74161E003930FB /* NewBusinessViewController.swift */,
 				A87E337E1C7415CF003930FB /* WelcomeViewController.swift */,
-				7BDC65A51CE18BAF007055FF /* Keys.swift */,
 			);
 			name = "Log In";
 			sourceTree = "<group>";
@@ -299,6 +298,7 @@
 				7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */,
 				7B05B1831CC987B100798966 /* Log In */,
 				7B7D40C01C7668570052DB28 /* UIViewController + CreateRecords.swift */,
+				7BDC65A51CE18BAF007055FF /* Keys.swift */,
 				7B05B1861CC9883500798966 /* Profile */,
 				7B05B1871CC9885300798966 /* Messages */,
 				A87E338A1C741DF5003930FB /* TableViewCell.swift */,

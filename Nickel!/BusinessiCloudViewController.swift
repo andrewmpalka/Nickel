@@ -18,7 +18,14 @@ class BusinessiCloudViewController: SuperViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         self.navigationController?.navigationBarHidden = false
-
+        
+        self.navigationController?.hidesBarsWhenKeyboardAppears
+        
+        if ((self.navigationController?.navigationBar.hidden) == true) {
+            var int = 0
+            repeat {print("OBSTRUCTED"); int += 1} while int < 10
+        }
+        
         self.title = "Nickel"
 
         cloudHelper = CKHelper()

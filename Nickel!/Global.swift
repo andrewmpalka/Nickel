@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CloudKit
 
+
 let mattImage = UIImage(imageLiteral: "matt")
 let andyImage = UIImage(imageLiteral: "jon")
 let jonImage = UIImage(imageLiteral: "andy")
@@ -25,6 +26,9 @@ let userDefaults = NSUserDefaults.standardUserDefaults()
 let container = CKContainer.defaultContainer()
 let publicDatabase = container.publicCloudDatabase
 let privateDatabase = container.privateCloudDatabase
+
+let ERROR_LOG = userDefaults.valueForKey("ERROR_LOG") as! Bool
+
 
 let businessID = userDefaults.stringForKey("currentBusinessUID")
 let memberID = userDefaults.stringForKey("currentUserRID")

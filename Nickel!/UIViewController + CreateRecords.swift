@@ -13,7 +13,7 @@ import CloudKit
 
 extension SuperViewController {
     func newBusinessHelper(){
-        
+        print("Add Business Initiated")
         DataServices.businessSet(BusinessObj.sharedInstance)
         /*
         let newBusiness = CKRecord(recordType: "Businesses")

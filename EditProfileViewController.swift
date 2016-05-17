@@ -131,9 +131,11 @@ class EditProfileViewController: SuperViewController, UITextFieldDelegate, UIIma
 
 
     }
+    
 
     @IBAction func dismisskeyboardOnSavePressed(sender: AnyObject) {
         resignFirstResponder()
+        self.view.endEditing(true)
 
     }
 

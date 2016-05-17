@@ -35,6 +35,14 @@ class CustomButton: UIButton {
         case 1:
             self.layer.cornerRadius = self.cornerRadius
             
+            /*
+            self.layer.shadowOpacity = 0.8
+            self.layer.shadowRadius = 3.0
+            self.layer.shadowOffset = CGSizeMake(0.0, 0.2)
+            //        self.layer.shadowColor = OLIVE_GREEN.CGColor
+            self.layer.shadowColor = UIColor(red: 157.00/255.00, green: 157.00/255.00, blue: 157.00/255.00, alpha: 0.5).CGColor
+            self.layer.setNeedsLayout()
+            */
             self.addTarget(self, action: #selector(CustomButton.scaleToSmall), forControlEvents: .TouchDown)
             self.addTarget(self, action: #selector(CustomButton.scaleToSmall), forControlEvents: .TouchDragEnter)
             self.addTarget(self, action: #selector(CustomButton.scaleAnimation), forControlEvents: .TouchUpInside)

@@ -31,6 +31,12 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let bizName = BusinessObj.sharedInstance.name {
+        self.navigationController?.title = bizName
+        } else {
+            print("NO BUSINESS DETECTED")
+        }
+        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
 

@@ -33,7 +33,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     let locationManager = CLLocationManager() //Jon Code
     
     var placePlacerholder = CLLocation() //prior code
-    let appDelegate = AppDelegate()
+    
+//    let appDelegate = AppDelegate()
     
     var UID: String!
     
@@ -56,14 +57,22 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         
 //        self.animationEngine = AnimationEngine(constraints: [locationConstraint,
 //                                                            continueConstraint])
-        self.title = "Nickel"
+        self.title = "Nickel28"
+        
+        self.navigationController?.navigationBar.backItem?.backBarButtonItem?.title = ""
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+
+        
+        
+        
+        
         self.businessNameTextField.delegate = self
         
         //Locate the businesses current location //Jon Code
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        let hideTap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.hideKeyboard))
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(NewBusinessViewController.dismissKeyboard))
         hideTap.numberOfTapsRequired = 1
         self.view.userInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
@@ -107,6 +116,19 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
         print("Error: " + error.localizedDescription)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                print("No access")
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                print("Access")
+            default:
+                print("...")
+            }
+        } else {
+            print("Location services are not enabled")
+        }
         
     }
     
@@ -157,8 +179,10 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
     @IBAction func OnContinueTapped(sender: UIButton) {
         
         if textFieldChecker(businessNameTextField, indicator: 1) {
+        print("Checked")
         BusinessObj.sharedInstance.name = businessNameTextField.text
         BusinessObj.sharedInstance.id = BusinessObj.sharedInstance.name! + "FROM" + UserObj.sharedInstance.device!
+        print("ID Added")
         self.newBusinessHelper()
         performSegueWithIdentifier("iCloudSegue", sender: self)
         }
@@ -193,8 +217,7 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         return resignFirstResponder()
     }
     func dismissKeyboard(){
-        self.setEditing(false, animated: true)
-    }
+        self.view.endEditing(true)    }
     
     
  //MARK CK Custom Functions
