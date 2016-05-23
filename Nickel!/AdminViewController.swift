@@ -59,15 +59,18 @@ class AdminViewController: UIViewController, UITextFieldDelegate {
 
     func clearTextField()
     {
-        UUIDTextField.text = ""
-        minorTextField.text = ""
-        majorTextField.text = ""
+        UUIDTextField.text = "\(DataServices.mintBeaconRegion.proximityUUID)"
+        minorTextField.text = "\(DataServices.mintBeaconRegion.minor)"
+        majorTextField.text = "\(DataServices.mintBeaconRegion.major)"
     }
+    
+    
 
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        return false
+        
+        return true
     }
 
 

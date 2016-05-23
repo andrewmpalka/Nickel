@@ -150,7 +150,6 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
             else {
                 textField.textColor = .redColor()
                 if textField == businessNameTextField {
-//                    businessEmailTextField.enabled = false
                     popAlertForNoText(self, textFieldNotDisplayingText: textField)
                 } else {
                     popAlertForNoText(self, textFieldNotDisplayingText: textField)
@@ -181,7 +180,8 @@ class NewBusinessViewController: SuperViewController, UITextFieldDelegate, CLLoc
         if textFieldChecker(businessNameTextField, indicator: 1) {
         print("Checked")
         BusinessObj.sharedInstance.name = businessNameTextField.text
-        BusinessObj.sharedInstance.id = BusinessObj.sharedInstance.name! + "FROM" + UserObj.sharedInstance.device!
+        print("\(UserObj.sharedInstance.device)")
+        BusinessObj.sharedInstance.id = BusinessObj.sharedInstance.name! + "FROM" + UserObj.sharedInstance.device
         print("ID Added")
         self.newBusinessHelper()
         performSegueWithIdentifier("iCloudSegue", sender: self)

@@ -21,6 +21,10 @@
 		7B05B17F1CC982BA00798966 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05B17C1CC982BA00798966 /* CustomTextField.swift */; };
 		7B05B1811CC9830D00798966 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05B1801CC9830D00798966 /* Constants.swift */; };
 		7B05B2021CD01A7400798966 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05B2011CD01A7400798966 /* CustomButton.swift */; };
+		7B610F511CED0EEF003DF79F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B610F501CED0EEF003DF79F /* CustomImageView.swift */; };
+		7B610F531CED4669003DF79F /* GuestObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B610F521CED4669003DF79F /* GuestObj.swift */; };
+		7B610F551CED489E003DF79F /* FireObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B610F541CED489E003DF79F /* FireObj.swift */; };
+		7B610F7F1CF263A5003DF79F /* LogObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B610F7E1CF263A3003DF79F /* LogObj.swift */; };
 		7B7D403E1C73C54E0052DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */; };
 		7B7D40431C73C54E0052DB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7D40411C73C54E0052DB28 /* Main.storyboard */; };
 		7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D40441C73C54E0052DB28 /* Nickel_.xcdatamodeld */; };
@@ -108,6 +112,10 @@
 		7B05B17C1CC982BA00798966 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7B05B1801CC9830D00798966 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B05B2011CD01A7400798966 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7B610F501CED0EEF003DF79F /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		7B610F521CED4669003DF79F /* GuestObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestObj.swift; sourceTree = "<group>"; };
+		7B610F541CED489E003DF79F /* FireObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireObj.swift; sourceTree = "<group>"; };
+		7B610F7E1CF263A3003DF79F /* LogObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogObj.swift; sourceTree = "<group>"; };
 		7B7D403A1C73C54E0052DB28 /* Nickel28.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nickel28.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7D403D1C73C54E0052DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B7D40421C73C54E0052DB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 			children = (
 				A87E33881C741D96003930FB /* ListViewController.swift */,
 				7BA21D1B1C85F9120088299B /* ListViewController + Feed .swift */,
+				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				7B05B17A1CC982BA00798966 /* AnimationEngine.swift */,
 				7B05B17B1CC982BA00798966 /* CustomSpinner.swift */,
 				7B05B17C1CC982BA00798966 /* CustomTextField.swift */,
+				7B610F501CED0EEF003DF79F /* CustomImageView.swift */,
 				A8D19FE81C76840E00076A85 /* SidebarMenu */,
 				7B7D40B91C761EB20052DB28 /* Data Services */,
 				7B7D40701C7502040052DB28 /* Nickel!.entitlements */,
@@ -301,7 +311,6 @@
 				7BDC65A51CE18BAF007055FF /* Keys.swift */,
 				7B05B1861CC9883500798966 /* Profile */,
 				7B05B1871CC9885300798966 /* Messages */,
-				A87E338A1C741DF5003930FB /* TableViewCell.swift */,
 				7B05B1851CC9880400798966 /* Main View */,
 				7B7D40411C73C54E0052DB28 /* Main.storyboard */,
 				7B7D40491C73C54E0052DB28 /* LaunchScreen.storyboard */,
@@ -382,9 +391,12 @@
 			isa = PBXGroup;
 			children = (
 				4CFA6BCF1C87D6E0004629E5 /* EmployeeObj.swift */,
+				7B610F521CED4669003DF79F /* GuestObj.swift */,
 				4CB39C0A1C87F23E00AD05CC /* MessageObj.swift */,
 				7BDC659F1CE1419D007055FF /* BusinessObj.swift */,
 				7BDC65A11CE14877007055FF /* UserObj.swift */,
+				7B610F541CED489E003DF79F /* FireObj.swift */,
+				7B610F7E1CF263A3003DF79F /* LogObj.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -512,7 +524,6 @@
 				TargetAttributes = {
 					7B7D40391C73C54E0052DB28 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 82B34H4YSW;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -723,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A86243F31C8642680027A227 /* AdminViewController.swift in Sources */,
+				7B610F7F1CF263A5003DF79F /* LogObj.swift in Sources */,
 				A87E33A01C7511E4003930FB /* MyStatsViewController.swift in Sources */,
 				A87E338F1C7429FB003930FB /* DetailViewController.swift in Sources */,
 				4CFA6BD01C87D6E0004629E5 /* EmployeeObj.swift in Sources */,
@@ -755,10 +767,12 @@
 				A87E33A21C751554003930FB /* UserProfileViewController.swift in Sources */,
 				7B7D40461C73C54E0052DB28 /* Nickel_.xcdatamodeld in Sources */,
 				7B05B2021CD01A7400798966 /* CustomButton.swift in Sources */,
+				7B610F551CED489E003DF79F /* FireObj.swift in Sources */,
 				7B7D40771C7521620052DB28 /* User.swift in Sources */,
 				7B7D40751C7521470052DB28 /* Business.swift in Sources */,
 				7B05B17D1CC982BA00798966 /* AnimationEngine.swift in Sources */,
 				4CFA6B9C1C849ED2004629E5 /* Notifications.swift in Sources */,
+				7B610F531CED4669003DF79F /* GuestObj.swift in Sources */,
 				7B7D40BB1C761EE60052DB28 /* CKAccess.swift in Sources */,
 				7BDC659B1CE11184007055FF /* twitterAuthHelper.m in Sources */,
 				A87E33A41C7519B0003930FB /* PrivateMessageViewController.swift in Sources */,
@@ -771,6 +785,7 @@
 				A87E33891C741D96003930FB /* ListViewController.swift in Sources */,
 				7B7D40BF1C7650050052DB28 /* Global.swift in Sources */,
 				4CB39C0B1C87F23E00AD05CC /* MessageObj.swift in Sources */,
+				7B610F511CED0EEF003DF79F /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,15 +950,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Nickel!/Nickel!.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Palka (82B34H4YSW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Palka (82B34H4YSW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Nickel!/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.getnickel.nickelapp;
 				PRODUCT_NAME = Nickel28;
-				PROVISIONING_PROFILE = "9386555f-8118-4f1c-936f-4c0cb83a9b3a";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nickel!/Nickel!-Bridging-Header.h";
 			};
 			name = Release;

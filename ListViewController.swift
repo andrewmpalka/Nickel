@@ -27,12 +27,18 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     var placePlaceholder = CLLocation()
     var aUser = User?()
     var employees = [EmployeeObj]()
+    var guests = [GuestObj]()
+    var occupants = [FireObj]()
+    
+    var employeeRoom: Int?
+    var guestRoom: Int?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        
         
         if let bizName = BusinessObj.sharedInstance.name {
-        self.navigationController?.title = bizName
+                self.title = bizName
         } else {
             print("NO BUSINESS DETECTED")
         }
@@ -45,8 +51,8 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
         let jon = People(name: "Jonathan Kilgore", handle: "@palka", email: "andrew@email.com", profileImage: UIImage(imageLiteral: "jon"))
 
         
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
         
 
         print("number of people \(self.employees.count) ")
@@ -73,33 +79,114 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        if (userDefaults.valueForKey("Logged in") == nil) {
-            print(userString)
-            let recID = CKRecordID(recordName: userString)
-            User.sharedInstance.userRecordID = recID
-            self.aUser = self.userGrabAndToss()
-            print(User.sharedInstance.name!)
-            welcomePopAlert(self, currentUser: User.sharedInstance)
-        }
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
-        self.fetchUsers()
+        print("APPEAR")
+        if DETAIL_CLICKED != nil {
+            if DETAIL_CLICKED == true {
+                userDefaults.setValue(false, forKey: "DETAIL_CLICKED")
+                userDefaults.synchronize()
+                
+                self.viewDidLoad()
+            }
+        }
+        DataServices.roomSize = 0
+        self.occupants = []
+
+//        self.fetchUsers()
 //        self.updateUsersOnlineLabel()
         
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
         }
 
-        DataServices.updateFirebaseEmployee("offline", inRange: false)
+//        DataServices.updateFirebaseEmployee("offline", inRange: false)
+        if ERROR_LOG == false {
+    dispatch_async(dispatch_get_main_queue()) {
+        
+        var CATCH = FireObj(id: "CATCH", name: "CATCH", status: "CATCH", profilePic: "CATCH", inRange: false, alias: "CATCH")
+        
         DataServices.listenForEmployeeUpdates { (employees) -> Void in
             self.employees = employees
+            print(self.employees)
+            print(self.employees.count)
+            self.employeeRoom = self.employees.count
+            print(self.employeeRoom)
+            for obj in self.employees {
+                
+                print("ID \(obj.id)")
+                
+                if UserObj.sharedInstance.id != obj.id {
+                self.occupants.insert(obj, atIndex: 0)
+                } else {
+                    CATCH = obj
+                    print("Caught")
+                }
+            }; if UserObj.sharedInstance.id == CATCH.id {
+                print("C A UG T")
+                self.occupants.insert(CATCH, atIndex: 0)
+            }
+            
+            if (self.guestRoom != nil && self.employeeRoom != nil) {
+                DataServices.roomSize = self.guestRoom! + self.employeeRoom!
+                print(DataServices.roomSize)
+            } else if self.guestRoom != nil {
+                DataServices.roomSize = self.guestRoom!
+            } else if self.employeeRoom != nil {
+                DataServices.roomSize = self.employeeRoom!
+            } else {
+                DataServices.roomSize = 0
+            }
+            
+            self.tableView.reloadData()
+            };   print("ROOM")
+            print(self.employeeRoom)
+        DataServices.listenForGuestUpdates { (guests) in
+            self.guests = guests
+            
+            self.guestRoom = self.guests.count
+            for obj in self.guests {
+            
+            print("ID \(obj.id)")
+                
+            if UserObj.sharedInstance.id != obj.id {
+                if self.occupants.count == 0 {
+                 self.occupants.insert(obj, atIndex: 0)
+                } else {
+                self.occupants.insert(obj, atIndex: (self.occupants.count - 1))
+                }
+            } else {
+                CATCH = obj
+                print("Caught")
+                }
+            }; if UserObj.sharedInstance.id == CATCH.id {
+                print("C A UG T")
+                self.occupants.insert(CATCH, atIndex: 0)
+            }
+            
+            
+            
+            if (self.guestRoom != nil && self.employeeRoom != nil) {
+                DataServices.roomSize = self.guestRoom! + self.employeeRoom!
+                print(DataServices.roomSize)
+            } else if self.guestRoom != nil {
+                DataServices.roomSize = self.guestRoom!
+            } else if self.employeeRoom != nil {
+                DataServices.roomSize = self.employeeRoom!
+            } else {
+                DataServices.roomSize = 0
+            }
+            
             self.tableView.reloadData()
         }
+
+        
+        }
     }
+}
 //MARK: Location Delegate Methods
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -114,7 +201,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
             //Checks for actual placemarks returned
             self.placePlaceholder = manager.location!
             if placemarks?.count > 0 {
-                let pm = placemarks![0] as! CLPlacemark
+                let pm = placemarks![0]
                 self.displayLocationInfo(pm) //custom function to be later defined below
             }
         }
@@ -140,35 +227,37 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     
     
     func updateUsersOnlineLabel() {
-        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: memberArray!.count)
+        self.numberOfUsersOnlineButton.title = String(stringInterpolationSegment: DataServices.roomSize)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        numberOfUsersOnlineButton.title = String(self.employees.count)
+        numberOfUsersOnlineButton.title = String(DataServices.roomSize)
 
 
-        return self.employees.count
+        return DataServices.roomSize
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellID") as! TableViewCell
         cell.selectionStyle = .None
+        if self.occupants.count < DataServices.roomSize {
+            self.tableView.reloadData()
+        }
+        let employee = self.occupants[indexPath.row]
         
-        let employee = self.employees[indexPath.row]
         
         cell.cellTitleLabel.text = employee.name
+        
 //        cell.cellDetailLabel.text = employee.status
 
         let fullName = employee.name
-        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
-        let firstName = fullNameArr[0]
         
-        cell.cellDetailLabel.text = "@\(firstName)"
+        cell.cellDetailLabel.text = "@\(employee.alias!)"
         
-        if fullName == "Andrew Palka" || fullName == "Matt Deuschle" || fullName == "Jonathan Kilgore" {
-            let image = userProfilePicDict[fullName!]
-            
+//        if fullName == "Andrew Palka" || fullName == "Matt Deuschle" || fullName == "Jonathan Kilgore" {
+//            let image = userProfilePicDict[fullName!]
+        
 //            let h = cell.imageView?.frame.size.height
 //            let l = cell.imageView?.frame.size.width
             
@@ -177,24 +266,42 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
 //            cell.imageView?.image = image
 //            cell.imageView?.sizeToFit()
 //            cell.imageView?.clipsToBounds = true
+        if employee.profilePic != "NULL" {
+            print(cell.imageView?.frame)
+            let url = NSURL(string: employee.profilePic!)
+            let data = NSData(contentsOfURL: url!)
+            let image = UIImage(data: data!)
+
+            cell.cellImageView.image = image
+//            cell.imageView?.image = image
+
+//            cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+//            cell.imageView?.clipsToBounds = true
+            
+            
+            
+            var bounds = cell.imageView?.frame
+            bounds?.origin = CGPointZero
+            print("\((image?.size))")
+
+            
+            
+            
         } else {
             print("NOOOOPE")
-            cell.imageView?.image = UIImage(imageLiteral: "defaultProfile")
+            cell.cellImageView?.image = UIImage(imageLiteral: "defaultProfile")
+
         }
-
+        
+        
         // TRYING TO FIGURe Out BEACONS
-        let beacon = AppDelegate()
-
-        if beacon.enteredRegion == false
-        {
+        
+        if employee.status == "in" {
             cell.cellGreenLightImage.hidden = false
         }
-        else
-        {
+        else {
             cell.cellGreenLightImage.hidden = true
         }
-
-        print ("Entered ?:\(beacon.enteredRegion)")
 
 
 
@@ -256,8 +363,6 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func onRefreshTapped(sender: UIBarButtonItem) {
-        self.fetchUsers()
-        self.updateUsersOnlineLabel()
         self.tableView.reloadData()
     }
     func getTasks() {
@@ -282,7 +387,7 @@ class ListViewController: SuperViewController, UITableViewDataSource, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.tableView.indexPathForSelectedRow
         let dvc = segue.destinationViewController as! UserProfileViewController
-        dvc.selectedEmployee = self.employees[indexPath!.row]
+        dvc.selectedEmployee = self.occupants[indexPath!.row] 
     }
     
 }

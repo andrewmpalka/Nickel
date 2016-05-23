@@ -21,6 +21,9 @@ class WelcomeViewController: SuperViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.reveal()
+        
         self.animationEngine = AnimationEngine(constraints: [connectConstraint,
                                                              newBizConstraint,
                                                              demoConstraint], control: 1)
@@ -29,6 +32,10 @@ class WelcomeViewController: SuperViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = true
+        
+        BusinessObj.sharedInstance.name = nil
+        BusinessObj.sharedInstance.city = nil
+        BusinessObj.sharedInstance.id = nil
     }
     
     override func viewDidAppear(animated: Bool) {

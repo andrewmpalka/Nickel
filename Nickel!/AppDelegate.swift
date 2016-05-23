@@ -12,42 +12,45 @@ import CoreLocation
 import Fabric
 import DigitsKit
 import OAuthSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
-//Beacon Region code - JK
+    //Beacon Region code - JK
     var beacons = []
     
     var enteredRegion = false
-
+    
     //Previous Beacon code that only searched for generic UUID
-//    let ice2016Region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "ice")
+    //    let ice2016Region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "ice")
     
     
     //More specific beacon based on the Major and Minor values of a beacon
-    let iceBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 23042, minor: 9334, identifier: "ice")
+    
     
     let locationManager = CLLocationManager()
-/////////////////
+    /////////////////
     
     var window: UIWindow?
     
     func reveal() {
+        
+        if SIGNED_IN != nil && DataServices.sharedInstace.REF_USER.authData != nil && DataServices.sharedInstace.REF_BUSINESS.authData != nil {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let myTabBar = storyboard.instantiateViewControllerWithIdentifier("navCon") as! UINavigationController
-        window?.rootViewController = myTabBar
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("revCon") as! SWRevealViewController
+        window?.rootViewController = viewController
     }
-
+    }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
         userDefaults.setValue(false, forKey: "ERROR_LOG")
         //  MARK: Faric and Digits code
         Fabric.with([Digits.self])
-
         
-///////Beacon location code - JK
+        
+        ///////Beacon location code - JK
         
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let pushNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
@@ -55,12 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         application.registerUserNotificationSettings(pushNotificationSettings)
         application.registerForRemoteNotifications()
         
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
+        //        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))
         
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         
-////////////////////
+        ////////////////////
         
         
         return true
@@ -82,45 +85,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         print(userInfo)
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "Nickel.Nickel_" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()
-
+    
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("Nickel_", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
-
+    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
@@ -134,8 +137,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
-
-            dict[NSUnderlyingErrorKey] = error as NSError
+            
+            dict[NSUnderlyingErrorKey] = error as? NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -145,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         return coordinator
     }()
-
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
@@ -153,9 +156,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         if managedObjectContext.hasChanges {
             do {
@@ -181,7 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             print(options.description)
             if (options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String == "com.apple.mobilesafari") {
                 ("3. Bullseye")
-            OAuthSwift.handleOpenURL(url)
+                OAuthSwift.handleOpenURL(url)
             }
         }
         return true
@@ -194,9 +197,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
         case .AuthorizedAlways: //Be sure plist includes 'NSLocationAlwaysUsageDescription'
             
-            locationManager.startMonitoringForRegion(iceBeaconRegion)
-            locationManager.startRangingBeaconsInRegion(iceBeaconRegion)
-            locationManager.requestStateForRegion(iceBeaconRegion)
+            locationManager.startMonitoringForRegion(DataServices.mintBeaconRegion)
+            locationManager.startRangingBeaconsInRegion(DataServices.mintBeaconRegion)
+            locationManager.requestStateForRegion(DataServices.mintBeaconRegion)
             
             print("Beacon successfully identified")
             
@@ -209,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
             
             print("Beacon denied")
-
+            
             
         default:
             print("Bypassing both AuthorizedAlways and Denied cases")
@@ -226,10 +229,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
         case .Inside:
             
-            var text : String = "Tap here to start coding."
+            var text : String = "You should not be seeing this"
             
             if enteredRegion {
-                text = "Welcome to Mobile Makers, the best co-working space on the planet."
+                
+                if let string = SIGNED_IN {
+                    if string as! String == "yes" {
+                        
+                        text = "Welcome to \(BusinessObj.sharedInstance.name)!"
+                        
+                        
+                        if  UserObj.sharedInstance.name != "" {
+                            DataServices.updateFirebaseEmployee("in", inRange: true)
+                        } else {
+                            
+                            userDefaults.setValue("in", forKey: "IN_RANGE")
+                            userDefaults.synchronize()
+                        }
+                    }
+                } else {
+                    userDefaults.setValue("out", forKey: "IN_RANGE")
+                    userDefaults.synchronize()
+                }
+                
             }
             Notifications.display(text)
             
@@ -238,11 +260,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             var text : String = "Why aren't you here? :("
             
             if !enteredRegion {
-                text = "You just left Mobile Makers. Have a great Day!"
-                userDefaults.setValue(nil, forKey: "Logged in")
+                
+                if let string = SIGNED_IN {
+                    if string as! String == "yes" {
+                        text = "You just left \(BusinessObj.sharedInstance.name). Have a great Day!"
+                        
+                        userDefaults.setValue(nil, forKey: "Status")
+                        userDefaults.synchronize()
+                        
+                        
+                        if  UserObj.sharedInstance.name != "" {
+                            DataServices.updateFirebaseEmployee("out", inRange: false)
+                        }
+                    }
+                } else { text = "Nickel28 recognized a workplace would you like to sign in?"
+                    userDefaults.setValue("out", forKey: "IN_RANGE")
+                    userDefaults.synchronize()
+                }
+                Notifications.display(text)
             }
-            Notifications.display(text)
-        
         }
     }
     
@@ -262,6 +298,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         NSNotificationCenter.defaultCenter().postNotificationName("updateBeaconTableView", object: self.beacons)
     }
-
+    
 }
 

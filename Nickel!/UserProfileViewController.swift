@@ -17,12 +17,15 @@ class UserProfileViewController: SuperViewController {
     @IBOutlet weak var memberEmailLabel: UILabel!
     @IBOutlet weak var messageButton: UIBarButtonItem!
 
-    var selectedEmployee: EmployeeObj?
+    var selectedEmployee: FireObj?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userDefaults.setValue(true, forKey: "DETAIL_CLICKED")
+        userDefaults.synchronize()
+        
         self.title = "Profile"
         
         // set bar button item fonts
@@ -35,10 +38,10 @@ class UserProfileViewController: SuperViewController {
             memberNameLabel.text = self.selectedEmployee?.name
         }
 
-        let fullName = self.selectedEmployee?.name
-        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
-        let firstName = fullNameArr[0]
-        memberNameHandel.text = "@\(firstName)"
+        let nomDePlume = self.selectedEmployee?.alias
+//        let fullNameArr = fullName!.characters.split{$0 == " "}.map(String.init)
+//        let firstName = fullNameArr[0]
+        memberNameHandel.text = "@\(nomDePlume)"
         
 //        if User.sharedInstance.nickname != nil {
 //            memberNameHandel.text = User.sharedInstance.nickname
@@ -54,6 +57,7 @@ class UserProfileViewController: SuperViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         if userDefaults.valueForKey("userPicture") != nil {
             self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
             self.memberImageView.image = profilePicture
@@ -62,7 +66,7 @@ class UserProfileViewController: SuperViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let dvc = segue.destinationViewController as! PrivateMessageViewController
-        dvc.employee = self.selectedEmployee!
+//        dvc.employee = self.selectedEmployee!
     }
 
 }

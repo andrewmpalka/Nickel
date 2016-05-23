@@ -11,19 +11,19 @@ import GeoFire
 import CoreLocation
 import UIKit
 
-class UserObj : NSObject {
+class UserObj {
     static let sharedInstance = UserObj()
     
     var id = String?()
-    var device = String?()
-    var name = String?()
+    var device = "noID"
+    var name = "Newbie"
     var alias = String?()
     var profilepictureURLString = String?()
     var cachedData: AnyObject?
     var geofirePin = "NONE"
     
     
-    override init() {
+    init() {
     }
     
     init(id: String, device: String, name: String, alias: String) {
@@ -97,7 +97,7 @@ class UserObj : NSObject {
         let user = UserObj(dictionary: dictionary)
         
         UserObj.sharedInstance.id = user.id!
-        UserObj.sharedInstance.name = user.name!
+        UserObj.sharedInstance.name = user.name
         UserObj.sharedInstance.alias = user.alias!
         UserObj.sharedInstance.profilepictureURLString = user.profilepictureURLString!
 //        UserObj.sharedInstance.device = user.device

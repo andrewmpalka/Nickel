@@ -29,9 +29,12 @@ let privateDatabase = container.privateCloudDatabase
 
 let ERROR_LOG = userDefaults.valueForKey("ERROR_LOG") as! Bool
 
+let SIGNED_IN = userDefaults.valueForKey("SignedIn")
 
-let businessID = userDefaults.stringForKey("currentBusinessUID")
-let memberID = userDefaults.stringForKey("currentUserRID")
+let DETAIL_CLICKED = userDefaults.stringForKey("DETAIL_CLICKED") as? Bool
+let IN_RANGE = userDefaults.stringForKey("IN_RANGE")
+let BUSINESS_ID = userDefaults.stringForKey("BUSINESS_ID")
+let USER_ID = userDefaults.stringForKey("USER_ID")
 
 let userString = userDefaults.valueForKey("userRecordID") as! String
 let businessString = userDefaults.valueForKey("businessRecordID") as! String
@@ -55,6 +58,7 @@ let defaultEmployeeRecordsForBusinessArray = userDefaults.valueForKey("currentEm
 let defaultMessageRecordsForBusinessArray = userDefaults.valueForKey("currentMessageRecordsForBusinessArray")
 
 let defaultVisibleEmployeeRecordIDsAsArrayOfString = userDefaults.valueForKey("visibleEmployees")
+
 
 
 let alertConst = UIAlertController(title: "One moment, please", message: "We are setting up your workspace", preferredStyle: UIAlertControllerStyle.ActionSheet)

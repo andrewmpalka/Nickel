@@ -18,7 +18,6 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
     
   //  @IBOutlet weak var groupMessageSearchBar: UISearchBar!
     @IBOutlet weak var groupMessageTableView: UITableView!
-    @IBOutlet weak var sendGroupMessageTextField: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
 
@@ -64,7 +63,7 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
 
 //        self.groupMessageTableView.reloadData()
 
-        self.title = "Message"
+        self.title = "Activity Log"
         
         // remove search bar border
   //      groupMessageSearchBar.backgroundImage = UIImage()
@@ -77,25 +76,14 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
             menuButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
         
-        self.sendGroupMessageTextField.delegate = self
         
         self.groupMessageTableView.separatorColor = UIColor.clearColor()
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GroupMessageViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GroupMessageViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         if self.revealViewController() != nil {
             
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
-        DataServices.listenForGroupMessages { (messages) -> Void in
-            for message in messages {
-                self.messages.append(message)
-                self.groupMessageTableView.reloadData()
-            }
         }
     }
     
@@ -105,94 +93,48 @@ class GroupMessageViewController: SuperViewController, UITableViewDataSource, UI
         
         //        saveData()
         
-        self.groupMessageTableView.reloadData()
-
-        if userDefaults.objectForKey("currentMessageRecordsForBusinessArray") != nil {
-            entiretyOfGroupMessages = userDefaults.objectForKey("currentMessageRecordsForBusinessArray" ) as! [String]
-        } else {
-            entiretyOfGroupMessages.append("Type something! Start a conversation with your workspace")
-        }
-    }
-    
-    //LIMITS KEYBOARD CHARACTERS
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        let currentCharacterCount = textField.text?.characters.count ?? 0
-        if (range.length + range.location > currentCharacterCount) {
-            return false
+        DataServices.listenForActivityLog { (log) in
+            LogObj.sharedInstance.activity = log
+            print("HEY LISTEN")
+            print(log)
+            self.groupMessageTableView.reloadData()
         }
-        let newLength = currentCharacterCount + string.characters.count - range.length
-        return newLength <= 28    }
-    
-    func keyboardWillShow(notification: NSNotification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y += keyboardSize.height
-        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+        
+        if LogObj.sharedInstance.activity.count != 0 {
+          return LogObj.sharedInstance.activity.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell") as! GroupMessageTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroupMessageCell")
 
-
-
-
-        // TRYING TO ADD PICS
-        if userDefaults.valueForKey("userPicture") != nil {
-            self.profilePicFromData(userDefaults.valueForKey("userPicture") as! NSData)
-            cell.messageImageView.image = profilePicture
-        }
-
-
-        let communication = self.messages[indexPath.row]
-        cell.messageNameLabel.text = communication.name
-        cell.groupMessageTextField.text = communication.message
-
-        cell.messageTimeStamp.text = communication.timestamp
-
-
+    // TRYING TO ADD PICS
+        cell?.textLabel!.text = LogObj.sharedInstance.activity[indexPath.row]
+        cell?.textLabel?.font = UIFont(name: "Avenir", size: 15)
+        
+        let size = CGSize(width: self.view.frame.width, height: 40.0)
+        cell?.textLabel?.sizeThatFits(size)
+        
+    
 
 //        cell.messageTimeStamp.text = timeStampString
 
         
-        return cell
+        return cell!
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40.0
     }
     
-    
-    @IBAction func onSendButtonTapped(sender: AnyObject) {
-        if let message = self.sendGroupMessageTextField.text {
-            if !message.isEmpty {
-                DataServices.sendGroupMessage(message)
-            }
-        }
-        sendGroupMessageTextField.resignFirstResponder()
-        self.sendGroupMessageTextField.text = ""
-    }
 
-
-
-
-
-    // gets rid of the keyboard when hit return
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
-        sendGroupMessageTextField.text = ""
-        sendGroupMessageTextField.resignFirstResponder()
-        return true
-    }
 }
 
 
